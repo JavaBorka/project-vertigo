@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {
-  IndexView,
   Home as HomeView,
   Customers as CustomersView,
   HireUs as HireUsView,
@@ -58,7 +57,7 @@ import {
 const routes = [
   {
     path: '/',
-    renderer: (params = {}): JSX.Element => <IndexView {...params} />,
+    renderer: (params = {}): JSX.Element => <PortfolioPageView {...params} />,
   },
   {
     path: '/home',
