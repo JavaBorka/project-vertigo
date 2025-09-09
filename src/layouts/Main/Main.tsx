@@ -55,7 +55,7 @@ const Main = ({
         }}
         elevation={trigger ? 1 : 0}
       >
-        <Container paddingY={1}>
+        <Container paddingY={{ xs: 1, md: 2 }}>
           <Topbar
             onSidebarOpen={handleSidebarOpen}
             pages={pages}
