@@ -7,12 +7,11 @@ import NavItem from './components/NavItem';
 
 interface Props {
   pages: {
-    landings: Array<PageItem>;
-    company: Array<PageItem>;
-    account: Array<PageItem>;
-    secondary: Array<PageItem>;
+    books: Array<PageItem>;
+    vertigo: Array<PageItem>;
     blog: Array<PageItem>;
-    portfolio: Array<PageItem>;
+    about: Array<PageItem>;
+    templates: Array<PageItem>;
   };
 }
 
@@ -21,12 +20,11 @@ const SidebarNav = ({ pages }: Props): JSX.Element => {
   const { mode } = theme.palette;
 
   const {
-    landings: landingPages,
-    secondary: secondaryPages,
-    company: companyPages,
-    account: accountPages,
-    portfolio: portfolioPages,
+    books: booksPages,
+    vertigo: vertigoPages,
     blog: blogPages,
+    about: aboutPages,
+    templates: templatesPages,
   } = pages;
 
   return (
@@ -53,23 +51,20 @@ const SidebarNav = ({ pages }: Props): JSX.Element => {
       </Box>
       <Box paddingX={2} paddingY={2}>
         <Box>
-          <NavItem title={'Landings'} items={landingPages} />
+          <NavItem title={'Knihy'} items={booksPages} />
         </Box>
         <Box>
-          <NavItem title={'Company'} items={companyPages} />
-        </Box>
-        <Box>
-          <NavItem title={'Pages'} items={secondaryPages} />
-        </Box>
-        <Box>
-          <NavItem title={'Account'} items={accountPages} />
+          <NavItem title={'Vertigo'} items={vertigoPages} />
         </Box>
         <Box>
           <NavItem title={'Blog'} items={blogPages} />
         </Box>
         <Box>
-          <NavItem title={'Portfolio'} items={portfolioPages} />
+          <NavItem title={'O nás'} items={aboutPages} />
         </Box>
+        {/* <Box>
+          <NavItem title={'Templates'} items={templatesPages} />
+        </Box> */}
         <Box marginTop={2}>
           <Button
             size={'large'}
