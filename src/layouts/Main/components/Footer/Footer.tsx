@@ -31,8 +31,8 @@ const Footer = (): JSX.Element => {
               component={'img'}
               src={
                 mode === 'light'
-                  ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg'
-                  : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'
+                  ? '/assets/svg/logo/logo-temp-black.svg'
+                  : '/assets/svg/logo/logo-temp-white.svg'
               }
               height={1}
               width={1}
@@ -47,19 +47,19 @@ const Footer = (): JSX.Element => {
                 color="text.primary"
                 variant={'subtitle2'}
               >
-                Home
+                Domov
               </Link>
             </Box>
             <Box marginTop={1} marginRight={2}>
               <Link
                 underline="none"
                 component="a"
-                href="https://thefront.maccarianagency.com/docs/introduction"
+                href="/casopisy"
                 target={'blank'}
                 color="text.primary"
                 variant={'subtitle2'}
               >
-                Documentation
+                Vertigo
               </Link>
             </Box>
             <Box marginTop={1}>
@@ -68,10 +68,10 @@ const Footer = (): JSX.Element => {
                 color="primary"
                 component="a"
                 target="blank"
-                href="https://mui.com/store/items/the-front-landing-page/"
+                href="/prihlasenie"
                 size="small"
               >
-                Purchase now
+                Prihlásiť sa
               </Button>
             </Box>
           </Box>
@@ -84,7 +84,7 @@ const Footer = (): JSX.Element => {
           color="text.secondary"
           gutterBottom
         >
-          &copy; theFront. 2021, Maccarian. All rights reserved
+          &copy; f.a.c.e. {new Date().getFullYear()} | All rights reserved
         </Typography>
         <Typography
           align={'center'}
