@@ -51,9 +51,10 @@ const Hero = (): JSX.Element => {
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
           backgroundImage:
-            'url(https://assets.maccarianagency.com/backgrounds/img44.jpg)',
+            'url(/assets/images/hero-temp-banner-1400x900.jpg)',
           filter: theme.palette.mode === 'dark' ? 'brightness(0.7)' : 'none',
         }}
+        
       />
       <Container position={'relative'} zIndex={2}>
         <Box>
@@ -66,7 +67,7 @@ const Hero = (): JSX.Element => {
               textTransform: 'uppercase',
             }}
           >
-            Our work
+            Face
           </Typography>
           <Typography
             variant="h5"
@@ -76,8 +77,7 @@ const Hero = (): JSX.Element => {
               color: 'common.white',
             }}
           >
-            We are founded by a leading academic and researcher in the field of
-            Industrial Systems Engineering.
+            Fórum alternatívnej kultúry a vzdelávania
           </Typography>
         </Box>
       </Container>
