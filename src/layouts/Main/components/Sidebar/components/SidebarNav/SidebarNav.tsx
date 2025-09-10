@@ -65,31 +65,6 @@ const SidebarNav = ({ pages }: Props): JSX.Element => {
         {/* <Box>
           <NavItem title={'Templates'} items={templatesPages} />
         </Box> */}
-        <Box marginTop={2}>
-          <Button
-            size={'large'}
-            variant="outlined"
-            fullWidth
-            component="a"
-            href="https://thefront.maccarianagency.com/docs/introduction"
-            target={'blank'}
-          >
-            Documentation
-          </Button>
-        </Box>
-        <Box marginTop={1}>
-          <Button
-            size={'large'}
-            variant="contained"
-            color="primary"
-            fullWidth
-            component="a"
-            target="blank"
-            href="https://mui.com/store/items/the-front-landing-page/"
-          >
-            Purchase now
-          </Button>
-        </Box>
       </Box>
     </Box>
   );
