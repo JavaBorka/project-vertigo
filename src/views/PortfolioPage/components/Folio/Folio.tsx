@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import Grid2 from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
@@ -36,9 +36,9 @@ const Folio = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Box>
-      <Grid container spacing={2}>
+      <Grid2 container spacing={2}>
         {mock.map((item, i) => (
-          <Grid key={i} item xs={12} md={6}>
+          <Grid2 key={i} size={{ xs: 12, md: 6 }}>
             <Box
               sx={{
                 position: 'relative',
@@ -101,9 +101,9 @@ const Folio = (): JSX.Element => {
                 </Button>
               </Box>
             </Box>
-          </Grid>
+          </Grid2>
         ))}
-      </Grid>
+      </Grid2>
     </Box>
   );
 };
