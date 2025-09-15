@@ -7,28 +7,28 @@ import Button from '@mui/material/Button';
 
 const mock = [
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img48.jpg',
-    description: 'Electric toothbrush, designed for you',
-    title: 'Goby',
-    color: '#183167',
+    image: '/assets/images/grid-1-1920x1404.jpg',
+    description: 'Autorské monografie z oblasti literárnej vedy',
+    title: 'Literárna veda',
+    // color: '#183167',
   },
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img45.jpg',
-    description: 'Just do it',
-    title: 'Nike',
-    color: '#CE371F',
+    image: '/assets/images/grid-2-1920x1404.jpg',
+    description: 'Básnické zbierky zo svetovej literatúry',
+    title: 'Poézia',
+    // color: '#CE371F',
   },
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img47.jpg',
-    description: 'Curology custom skincare',
-    title: 'Curology',
-    color: '#ECB3BE',
+    image: '/assets/images/grid-3-1920x1404.jpg',
+    description: 'Preklady súčasnej svetovej prózy',
+    title: 'Próza',
+    // color: '#ECB3BE',
   },
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img43.jpg',
-    description: 'The world\'s best bikes and cycling gear',
-    title: 'Trek',
-    color: '#000000',
+    image: '/assets/images/grid-4-1920x1404.jpg',
+    description: 'Literatúra pre deti a mládež',
+    title: 'Deti',
+    // color: '#000000',
   },
 ];
 
@@ -58,7 +58,7 @@ const Folio = (): JSX.Element => {
                 width={1}
                 src={item.image}
                 alt="..."
-                minHeight={{ xs: 400, md: 600 }}
+                minHeight={{ xs: 400, md: 80 }}
                 sx={{
                   transition: 'transform .7s ease !important',
                   transform: 'scale(1.0)',
@@ -97,7 +97,7 @@ const Folio = (): JSX.Element => {
                   variant={'contained'}
                   color={'secondary'}
                 >
-                  Read more
+                  Preskúmať
                 </Button>
               </Box>
             </Box>
