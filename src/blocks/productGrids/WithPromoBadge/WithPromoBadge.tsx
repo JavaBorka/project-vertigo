@@ -13,9 +13,9 @@ import Container from 'components/Container';
 
 const mock = [
   {
-    media: 'https://assets.maccarianagency.com/backgrounds/img56.jpg',
-    title: 'Adidas shoes',
-    description: 'Discover the new collection of Adidas.',
+    media: '/assets/images/vertigo-obalka-1.png',
+    title: 'Vertigo 4/2025',
+    description: 'Monografie literárnej vedy a literárnej kritiky popredných slovenských a českých bádateľov skúmajúcich poetiku, literárnu hodnotu, spoločenské kultúrne súvislosti. ',
     price: '$69.90',
     href: '#',
     reviewScore: 5,
@@ -23,9 +23,9 @@ const mock = [
     isNew: true,
   },
   {
-    media: 'https://assets.maccarianagency.com/backgrounds/img63.jpg',
-    title: 'Colorful shoes',
-    description: 'Colorful shoes designed for everyone.',
+    media: '/assets/images/vertigo-obalka-2.png',
+    title: 'Vertigo 3/2025',
+    description: 'Antológia desiatich literárnokritických statí o súčasnej slovenskej poézii a próze. Osem zväzkov, ktoré kontinuálne pripravujú ročné hodnotenia knižnej produkcie.',
     price: '$39.90',
     oldPrice: '$60.00',
     reviewScore: 4,
@@ -33,9 +33,9 @@ const mock = [
     isNew: true,
   },
   {
-    media: 'https://assets.maccarianagency.com/backgrounds/img57.jpg',
-    title: 'Nike',
-    description: 'New arrivals of Nike sport shoes.',
+    media: '/assets/images/vertigo-obalka-3.png',
+    title: 'Vertigo 2/2025',
+    description: 'Monografie jazykovedy skúmajúce vzťah človeka a jazyka ako základnej aj aplikovanej súvzťažnosti.',
     price: '$49.90',
     oldPrice: '$70.00',
     href: '#',
@@ -44,9 +44,9 @@ const mock = [
     isNew: true,
   },
   {
-    media: 'https://assets.maccarianagency.com/backgrounds/img58.jpg',
-    title: 'Sneakers',
-    description: 'Trendy Sneakers designed for everyone.',
+    media: '/assets/images/vertigo-obalka-4.png',
+    title: 'Vertigo 1/2025',
+    description: 'Bohato ilustrovaný príbeh o nezvyčajnom priateľstve medzi malou Luciou a jej veľkou kamarátkou tetou Ringlotou, ktorá ukrýva malé veľké tajomstvo. Kniha vychádza z tradície severskej rozprávkovej tvorby s nezameniteľným jazykovým a vizuálnym spracovaním.',
     price: '$59.90',
     reviewScore: 4,
     reviewCount: 10,
@@ -58,7 +58,7 @@ const WithPromoBadge = (): JSX.Element => {
   const theme = useTheme();
 
   return (
-    <Container>
+    <Container sx={{paddingTop: '18px !important' }}>
       <Grid container spacing={4}>
         {mock.map((item, i) => (
           <Grid item xs={12} sm={6} md={3} key={i}>
@@ -84,7 +84,7 @@ const WithPromoBadge = (): JSX.Element => {
                     borderRadius: 2,
                   }}
                 >
-                  <Stack
+                  {/* <Stack
                     direction={'row'}
                     spacing={1}
                     sx={{
@@ -144,15 +144,15 @@ const WithPromoBadge = (): JSX.Element => {
                         </Typography>
                       </Box>
                     )}
-                  </Stack>
+                  </Stack> */}
                 </CardMedia>
-                <Box marginTop={2}>
+                <Box marginTop={2} paddingLeft={2}>
                   <Typography fontWeight={700}>{item.title}</Typography>
                   <Typography variant={'caption'} color={'text.secondary'}>
                     {item.description}
                   </Typography>
                 </Box>
-                <Box marginTop={2} display={'flex'} alignItems={'center'}>
+                {/* <Box marginTop={2} display={'flex'} alignItems={'center'}>
                   {item.oldPrice && (
                     <Typography
                       marginRight={0.5}
@@ -168,8 +168,8 @@ const WithPromoBadge = (): JSX.Element => {
                   >
                     {item.price}
                   </Typography>
-                </Box>
-                <Box marginTop={0.5} display={'flex'} alignItems={'center'}>
+                </Box> */}
+                {/* <Box marginTop={0.5} display={'flex'} alignItems={'center'}>
                   <Box display={'flex'} alignItems={'center'}>
                     {[1, 2, 3, 4, 5].map((r) => (
                       <Box
@@ -197,8 +197,8 @@ const WithPromoBadge = (): JSX.Element => {
                   >
                     {item.reviewCount} reviews
                   </Typography>
-                </Box>
-                <Stack marginTop={2} spacing={1} direction={'row'}>
+                </Box> */}
+                {/* <Stack marginTop={2} spacing={1} direction={'row'}>
                   <Button
                     variant={'contained'}
                     color={'primary'}
@@ -235,14 +235,14 @@ const WithPromoBadge = (): JSX.Element => {
                       />
                     </svg>
                   </Button>
-                </Stack>
+                </Stack> */}
                 <Button
                   component={Link}
                   href={item.href}
                   size={'large'}
                   sx={{
                     color: theme.palette.text.primary,
-                    marginTop: 1,
+                    paddingLeft: '16px',
                     justifyContent: 'space-between',
                   }}
                   fullWidth
@@ -262,7 +262,7 @@ const WithPromoBadge = (): JSX.Element => {
                     </svg>
                   }
                 >
-                  See the details
+                  Kúpiť v Artforum
                 </Button>
               </Card>
             </Box>
