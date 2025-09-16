@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
+import Grid2 from '@mui/material/Grid2';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { alpha, useTheme } from '@mui/material/styles';
@@ -59,9 +59,9 @@ const WithPromoBadge = (): JSX.Element => {
 
   return (
     <Container sx={{paddingTop: '18px !important' }}>
-      <Grid container spacing={4}>
+      <Grid2 container spacing={4}>
         {mock.map((item, i) => (
-          <Grid item xs={12} sm={6} md={3} key={i}>
+          <Grid2 key={i} size={{xs:12, sm:6, md:3}}>
             <Box display={'block'} width={1} height={1}>
               <Card
                 sx={{
@@ -266,9 +266,9 @@ const WithPromoBadge = (): JSX.Element => {
                 </Button>
               </Card>
             </Box>
-          </Grid>
+          </Grid2>
         ))}
-      </Grid>
+      </Grid2>
     </Container>
   );
 };
