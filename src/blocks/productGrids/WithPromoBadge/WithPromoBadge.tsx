@@ -59,94 +59,100 @@ const WithPromoBadge = (): JSX.Element => {
 
   return (
     <Container sx={{paddingTop: '18px !important' }}>
-      <Grid2 container spacing={4}>
+      <Grid2 container spacing={4} alignItems="flex-start">
         {mock.map((item, i) => (
           <Grid2 key={i} size={{xs:12, sm:6, md:3}}>
-            <Box display={'block'} width={1} height={1}>
+            <Box display={'block'} width={1}>
               <Card
                 sx={{
                   width: 1,
-                  height: 1,
                   display: 'flex',
                   flexDirection: 'column',
                   boxShadow: 'none',
                   bgcolor: 'transparent',
                   backgroundImage: 'none',
+                  transition: 'background-color 0.2s ease',
+                  '&:hover': {
+                    bgcolor: theme.palette.action.hover,
+                    cursor: 'pointer',
+                  },
                 }}
               >
-                <CardMedia
-                  title={item.title}
-                  image={item.media}
-                  sx={{
-                    position: 'relative',
-                    height: 320,
-                    overflow: 'hidden',
-                    borderRadius: 2,
-                  }}
-                >
-                  {/* <Stack
-                    direction={'row'}
-                    spacing={1}
+                <Box padding={2}>
+                  <CardMedia
+                    title={item.title}
+                    image={item.media}
                     sx={{
-                      position: 'absolute',
-                      top: 'auto',
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      padding: 2,
+                      position: 'relative',
+                      height: 320,
+                      overflow: 'hidden',
+                      borderRadius: 2,
                     }}
                   >
-                    {item.oldPrice && (
-                      <Box
-                        sx={{
-                          bgcolor: theme.palette.error.light,
-                          paddingY: '4px',
-                          paddingX: '8px',
-                          borderRadius: 1,
-                          display: 'flex',
-                          alignItems: 'center',
-                        }}
-                      >
-                        <Typography
-                          variant={'caption'}
-                          fontWeight={700}
+                    {/* <Stack
+                      direction={'row'}
+                      spacing={1}
+                      sx={{
+                        position: 'absolute',
+                        top: 'auto',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        padding: 2,
+                      }}
+                    >
+                      {item.oldPrice && (
+                        <Box
                           sx={{
-                            color: theme.palette.common.white,
-                            textTransform: 'uppercase',
-                            lineHeight: 1,
+                            bgcolor: theme.palette.error.light,
+                            paddingY: '4px',
+                            paddingX: '8px',
+                            borderRadius: 1,
+                            display: 'flex',
+                            alignItems: 'center',
                           }}
                         >
-                          promo price
-                        </Typography>
-                      </Box>
-                    )}
-                    {item.isNew && (
-                      <Box
-                        sx={{
-                          bgcolor: theme.palette.success.light,
-                          paddingY: '4px',
-                          paddingX: '8px',
-                          borderRadius: 1,
-                          display: 'flex',
-                          alignItems: 'center',
-                        }}
-                      >
-                        <Typography
-                          variant={'caption'}
-                          fontWeight={700}
+                          <Typography
+                            variant={'caption'}
+                            fontWeight={700}
+                            sx={{
+                              color: theme.palette.common.white,
+                              textTransform: 'uppercase',
+                              lineHeight: 1,
+                            }}
+                          >
+                            promo price
+                          </Typography>
+                        </Box>
+                      )}
+                      {item.isNew && (
+                        <Box
                           sx={{
-                            color: theme.palette.common.white,
-                            textTransform: 'uppercase',
-                            lineHeight: 1,
+                            bgcolor: theme.palette.success.light,
+                            paddingY: '4px',
+                            paddingX: '8px',
+                            borderRadius: 1,
+                            display: 'flex',
+                            alignItems: 'center',
                           }}
                         >
-                          new
-                        </Typography>
-                      </Box>
-                    )}
-                  </Stack> */}
-                </CardMedia>
-                <Box marginTop={2} paddingLeft={2}>
+                          <Typography
+                            variant={'caption'}
+                            fontWeight={700}
+                            sx={{
+                              color: theme.palette.common.white,
+                              textTransform: 'uppercase',
+                              lineHeight: 1,
+                            }}
+                          >
+                            new
+                          </Typography>
+                        </Box>
+                      )}
+                    </Stack> */}
+                  </CardMedia>
+                </Box>
+                <Box marginTop={2} marginBottom={0.7} paddingLeft={2}>
                   <Typography fontWeight={700}>{item.title}</Typography>
                   <Typography variant={'caption'} color={'text.secondary'}>
                     {item.description}
