@@ -14,8 +14,8 @@ import Container from 'components/Container';
 const mock = [
   {
     media: '/assets/images/vertigo-obalka-1.png',
-    title: 'Vertigo 4/2025',
-    description: 'Monografie literárnej vedy a literárnej kritiky popredných slovenských a českých bádateľov skúmajúcich poetiku, literárnu hodnotu, spoločenské kultúrne súvislosti. ',
+    title: 'VERTIGO 4/2025',
+    description: 'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
     price: '$69.90',
     href: '#',
     reviewScore: 5,
@@ -24,8 +24,8 @@ const mock = [
   },
   {
     media: '/assets/images/vertigo-obalka-2.png',
-    title: 'Vertigo 3/2025',
-    description: 'Antológia desiatich literárnokritických statí o súčasnej slovenskej poézii a próze. Osem zväzkov, ktoré kontinuálne pripravujú ročné hodnotenia knižnej produkcie.',
+    title: 'VERTIGO 3/2025',
+    description: 'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
     price: '$39.90',
     oldPrice: '$60.00',
     reviewScore: 4,
@@ -34,8 +34,8 @@ const mock = [
   },
   {
     media: '/assets/images/vertigo-obalka-3.png',
-    title: 'Vertigo 2/2025',
-    description: 'Monografie jazykovedy skúmajúce vzťah človeka a jazyka ako základnej aj aplikovanej súvzťažnosti.',
+    title: 'VERTIGO 2/2025',
+    description: 'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
     price: '$49.90',
     oldPrice: '$70.00',
     href: '#',
@@ -45,8 +45,8 @@ const mock = [
   },
   {
     media: '/assets/images/vertigo-obalka-4.png',
-    title: 'Vertigo 1/2025',
-    description: 'Bohato ilustrovaný príbeh o nezvyčajnom priateľstve medzi malou Luciou a jej veľkou kamarátkou tetou Ringlotou, ktorá ukrýva malé veľké tajomstvo. Kniha vychádza z tradície severskej rozprávkovej tvorby s nezameniteľným jazykovým a vizuálnym spracovaním.',
+    title: 'VERTIGO 1/2025',
+    description: 'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
     price: '$59.90',
     reviewScore: 4,
     reviewCount: 10,
@@ -58,7 +58,29 @@ const WithPromoBadge = (): JSX.Element => {
   const theme = useTheme();
 
   return (
-    <Container sx={{paddingTop: '18px !important' }}>
+    // <Container sx={{paddingTop: '18px !important' }}>
+    <Container>
+      <Box marginBottom={4}>
+        <Typography
+          variant="h4"
+          data-aos={'fade-up'}
+          align={'center'}
+          gutterBottom
+          sx={{
+            fontWeight: 700,
+          }}
+        >
+          Vydané knihy a časopisy
+        </Typography>
+        <Typography
+          variant="h6"
+          color={'text.secondary'}
+          align={'center'}
+          data-aos={'fade-up'}
+        >
+          Najnovšie tituly
+        </Typography>
+      </Box>
       <Grid2 container spacing={4} alignItems="flex-start">
         {mock.map((item, i) => (
           <Grid2 key={i} size={{xs:12, sm:6, md:3}}>
@@ -242,34 +264,30 @@ const WithPromoBadge = (): JSX.Element => {
                     </svg>
                   </Button>
                 </Stack> */}
-                <Button
-                  component={Link}
-                  href={item.href}
-                  size={'large'}
-                  sx={{
-                    color: theme.palette.text.primary,
-                    paddingLeft: '16px',
-                    justifyContent: 'space-between',
-                  }}
-                  fullWidth
-                  endIcon={
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      width={20}
-                      height={20}
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  }
-                >
-                  Kúpiť v Artforum
-                </Button>
+                <Box display={'flex'} justifyContent={'flex-end'} paddingX={2}>
+                  <Button
+                    endIcon={
+                      <Box
+                        component={'svg'}
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        width={24}
+                        height={24}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </Box>
+                    }
+                  >
+                    Kúpiť v Artfóre
+                  </Button>
+                </Box>
               </Card>
             </Box>
           </Grid2>

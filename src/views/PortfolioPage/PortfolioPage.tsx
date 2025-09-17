@@ -16,10 +16,10 @@ const PortfolioPage = (): JSX.Element => {
   return (
     <Main colorInvert={true}>
       <Hero />
-      <Container sx={{paddingBottom: '24px !important' }}>
+      <Container>
         <Folio />
       </Container>
-      <Typography
+      {/* <Typography
         fontWeight={600}
         variant={'h4'}
         align={'center'}
@@ -27,9 +27,11 @@ const PortfolioPage = (): JSX.Element => {
         data-aos={'fade-up'}
       >
         Najnovšie sme vydali
-      </Typography>
-      <WithPromoBadge />
+      </Typography> */}
       <Box bgcolor={'alternate.main'}>
+        <WithPromoBadge />
+      </Box>
+      <Box >
         <Container>
           <MostViewedArticles />
         </Container>
