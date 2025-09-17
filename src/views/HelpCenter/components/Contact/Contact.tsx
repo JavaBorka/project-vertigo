@@ -115,10 +115,11 @@ const Contact = (): JSX.Element => {
           sx={{ fontWeight: 700 }}
           gutterBottom
           align={'center'}
+          data-aos={'fade-up'}
         >
           Napíšte nám
         </Typography>
-        <Typography color="text.secondary" align={'center'}>
+        <Typography color="text.secondary" align={'center'} data-aos={'fade-up'}>
           Máte niečo na srdci, o čom by ste sa s nami chceli podeliť? Napíšte nám. Vaše otázky radi zodpovieme.
         </Typography>
       </Box>
