@@ -38,14 +38,14 @@ const PortfolioPage = (): JSX.Element => {
       </Box>
       <Box
         position={'relative'}
-        // sx={{
-        //   backgroundColor: theme.palette.alternate.main,
-        // }}
+        sx={{
+          backgroundColor: theme.palette.alternate.main,
+        }}
       >
         <Container>
           <Contact />
         </Container>
-        {/* <Box
+        <Box
           component={'svg'}
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ const PortfolioPage = (): JSX.Element => {
             fill={theme.palette.background.paper}
             d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"
           ></path>
-        </Box> */}
+        </Box>
       </Box>
     </Main>
   );
