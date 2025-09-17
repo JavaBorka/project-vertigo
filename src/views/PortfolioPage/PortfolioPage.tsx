@@ -51,19 +51,6 @@ const PortfolioPage = (): JSX.Element => (
         <MostViewedArticles />
       </Container>
     </Box>
-    <Box bgcolor={'alternate.main'}>
-      <Container>
-        <Services />
-      </Container>
-    </Box>
-    <Box bgcolor={'primary.main'}>
-      <Container>
-        <Features />
-      </Container>
-    </Box>
-    <Container>
-      <Gallery />
-    </Container>
   </Main>
 );
 
