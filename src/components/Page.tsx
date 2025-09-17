@@ -54,7 +54,19 @@ export default function Page({ children }: Props): JSX.Element {
       delay: 50,
       duration: 500,
       easing: 'ease-in-out',
+      startEvent: 'load',
+      offset: 200,
     });
+
+    const handleWindowLoad = () => {
+      try {
+        AOS.refreshHard();
+      } catch {
+        /* noop */
+      }
+    };
+    window.addEventListener('load', handleWindowLoad);
+    return () => window.removeEventListener('load', handleWindowLoad);
   }, []);
 
   const [themeMode, themeToggler, mountedComponent] = useDarkMode();
