@@ -109,52 +109,18 @@ const Contact = (): JSX.Element => {
 
   return (
     <Box>
-      <Box marginBottom={2}>
+      <Box marginBottom={4}>
         <Typography
           variant={'h4'}
           sx={{ fontWeight: 700 }}
           gutterBottom
           align={'center'}
         >
-          Can't find the answer you need?
+          Napíšte nám
         </Typography>
         <Typography color="text.secondary" align={'center'}>
-          Keep track of what's happening with your data, change permissions, and
-          run reports against your data anywhere in the world. Keep track of
-          what's happening with your data, change permissions.
+          Máte niečo na srdci, o čom by ste sa s nami chceli podeliť? Napíšte nám. Vaše otázky radi zodpovieme.
         </Typography>
-      </Box>
-      <Box
-        display={'flex'}
-        flexDirection={{ xs: 'column', md: 'row' }}
-        justifyContent={'space-between'}
-        marginBottom={4}
-      >
-        {mock.map((item, i) => (
-          <Box
-            key={i}
-            component={ListItem}
-            disableGutters
-            width={'auto'}
-            padding={0}
-          >
-            <Box
-              component={ListItemAvatar}
-              minWidth={'auto !important'}
-              marginRight={2}
-            >
-              <Box
-                component={Avatar}
-                bgcolor={theme.palette.secondary.main}
-                width={40}
-                height={40}
-              >
-                {item.icon}
-              </Box>
-            </Box>
-            <ListItemText primary={item.label} secondary={item.value} />
-          </Box>
-        ))}
       </Box>
       <Box
         maxWidth={600}
@@ -179,7 +145,7 @@ const Contact = (): JSX.Element => {
               fontWeight={700}
               gutterBottom
             >
-              Full name
+              Vaše meno
             </Typography>
             <TextField
               placeholder="Your full name"
@@ -225,7 +191,7 @@ const Contact = (): JSX.Element => {
               fontWeight={700}
               gutterBottom
             >
-              Message
+              Správa
             </Typography>
             <TextField
               placeholder="Your question about our services"
