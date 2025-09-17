@@ -42,7 +42,7 @@ const PortfolioPage = (): JSX.Element => {
           backgroundColor: theme.palette.alternate.main,
         }}
       >
-        <Container>
+        <Container sx={{ padding: '64px 20px 16px 16px !important' }}>
           <Contact />
         </Container>
         <Box
