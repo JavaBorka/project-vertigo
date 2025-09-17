@@ -40,7 +40,7 @@ const PopularNews = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Box>
-      <Box marginBottom={4}>
+      {/* <Box marginBottom={4}>
         <Typography
           variant="h4"
           data-aos={'fade-up'}
@@ -62,7 +62,7 @@ const PopularNews = (): JSX.Element => {
           <br />
           theFront is an ever evolving theme with regular updates.
         </Typography>
-      </Box>
+      </Box> */}
       <Grid container spacing={4}>
         {mock.map((item, i) => (
           <Grid key={i} item xs={12}>

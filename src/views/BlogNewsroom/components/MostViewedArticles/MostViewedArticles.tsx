@@ -5,17 +5,17 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Grid';
+import Grid2 from '@mui/material/Grid2';
 
 const mock = [
   {
     image: 'https://assets.maccarianagency.com/backgrounds/img21.jpg',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     title: 'Eiusmod tempor incididunt',
     tags: ['UX', 'Design', 'Themes', 'Photography'],
     author: {
-      name: 'Clara Bertoletti',
+      name: 'Mária Čorejová',
       avatar: 'https://assets.maccarianagency.com/avatars/img1.jpg',
     },
     date: '10 Sep',
@@ -27,7 +27,7 @@ const mock = [
     title: 'Sed ut perspiciatis',
     tags: ['UX', 'Design', 'Themes', 'Photography'],
     author: {
-      name: 'Jhon Anderson',
+      name: 'Ján Gavura',
       avatar: 'https://assets.maccarianagency.com/avatars/img2.jpg',
     },
     date: '02 Aug',
@@ -35,34 +35,44 @@ const mock = [
   {
     image: 'https://assets.maccarianagency.com/backgrounds/img23.jpg',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     title: 'Unde omnis iste natus',
     tags: ['UX', 'Design', 'Themes', 'Photography'],
     author: {
-      name: 'Chary Smith',
+      name: 'Mária Čorejová',
       avatar: 'https://assets.maccarianagency.com/avatars/img3.jpg',
     },
     date: '05 Mar',
-  },
-  {
-    image: 'https://assets.maccarianagency.com/backgrounds/img24.jpg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    title: 'Eiusmod tempor incididunt',
-    tags: ['UX', 'Design', 'Themes', 'Photography'],
-    author: {
-      name: 'Clara Bertoletti',
-      avatar: 'https://assets.maccarianagency.com/avatars/img1.jpg',
-    },
-    date: '10 Sep',
   },
 ];
 
 const MostViewedArticles = (): JSX.Element => {
   const theme = useTheme();
   return (
+    
     <Box>
-      <Box
+      <Box marginBottom={4}>
+        <Typography
+          variant="h4"
+          data-aos={'fade-up'}
+          align={'center'}
+          gutterBottom
+          sx={{
+            fontWeight: 700,
+          }}
+        >
+          Zo života FACE
+        </Typography>
+        <Typography
+          variant="h6"
+          color={'text.secondary'}
+          align={'center'}
+          data-aos={'fade-up'}
+        >
+          Aktuality, udalosti a nové recenzie
+        </Typography>
+      </Box>
+      {/* <Box
         display={'flex'}
         justifyContent={'space-between'}
         alignItems={{ xs: 'flex-start', sm: 'center' }}
@@ -88,10 +98,10 @@ const MostViewedArticles = (): JSX.Element => {
             View all
           </Box>
         </Box>
-      </Box>
-      <Grid container spacing={4}>
+      </Box> */}
+      <Grid2 container spacing={4}>
         {mock.map((item, i) => (
-          <Grid item xs={12} key={i}>
+          <Grid2 key={i} size={{xs:12, sm:4}}>
             <Box
               component={Card}
               width={1}
@@ -99,18 +109,18 @@ const MostViewedArticles = (): JSX.Element => {
               borderRadius={0}
               boxShadow={0}
               display={'flex'}
-              flexDirection={{ xs: 'column', md: 'row' }}
+              flexDirection={'column'}
               sx={{ backgroundImage: 'none', bgcolor: 'transparent' }}
             >
               <Box
                 sx={{
-                  width: { xs: 1, md: '30%' },
+                  width: 1,
                 }}
               >
                 <Box
                   component={'img'}
                   loading="lazy"
-                  height={1}
+                  height={'auto'}
                   width={1}
                   src={item.image}
                   alt="..."
@@ -127,7 +137,7 @@ const MostViewedArticles = (): JSX.Element => {
               </Box>
               <CardContent
                 sx={{
-                  width: { xs: 1, md: '70%' },
+                  width: 1,
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'center',
@@ -145,7 +155,7 @@ const MostViewedArticles = (): JSX.Element => {
                     color={'text.secondary'}
                     component={'i'}
                   >
-                    {item.author.name} - {item.date}
+                    {item.author.name}
                   </Typography>
                 </Box>
                 <Typography color="text.secondary">
@@ -172,14 +182,14 @@ const MostViewedArticles = (): JSX.Element => {
                       </Box>
                     }
                   >
-                    Read More
+                    Prečítať viac
                   </Button>
                 </Box>
               </CardContent>
             </Box>
-          </Grid>
+          </Grid2>
         ))}
-      </Grid>
+      </Grid2>
     </Box>
   );
 };
