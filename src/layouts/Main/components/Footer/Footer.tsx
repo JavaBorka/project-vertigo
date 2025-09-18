@@ -40,7 +40,14 @@ const Footer = (): JSX.Element => {
               width={1}
             />
           </Box>
-          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', px: 2 }}>
+          <Box sx={{ 
+            flex: 1,
+            display: 'flex',
+            justifyContent:'center',
+            paddingX: 5,
+            paddingY: 3
+          }}
+          >
             <Typography
               align={'center'}
               variant={'subtitle2'}
@@ -49,7 +56,14 @@ const Footer = (): JSX.Element => {
               Publikácie sú podporené z verejných zdrojov Fondu na podporu umenia
             </Typography>
           </Box>  
-          <Box sx={{ ml: { xs: 0, sm: 'auto' }, alignSelf: { xs: 'flex-end', sm: 'center' } }}>
+          <Box sx={{ 
+              ml: { xs: 0, sm: 'auto' }, 
+              alignSelf: { xs: 'center', sm: 'center' },
+              paddingBottom: {
+                xs: 3,
+                sm: 0
+              } 
+            }}>
             <Link
               href="https://fpu.sk/"
               target="_blank"
@@ -61,13 +75,13 @@ const Footer = (): JSX.Element => {
               <Box 
                 component={'img'}
                 src={'/assets/svg/logo/logo-fpu.svg'}
-                sx={{ width: { xs: 80, sm: 120 } }}
+                sx={{ width: { xs: 110, sm: 120 } }}
               />
             </Link>
           </Box>
         </Box>
       </Grid>
-      <Grid item xs={12} paddingTop={'10px !important'}>
+      <Grid item xs={12} paddingTop={'0px !important'}>
         <Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
           <Link
             href="https://www.facebook.com/people/FACE-vydavate%C4%BEstvo/100063588426653/"
