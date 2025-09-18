@@ -5,6 +5,8 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Footer = (): JSX.Element => {
   const theme = useTheme();
@@ -38,64 +40,61 @@ const Footer = (): JSX.Element => {
               width={1}
             />
           </Box>
-          <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>
-            <Box marginTop={1} marginRight={2}>
-              <Link
-                underline="none"
-                component="a"
-                href="/"
-                color="text.primary"
-                variant={'subtitle2'}
-              >
-                Domov
-              </Link>
-            </Box>
-            <Box marginTop={1} marginRight={2}>
-              <Link
-                underline="none"
-                component="a"
-                href="/casopisy"
-                target={'blank'}
-                color="text.primary"
-                variant={'subtitle2'}
-              >
-                Vertigo
-              </Link>
-            </Box>
-            <Box marginTop={1}>
-              <Button
-                variant="outlined"
-                color="primary"
-                component="a"
-                target="blank"
-                href="/prihlasenie"
-                size="small"
-              >
-                Prihlásiť sa
-              </Button>
-            </Box>
+          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', px: 2 }}>
+            <Typography
+              align={'center'}
+              variant={'subtitle2'}
+              color="text.secondary"
+            >
+              Publikácie sú podporené z verejných zdrojov Fondu na podporu umenia
+            </Typography>
+          </Box>  
+          <Box sx={{ ml: { xs: 0, sm: 'auto' }, alignSelf: { xs: 'flex-end', sm: 'center' } }}>
+            <Link
+              href="https://fpu.sk/"
+              target="_blank"
+              rel="noopener"
+              underline="none"
+              sx={{ display: 'inline-flex', alignItems: 'center' }}
+              aria-label="Fond na podporu umenia"
+            >
+              <Box 
+                component={'img'}
+                src={'/assets/svg/logo/logo-fpu.svg'}
+                sx={{ width: { xs: 80, sm: 120 } }}
+              />
+            </Link>
           </Box>
         </Box>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} paddingTop={'10px !important'}>
+        <Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
+          <Link
+            href="https://www.facebook.com/people/FACE-vydavate%C4%BEstvo/100063588426653/"
+            aria-label="Facebook"
+            underline="none"
+            sx={{ display: 'inline-flex', color: 'text.primary', mx: 1 }}
+          >
+            <FacebookIcon />
+          </Link>
+          <Link
+            href="https://www.instagram.com/face_vydavatelstvo/"
+            aria-label="Instagram"
+            underline="none"
+            sx={{ display: 'inline-flex', color: 'text.primary', mx: 1 }}
+          >
+            <InstagramIcon />
+          </Link>
+        </Box>
+      </Grid>
+      <Grid item xs={12} paddingTop={'15px !important'}>
         <Typography
           align={'center'}
           variant={'subtitle2'}
           color="text.secondary"
           gutterBottom
         >
-          &copy; f.a.c.e. {new Date().getFullYear()} | All rights reserved
-        </Typography>
-        <Typography
-          align={'center'}
-          variant={'caption'}
-          color="text.secondary"
-          component={'p'}
-        >
-          When you visit or interact with our sites, services or tools, we or
-          our authorised service providers may use cookies for storing
-          information to help provide you with a better, faster and safer
-          experience and for marketing purposes.
+          f.a.c.e. {new Date().getFullYear()} &copy; All rights Reserved
         </Typography>
       </Grid>
     </Grid>
