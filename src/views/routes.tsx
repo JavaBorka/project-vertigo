@@ -52,6 +52,7 @@ import {
   AccountSecurity as AccountSecurityView,
   NotFound as NotFoundView,
   NotFoundCover as NotFoundCoverView,
+  BooksPage as BooksPageView,
 } from 'views';
 
 const routes = [
@@ -278,6 +279,22 @@ const routes = [
   {
     path: '/not-found-cover',
     renderer: (params = {}): JSX.Element => <NotFoundCoverView {...params} />,
+  },
+  {
+    path: '/veda',
+    renderer: (params = {}): JSX.Element => <BooksPageView {...params} />,
+  },
+  {
+    path: '/poezia',
+    renderer: (params = {}): JSX.Element => <BooksPageView {...params} />,
+  },
+  {
+    path: '/proza',
+    renderer: (params = {}): JSX.Element => <BooksPageView {...params} />,
+  },
+    {
+    path: '/deti',
+    renderer: (params = {}): JSX.Element => <BooksPageView {...params} />,
   },
 ];
 
