@@ -29,20 +29,6 @@ const WithCollapsibleMenuItems = (): JSX.Element => {
 
   return (
     <Container>
-      <Box marginBottom={4}>
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover" color="inherit" href="#">
-            Home
-          </Link>
-          <Link underline="hover" color="inherit" href="#">
-            T-shirts
-          </Link>
-          <Typography color="text.primary">Classy sweatshirt</Typography>
-        </Breadcrumbs>
-        <Typography variant={'h4'} fontWeight={700} marginTop={2}>
-          Classy sweatshirt
-        </Typography>
-      </Box>
       <Box display={'flex'}>
         <Sidebar
           onClose={handleSidebarClose}
@@ -51,12 +37,11 @@ const WithCollapsibleMenuItems = (): JSX.Element => {
         />
         <Box marginLeft={{ xs: 0, md: 4 }} width={1}>
           <Topbar onSidebarOpen={handleSidebarOpen} />
-          <Box
+          {/* <Box
             borderRadius={2}
             border={`4px dashed ${theme.palette.divider}`}
             height={600}
-            marginTop={4}
-          />
+          /> */}
         </Box>
       </Box>
     </Container>

@@ -31,6 +31,10 @@ const Sidebar = ({ open, variant, onClose }: Props): JSX.Element => {
           maxWidth: 320,
           minWidth: 320,
           border: 0,
+          paddingTop: {
+            xs: 9,
+            md: 0
+          }
         },
       }}
     >
@@ -42,16 +46,7 @@ const Sidebar = ({ open, variant, onClose }: Props): JSX.Element => {
         padding={{ xs: 2, md: 0 }}
       >
         <Box marginBottom={3}>
-          <FilterPrice />
-        </Box>
-        <Box marginBottom={3}>
           <FilterGender />
-        </Box>
-        <Box marginBottom={3}>
-          <FilterSize />
-        </Box>
-        <Box marginBottom={3}>
-          <FilterColor />
         </Box>
         <Box>
           <FilterBrand />
