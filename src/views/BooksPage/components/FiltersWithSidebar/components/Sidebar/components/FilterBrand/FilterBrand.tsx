@@ -38,7 +38,7 @@ const FilterBrand = (): JSX.Element => {
         marginBottom={1}
         onClick={() => handleClick()}
       >
-        <Typography fontWeight={700}>Brand</Typography>
+        <Typography fontWeight={700}>Autori</Typography>
         {open ? <ExpandLess /> : <ExpandMore />}
       </Box>
       <Collapse in={open} timeout="auto" unmountOnExit>
@@ -84,14 +84,12 @@ const FilterBrand = (): JSX.Element => {
         </Box>
         <Stack spacing={1}>
           {[
-            'Adidas',
-            'Nike',
-            'Puma',
-            'OVS',
-            'H&M',
-            'Reebok',
-            'Zara',
-            'Other',
+            'Anna Siedykh',
+            'Alena Brindová',
+            'Ján Buzássy',
+            'Gro Dahle ',
+            'Richard Blanco',
+            'Tomáš Straka',
           ].map((item) => (
             <Box key={item}>
               <FormControlLabel

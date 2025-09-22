@@ -33,12 +33,12 @@ const FilterGender = (): JSX.Element => {
         marginBottom={1}
         onClick={() => handleClick()}
       >
-        <Typography fontWeight={700}>Gender</Typography>
+        <Typography fontWeight={700}>Žáner</Typography>
         {open ? <ExpandLess /> : <ExpandMore />}
       </Box>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <Stack spacing={1}>
-          {['Men', 'Women', 'Unisex'].map((item) => (
+          {['Veda', 'Poézia', 'Próza', 'Deti', 'Všetky žánre'].map((item) => (
             <Box key={item}>
               <FormControlLabel
                 sx={{ marginLeft: 0 }}
