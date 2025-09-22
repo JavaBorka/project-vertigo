@@ -58,30 +58,6 @@ const Topbar = ({ onSidebarOpen }: Props): JSX.Element => {
         Filters
       </Button>
       <Box flexGrow={1} />
-      <Box display={'flex'} alignItems={'center'} justifySelf={'flex-end'}>
-        <Typography color={'text.primary'} marginRight={1}>
-          Sort by
-        </Typography>
-        <FormControl sx={{ minWidth: 120 }}>
-          <Select
-            value={sortBy}
-            onChange={handleSelectChange}
-            sx={{
-              '.MuiSelect-select.MuiSelect-outlined': {
-                paddingY: '9px !important',
-              },
-              '.MuiOutlinedInput-notchedOutline': {
-                borderColor: theme.palette.divider,
-              },
-            }}
-          >
-            <MenuItem value={1}>Best seller</MenuItem>
-            <MenuItem value={2}>Best match</MenuItem>
-            <MenuItem value={3}>Price: low to high</MenuItem>
-            <MenuItem value={4}>Price: high to low</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
     </Box>
   );
 };
