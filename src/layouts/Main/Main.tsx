@@ -52,6 +52,11 @@ const Main = ({
         sx={{
           top: 0,
           backgroundColor: trigger ? theme.palette.background.paper : bgcolor,
+          zIndex: {
+            sx: 0,
+            md: theme.zIndex.drawer + 1,
+          }
+          
         }}
         elevation={trigger ? 1 : 0}
       >
