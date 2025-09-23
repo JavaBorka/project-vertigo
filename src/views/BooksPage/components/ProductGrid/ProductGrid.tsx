@@ -94,7 +94,7 @@ const mock = [
   },
 ];
 
-const WithPromoBadge = (): JSX.Element => {
+const ProductGrid = (): JSX.Element => {
   const theme = useTheme();
 
   return (
@@ -187,4 +187,4 @@ const WithPromoBadge = (): JSX.Element => {
   );
 };
 
-export default WithPromoBadge;
+export default ProductGrid;
