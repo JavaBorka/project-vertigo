@@ -8,7 +8,7 @@ import Link from '@mui/material/Link';
 
 import Container from 'components/Container';
 import { Topbar, Sidebar } from './components';
-import WithPromoBadge from '../WithPromoBadge'
+import ProductGrid from '../ProductGrid';
  
 const WithCollapsibleMenuItems = (): JSX.Element => {
   const theme = useTheme();
@@ -38,12 +38,7 @@ const WithCollapsibleMenuItems = (): JSX.Element => {
         />
         <Box marginLeft={{ xs: 0, md: 4 }} width={1}>
           <Topbar onSidebarOpen={handleSidebarOpen} />
-          <WithPromoBadge />
-          {/* <Box
-            borderRadius={2}
-            border={`4px dashed ${theme.palette.divider}`}
-            height={600}
-          /> */}
+          <ProductGrid />
         </Box>
       </Box>
     </Container>
