@@ -52,8 +52,8 @@ const Topbar = ({
           component={'img'}
           src={
             mode === 'light' && !colorInvert
-              ? '/assets/svg/logo/logo-temp-black.svg'
-              : '/assets/svg/logo/logo-temp-white.svg'
+              ? '/assets/svg/logo/logo-face-black.svg'
+              : '/assets/svg/logo/logo-face-white.svg'
           }
           height={1}
           width={1}

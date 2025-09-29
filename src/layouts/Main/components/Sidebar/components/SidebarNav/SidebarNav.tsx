@@ -41,8 +41,8 @@ const SidebarNav = ({ pages }: Props): JSX.Element => {
             component={'img'}
             src={
               mode === 'light'
-                ? '/assets/svg/logo/logo-temp-black.svg'
-                : '/assets/svg/logo/logo-temp-white.svg'
+                ? '/assets/svg/logo/logo-face-black.svg'
+                : '/assets/svg/logo/logo-face-white.svg'
             }
             height={1}
             width={1}
