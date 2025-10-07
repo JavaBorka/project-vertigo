@@ -84,7 +84,7 @@ const Folio = (): JSX.Element => {
                 >
                   {item.title}
                 </Typography>
-                <Typography
+                {/* <Typography
                   variant={'h6'}
                   fontWeight={700}
                   sx={{ color: 'common.white' }}
@@ -98,7 +98,7 @@ const Folio = (): JSX.Element => {
                   color={'secondary'}
                 >
                   Preskúmať
-                </Button>
+                </Button> */}
               </Box>
             </Box>
           </Grid2>
