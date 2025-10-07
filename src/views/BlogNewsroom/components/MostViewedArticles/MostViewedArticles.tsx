@@ -5,11 +5,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-// removed Grid2 in favor of scroll-snap carousel
 
 const mock = [
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img21.jpg',
+    image: '/assets/images/news-image-1.jpg',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     title: 'Eiusmod tempor incididunt',
@@ -21,7 +20,7 @@ const mock = [
     date: '10 Sep',
   },
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img22.jpg',
+    image: '/assets/images/news-image-2.jpg',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     title: 'Sed ut perspiciatis',
@@ -33,7 +32,7 @@ const mock = [
     date: '02 Aug',
   },
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img23.jpg',
+    image: '/assets/images/news-image-3.jpg',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     title: 'Unde omnis iste natus',
@@ -45,7 +44,7 @@ const mock = [
     date: '05 Mar',
   },
   {
-    image: 'https://assets.maccarianagency.com/backgrounds/img21.jpg',
+    image: '/assets/images/news-image-1.jpg',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     title: 'Eiusmod tempor incididunt',
