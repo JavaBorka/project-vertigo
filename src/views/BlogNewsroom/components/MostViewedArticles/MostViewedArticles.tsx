@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Grid2 from '@mui/material/Grid2';
+// removed Grid2 in favor of scroll-snap carousel
 
 const mock = [
   {
@@ -43,6 +43,18 @@ const mock = [
       avatar: 'https://assets.maccarianagency.com/avatars/img3.jpg',
     },
     date: '05 Mar',
+  },
+  {
+    image: 'https://assets.maccarianagency.com/backgrounds/img21.jpg',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    title: 'Eiusmod tempor incididunt',
+    tags: ['UX', 'Design', 'Themes', 'Photography'],
+    author: {
+      name: 'Mária Čorejová',
+      avatar: 'https://assets.maccarianagency.com/avatars/img1.jpg',
+    },
+    date: '10 Sep',
   },
 ];
 
@@ -99,9 +111,29 @@ const MostViewedArticles = (): JSX.Element => {
           </Box>
         </Box>
       </Box> */}
-      <Grid2 container spacing={4}>
+      <Box
+        sx={{
+          display: 'flex',
+          overflowX: 'auto',
+          scrollSnapType: 'x mandatory',
+          WebkitOverflowScrolling: 'touch',
+          gap: 2,
+          px: 1,
+          scrollbarWidth: 'none',
+          '&::-webkit-scrollbar': { display: 'none' },
+        }}
+      >
         {mock.map((item, i) => (
-          <Grid2 key={i} size={{xs:12, sm:4}}>
+          <Box
+            key={i}
+            sx={{
+              flex: '0 0 85%',
+              scrollSnapAlign: 'start',
+              '@media (min-width:600px)': { flex: '0 0 60%' },
+              '@media (min-width:900px)': { flex: '0 0 45%' },
+              '@media (min-width:1100px)': { flex: '0 0 30%' },
+            }}
+          >
             <Box
               component={Card}
               width={1}
@@ -112,11 +144,7 @@ const MostViewedArticles = (): JSX.Element => {
               flexDirection={'column'}
               sx={{ backgroundImage: 'none', bgcolor: 'transparent' }}
             >
-              <Box
-                sx={{
-                  width: 1,
-                }}
-              >
+              <Box sx={{ width: 1 }}>
                 <Box
                   component={'img'}
                   loading="lazy"
@@ -143,24 +171,15 @@ const MostViewedArticles = (): JSX.Element => {
                   justifyContent: 'center',
                 }}
               >
-                <Typography
-                  fontWeight={700}
-                  sx={{ textTransform: 'uppercase' }}
-                >
+                <Typography fontWeight={700} sx={{ textTransform: 'uppercase' }}>
                   {item.title}
                 </Typography>
                 <Box marginY={1}>
-                  <Typography
-                    variant={'caption'}
-                    color={'text.secondary'}
-                    component={'i'}
-                  >
+                  <Typography variant={'caption'} color={'text.secondary'} component={'i'}>
                     {item.author.name}
                   </Typography>
                 </Box>
-                <Typography color="text.secondary">
-                  {item.description}
-                </Typography>
+                <Typography color="text.secondary">{item.description}</Typography>
                 <Box marginTop={2} display={'flex'} justifyContent={'flex-end'}>
                   <Button
                     endIcon={
@@ -187,9 +206,9 @@ const MostViewedArticles = (): JSX.Element => {
                 </Box>
               </CardContent>
             </Box>
-          </Grid2>
+          </Box>
         ))}
-      </Grid2>
+      </Box>
     </Box>
   );
 };
