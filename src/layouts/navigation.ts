@@ -31,20 +31,8 @@ const pages = {
   ],
   blog: [
     {
-      title: 'Reach View',
-      href: '/blog-reach-view',
-    },
-    {
-      title: 'Search',
-      href: '/blog-search',
-    },
-    {
-      title: 'Newsroom',
-      href: '/blog-newsroom',
-    },
-    {
-      title: 'Article',
-      href: '/blog-article',
+      title: 'Autori',
+      href: '/autori',
     },
   ],
 };
