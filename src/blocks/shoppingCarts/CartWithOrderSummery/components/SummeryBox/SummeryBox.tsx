@@ -6,7 +6,7 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
-const SummeryBox = (): JSX.Element => {
+const SummeryBox = () => {
   return (
     <Box>
       <Box

@@ -9,7 +9,7 @@ import Checkbox from '@mui/material/Checkbox';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
-const FilterGender = (): JSX.Element => {
+const FilterGender = () => {
   const [open, setOpen] = useState(true);
   const [genders, setGenders] = useState([]);
 

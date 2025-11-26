@@ -11,35 +11,35 @@ import {
 const routes = [
   {
     path: '/',
-    renderer: (params = {}): JSX.Element => <PortfolioPageView {...params} />,
+    renderer: (params = {}) => <PortfolioPageView {...params} />,
   },
   {
     path: '/not-found-cover',
-    renderer: (params = {}): JSX.Element => <NotFoundCoverView {...params} />,
+    renderer: (params = {}) => <NotFoundCoverView {...params} />,
   },
   {
     path: '/veda',
-    renderer: (params = {}): JSX.Element => <BooksPageView {...params} />,
+    renderer: (params = {}) => <BooksPageView {...params} />,
   },
   {
     path: '/poezia',
-    renderer: (params = {}): JSX.Element => <BooksPageView {...params} />,
+    renderer: (params = {}) => <BooksPageView {...params} />,
   },
   {
     path: '/proza',
-    renderer: (params = {}): JSX.Element => <BooksPageView {...params} />,
+    renderer: (params = {}) => <BooksPageView {...params} />,
   },
-    {
+  {
     path: '/deti',
-    renderer: (params = {}): JSX.Element => <BooksPageView {...params} />,
+    renderer: (params = {}) => <BooksPageView {...params} />,
   },
   // {
   //   path: '/rental',
-  //   renderer: (params = {}): JSX.Element => <RentalView {...params} />,
+  //   renderer: (params = {}) => <RentalView {...params} />,
   // },
   // {
   //   path: '/contact-page-cover',
-  //   renderer: (params = {}): JSX.Element => (
+  //   renderer: (params = {}) => (
   //     <ContactPageCoverView {...params} />
   //   ),
   // },

@@ -26,7 +26,7 @@ const mock = [
   'UI',
 ];
 
-const Tags = (): JSX.Element => {
+const Tags = () => {
   return (
     <Box>
       <Typography

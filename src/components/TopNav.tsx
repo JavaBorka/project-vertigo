@@ -9,7 +9,7 @@ interface Props {
   colorInvert?: boolean;
 }
 
-const TopNav = ({ colorInvert = false }: Props): JSX.Element => {
+const TopNav = ({ colorInvert = false }: Props) => {
   return (
     <Box display={'flex'} justifyContent={'flex-end'} alignItems={'center'}>
       <Box marginRight={{ xs: 1, sm: 2 }}>

@@ -15,12 +15,7 @@ interface Props {
   colorInvert?: boolean;
 }
 
-const NavItem = ({
-  title,
-  id,
-  items,
-  colorInvert = false,
-}: Props): JSX.Element => {
+const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
   const theme = useTheme();
   const hasItems = Array.isArray(items) && items.length > 0;
 
@@ -127,10 +122,10 @@ const NavItem = ({
         PaperProps={{
           onMouseEnter: handleHover,
           onMouseLeave: handleCloseHover,
-          style: { pointerEvents: 'auto' }
+          style: { pointerEvents: 'auto' },
         }}
         sx={{
-           zIndex: 9999,
+          zIndex: 9999,
           '.MuiPaper-root': {
             maxWidth: items.length > 12 ? 350 : 100,
             padding: 1,
@@ -167,9 +162,7 @@ const NavItem = ({
                   fontWeight: activeLink === p.href ? 600 : 400,
                 }}
               >
-                <Typography variant={'body2'}>
-                  {p.title}
-                </Typography>
+                <Typography variant={'body2'}>{p.title}</Typography>
                 {p.isNew && (
                   <Box
                     padding={0.5}

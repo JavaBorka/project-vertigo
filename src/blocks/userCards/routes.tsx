@@ -11,23 +11,19 @@ import {
 const routes = [
   {
     path: '/blocks/user-cards',
-    renderer: (params = {}): JSX.Element => <UserCardsIndexView {...params} />,
+    renderer: (params = {}) => <UserCardsIndexView {...params} />,
   },
   {
     path: '/blocks/user-cards/user-card-grid',
-    renderer: (params = {}): JSX.Element => <UserCardGridView {...params} />,
+    renderer: (params = {}) => <UserCardGridView {...params} />,
   },
   {
     path: '/blocks/user-cards/user-card-with-background',
-    renderer: (params = {}): JSX.Element => (
-      <UserCardWithBackgroundView {...params} />
-    ),
+    renderer: (params = {}) => <UserCardWithBackgroundView {...params} />,
   },
   {
     path: '/blocks/user-cards/user-card-with-rating',
-    renderer: (params = {}): JSX.Element => (
-      <UserCardWithRatingView {...params} />
-    ),
+    renderer: (params = {}) => <UserCardWithRatingView {...params} />,
   },
 ];
 

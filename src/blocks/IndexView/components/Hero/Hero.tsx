@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-const Hero = (): JSX.Element => {
+const Hero = () => {
   return (
     <Box maxWidth={{ md: '70%' }}>
       <Typography

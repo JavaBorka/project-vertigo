@@ -53,7 +53,7 @@ const mock = [
   },
 ];
 
-const ReviewOverview = (): JSX.Element => {
+const ReviewOverview = () => {
   const theme = useTheme();
 
   return (

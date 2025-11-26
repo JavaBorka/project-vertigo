@@ -9,8 +9,8 @@ import Link from '@mui/material/Link';
 import Container from 'components/Container';
 import { Topbar, Sidebar } from './components';
 import ProductGrid from '../ProductGrid';
- 
-const WithCollapsibleMenuItems = (): JSX.Element => {
+
+const WithCollapsibleMenuItems = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

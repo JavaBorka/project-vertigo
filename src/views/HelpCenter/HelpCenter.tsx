@@ -6,7 +6,7 @@ import Main from 'layouts/Main';
 import Container from 'components/Container';
 import { Faq, Contact, Hero } from './components';
 
-const HelpCenter = (): JSX.Element => {
+const HelpCenter = () => {
   const theme = useTheme();
 
   return (

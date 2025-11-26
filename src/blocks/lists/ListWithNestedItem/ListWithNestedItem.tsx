@@ -15,7 +15,7 @@ import StarBorder from '@mui/icons-material/StarBorder';
 
 import Container from 'components/Container';
 
-const ListWithNestedItem = (): JSX.Element => {
+const ListWithNestedItem = () => {
   const [open, setOpen] = React.useState(true);
 
   const handleClick = (): void => {

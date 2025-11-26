@@ -37,7 +37,7 @@ const mock = [
   },
 ];
 
-const WithHighlightedCard = (): JSX.Element => {
+const WithHighlightedCard = () => {
   const theme = useTheme();
 
   return (

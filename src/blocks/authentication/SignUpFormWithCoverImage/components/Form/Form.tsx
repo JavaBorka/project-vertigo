@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 
-const Form = (): JSX.Element => {
+const Form = () => {
   return (
     <Box>
       <Box marginBottom={4}>

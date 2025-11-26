@@ -15,7 +15,7 @@ const mock = [
   'https://assets.maccarianagency.com/svg/logos/paypal-original.svg',
 ];
 
-const WithBoxedLogos = (): JSX.Element => {
+const WithBoxedLogos = () => {
   const theme = useTheme();
   return (
     <Container>

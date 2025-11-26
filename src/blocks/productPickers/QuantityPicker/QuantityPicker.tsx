@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 
 import Container from 'components/Container';
 
-const QuantityPicker = (): JSX.Element => {
+const QuantityPicker = () => {
   const theme = useTheme();
   const [quantity, setQuantity] = useState(1);
   const quantityLimit = 4;

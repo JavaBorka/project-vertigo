@@ -13,7 +13,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 
 import Container from 'components/Container';
 
-const FeatureCardWithCtaButton = (): JSX.Element => {
+const FeatureCardWithCtaButton = () => {
   const theme = useTheme();
 
   return (

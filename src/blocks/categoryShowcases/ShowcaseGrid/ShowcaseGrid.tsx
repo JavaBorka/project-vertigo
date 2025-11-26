@@ -47,7 +47,7 @@ const mock = [
   },
 ];
 
-const ShowcaseGrid = (): JSX.Element => {
+const ShowcaseGrid = () => {
   return (
     <Box bgcolor={'alternate.main'}>
       <Container>

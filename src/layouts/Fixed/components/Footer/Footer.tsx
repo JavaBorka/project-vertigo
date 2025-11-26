@@ -6,7 +6,7 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
-const Footer = (): JSX.Element => {
+const Footer = () => {
   const theme = useTheme();
   const { mode } = theme.palette;
 

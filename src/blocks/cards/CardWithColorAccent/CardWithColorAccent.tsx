@@ -11,7 +11,7 @@ import { useTheme } from '@mui/material/styles';
 
 import Container from 'components/Container';
 
-const CardWithColorAccent = (): JSX.Element => {
+const CardWithColorAccent = () => {
   const theme = useTheme();
 
   return (

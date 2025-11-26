@@ -4,7 +4,7 @@ import { Map, Form } from './components';
 
 import Container from 'components/Container';
 
-const Contact = (): JSX.Element => {
+const Contact = () => {
   return (
     <Container>
       <Grid container spacing={{ xs: 4, md: 8 }}>

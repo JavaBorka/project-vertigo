@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-const Billing = (): JSX.Element => {
+const Billing = () => {
   return (
     <Box>
       <form>

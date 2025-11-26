@@ -32,7 +32,7 @@ const mock = [
   },
 ];
 
-const WithOverlappedCards = (): JSX.Element => {
+const WithOverlappedCards = () => {
   return (
     <Container>
       <Box>

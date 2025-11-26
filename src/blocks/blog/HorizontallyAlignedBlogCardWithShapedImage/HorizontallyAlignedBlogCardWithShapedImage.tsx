@@ -23,7 +23,7 @@ const mock = {
   date: '22 Nov',
 };
 
-const HorizontallyAlignedBlogCardWithShapedImage = (): JSX.Element => {
+const HorizontallyAlignedBlogCardWithShapedImage = () => {
   const theme = useTheme();
   return (
     <Container>

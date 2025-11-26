@@ -7,7 +7,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const Places = (): JSX.Element => {
+const Places = () => {
   const theme = useTheme();
 
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
@@ -79,11 +79,7 @@ const Places = (): JSX.Element => {
           Discover coworking spaces designed to inspire and to connect you to a
           community of motivated people.
         </Typography>
-        <Box
-          display="flex"
-          justifyContent={'center'}
-          marginTop={2}
-        >
+        <Box display="flex" justifyContent={'center'} marginTop={2}>
           <Button
             variant="contained"
             color="primary"

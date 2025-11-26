@@ -14,7 +14,7 @@ interface Props {
   };
 }
 
-const SidebarNav = ({ pages }: Props): JSX.Element => {
+const SidebarNav = ({ pages }: Props) => {
   const theme = useTheme();
   const { mode } = theme.palette;
 

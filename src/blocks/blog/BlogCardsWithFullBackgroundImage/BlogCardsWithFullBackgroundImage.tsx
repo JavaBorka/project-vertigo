@@ -36,7 +36,7 @@ const mock = [
   },
 ];
 
-const BlogCardsWithFullBackgroundImage = (): JSX.Element => {
+const BlogCardsWithFullBackgroundImage = () => {
   const theme = useTheme();
   return (
     <Container>

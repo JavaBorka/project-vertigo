@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Container from 'components/Container';
 import { Reviews, Integrations } from './components';
 
-const ClientSatisfaction = (): JSX.Element => {
+const ClientSatisfaction = () => {
   return (
     <Box>
       <Container>

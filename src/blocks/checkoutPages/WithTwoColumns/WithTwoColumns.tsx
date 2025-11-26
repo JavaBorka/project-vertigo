@@ -10,7 +10,7 @@ import { Billing, Orders, Shipping } from './components';
 
 import Container from 'components/Container';
 
-const WithTwoColumns = (): JSX.Element => {
+const WithTwoColumns = () => {
   return (
     <Container>
       <Box>

@@ -15,7 +15,8 @@ const mock = [
   {
     media: '/assets/images/vertigo-obalka-1.png',
     title: 'VERTIGO 4/2025',
-    description: 'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
+    description:
+      'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
     price: '$69.90',
     href: '#',
     reviewScore: 5,
@@ -25,7 +26,8 @@ const mock = [
   {
     media: '/assets/images/vertigo-obalka-2.png',
     title: 'VERTIGO 3/2025',
-    description: 'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
+    description:
+      'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
     price: '$39.90',
     oldPrice: '$60.00',
     reviewScore: 4,
@@ -35,7 +37,8 @@ const mock = [
   {
     media: '/assets/images/vertigo-obalka-3.png',
     title: 'VERTIGO 2/2025',
-    description: 'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
+    description:
+      'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
     price: '$49.90',
     oldPrice: '$70.00',
     href: '#',
@@ -46,16 +49,18 @@ const mock = [
   {
     media: '/assets/images/vertigo-obalka-4.png',
     title: 'VERTIGO 1/2025',
-    description: 'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
+    description:
+      'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
     price: '$59.90',
     reviewScore: 4,
     reviewCount: 10,
     isNew: true,
   },
-   {
+  {
     media: '/assets/images/vertigo-obalka-1.png',
     title: 'VERTIGO 4/2025',
-    description: 'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
+    description:
+      'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
     price: '$69.90',
     href: '#',
     reviewScore: 5,
@@ -65,7 +70,8 @@ const mock = [
   {
     media: '/assets/images/vertigo-obalka-2.png',
     title: 'VERTIGO 3/2025',
-    description: 'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
+    description:
+      'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
     price: '$39.90',
     oldPrice: '$60.00',
     reviewScore: 4,
@@ -75,7 +81,8 @@ const mock = [
   {
     media: '/assets/images/vertigo-obalka-3.png',
     title: 'VERTIGO 2/2025',
-    description: 'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
+    description:
+      'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
     price: '$49.90',
     oldPrice: '$70.00',
     href: '#',
@@ -86,7 +93,8 @@ const mock = [
   {
     media: '/assets/images/vertigo-obalka-4.png',
     title: 'VERTIGO 1/2025',
-    description: 'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
+    description:
+      'Výber z básnickej tvorby populárneho chorvátskeho spisovateľa.',
     price: '$59.90',
     reviewScore: 4,
     reviewCount: 10,
@@ -94,14 +102,14 @@ const mock = [
   },
 ];
 
-const ProductGrid = (): JSX.Element => {
+const ProductGrid = () => {
   const theme = useTheme();
 
   return (
-    <Container sx={{paddingTop: '1px !important' }}>
+    <Container sx={{ paddingTop: '1px !important' }}>
       <Grid2 container spacing={4} alignItems="flex-start">
         {mock.map((item, i) => (
-          <Grid2 key={i} size={{xs:12, sm:4, md:3}}>
+          <Grid2 key={i} size={{ xs: 12, sm: 4, md: 3 }}>
             <Box display={'block'} width={1}>
               <Card
                 sx={{
@@ -156,29 +164,29 @@ const ProductGrid = (): JSX.Element => {
                 </Box> */}
               </Card>
               <Box display={'flex'} justifyContent={'flex-end'} paddingX={2}>
-                  <Button
-                    endIcon={
-                      <Box
-                        component={'svg'}
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        width={24}
-                        height={24}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </Box>
-                    }
-                  >
-                    Kúpiť v Artfóre
-                  </Button>
-                </Box>
+                <Button
+                  endIcon={
+                    <Box
+                      component={'svg'}
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      width={24}
+                      height={24}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </Box>
+                  }
+                >
+                  Kúpiť v Artfóre
+                </Button>
+              </Box>
             </Box>
           </Grid2>
         ))}

@@ -13,7 +13,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 import Container from 'components/Container';
 
-const WithAvatarAndButtonsBelow = (): JSX.Element => {
+const WithAvatarAndButtonsBelow = () => {
   const theme = useTheme();
   return (
     <Box bgcolor="alternate.main">
@@ -47,7 +47,7 @@ const WithAvatarAndButtonsBelow = (): JSX.Element => {
                       >
                         Ali Connors
                       </Typography>
-                      {' — I\'ll be in your neighborhood doing errands this…'}
+                      {" — I'll be in your neighborhood doing errands this…"}
                     </React.Fragment>
                   }
                 />

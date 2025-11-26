@@ -9,7 +9,7 @@ import Link from '@mui/material/Link';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
-const Security = (): JSX.Element => {
+const Security = () => {
   return (
     <Box>
       <form>

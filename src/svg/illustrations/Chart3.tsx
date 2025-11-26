@@ -1,10 +1,7 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 
-const Chart3 = ({
-  width = 274,
-  height = 208,
-}: IllustrationProps): JSX.Element => {
+const Chart3 = ({ width = 274, height = 208 }: IllustrationProps) => {
   const theme = useTheme();
   const colorPaper = theme.palette.background.paper;
   const colorPrimaryMain = theme.palette.primary.main;

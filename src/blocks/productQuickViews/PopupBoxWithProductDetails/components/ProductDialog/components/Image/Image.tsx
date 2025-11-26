@@ -17,7 +17,7 @@ const mock = [
   },
 ];
 
-const Image = (): JSX.Element => {
+const Image = () => {
   const [current, setCurrent] = useState(mock[0]);
   return (
     <Box>

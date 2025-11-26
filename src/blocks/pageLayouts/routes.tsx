@@ -13,39 +13,27 @@ import {
 const routes = [
   {
     path: '/blocks/page-layouts',
-    renderer: (params = {}): JSX.Element => (
-      <PageLayoutsIndexView {...params} />
-    ),
+    renderer: (params = {}) => <PageLayoutsIndexView {...params} />,
   },
   {
     path: '/blocks/page-layouts/with-fixed-sidebar',
-    renderer: (params = {}): JSX.Element => (
-      <WithFixedSidebarView {...params} />
-    ),
+    renderer: (params = {}) => <WithFixedSidebarView {...params} />,
   },
   {
     path: '/blocks/page-layouts/with-three-columns',
-    renderer: (params = {}): JSX.Element => (
-      <WithThreeColumnsView {...params} />
-    ),
+    renderer: (params = {}) => <WithThreeColumnsView {...params} />,
   },
   {
     path: '/blocks/page-layouts/with-toggled-sidebar',
-    renderer: (params = {}): JSX.Element => (
-      <WithToggledSidebarView {...params} />
-    ),
+    renderer: (params = {}) => <WithToggledSidebarView {...params} />,
   },
   {
     path: '/blocks/page-layouts/with-fluid-layout-and-no-sidebar',
-    renderer: (params = {}): JSX.Element => (
-      <WithFluidLayoutAndNoSidebarView {...params} />
-    ),
+    renderer: (params = {}) => <WithFluidLayoutAndNoSidebarView {...params} />,
   },
   {
     path: '/blocks/page-layouts/with-narrow-layout-and-no-sidebar',
-    renderer: (params = {}): JSX.Element => (
-      <WithNarrowLayoutAndNoSidebarView {...params} />
-    ),
+    renderer: (params = {}) => <WithNarrowLayoutAndNoSidebarView {...params} />,
   },
 ];
 

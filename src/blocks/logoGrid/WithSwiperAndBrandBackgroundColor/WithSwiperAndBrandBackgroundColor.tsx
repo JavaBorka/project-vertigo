@@ -15,7 +15,7 @@ const mock = [
   'https://assets.maccarianagency.com/svg/logos/slack-original.svg',
 ];
 
-const WithSwiperAndBrandBackgroundColor = (): JSX.Element => {
+const WithSwiperAndBrandBackgroundColor = () => {
   return (
     <Box bgcolor={'primary.main'}>
       <Container maxWidth={1}>

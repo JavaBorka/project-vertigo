@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const Search = (): JSX.Element => {
+const Search = () => {
   return (
     <Box>
       <Box marginBottom={4}>

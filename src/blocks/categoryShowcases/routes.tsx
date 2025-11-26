@@ -12,25 +12,23 @@ import {
 const routes = [
   {
     path: '/blocks/category-showcases',
-    renderer: (params = {}): JSX.Element => (
-      <CategoryShowcasesIndexView {...params} />
-    ),
+    renderer: (params = {}) => <CategoryShowcasesIndexView {...params} />,
   },
   {
     path: '/blocks/category-showcases/with-image-grid',
-    renderer: (params = {}): JSX.Element => <WithImageGridView {...params} />,
+    renderer: (params = {}) => <WithImageGridView {...params} />,
   },
   {
     path: '/blocks/category-showcases/on-spanning-columns',
-    renderer: (params = {}): JSX.Element => <SpanningColumnsView {...params} />,
+    renderer: (params = {}) => <SpanningColumnsView {...params} />,
   },
   {
     path: '/blocks/category-showcases/showcase-grid',
-    renderer: (params = {}): JSX.Element => <ShowcaseGridView {...params} />,
+    renderer: (params = {}) => <ShowcaseGridView {...params} />,
   },
   {
     path: '/blocks/category-showcases/showcase-bg-image',
-    renderer: (params = {}): JSX.Element => <ShowcaseBgImageView {...params} />,
+    renderer: (params = {}) => <ShowcaseBgImageView {...params} />,
   },
 ];
 

@@ -8,7 +8,7 @@ interface Props {
   [x: string]: any;
 }
 
-const Container = ({ children, ...rest }: Props): JSX.Element => (
+const Container = ({ children, ...rest }: Props) => (
   <Box
     maxWidth={{ sm: 720, md: 1236 }}
     width={1}

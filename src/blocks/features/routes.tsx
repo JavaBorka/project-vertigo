@@ -26,112 +26,93 @@ import {
 const routes = [
   {
     path: '/blocks/features',
-    renderer: (params = {}): JSX.Element => <FeaturesIndexView {...params} />,
+    renderer: (params = {}) => <FeaturesIndexView {...params} />,
   },
   {
     path: '/blocks/features/simple-centered',
-    renderer: (params = {}): JSX.Element => <SimpleCenteredView {...params} />,
+    renderer: (params = {}) => <SimpleCenteredView {...params} />,
   },
   {
     path: '/blocks/features/features-with-card-representation',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <FeaturesWithCardRepresentationView {...params} />
     ),
   },
   {
     path: '/blocks/features/features-with-simple-icons',
-    renderer: (params = {}): JSX.Element => (
-      <FeaturesWithSimpleIconsView {...params} />
-    ),
+    renderer: (params = {}) => <FeaturesWithSimpleIconsView {...params} />,
   },
   {
     path: '/blocks/features/features-with-check-marks-and-abstract-images',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <FeaturesWithCheckMarksAndAbstractImagesView {...params} />
     ),
   },
   {
     path: '/blocks/features/simple-left-aligned',
-    renderer: (params = {}): JSX.Element => (
-      <SimpleLeftAlignedView {...params} />
-    ),
+    renderer: (params = {}) => <SimpleLeftAlignedView {...params} />,
   },
   {
     path: '/blocks/features/simple-features-with-alternate-cards',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <SimpleFeaturesWithAlternateCardsView {...params} />
     ),
   },
   {
     path: '/blocks/features/features-with-learn-more-link',
-    renderer: (params = {}): JSX.Element => (
-      <FeaturesWithLearnMoreLinkView {...params} />
-    ),
+    renderer: (params = {}) => <FeaturesWithLearnMoreLinkView {...params} />,
   },
   {
-    path:
-      '/blocks/features/feature-cards-with-colorfull-icons-and-learn-more-link',
-    renderer: (params = {}): JSX.Element => (
+    path: '/blocks/features/feature-cards-with-colorfull-icons-and-learn-more-link',
+    renderer: (params = {}) => (
       <FeatureCardsWithColorfullIconsAndLearnMoreLinkView {...params} />
     ),
   },
   {
     path: '/blocks/features/features-with-minimal-design',
-    renderer: (params = {}): JSX.Element => (
-      <FeaturesWithMinimalDesignView {...params} />
-    ),
+    renderer: (params = {}) => <FeaturesWithMinimalDesignView {...params} />,
   },
   {
     path: '/blocks/features/one-line-feature-list-with-check-marks',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <OneLineFeatureListWithCheckMarksView {...params} />
     ),
   },
   {
     path: '/blocks/features/feature-list-with-form',
-    renderer: (params = {}): JSX.Element => (
-      <FeatureListWithFormView {...params} />
-    ),
+    renderer: (params = {}) => <FeatureListWithFormView {...params} />,
   },
   {
     path: '/blocks/features/features-with-illustration',
-    renderer: (params = {}): JSX.Element => (
-      <FeaturesWithIllustrationView {...params} />
-    ),
+    renderer: (params = {}) => <FeaturesWithIllustrationView {...params} />,
   },
   {
     path: '/blocks/features/features-with-mobile-screenshot',
-    renderer: (params = {}): JSX.Element => (
-      <FeaturesWithMobileScreenshotView {...params} />
-    ),
+    renderer: (params = {}) => <FeaturesWithMobileScreenshotView {...params} />,
   },
   {
     path: '/blocks/features/feature-card-with-cta-button',
-    renderer: (params = {}): JSX.Element => (
-      <FeatureCardWithCtaButtonView {...params} />
-    ),
+    renderer: (params = {}) => <FeatureCardWithCtaButtonView {...params} />,
   },
   {
     path: '/blocks/features/feature-grid-with-backgrounds',
-    renderer: (params = {}): JSX.Element => (
-      <FeatureGridWithBackgroundsView {...params} />
-    ),
+    renderer: (params = {}) => <FeatureGridWithBackgroundsView {...params} />,
   },
   {
     path: '/blocks/features/features-with-masonry-cards-and-check-icons',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <FeaturesWithMasonryCardsAndCheckIconsView {...params} />
     ),
   },
   {
     path: '/blocks/features/feature-list-with-desktop-app-screenshot',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <FeatureListWithDesktopAppScreenshotView {...params} />
     ),
   },
   {
     path: '/blocks/features/features-with-simple-left-aligned-icons',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <FeaturesWithSimpleLeftAlignedIconsView {...params} />
     ),
   },

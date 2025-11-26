@@ -336,7 +336,7 @@ const mock = [
   },
 ];
 
-const Topbar = (): JSX.Element => {
+const Topbar = () => {
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [openMenuId, setOpenMenuId] = React.useState(null);

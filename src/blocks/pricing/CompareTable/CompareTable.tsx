@@ -78,7 +78,7 @@ const pricing = [
   },
 ];
 
-const CompareTable = (): JSX.Element => {
+const CompareTable = () => {
   const theme = useTheme();
   return (
     <Container>

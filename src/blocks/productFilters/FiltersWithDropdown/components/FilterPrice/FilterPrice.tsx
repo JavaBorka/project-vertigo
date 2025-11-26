@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 
 const valuetext = (value) => `$${value[0]} - $${value[1]}`;
 
-const FilterPrice = (): JSX.Element => {
+const FilterPrice = () => {
   const theme = useTheme();
   const [value, setValue] = useState([20, 400]);
   const [open, setOpen] = useState(false);

@@ -40,7 +40,7 @@ const mock = [
   },
 ];
 
-const StackedCustomRadioGroup = (): JSX.Element => {
+const StackedCustomRadioGroup = () => {
   return (
     <Box bgcolor={'alternate.main'}>
       <Container maxWidth={800}>

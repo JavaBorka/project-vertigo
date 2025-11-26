@@ -47,7 +47,7 @@ const mock = [
   },
 ];
 
-const WithCtaButton = (): JSX.Element => {
+const WithCtaButton = () => {
   const theme = useTheme();
 
   return (

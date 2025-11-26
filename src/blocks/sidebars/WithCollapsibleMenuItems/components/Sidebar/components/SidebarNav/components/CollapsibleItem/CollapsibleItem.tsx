@@ -14,13 +14,13 @@ interface Props {
     pages: Array<{
       title: string;
       href: string;
-      icon?: JSX.Element;
+      icon?;
     }>;
   };
   isOpen?: boolean;
 }
 
-const CollapsibleItem = ({ item, isOpen = false }: Props): JSX.Element => {
+const CollapsibleItem = ({ item, isOpen = false }: Props) => {
   const [open, setOpen] = React.useState(isOpen);
 
   const handleClick = (): void => {

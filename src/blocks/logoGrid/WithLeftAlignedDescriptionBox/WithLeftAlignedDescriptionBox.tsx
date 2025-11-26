@@ -16,7 +16,7 @@ const mock = [
   'https://assets.maccarianagency.com/svg/logos/paypal-original.svg',
 ];
 
-const WithLeftAlignedDescriptionBox = (): JSX.Element => {
+const WithLeftAlignedDescriptionBox = () => {
   const theme = useTheme();
   return (
     <Container>

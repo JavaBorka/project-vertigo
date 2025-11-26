@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 
 import Container from 'components/Container';
 
-const Hero = (): JSX.Element => {
+const Hero = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

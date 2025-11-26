@@ -16,7 +16,7 @@ interface Props {
   onSidebarOpen: () => void;
 }
 
-const Topbar = ({ onSidebarOpen }: Props): JSX.Element => {
+const Topbar = ({ onSidebarOpen }: Props) => {
   const theme = useTheme();
 
   return (

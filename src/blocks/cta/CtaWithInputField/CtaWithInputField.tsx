@@ -10,7 +10,7 @@ import { useTheme } from '@mui/material/styles';
 
 import Container from 'components/Container';
 
-const CtaWithInputField = (): JSX.Element => {
+const CtaWithInputField = () => {
   const theme = useTheme();
   const isSm = useMediaQuery(theme.breakpoints.up('sm'), {
     defaultMatches: true,

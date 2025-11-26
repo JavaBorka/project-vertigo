@@ -32,7 +32,7 @@ const mock = [
   },
 ];
 
-const SpanningColumns = (): JSX.Element => {
+const SpanningColumns = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

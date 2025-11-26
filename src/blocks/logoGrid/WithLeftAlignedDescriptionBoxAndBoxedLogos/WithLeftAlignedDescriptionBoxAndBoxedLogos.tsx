@@ -35,7 +35,7 @@ export const mock = [
   },
 ];
 
-const WithLeftAlignedDescriptionBoxAndBoxedLogos = (): JSX.Element => {
+const WithLeftAlignedDescriptionBoxAndBoxedLogos = () => {
   return (
     <Container>
       <Grid container spacing={4}>

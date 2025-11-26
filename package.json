@@ -11,7 +11,10 @@
     "prettier:fix": "prettier './src/**/*.{tsx,ts}' --write",
     "eslint:fix": "eslint ./src --fix",
     "codeStyle:fix": "npm run prettier:fix && npm run eslint:fix",
-    "clear-all": "rimraf ./build ./node_modules"
+    "clear-all": "rimraf ./build ./node_modules",
+    "lint": "eslint --report-unused-disable-directives",
+    "tsc": "tsc --noEmit",
+    "verify": "npm run tsc && npm run lint"
   },
   "eslintConfig": {
     "extends": [
@@ -68,6 +71,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "cross-env": "^7.0.3",
     "eslint": "^9.22.0",
+    "eslint-plugin-react": "^7.37.5",
     "prettier": "^3.1.1",
     "rimraf": "^6.0.1",
     "typescript": "^5.3.3",

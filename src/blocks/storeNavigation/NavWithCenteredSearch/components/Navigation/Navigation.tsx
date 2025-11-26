@@ -23,7 +23,7 @@ const mock = [
   },
 ];
 
-const Products = (): JSX.Element => {
+const Products = () => {
   return (
     <Grid container spacing={4}>
       <Grid item xs={6}>
@@ -118,7 +118,7 @@ const Products = (): JSX.Element => {
   );
 };
 
-const Navigation = (): JSX.Element => {
+const Navigation = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const handleClick = (event) => {

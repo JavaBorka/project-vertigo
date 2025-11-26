@@ -14,43 +14,31 @@ import {
 const routes = [
   {
     path: '/blocks/authentication',
-    renderer: (params = {}): JSX.Element => <AuthIndexView {...params} />,
+    renderer: (params = {}) => <AuthIndexView {...params} />,
   },
   {
     path: '/blocks/authentication/simple-sign-up-form',
-    renderer: (params = {}): JSX.Element => (
-      <SimpleSignUpFormView {...params} />
-    ),
+    renderer: (params = {}) => <SimpleSignUpFormView {...params} />,
   },
   {
     path: '/blocks/authentication/sign-up-form-with-cover-image',
-    renderer: (params = {}): JSX.Element => (
-      <SignUpFormWithCoverImageView {...params} />
-    ),
+    renderer: (params = {}) => <SignUpFormWithCoverImageView {...params} />,
   },
   {
     path: '/blocks/authentication/simple-sign-in-form',
-    renderer: (params = {}): JSX.Element => (
-      <SimpleSignInFormView {...params} />
-    ),
+    renderer: (params = {}) => <SimpleSignInFormView {...params} />,
   },
   {
     path: '/blocks/authentication/sign-in-form-with-cover-image',
-    renderer: (params = {}): JSX.Element => (
-      <SignInFormWithCoverImageView {...params} />
-    ),
+    renderer: (params = {}) => <SignInFormWithCoverImageView {...params} />,
   },
   {
     path: '/blocks/authentication/reset-password-simple-form',
-    renderer: (params = {}): JSX.Element => (
-      <ResetPasswordSimpleFormView {...params} />
-    ),
+    renderer: (params = {}) => <ResetPasswordSimpleFormView {...params} />,
   },
   {
     path: '/blocks/authentication/auth-form-with-dark-bg',
-    renderer: (params = {}): JSX.Element => (
-      <AuthFormWithDarkBgView {...params} />
-    ),
+    renderer: (params = {}) => <AuthFormWithDarkBgView {...params} />,
   },
 ];
 

@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Container from 'components/Container';
 import { Form } from './components';
 
-const SignUpFormWithCoverImage = (): JSX.Element => {
+const SignUpFormWithCoverImage = () => {
   const theme = useTheme();
   return (
     <Box

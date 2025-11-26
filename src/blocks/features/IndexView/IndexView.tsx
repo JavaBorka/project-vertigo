@@ -8,7 +8,7 @@ import Fluid from 'layouts/Fluid';
 import Container from 'components/Container';
 import ResizableFrame from 'components/ResizableFrame';
 
-const IndexView = (): JSX.Element => {
+const IndexView = () => {
   return (
     <Fluid>
       <Box bgcolor={'alternate.main'}>

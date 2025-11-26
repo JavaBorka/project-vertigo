@@ -339,7 +339,7 @@ const mock = [
   },
 ];
 
-const SidebarNav = (): JSX.Element => {
+const SidebarNav = () => {
   const theme = useTheme();
   return (
     <Box padding={2} display={'flex'} flexDirection={'column'} height={1}>

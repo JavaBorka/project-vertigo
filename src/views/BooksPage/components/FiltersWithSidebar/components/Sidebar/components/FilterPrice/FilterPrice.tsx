@@ -9,7 +9,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 
 const valuetext = (value) => `$${value[0]} - $${value[1]}`;
 
-const FilterPrice = (): JSX.Element => {
+const FilterPrice = () => {
   const [value, setValue] = useState([20, 400]);
   const [open, setOpen] = useState(true);
 

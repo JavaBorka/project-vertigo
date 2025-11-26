@@ -14,41 +14,37 @@ import {
 const routes = [
   {
     path: '/blocks/logo-grid',
-    renderer: (params = {}): JSX.Element => <LogoGridIndexView {...params} />,
+    renderer: (params = {}) => <LogoGridIndexView {...params} />,
   },
   {
     path: '/blocks/logo-grid/logo-grid-simple-centered',
-    renderer: (params = {}): JSX.Element => (
-      <LogoGridSimpleCenteredView {...params} />
-    ),
+    renderer: (params = {}) => <LogoGridSimpleCenteredView {...params} />,
   },
   {
     path: '/blocks/logo-grid/logo-grid-with-boxed-logos',
-    renderer: (params = {}): JSX.Element => <WithBoxedLogosView {...params} />,
+    renderer: (params = {}) => <WithBoxedLogosView {...params} />,
   },
   {
     path: '/blocks/logo-grid/logo-grid-with-left-aligned-description-box',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <WithLeftAlignedDescriptionBoxView {...params} />
     ),
   },
   {
     path: '/blocks/logo-grid/logo-grid-with-swiper-and-brand-background-color',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <WithSwiperAndBrandBackgroundColorView {...params} />
     ),
   },
   {
-    path:
-      '/blocks/logo-grid/logo-grid-with-left-aligned-description-box-and-boxed-logos',
-    renderer: (params = {}): JSX.Element => (
+    path: '/blocks/logo-grid/logo-grid-with-left-aligned-description-box-and-boxed-logos',
+    renderer: (params = {}) => (
       <WithLeftAlignedDescriptionBoxAndBoxedLogosView {...params} />
     ),
   },
   {
-    path:
-      '/blocks/logo-grid/logo-grid-with-dark-background-and-simple-description-box',
-    renderer: (params = {}): JSX.Element => (
+    path: '/blocks/logo-grid/logo-grid-with-dark-background-and-simple-description-box',
+    renderer: (params = {}) => (
       <WithDarkBackgroundAndSimpleDescriptionBoxView {...params} />
     ),
   },

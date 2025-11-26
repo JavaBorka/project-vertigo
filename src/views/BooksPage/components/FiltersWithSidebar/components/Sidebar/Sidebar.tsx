@@ -17,7 +17,7 @@ interface Props {
   variant: 'permanent' | 'persistent' | 'temporary' | undefined;
 }
 
-const Sidebar = ({ open, variant, onClose }: Props): JSX.Element => {
+const Sidebar = ({ open, variant, onClose }: Props) => {
   return (
     <Drawer
       anchor="left"
@@ -33,8 +33,8 @@ const Sidebar = ({ open, variant, onClose }: Props): JSX.Element => {
           border: 0,
           paddingTop: {
             xs: 9,
-            md: 0
-          }
+            md: 0,
+          },
         },
       }}
     >

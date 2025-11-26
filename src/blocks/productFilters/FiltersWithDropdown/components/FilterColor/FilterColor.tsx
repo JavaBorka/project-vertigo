@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
-const FilterColor = (): JSX.Element => {
+const FilterColor = () => {
   const theme = useTheme();
   const [color, setColor] = useState('blue');
   const [open, setOpen] = useState(false);

@@ -3,7 +3,7 @@ import { Routes as ReactRoutes, Route, Navigate } from 'react-router-dom';
 import viewsRoutes from 'views/routes';
 import blocksRoutes from 'blocks/routes';
 
-const Routes = (): JSX.Element => {
+const Routes = () => {
   return (
     <ReactRoutes>
       {viewsRoutes.map((item, i) => (

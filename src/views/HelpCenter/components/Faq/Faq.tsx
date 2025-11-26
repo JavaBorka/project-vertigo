@@ -98,7 +98,7 @@ const mock = {
   },
 };
 
-const Faq = (): JSX.Element => {
+const Faq = () => {
   const renderFaqBox = (title = '', subtitle = '') => (
     <Box
       component={Card}

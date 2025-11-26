@@ -7,7 +7,7 @@ import Container from 'components/Container';
 
 import { Headline, Form } from './components';
 
-const AuthFormWithDarkBg = (): JSX.Element => {
+const AuthFormWithDarkBg = () => {
   const theme = useTheme();
 
   return (

@@ -5,7 +5,7 @@ import { Image, Details } from './components';
 
 import Container from 'components/Container';
 
-const WithImageGrid = (): JSX.Element => {
+const WithImageGrid = () => {
   return (
     <Container>
       <Grid container spacing={{ xs: 2, md: 4 }}>

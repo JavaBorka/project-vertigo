@@ -59,7 +59,7 @@ const mock = [
   },
 ];
 
-const LatestStories = (): JSX.Element => {
+const LatestStories = () => {
   const theme = useTheme();
   return (
     <Box>

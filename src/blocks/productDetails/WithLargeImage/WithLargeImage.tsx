@@ -6,7 +6,7 @@ import { Image, Details } from './components';
 
 import Container from 'components/Container';
 
-const WithLargeImage = (): JSX.Element => {
+const WithLargeImage = () => {
   return (
     <Container>
       <Box>

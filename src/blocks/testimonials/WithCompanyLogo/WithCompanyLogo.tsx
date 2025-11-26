@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 
 import Container from 'components/Container';
 
-const WithCompanyLogo = (): JSX.Element => {
+const WithCompanyLogo = () => {
   const theme = useTheme();
 
   return (

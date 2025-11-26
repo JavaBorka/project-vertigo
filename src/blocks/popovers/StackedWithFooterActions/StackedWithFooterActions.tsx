@@ -148,7 +148,7 @@ const mock = [
   },
 ];
 
-const StackedWithFooterActions = (): JSX.Element => {
+const StackedWithFooterActions = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);

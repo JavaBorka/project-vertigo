@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 
 import Container from 'components/Container';
 
-const CtaWithRightButtons = (): JSX.Element => {
+const CtaWithRightButtons = () => {
   return (
     <Container>
       <Box>

@@ -11,21 +11,19 @@ import {
 const routes = [
   {
     path: '/blocks/product-pickers',
-    renderer: (params = {}): JSX.Element => (
-      <ProductPickersIndexView {...params} />
-    ),
+    renderer: (params = {}) => <ProductPickersIndexView {...params} />,
   },
   {
     path: '/blocks/product-pickers/color-picker',
-    renderer: (params = {}): JSX.Element => <ColorPickerView {...params} />,
+    renderer: (params = {}) => <ColorPickerView {...params} />,
   },
   {
     path: '/blocks/product-pickers/size-picker',
-    renderer: (params = {}): JSX.Element => <SizePickerView {...params} />,
+    renderer: (params = {}) => <SizePickerView {...params} />,
   },
   {
     path: '/blocks/product-pickers/quantity-picker',
-    renderer: (params = {}): JSX.Element => <QuantityPickerView {...params} />,
+    renderer: (params = {}) => <QuantityPickerView {...params} />,
   },
 ];
 

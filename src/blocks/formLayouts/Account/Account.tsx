@@ -10,7 +10,7 @@ import { Billing, General, Notifications, Security } from './components';
 
 import Container from 'components/Container';
 
-const Account = (): JSX.Element => {
+const Account = () => {
   return (
     <Container>
       <Box>

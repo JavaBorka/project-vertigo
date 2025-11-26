@@ -16,7 +16,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 
 import Container from 'components/Container';
 
-const FeatureListWithForm = (): JSX.Element => {
+const FeatureListWithForm = () => {
   const theme = useTheme();
   return (
     <Box bgcolor={'alternate.main'}>

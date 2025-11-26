@@ -45,7 +45,7 @@ const mock = [
   },
 ];
 
-const VerticalMinimalDesignedBlogCards = (): JSX.Element => {
+const VerticalMinimalDesignedBlogCards = () => {
   const theme = useTheme();
   return (
     <Container>

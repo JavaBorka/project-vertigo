@@ -8,7 +8,7 @@ import { useTheme } from '@mui/material/styles';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
-const Footer = (): JSX.Element => {
+const Footer = () => {
   const theme = useTheme();
   const { mode } = theme.palette;
 
@@ -40,30 +40,34 @@ const Footer = (): JSX.Element => {
               width={1}
             />
           </Box>
-          <Box sx={{ 
-            flex: 1,
-            display: 'flex',
-            justifyContent:'center',
-            paddingX: 5,
-            paddingY: 3
-          }}
+          <Box
+            sx={{
+              flex: 1,
+              display: 'flex',
+              justifyContent: 'center',
+              paddingX: 5,
+              paddingY: 3,
+            }}
           >
             <Typography
               align={'center'}
               variant={'subtitle2'}
               color="text.secondary"
             >
-              Publikácie sú podporené z verejných zdrojov Fondu na podporu umenia
+              Publikácie sú podporené z verejných zdrojov Fondu na podporu
+              umenia
             </Typography>
-          </Box>  
-          <Box sx={{ 
-              ml: { xs: 0, sm: 'auto' }, 
+          </Box>
+          <Box
+            sx={{
+              ml: { xs: 0, sm: 'auto' },
               alignSelf: { xs: 'center', sm: 'center' },
               paddingBottom: {
                 xs: 3,
-                sm: 0
-              } 
-            }}>
+                sm: 0,
+              },
+            }}
+          >
             <Link
               href="https://fpu.sk/"
               target="_blank"
@@ -72,7 +76,7 @@ const Footer = (): JSX.Element => {
               sx={{ display: 'inline-flex', alignItems: 'center' }}
               aria-label="Fond na podporu umenia"
             >
-              <Box 
+              <Box
                 component={'img'}
                 src={'/assets/svg/logo/logo-fpu.svg'}
                 sx={{ width: { xs: 110, sm: 120 } }}

@@ -9,7 +9,7 @@ import AppBar from '@mui/material/AppBar';
 import Container from 'components/Container';
 import { Topbar, Sidebar, Footer } from './components';
 
-const ChildMock = (): JSX.Element => {
+const ChildMock = () => {
   const theme = useTheme();
   return (
     <Box
@@ -25,7 +25,7 @@ const ChildMock = (): JSX.Element => {
   );
 };
 
-const WithThreeColumns = (): JSX.Element => {
+const WithThreeColumns = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

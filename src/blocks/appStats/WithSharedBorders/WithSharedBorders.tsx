@@ -88,7 +88,7 @@ const mock = [
   },
 ];
 
-const WithSharedBorders = (): JSX.Element => {
+const WithSharedBorders = () => {
   const theme = useTheme();
   return (
     <Box bgcolor={'alternate.main'}>

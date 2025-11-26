@@ -57,7 +57,7 @@ const mock = [
   },
 ];
 
-const Details = (): JSX.Element => {
+const Details = () => {
   const theme = useTheme();
   const [size, setSize] = useState('M');
   const [color, setColor] = useState('white');

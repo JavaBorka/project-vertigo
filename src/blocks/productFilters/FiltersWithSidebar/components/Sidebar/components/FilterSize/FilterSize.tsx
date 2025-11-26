@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
-const FilterSize = (): JSX.Element => {
+const FilterSize = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
   const [size, setSize] = useState('M');

@@ -17,7 +17,7 @@ import { Hero, OverviewSection } from './components';
 
 import data from './data';
 
-const IndexView = (): JSX.Element => {
+const IndexView = () => {
   const theme = useTheme();
   const isSm = useMediaQuery(theme.breakpoints.up('sm'), {
     defaultMatches: true,
@@ -31,20 +31,18 @@ const IndexView = (): JSX.Element => {
   });
 
   const scrollTo = (id): void => {
-    setTimeout(
-      (): JSX.Element => {
-        const element: HTMLElement = document.querySelector(`#${id}`);
-        if (!element) {
-          return;
-        }
+    setTimeout(() => {
+      const element: HTMLElement = document.querySelector(`#${id}`);
+      if (!element) {
+        return;
+      }
 
-        window.scrollTo({
-          left: 0,
-          top: element.offsetTop,
-          behavior: 'smooth',
-        });
-      },
-    );
+      window.scrollTo({
+        left: 0,
+        top: element.offsetTop,
+        behavior: 'smooth',
+      });
+    });
   };
 
   return (

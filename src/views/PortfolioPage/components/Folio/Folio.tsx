@@ -10,29 +10,29 @@ const mock = [
     image: '/assets/images/grid-1-1920x1404.jpg',
     description: 'Autorské monografie z oblasti literárnej vedy',
     title: 'Literárna veda',
-    // color: '#183167',
+    color: '#183167',
   },
   {
     image: '/assets/images/grid-2-1920x1404.jpg',
     description: 'Básnické zbierky zo svetovej literatúry',
     title: 'Poézia',
-    // color: '#CE371F',
+    color: '#CE371F',
   },
   {
     image: '/assets/images/grid-3-1920x1404.jpg',
     description: 'Preklady súčasnej svetovej prózy',
     title: 'Próza',
-    // color: '#ECB3BE',
+    color: '#ECB3BE',
   },
   {
     image: '/assets/images/grid-4-1920x1404.jpg',
     description: 'Literatúra pre deti a mládež',
     title: 'Deti',
-    // color: '#000000',
+    color: '#000000',
   },
 ];
 
-const Folio = (): JSX.Element => {
+const Folio = () => {
   const theme = useTheme();
   return (
     <Box>

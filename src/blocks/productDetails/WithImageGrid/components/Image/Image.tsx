@@ -8,7 +8,7 @@ const mock = [
   'https://assets.maccarianagency.com/backgrounds/img58.jpg',
 ];
 
-const Image = (): JSX.Element => {
+const Image = () => {
   return (
     <Grid container spacing={2} sx={{ height: 1 }}>
       {mock.map((item, i) => (

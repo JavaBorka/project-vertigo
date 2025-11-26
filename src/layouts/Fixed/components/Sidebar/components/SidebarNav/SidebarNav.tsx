@@ -14,7 +14,7 @@ interface Props {
   }>;
 }
 
-const SidebarNav = ({ pages, onClose }: Props): JSX.Element => {
+const SidebarNav = ({ pages, onClose }: Props) => {
   const theme = useTheme();
   const [activeLink, setActiveLink] = useState('');
   useEffect(() => {

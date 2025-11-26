@@ -13,7 +13,7 @@ import Divider from '@mui/material/Divider';
 
 import Container from 'components/Container';
 
-const Features = (): JSX.Element => {
+const Features = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

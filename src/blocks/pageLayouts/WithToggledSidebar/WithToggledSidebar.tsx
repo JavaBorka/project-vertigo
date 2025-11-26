@@ -7,7 +7,7 @@ import AppBar from '@mui/material/AppBar';
 import Container from 'components/Container';
 import { Topbar, Sidebar, Footer } from './components';
 
-const ChildMock = (): JSX.Element => {
+const ChildMock = () => {
   const theme = useTheme();
   return (
     <Box p={4}>
@@ -25,7 +25,7 @@ const ChildMock = (): JSX.Element => {
   );
 };
 
-const WithToggledSidebar = (): JSX.Element => {
+const WithToggledSidebar = () => {
   const theme = useTheme();
   const [openSidebar, setOpenSidebar] = useState(false);
 

@@ -22,7 +22,7 @@ const mock = [
   },
 ];
 
-const Articles = (): JSX.Element => {
+const Articles = () => {
   return (
     <Box>
       <Grid container spacing={4}>

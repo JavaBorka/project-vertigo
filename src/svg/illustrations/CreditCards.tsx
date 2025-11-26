@@ -1,10 +1,7 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 
-const CreditCards = ({
-  width = 200,
-  height = 98,
-}: IllustrationProps): JSX.Element => {
+const CreditCards = ({ width = 200, height = 98 }: IllustrationProps) => {
   const theme = useTheme();
   const colorPrimaryMain = theme.palette.primary.main;
   return (

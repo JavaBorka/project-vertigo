@@ -10,7 +10,7 @@ import Grid from '@mui/material/Grid';
 
 import Container from 'components/Container';
 
-const WithLargeImage = (): JSX.Element => {
+const WithLargeImage = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

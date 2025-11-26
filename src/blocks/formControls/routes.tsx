@@ -12,29 +12,23 @@ import {
 const routes = [
   {
     path: '/blocks/form-controls',
-    renderer: (params = {}): JSX.Element => (
-      <FormControlsIndexView {...params} />
-    ),
+    renderer: (params = {}) => <FormControlsIndexView {...params} />,
   },
   {
     path: '/blocks/form-controls/custom-select',
-    renderer: (params = {}): JSX.Element => <CustomSelectView {...params} />,
+    renderer: (params = {}) => <CustomSelectView {...params} />,
   },
   {
     path: '/blocks/form-controls/stacked-custom-radio-group',
-    renderer: (params = {}): JSX.Element => (
-      <StackedCustomRadioGroupView {...params} />
-    ),
+    renderer: (params = {}) => <StackedCustomRadioGroupView {...params} />,
   },
   {
     path: '/blocks/form-controls/custom-radio-group',
-    renderer: (params = {}): JSX.Element => (
-      <CustomRadioGroupView {...params} />
-    ),
+    renderer: (params = {}) => <CustomRadioGroupView {...params} />,
   },
   {
     path: '/blocks/form-controls/toggle-button',
-    renderer: (params = {}): JSX.Element => <ToggleButtonView {...params} />,
+    renderer: (params = {}) => <ToggleButtonView {...params} />,
   },
 ];
 

@@ -12,7 +12,7 @@ import { alpha } from '@mui/material/styles';
 
 import Container from 'components/Container';
 
-const SupportCenterCta = (): JSX.Element => {
+const SupportCenterCta = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

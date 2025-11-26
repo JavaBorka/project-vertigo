@@ -11,7 +11,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 
 import Container from 'components/Container';
 
-const HeroWithIllustrationAndSearchBar = (): JSX.Element => {
+const HeroWithIllustrationAndSearchBar = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

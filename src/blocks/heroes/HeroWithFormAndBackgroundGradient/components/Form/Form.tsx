@@ -7,7 +7,7 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
-const Form = (): JSX.Element => {
+const Form = () => {
   const theme = useTheme();
   return (
     <Box padding={{ xs: 3, sm: 6 }} width={1} component={Card} boxShadow={1}>

@@ -9,7 +9,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
-const Details = (): JSX.Element => {
+const Details = () => {
   const theme = useTheme();
   const [size, setSize] = useState('M');
   const [color, setColor] = useState('white');

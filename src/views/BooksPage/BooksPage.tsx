@@ -2,14 +2,12 @@ import React, { JSX } from 'react';
 import FiltersWithSidebar from './components/FiltersWithSidebar';
 import Main from 'layouts/Main';
 
-const BooksPage = (): JSX.Element => {
+const BooksPage = () => {
+  return (
+    <Main>
+      <FiltersWithSidebar />
+    </Main>
+  );
+};
 
-    return (
-        <Main>
-            <FiltersWithSidebar />
-        </Main>
-    )
-
-}
-
-export default BooksPage
+export default BooksPage;

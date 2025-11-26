@@ -9,15 +9,11 @@ import {
 const routes = [
   {
     path: '/blocks/product-quick-views',
-    renderer: (params = {}): JSX.Element => (
-      <ProductQuickViewsIndexView {...params} />
-    ),
+    renderer: (params = {}) => <ProductQuickViewsIndexView {...params} />,
   },
   {
     path: '/blocks/product-quick-views/popup-box-with-product-details',
-    renderer: (params = {}): JSX.Element => (
-      <PopupBoxWithProductDetailsView {...params} />
-    ),
+    renderer: (params = {}) => <PopupBoxWithProductDetailsView {...params} />,
   },
 ];
 

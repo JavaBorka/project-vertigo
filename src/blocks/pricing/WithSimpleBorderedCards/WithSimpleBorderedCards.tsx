@@ -121,7 +121,7 @@ const mock = [
   },
 ];
 
-const WithSimpleBorderedCards = (): JSX.Element => {
+const WithSimpleBorderedCards = () => {
   const theme = useTheme();
 
   return (

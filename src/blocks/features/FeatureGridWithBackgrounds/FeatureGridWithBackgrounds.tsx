@@ -55,7 +55,7 @@ const mock = [
   },
 ];
 
-const FeatureGridWithBackgrounds = (): JSX.Element => {
+const FeatureGridWithBackgrounds = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

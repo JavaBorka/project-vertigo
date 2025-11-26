@@ -37,7 +37,7 @@ const mock = [
   },
 ];
 
-const ReviewsWithSimpleBoxes = (): JSX.Element => {
+const ReviewsWithSimpleBoxes = () => {
   const theme = useTheme();
 
   return (

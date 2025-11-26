@@ -17,7 +17,7 @@ import Box from '@mui/material/Box';
 
 import Container from 'components/Container';
 
-const CustomToggleButton = (): JSX.Element => {
+const CustomToggleButton = () => {
   const theme = useTheme();
   const [alignment, setAlignment] = React.useState('left');
   const [formats, setFormats] = React.useState(() => ['italic']);

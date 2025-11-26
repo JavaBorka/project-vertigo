@@ -21,7 +21,7 @@ const mock = [
   },
 ];
 
-const Simple = (): JSX.Element => {
+const Simple = () => {
   return (
     <Box bgcolor={'alternate.main'}>
       <Container>

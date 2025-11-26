@@ -57,10 +57,9 @@ const mock = [
   },
 ];
 
-const MostViewedArticles = (): JSX.Element => {
+const MostViewedArticles = () => {
   const theme = useTheme();
   return (
-    
     <Box>
       <Box marginBottom={4}>
         <Typography
@@ -170,15 +169,24 @@ const MostViewedArticles = (): JSX.Element => {
                   justifyContent: 'center',
                 }}
               >
-                <Typography fontWeight={700} sx={{ textTransform: 'uppercase' }}>
+                <Typography
+                  fontWeight={700}
+                  sx={{ textTransform: 'uppercase' }}
+                >
                   {item.title}
                 </Typography>
                 <Box marginY={1}>
-                  <Typography variant={'caption'} color={'text.secondary'} component={'i'}>
+                  <Typography
+                    variant={'caption'}
+                    color={'text.secondary'}
+                    component={'i'}
+                  >
                     {item.author.name}
                   </Typography>
                 </Box>
-                <Typography color="text.secondary">{item.description}</Typography>
+                <Typography color="text.secondary">
+                  {item.description}
+                </Typography>
                 <Box marginTop={2} display={'flex'} justifyContent={'flex-end'}>
                   <Button
                     endIcon={

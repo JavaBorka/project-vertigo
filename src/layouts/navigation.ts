@@ -17,12 +17,9 @@ const pages = {
       href: '/deti',
     },
   ],
-  vertigo: [
-  ],
-  about: [
-  ],
-  authors: [
-  ],
+  vertigo: [],
+  about: [],
+  authors: [],
 };
 
 export default pages;

@@ -13,7 +13,7 @@ interface Props {
   open: boolean;
 }
 
-const FeedbackForm = ({ onClose, open }: Props): JSX.Element => {
+const FeedbackForm = ({ onClose, open }: Props) => {
   const theme = useTheme();
   const [currentScore, setCurrentScore] = useState(3);
 

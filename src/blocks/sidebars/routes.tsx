@@ -11,21 +11,19 @@ import {
 const routes = [
   {
     path: '/blocks/sidebars',
-    renderer: (params = {}): JSX.Element => <SidebarsIndexView {...params} />,
+    renderer: (params = {}) => <SidebarsIndexView {...params} />,
   },
   {
     path: '/blocks/sidebars/simple',
-    renderer: (params = {}): JSX.Element => <SimpleView {...params} />,
+    renderer: (params = {}) => <SimpleView {...params} />,
   },
   {
     path: '/blocks/sidebars/with-dark-bg',
-    renderer: (params = {}): JSX.Element => <WithDarkBgView {...params} />,
+    renderer: (params = {}) => <WithDarkBgView {...params} />,
   },
   {
     path: '/blocks/sidebars/with-collapsible-menu-items',
-    renderer: (params = {}): JSX.Element => (
-      <WithCollapsibleMenuItemsView {...params} />
-    ),
+    renderer: (params = {}) => <WithCollapsibleMenuItemsView {...params} />,
   },
 ];
 

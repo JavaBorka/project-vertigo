@@ -7,7 +7,7 @@ import { PopupBox } from './components';
 
 import Container from 'components/Container';
 
-const PopupWithDiscount = (): JSX.Element => {
+const PopupWithDiscount = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 

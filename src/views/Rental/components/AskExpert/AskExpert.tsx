@@ -61,7 +61,7 @@ const mock = [
   },
 ];
 
-const AskExpert = (): JSX.Element => {
+const AskExpert = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

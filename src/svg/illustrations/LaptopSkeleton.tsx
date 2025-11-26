@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 
-const LaptopSkeleton = (): JSX.Element => {
+const LaptopSkeleton = () => {
   const theme = useTheme();
   const { mode } = theme.palette;
 

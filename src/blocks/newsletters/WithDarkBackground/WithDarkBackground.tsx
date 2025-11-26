@@ -12,7 +12,7 @@ import { useTheme } from '@mui/material/styles';
 
 import Container from 'components/Container';
 
-const WithDarkBackground = (): JSX.Element => {
+const WithDarkBackground = () => {
   const theme = useTheme();
   const isSm = useMediaQuery(theme.breakpoints.up('sm'), {
     defaultMatches: true,

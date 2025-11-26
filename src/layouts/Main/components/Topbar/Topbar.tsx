@@ -18,11 +18,7 @@ interface Props {
   colorInvert?: boolean;
 }
 
-const Topbar = ({
-  onSidebarOpen,
-  pages,
-  colorInvert = false,
-}: Props): JSX.Element => {
+const Topbar = ({ onSidebarOpen, pages, colorInvert = false }: Props) => {
   const theme = useTheme();
   const { mode } = theme.palette;
   const {
@@ -134,7 +130,7 @@ export default Topbar;
 //   onSidebarOpen,
 //   pages,
 //   colorInvert = false,
-// }: Props): JSX.Element => {
+// }: Props) => {
 //   const theme = useTheme();
 //   const { mode } = theme.palette;
 //   const {
@@ -253,4 +249,3 @@ export default Topbar;
 // };
 
 // export default Topbar;
-

@@ -74,10 +74,7 @@ const validationSchema = yup.object({
     .min(2, 'Please enter a valid full name')
     .max(50, 'Please enter a valid full name')
     .required('Please specify your full name'),
-  message: yup
-    .string()
-    .trim()
-    .required('Please specify your message'),
+  message: yup.string().trim().required('Please specify your message'),
   email: yup
     .string()
     .trim()
@@ -85,7 +82,7 @@ const validationSchema = yup.object({
     .required('Email is required'),
 });
 
-const Contact = (): JSX.Element => {
+const Contact = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -119,8 +116,13 @@ const Contact = (): JSX.Element => {
         >
           Napíšte nám
         </Typography>
-        <Typography color="text.secondary" align={'center'} data-aos={'fade-up'}>
-          Máte niečo na srdci, o čom by ste sa s nami chceli podeliť? Napíšte nám. Vaše otázky radi zodpovieme.
+        <Typography
+          color="text.secondary"
+          align={'center'}
+          data-aos={'fade-up'}
+        >
+          Máte niečo na srdci, o čom by ste sa s nami chceli podeliť? Napíšte
+          nám. Vaše otázky radi zodpovieme.
         </Typography>
       </Box>
       <Box

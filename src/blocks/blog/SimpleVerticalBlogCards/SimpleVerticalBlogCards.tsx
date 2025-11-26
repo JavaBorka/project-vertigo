@@ -61,7 +61,7 @@ const mock = [
   },
 ];
 
-const SimpleVerticalBlogCards = (): JSX.Element => {
+const SimpleVerticalBlogCards = () => {
   const theme = useTheme();
   return (
     <Container>

@@ -6,7 +6,7 @@ import Container from 'components/Container';
 
 import { Form, Cover } from './components';
 
-const FullScreenHeroWithSubscriptionForm = (): JSX.Element => {
+const FullScreenHeroWithSubscriptionForm = () => {
   return (
     <Box
       sx={{

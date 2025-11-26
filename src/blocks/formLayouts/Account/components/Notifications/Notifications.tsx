@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-const Notifications = (): JSX.Element => {
+const Notifications = () => {
   return (
     <Box>
       <form>

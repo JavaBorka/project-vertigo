@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 
 import Container from 'components/Container';
 
-const HeroWithIllustrationAndCta = (): JSX.Element => {
+const HeroWithIllustrationAndCta = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -84,7 +84,9 @@ const HeroWithIllustrationAndCta = (): JSX.Element => {
                 >
                   <Button
                     component={'a'}
-                    href={'https://thefront.maccarianagency.com/docs/introduction'}
+                    href={
+                      'https://thefront.maccarianagency.com/docs/introduction'
+                    }
                     target={'blank'}
                     variant="outlined"
                     color="primary"

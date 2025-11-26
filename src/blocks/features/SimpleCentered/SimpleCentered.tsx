@@ -56,7 +56,7 @@ const mock = [
   {
     title: 'Documentation for everything',
     subtitle:
-      'We\'ve written extensive documentation for components and tools, so you never have to reverse engineer anything.',
+      "We've written extensive documentation for components and tools, so you never have to reverse engineer anything.",
     icon: (
       <svg
         height={24}
@@ -77,7 +77,7 @@ const mock = [
   },
 ];
 
-const SimpleCentered = (): JSX.Element => {
+const SimpleCentered = () => {
   const theme = useTheme();
   return (
     <Container>

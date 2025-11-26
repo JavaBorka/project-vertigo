@@ -12,31 +12,23 @@ import {
 const routes = [
   {
     path: '/blocks/notifications',
-    renderer: (params = {}): JSX.Element => (
-      <NotificationsIndexView {...params} />
-    ),
+    renderer: (params = {}) => <NotificationsIndexView {...params} />,
   },
   {
     path: '/blocks/notifications/simple',
-    renderer: (params = {}): JSX.Element => <SimpleView {...params} />,
+    renderer: (params = {}) => <SimpleView {...params} />,
   },
   {
     path: '/blocks/notifications/with-action-buttons',
-    renderer: (params = {}): JSX.Element => (
-      <WithActionButtonsView {...params} />
-    ),
+    renderer: (params = {}) => <WithActionButtonsView {...params} />,
   },
   {
     path: '/blocks/notifications/with-avatar-and-buttons-below',
-    renderer: (params = {}): JSX.Element => (
-      <WithAvatarAndButtonsBelowView {...params} />
-    ),
+    renderer: (params = {}) => <WithAvatarAndButtonsBelowView {...params} />,
   },
   {
     path: '/blocks/notifications/with-split-buttons',
-    renderer: (params = {}): JSX.Element => (
-      <WithSplitButtonsView {...params} />
-    ),
+    renderer: (params = {}) => <WithSplitButtonsView {...params} />,
   },
 ];
 

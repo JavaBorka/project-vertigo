@@ -12,7 +12,7 @@ interface Props {
   open: boolean;
 }
 
-const PopupBox = ({ onClose, open }: Props): JSX.Element => {
+const PopupBox = ({ onClose, open }: Props) => {
   return (
     <Dialog
       onClose={onClose}

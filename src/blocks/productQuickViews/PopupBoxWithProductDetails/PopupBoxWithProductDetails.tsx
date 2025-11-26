@@ -7,7 +7,7 @@ import { ProductDialog } from './components';
 
 import Container from 'components/Container';
 
-const PopupBoxWithProductDetails = (): JSX.Element => {
+const PopupBoxWithProductDetails = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 

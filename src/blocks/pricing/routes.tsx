@@ -15,47 +15,39 @@ import {
 const routes = [
   {
     path: '/blocks/pricing',
-    renderer: (params = {}): JSX.Element => <PricingIndexView {...params} />,
+    renderer: (params = {}) => <PricingIndexView {...params} />,
   },
   {
     path: '/blocks/pricing/with-highlighting-and-primary-color',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <WithHighlightingAndPrimaryColorView {...params} />
     ),
   },
   {
     path: '/blocks/pricing/with-two-column-and-mixed-height',
-    renderer: (params = {}): JSX.Element => (
-      <WithTwoColumnAndMixedHeightView {...params} />
-    ),
+    renderer: (params = {}) => <WithTwoColumnAndMixedHeightView {...params} />,
   },
   {
     path: '/blocks/pricing/with-simple-bordered-cards',
-    renderer: (params = {}): JSX.Element => (
-      <WithSimpleBorderedCardsView {...params} />
-    ),
+    renderer: (params = {}) => <WithSimpleBorderedCardsView {...params} />,
   },
   {
     path: '/blocks/pricing/single-choice-option',
-    renderer: (params = {}): JSX.Element => (
-      <SingleChoiceOptionView {...params} />
-    ),
+    renderer: (params = {}) => <SingleChoiceOptionView {...params} />,
   },
   {
     path: '/blocks/pricing/with-highlighting-and-secondary-color',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <WithHighlightingAndSecondaryColorView {...params} />
     ),
   },
   {
     path: '/blocks/pricing/with-option-toggler-button',
-    renderer: (params = {}): JSX.Element => (
-      <WithOptionTogglerButtonView {...params} />
-    ),
+    renderer: (params = {}) => <WithOptionTogglerButtonView {...params} />,
   },
   {
     path: '/blocks/pricing/compare-table',
-    renderer: (params = {}): JSX.Element => <CompareTableView {...params} />,
+    renderer: (params = {}) => <CompareTableView {...params} />,
   },
 ];
 

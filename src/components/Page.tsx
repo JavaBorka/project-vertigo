@@ -41,7 +41,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-export default function Page({ children }: Props): JSX.Element {
+export default function Page({ children }: Props) {
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');

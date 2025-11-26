@@ -7,7 +7,7 @@ import { useTheme } from '@mui/material/styles';
 
 import Container from 'components/Container';
 
-const CtaAlignedLeftWithTypedText = (): JSX.Element => {
+const CtaAlignedLeftWithTypedText = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

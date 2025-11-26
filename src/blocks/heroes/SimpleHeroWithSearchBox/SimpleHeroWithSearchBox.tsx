@@ -11,7 +11,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 
 import Container from 'components/Container';
 
-const SimpleHeroWithSearchBox = (): JSX.Element => {
+const SimpleHeroWithSearchBox = () => {
   const theme = useTheme();
 
   return (

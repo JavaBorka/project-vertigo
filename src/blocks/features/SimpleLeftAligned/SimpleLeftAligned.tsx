@@ -35,7 +35,7 @@ const mock = [
   {
     title: 'Select companies',
     subtitle:
-      'We\'ll immediately match you with any relevant openings and you get to pick which ones you\'re interested in.',
+      "We'll immediately match you with any relevant openings and you get to pick which ones you're interested in.",
     icon: (
       <svg
         height={24}
@@ -78,7 +78,7 @@ const mock = [
   },
 ];
 
-const SimpleLeftAligned = (): JSX.Element => {
+const SimpleLeftAligned = () => {
   const theme = useTheme();
   return (
     <Container>

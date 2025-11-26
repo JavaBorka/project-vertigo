@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-const Details = (): JSX.Element => {
+const Details = () => {
   const theme = useTheme();
   const [size, setSize] = useState('M');
   const [color, setColor] = useState('white');

@@ -20,7 +20,7 @@ interface Props {
   }>;
 }
 
-const OverviewSection = ({ title, description, items }: Props): JSX.Element => {
+const OverviewSection = ({ title, description, items }: Props) => {
   const theme = useTheme();
 
   return (

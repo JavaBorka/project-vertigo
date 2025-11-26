@@ -31,7 +31,7 @@ const steps = [
   },
 ];
 
-const VerticalStepper = (): JSX.Element => {
+const VerticalStepper = () => {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = (): void => {

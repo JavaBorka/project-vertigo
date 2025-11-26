@@ -14,7 +14,7 @@ const mock = {
   href: '#',
 };
 
-const ShowcaseBgImage = (): JSX.Element => {
+const ShowcaseBgImage = () => {
   const theme = useTheme();
   return (
     <Box

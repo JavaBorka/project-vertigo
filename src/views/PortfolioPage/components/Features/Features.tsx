@@ -10,7 +10,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
 
-const Features = (): JSX.Element => {
+const Features = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -70,7 +70,7 @@ const Features = (): JSX.Element => {
               {[
                 'Affordable, scalable and performant. The perfect solution for small apps.',
                 'A mid-sized solution for businesses undergoing rapid user growth.',
-                'A farm of machines entirely dedicated to your company\'s storage needs.',
+                "A farm of machines entirely dedicated to your company's storage needs.",
                 'A mid-sized solution for businesses undergoing rapid user growth.',
               ].map((item, i) => (
                 <Grid item xs={12} key={i}>

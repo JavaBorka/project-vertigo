@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const FooterNewsletter = (): JSX.Element => {
+const FooterNewsletter = () => {
   return (
     <Box>
       <Box marginBottom={4}>

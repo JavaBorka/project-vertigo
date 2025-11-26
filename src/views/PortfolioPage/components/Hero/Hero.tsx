@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 
 import Container from 'components/Container';
 
-const Hero = (): JSX.Element => {
+const Hero = () => {
   useEffect(() => {
     const jarallaxInit = async () => {
       const jarallaxElems = document.querySelectorAll('.jarallax');
@@ -50,11 +50,9 @@ const Hero = (): JSX.Element => {
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
-          backgroundImage:
-            'url(/assets/images/hero-temp-banner-1400x900.jpg)',
+          backgroundImage: 'url(/assets/images/hero-temp-banner-1400x900.jpg)',
           filter: theme.palette.mode === 'dark' ? 'brightness(0.7)' : 'none',
         }}
-        
       />
       <Container position={'relative'} zIndex={2}>
         <Box>

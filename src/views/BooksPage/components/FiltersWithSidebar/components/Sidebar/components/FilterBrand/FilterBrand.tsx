@@ -13,7 +13,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
-const FilterBrand = (): JSX.Element => {
+const FilterBrand = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
   const [brands, setBrands] = useState([]);

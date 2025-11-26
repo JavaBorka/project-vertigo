@@ -27,7 +27,7 @@ const mock = [
   },
 ];
 
-const Advantages = (): JSX.Element => {
+const Advantages = () => {
   return (
     <Box>
       <Grid container spacing={4}>

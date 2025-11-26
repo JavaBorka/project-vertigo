@@ -14,41 +14,33 @@ import {
 const routes = [
   {
     path: '/blocks/team',
-    renderer: (params = {}): JSX.Element => <TeamIndexView {...params} />,
+    renderer: (params = {}) => <TeamIndexView {...params} />,
   },
   {
     path: '/blocks/team/team-with-circled-photos',
-    renderer: (params = {}): JSX.Element => (
-      <TeamWithCircledPhotosView {...params} />
-    ),
+    renderer: (params = {}) => <TeamWithCircledPhotosView {...params} />,
   },
   {
     path: '/blocks/team/with-overlapped-cards',
-    renderer: (params = {}): JSX.Element => (
-      <WithOverlappedCardsView {...params} />
-    ),
+    renderer: (params = {}) => <WithOverlappedCardsView {...params} />,
   },
   {
     path: '/blocks/team/with-large-images-and-social-icons',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <WithLargeImagesAndSocialIconsView {...params} />
     ),
   },
   {
     path: '/blocks/team/team-with-small-square-photos',
-    renderer: (params = {}): JSX.Element => (
-      <TeamWithSmallSquarePhotosView {...params} />
-    ),
+    renderer: (params = {}) => <TeamWithSmallSquarePhotosView {...params} />,
   },
   {
     path: '/blocks/team/with-simple-card',
-    renderer: (params = {}): JSX.Element => <WithSimpleCardsView {...params} />,
+    renderer: (params = {}) => <WithSimpleCardsView {...params} />,
   },
   {
     path: '/blocks/team/with-alternate-card',
-    renderer: (params = {}): JSX.Element => (
-      <WithAlternateCardsView {...params} />
-    ),
+    renderer: (params = {}) => <WithAlternateCardsView {...params} />,
   },
 ];
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 
-const PhoneSkeleton = (): JSX.Element => {
+const PhoneSkeleton = () => {
   const theme = useTheme();
 
   return (

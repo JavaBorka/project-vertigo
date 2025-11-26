@@ -11,21 +11,19 @@ import {
 const routes = [
   {
     path: '/blocks/app-stats',
-    renderer: (params = {}): JSX.Element => <AppStatsIndexView {...params} />,
+    renderer: (params = {}) => <AppStatsIndexView {...params} />,
   },
   {
     path: '/blocks/app-stats/simple',
-    renderer: (params = {}): JSX.Element => <SimpleView {...params} />,
+    renderer: (params = {}) => <SimpleView {...params} />,
   },
   {
     path: '/blocks/app-stats/with-brand-icon',
-    renderer: (params = {}): JSX.Element => <WithBrandIconView {...params} />,
+    renderer: (params = {}) => <WithBrandIconView {...params} />,
   },
   {
     path: '/blocks/app-stats/with-shared-borders',
-    renderer: (params = {}): JSX.Element => (
-      <WithSharedBordersView {...params} />
-    ),
+    renderer: (params = {}) => <WithSharedBordersView {...params} />,
   },
 ];
 

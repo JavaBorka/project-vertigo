@@ -7,7 +7,7 @@ import AppBar from '@mui/material/AppBar';
 import Container from 'components/Container';
 import { Topbar, Footer } from './components';
 
-const ChildMock = (): JSX.Element => {
+const ChildMock = () => {
   const theme = useTheme();
   return (
     <Box p={4}>
@@ -25,7 +25,7 @@ const ChildMock = (): JSX.Element => {
   );
 };
 
-const WithFluidLayoutAndNoSidebar = (): JSX.Element => {
+const WithFluidLayoutAndNoSidebar = () => {
   const theme = useTheme();
   return (
     <Box>

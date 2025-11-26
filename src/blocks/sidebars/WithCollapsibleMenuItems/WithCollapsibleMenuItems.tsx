@@ -8,7 +8,7 @@ import AppBar from '@mui/material/AppBar';
 import Container from 'components/Container';
 import { Topbar, Sidebar, Footer } from './components';
 
-const ChildMock = (): JSX.Element => {
+const ChildMock = () => {
   return (
     <Box p={4}>
       <Box
@@ -22,7 +22,7 @@ const ChildMock = (): JSX.Element => {
   );
 };
 
-const WithCollapsibleMenuItems = (): JSX.Element => {
+const WithCollapsibleMenuItems = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

@@ -18,67 +18,47 @@ import {
 const routes = [
   {
     path: '/blocks/cta',
-    renderer: (params = {}): JSX.Element => <CtaIndexView {...params} />,
+    renderer: (params = {}) => <CtaIndexView {...params} />,
   },
   {
     path: '/blocks/cta/cta-simple-centered',
-    renderer: (params = {}): JSX.Element => (
-      <CtaSimpleCenteredView {...params} />
-    ),
+    renderer: (params = {}) => <CtaSimpleCenteredView {...params} />,
   },
   {
     path: '/blocks/cta/cta-aligned-left-with-typed-text',
-    renderer: (params = {}): JSX.Element => (
-      <CtaAlignedLeftWithTypedTextView {...params} />
-    ),
+    renderer: (params = {}) => <CtaAlignedLeftWithTypedTextView {...params} />,
   },
   {
     path: '/blocks/cta/cta-with-right-buttons',
-    renderer: (params = {}): JSX.Element => (
-      <CtaWithRightButtonsView {...params} />
-    ),
+    renderer: (params = {}) => <CtaWithRightButtonsView {...params} />,
   },
   {
     path: '/blocks/cta/support-center-cta',
-    renderer: (params = {}): JSX.Element => (
-      <SupportCenterCtaView {...params} />
-    ),
+    renderer: (params = {}) => <SupportCenterCtaView {...params} />,
   },
   {
     path: '/blocks/cta/cta-with-input-field',
-    renderer: (params = {}): JSX.Element => (
-      <CtaWithInputFieldView {...params} />
-    ),
+    renderer: (params = {}) => <CtaWithInputFieldView {...params} />,
   },
   {
     path: '/blocks/cta/cta-with-cover-image',
-    renderer: (params = {}): JSX.Element => (
-      <CtaWithCoverImageView {...params} />
-    ),
+    renderer: (params = {}) => <CtaWithCoverImageView {...params} />,
   },
   {
     path: '/blocks/cta/cta-with-right-download-button',
-    renderer: (params = {}): JSX.Element => (
-      <CtaWithRightDownloadButtonView {...params} />
-    ),
+    renderer: (params = {}) => <CtaWithRightDownloadButtonView {...params} />,
   },
   {
     path: '/blocks/cta/cta-with-app-store-buttons',
-    renderer: (params = {}): JSX.Element => (
-      <CtaWithAppStoreButtonsView {...params} />
-    ),
+    renderer: (params = {}) => <CtaWithAppStoreButtonsView {...params} />,
   },
   {
     path: '/blocks/cta/cta-with-illustration',
-    renderer: (params = {}): JSX.Element => (
-      <CtaWithIllustrationView {...params} />
-    ),
+    renderer: (params = {}) => <CtaWithIllustrationView {...params} />,
   },
   {
     path: '/blocks/cta/cta-with-right-app-store-buttons',
-    renderer: (params = {}): JSX.Element => (
-      <CtaWithRightAppStoreButtonsView {...params} />
-    ),
+    renderer: (params = {}) => <CtaWithRightAppStoreButtonsView {...params} />,
   },
 ];
 

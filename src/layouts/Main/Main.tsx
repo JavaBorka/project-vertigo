@@ -22,7 +22,7 @@ const Main = ({
   children,
   colorInvert = false,
   bgcolor = 'transparent',
-}: Props): JSX.Element => {
+}: Props) => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -55,8 +55,7 @@ const Main = ({
           zIndex: {
             sx: 0,
             md: theme.zIndex.drawer + 1,
-          }
-          
+          },
         }}
         elevation={trigger ? 1 : 0}
       >
@@ -78,11 +77,13 @@ const Main = ({
         {children}
         <Divider />
       </main>
-      <Container sx={{ 
-        padding: {
-          xs: '20px 16px 20px 16px !important',
-          md: '0px 16px 25px 16px !important'
-        }}}
+      <Container
+        sx={{
+          padding: {
+            xs: '20px 16px 20px 16px !important',
+            md: '0px 16px 25px 16px !important',
+          },
+        }}
       >
         <Footer />
       </Container>

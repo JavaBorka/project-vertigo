@@ -15,48 +15,43 @@ import {
 const routes = [
   {
     path: '/blocks/blog',
-    renderer: (params = {}): JSX.Element => <BlogIndexView {...params} />,
+    renderer: (params = {}) => <BlogIndexView {...params} />,
   },
   {
     path: '/blocks/blog/blog-with-large-image',
-    renderer: (params = {}): JSX.Element => (
-      <BlogWithLargeImageView {...params} />
-    ),
+    renderer: (params = {}) => <BlogWithLargeImageView {...params} />,
   },
   {
-    path:
-      '/blocks/blog/vertically-aligned-blog-card-overlapped-with-description-box',
-    renderer: (params = {}): JSX.Element => (
+    path: '/blocks/blog/vertically-aligned-blog-card-overlapped-with-description-box',
+    renderer: (params = {}) => (
       <VerticallyAlignedBlogCardOverlappedWithDescriptionBoxView {...params} />
     ),
   },
   {
     path: '/blocks/blog/simple-vertical-blog-cards',
-    renderer: (params = {}): JSX.Element => (
-      <SimpleVerticalBlogCardsView {...params} />
-    ),
+    renderer: (params = {}) => <SimpleVerticalBlogCardsView {...params} />,
   },
   {
     path: '/blocks/blog/horizontally-aligned-blog-card-with-shaped-image',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <HorizontallyAlignedBlogCardWithShapedImageView {...params} />
     ),
   },
   {
     path: '/blocks/blog/vertically-aligned-blog-cards-with-shaped-image',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <VerticallyAlignedBlogCardsWithShapedImageView {...params} />
     ),
   },
   {
     path: '/blocks/blog/blog-cards-with-full-background-image',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <BlogCardsWithFullBackgroundImageView {...params} />
     ),
   },
   {
     path: '/blocks/blog/vertical-minimal-designed-blog-cards',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <VerticalMinimalDesignedBlogCardsView {...params} />
     ),
   },

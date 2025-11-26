@@ -61,7 +61,7 @@ const mock = [
   },
 ];
 
-const FeaturedProperties = (): JSX.Element => {
+const FeaturedProperties = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

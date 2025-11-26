@@ -10,7 +10,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 
 import Container from 'components/Container';
 
-const Hero = (): JSX.Element => {
+const Hero = () => {
   const theme = useTheme();
 
   return (

@@ -149,7 +149,7 @@ const mock = [
   },
 ];
 
-const WithTwoColumnGrid = (): JSX.Element => {
+const WithTwoColumnGrid = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);

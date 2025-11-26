@@ -45,7 +45,7 @@ const mock = [
   },
 ];
 
-const FeaturedArticles = (): JSX.Element => {
+const FeaturedArticles = () => {
   const theme = useTheme();
   return (
     <Box>

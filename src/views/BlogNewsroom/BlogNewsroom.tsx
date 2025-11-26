@@ -19,7 +19,7 @@ import {
   Tags,
 } from './components';
 
-const BlogNewsroom = (): JSX.Element => {
+const BlogNewsroom = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

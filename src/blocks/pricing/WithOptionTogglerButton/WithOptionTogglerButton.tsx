@@ -53,7 +53,7 @@ const mock = [
   },
 ];
 
-const WithOptionTogglerButton = (): JSX.Element => {
+const WithOptionTogglerButton = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

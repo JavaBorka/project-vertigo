@@ -30,7 +30,7 @@ const mock = [
   },
 ];
 
-const Topbar = ({ onSidebarOpen }: Props): JSX.Element => {
+const Topbar = ({ onSidebarOpen }: Props) => {
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);

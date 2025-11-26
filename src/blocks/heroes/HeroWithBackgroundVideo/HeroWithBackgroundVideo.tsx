@@ -9,7 +9,7 @@ import { useTheme } from '@mui/material/styles';
 
 import Container from 'components/Container';
 
-const HeroWithBackgroundVideo = (): JSX.Element => {
+const HeroWithBackgroundVideo = () => {
   const theme = useTheme();
   return (
     <Box position={'relative'} zIndex={2}>

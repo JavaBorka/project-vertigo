@@ -7,7 +7,7 @@ import Container from 'components/Container';
 
 import { Headline, Form } from './components';
 
-const Hero = (): JSX.Element => {
+const Hero = () => {
   const theme = useTheme();
 
   return (

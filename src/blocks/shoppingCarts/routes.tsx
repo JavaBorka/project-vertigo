@@ -10,19 +10,15 @@ import {
 const routes = [
   {
     path: '/blocks/shopping-carts',
-    renderer: (params = {}): JSX.Element => (
-      <ShoppingCartsIndexView {...params} />
-    ),
+    renderer: (params = {}) => <ShoppingCartsIndexView {...params} />,
   },
   {
     path: '/blocks/shopping-carts/cart-with-order-summery',
-    renderer: (params = {}): JSX.Element => (
-      <CartWithOrderSummeryView {...params} />
-    ),
+    renderer: (params = {}) => <CartWithOrderSummeryView {...params} />,
   },
   {
     path: '/blocks/shopping-carts/empty-cart',
-    renderer: (params = {}): JSX.Element => <EmptyCartView {...params} />,
+    renderer: (params = {}) => <EmptyCartView {...params} />,
   },
 ];
 

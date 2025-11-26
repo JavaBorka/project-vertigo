@@ -156,7 +156,7 @@ const mock = [
   },
 ];
 
-const ListWithVerticalLine = (): JSX.Element => {
+const ListWithVerticalLine = () => {
   const theme = useTheme();
   return (
     <Box bgcolor="alternate.main">

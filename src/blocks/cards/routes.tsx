@@ -11,25 +11,19 @@ import {
 const routes = [
   {
     path: '/blocks/cards',
-    renderer: (params = {}): JSX.Element => <CardsIndexView {...params} />,
+    renderer: (params = {}) => <CardsIndexView {...params} />,
   },
   {
     path: '/blocks/cards/card-with-color-accent',
-    renderer: (params = {}): JSX.Element => (
-      <CardWithColorAccentView {...params} />
-    ),
+    renderer: (params = {}) => <CardWithColorAccentView {...params} />,
   },
   {
     path: '/blocks/cards/card-with-checkboxes',
-    renderer: (params = {}): JSX.Element => (
-      <CardWithCheckboxesView {...params} />
-    ),
+    renderer: (params = {}) => <CardWithCheckboxesView {...params} />,
   },
   {
     path: '/blocks/cards/card-with-add-button',
-    renderer: (params = {}): JSX.Element => (
-      <CardWithAddButtonView {...params} />
-    ),
+    renderer: (params = {}) => <CardWithAddButtonView {...params} />,
   },
 ];
 

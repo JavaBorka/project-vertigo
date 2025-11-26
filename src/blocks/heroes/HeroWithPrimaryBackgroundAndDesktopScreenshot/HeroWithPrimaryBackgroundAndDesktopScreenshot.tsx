@@ -8,7 +8,7 @@ import LaptopSkeletonIllustration from 'svg/illustrations/LaptopSkeleton';
 
 import Container from 'components/Container';
 
-const HeroWithPrimaryBackgroundAndDesktopScreenshot = (): JSX.Element => {
+const HeroWithPrimaryBackgroundAndDesktopScreenshot = () => {
   const theme = useTheme();
   return (
     <Box

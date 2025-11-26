@@ -36,7 +36,7 @@ const mock = [
   },
 ];
 
-const PopularNews = (): JSX.Element => {
+const PopularNews = () => {
   const theme = useTheme();
   return (
     <Box>

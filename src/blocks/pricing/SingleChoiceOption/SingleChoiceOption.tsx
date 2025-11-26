@@ -18,7 +18,7 @@ import ToggleButton from '@mui/material/ToggleButton';
 
 import Container from 'components/Container';
 
-const SingleChoiceOption = (): JSX.Element => {
+const SingleChoiceOption = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
-const FilterBrand = (): JSX.Element => {
+const FilterBrand = () => {
   const theme = useTheme();
   const [brands, setBrands] = useState([]);
   const [open, setOpen] = useState(false);

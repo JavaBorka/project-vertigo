@@ -106,7 +106,7 @@ const mock = [
   },
 ];
 
-const MasonryCards = (): JSX.Element => {
+const MasonryCards = () => {
   return (
     <Grid container spacing={4}>
       {mock.map((item, index) => (

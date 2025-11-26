@@ -7,7 +7,7 @@ import { colors } from '@mui/material';
 
 import Container from 'components/Container';
 
-const HeroForEcommerceApp = (): JSX.Element => {
+const HeroForEcommerceApp = () => {
   return (
     <Container>
       <Grid container spacing={4}>

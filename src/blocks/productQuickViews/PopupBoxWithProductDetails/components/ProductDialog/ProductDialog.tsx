@@ -11,7 +11,7 @@ interface Props {
   open: boolean;
 }
 
-const ProductDialog = ({ onClose, open }: Props): JSX.Element => {
+const ProductDialog = ({ onClose, open }: Props) => {
   return (
     <Dialog onClose={onClose} open={open} maxWidth={'lg'}>
       <Box paddingY={{ xs: 1, sm: 2 }} paddingX={{ xs: 2, sm: 4 }}>

@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 
 import Container from 'components/Container';
 
-const CtaWithRightAppStoreButtons = (): JSX.Element => {
+const CtaWithRightAppStoreButtons = () => {
   return (
     <Container>
       <Box marginBottom={4}>

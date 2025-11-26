@@ -9,7 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 import Container from 'components/Container';
 
-const Simple = (): JSX.Element => {
+const Simple = () => {
   const theme = useTheme();
   return (
     <Box bgcolor="alternate.main">

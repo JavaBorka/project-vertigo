@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
-const Footer = (): JSX.Element => {
+const Footer = () => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>

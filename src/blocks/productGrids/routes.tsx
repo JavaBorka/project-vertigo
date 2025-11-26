@@ -11,23 +11,19 @@ import {
 const routes = [
   {
     path: '/blocks/product-grids',
-    renderer: (params = {}): JSX.Element => (
-      <ProductGridsIndexView {...params} />
-    ),
+    renderer: (params = {}) => <ProductGridsIndexView {...params} />,
   },
   {
     path: '/blocks/product-grids/with-cta-button',
-    renderer: (params = {}): JSX.Element => <WithCtaButtonView {...params} />,
+    renderer: (params = {}) => <WithCtaButtonView {...params} />,
   },
   {
     path: '/blocks/product-grids/minimally-designed',
-    renderer: (params = {}): JSX.Element => (
-      <MinimallyDesignedView {...params} />
-    ),
+    renderer: (params = {}) => <MinimallyDesignedView {...params} />,
   },
   {
     path: '/blocks/product-grids/with-promo-badge',
-    renderer: (params = {}): JSX.Element => <WithPromoBadgeView {...params} />,
+    renderer: (params = {}) => <WithPromoBadgeView {...params} />,
   },
 ];
 

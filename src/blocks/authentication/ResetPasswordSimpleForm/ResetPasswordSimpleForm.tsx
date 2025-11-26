@@ -10,7 +10,7 @@ import Link from '@mui/material/Link';
 
 import Container from 'components/Container';
 
-const ResetPasswordSimpleForm = (): JSX.Element => {
+const ResetPasswordSimpleForm = () => {
   return (
     <Box bgcolor={'alternate.main'}>
       <Container maxWidth={600}>

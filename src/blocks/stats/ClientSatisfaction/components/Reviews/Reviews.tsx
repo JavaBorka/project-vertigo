@@ -35,7 +35,7 @@ const mock = [
   },
 ];
 
-const Reviews = (): JSX.Element => {
+const Reviews = () => {
   const theme = useTheme();
 
   return (

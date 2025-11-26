@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 
 import Container from 'components/Container';
 
-const SizePicker = (): JSX.Element => {
+const SizePicker = () => {
   const theme = useTheme();
   const [size, setSize] = useState('32');
 

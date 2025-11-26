@@ -31,7 +31,7 @@ const ResizableFrame = ({
   path,
   iframeStyles = {},
   ...rest
-}: ResizableFrameProps): JSX.Element => {
+}: ResizableFrameProps) => {
   const theme = useTheme();
   const iframeEl = useRef(null);
   const [viewportWidth, setViewportWidth] = useState('desktop');

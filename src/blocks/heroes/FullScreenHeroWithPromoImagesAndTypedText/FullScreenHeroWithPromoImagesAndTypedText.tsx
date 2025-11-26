@@ -76,7 +76,7 @@ const images = [
   },
 ];
 
-const FullScreenHeroWithPromoImagesAndTypedText = (): JSX.Element => {
+const FullScreenHeroWithPromoImagesAndTypedText = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -154,7 +154,9 @@ const FullScreenHeroWithPromoImagesAndTypedText = (): JSX.Element => {
                 >
                   <Button
                     component={'a'}
-                    href={'https://thefront.maccarianagency.com/docs/introduction'}
+                    href={
+                      'https://thefront.maccarianagency.com/docs/introduction'
+                    }
                     target={'blank'}
                     variant="outlined"
                     color="primary"

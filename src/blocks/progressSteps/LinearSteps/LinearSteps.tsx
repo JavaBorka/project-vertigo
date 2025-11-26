@@ -37,7 +37,7 @@ const steps = [
   },
 ];
 
-const LinearSteps = (): JSX.Element => {
+const LinearSteps = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -65,8 +65,8 @@ const LinearSteps = (): JSX.Element => {
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
         ? // It's the last step, but not all steps have been completed,
-      // find the first step that has been completed
-        steps.findIndex((step, i) => !(i in completed))
+          // find the first step that has been completed
+          steps.findIndex((step, i) => !(i in completed))
         : activeStep + 1;
 
     setActiveStep(newActiveStep);

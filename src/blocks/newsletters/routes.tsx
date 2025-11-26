@@ -11,25 +11,19 @@ import {
 const routes = [
   {
     path: '/blocks/newsletters',
-    renderer: (params = {}): JSX.Element => <NewsletterIndexView {...params} />,
+    renderer: (params = {}) => <NewsletterIndexView {...params} />,
   },
   {
     path: '/blocks/newsletters/newsletter-with-card',
-    renderer: (params = {}): JSX.Element => (
-      <NewsletterWithCardView {...params} />
-    ),
+    renderer: (params = {}) => <NewsletterWithCardView {...params} />,
   },
   {
     path: '/blocks/newsletters/newsletter-with-image',
-    renderer: (params = {}): JSX.Element => (
-      <NewsletterWithImageView {...params} />
-    ),
+    renderer: (params = {}) => <NewsletterWithImageView {...params} />,
   },
   {
     path: '/blocks/newsletters/with-dark-background',
-    renderer: (params = {}): JSX.Element => (
-      <WithDarkBackgroundView {...params} />
-    ),
+    renderer: (params = {}) => <WithDarkBackgroundView {...params} />,
   },
 ];
 

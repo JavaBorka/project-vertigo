@@ -99,7 +99,7 @@ const mock = [
   },
 ];
 
-const Services = (): JSX.Element => {
+const Services = () => {
   const theme = useTheme();
 
   return (

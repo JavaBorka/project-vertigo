@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 
-const Form = (): JSX.Element => {
+const Form = () => {
   const theme = useTheme();
   return (
     <Box>

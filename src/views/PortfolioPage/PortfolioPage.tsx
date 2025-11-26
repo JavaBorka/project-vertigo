@@ -11,7 +11,7 @@ import { MostViewedArticles } from 'views/BlogNewsroom/components';
 import { Contact } from 'views/HelpCenter/components';
 import { useTheme } from '@mui/material/styles';
 
-const PortfolioPage = (): JSX.Element => {
+const PortfolioPage = () => {
   const theme = useTheme();
   return (
     <Main colorInvert={true}>
@@ -31,7 +31,7 @@ const PortfolioPage = (): JSX.Element => {
       <Box bgcolor={'alternate.main'}>
         <WithPromoBadge />
       </Box>
-      <Box >
+      <Box>
         <Container>
           <MostViewedArticles />
         </Container>

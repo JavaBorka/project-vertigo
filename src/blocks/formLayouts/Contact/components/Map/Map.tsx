@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { useTheme } from '@mui/material/styles';
 
-const Map = (): JSX.Element => {
+const Map = () => {
   const theme = useTheme();
   return (
     <Box>

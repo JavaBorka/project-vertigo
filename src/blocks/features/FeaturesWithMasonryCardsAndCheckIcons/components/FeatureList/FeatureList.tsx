@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 
-const FeatureList = (): JSX.Element => {
+const FeatureList = () => {
   const theme = useTheme();
 
   return (

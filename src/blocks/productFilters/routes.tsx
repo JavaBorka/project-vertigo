@@ -10,21 +10,15 @@ import {
 const routes = [
   {
     path: '/blocks/product-filters',
-    renderer: (params = {}): JSX.Element => (
-      <ProductFiltersIndexView {...params} />
-    ),
+    renderer: (params = {}) => <ProductFiltersIndexView {...params} />,
   },
   {
     path: '/blocks/product-filters/filters-with-dropdown',
-    renderer: (params = {}): JSX.Element => (
-      <FiltersWithDropdownView {...params} />
-    ),
+    renderer: (params = {}) => <FiltersWithDropdownView {...params} />,
   },
   {
     path: '/blocks/product-filters/filters-with-sidebar',
-    renderer: (params = {}): JSX.Element => (
-      <FiltersWithSidebarView {...params} />
-    ),
+    renderer: (params = {}) => <FiltersWithSidebarView {...params} />,
   },
 ];
 

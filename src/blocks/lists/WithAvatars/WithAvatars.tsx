@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 
 import Container from 'components/Container';
 
-const WithAvatars = (): JSX.Element => {
+const WithAvatars = () => {
   return (
     <Box bgcolor={'alternate.main'}>
       <Container display={'flex'} justifyContent={'center'}>
@@ -43,7 +43,7 @@ const WithAvatars = (): JSX.Element => {
                   >
                     Ali Connors
                   </Typography>
-                  {' — I\'ll be in your neighborhood doing errands this…'}
+                  {" — I'll be in your neighborhood doing errands this…"}
                 </React.Fragment>
               }
             />
@@ -68,7 +68,7 @@ const WithAvatars = (): JSX.Element => {
                   >
                     to Scott, Alex, Jennifer
                   </Typography>
-                  {' — Wish I could come, but I\'m out of town this…'}
+                  {" — Wish I could come, but I'm out of town this…"}
                 </React.Fragment>
               }
             />

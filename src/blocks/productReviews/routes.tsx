@@ -11,23 +11,19 @@ import {
 const routes = [
   {
     path: '/blocks/product-reviews',
-    renderer: (params = {}): JSX.Element => (
-      <ProductReviewsIndexView {...params} />
-    ),
+    renderer: (params = {}) => <ProductReviewsIndexView {...params} />,
   },
   {
     path: '/blocks/product-reviews/review-dialog',
-    renderer: (params = {}): JSX.Element => <ReviewDialogView {...params} />,
+    renderer: (params = {}) => <ReviewDialogView {...params} />,
   },
   {
     path: '/blocks/product-reviews/review-overview',
-    renderer: (params = {}): JSX.Element => <ReviewOverviewView {...params} />,
+    renderer: (params = {}) => <ReviewOverviewView {...params} />,
   },
   {
     path: '/blocks/product-reviews/review-quick-overview',
-    renderer: (params = {}): JSX.Element => (
-      <ReviewQuickOverviewView {...params} />
-    ),
+    renderer: (params = {}) => <ReviewQuickOverviewView {...params} />,
   },
 ];
 

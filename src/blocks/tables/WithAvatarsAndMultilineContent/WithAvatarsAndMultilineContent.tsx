@@ -97,7 +97,7 @@ const mock = [
   },
 ];
 
-const WithAvatarsAndMultilineContent = (): JSX.Element => {
+const WithAvatarsAndMultilineContent = () => {
   const theme = useTheme();
   return (
     <Container>

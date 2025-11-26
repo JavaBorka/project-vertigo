@@ -45,7 +45,7 @@ const mock = [
   },
 ];
 
-const WithAlternateCards = (): JSX.Element => {
+const WithAlternateCards = () => {
   const theme = useTheme();
 
   return (

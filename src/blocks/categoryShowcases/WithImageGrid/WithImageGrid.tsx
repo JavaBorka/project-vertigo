@@ -70,7 +70,7 @@ const mock = [
   },
 ];
 
-const WithImageGrid = (): JSX.Element => {
+const WithImageGrid = () => {
   const theme = useTheme();
   return (
     <Box bgcolor={'alternate.main'}>

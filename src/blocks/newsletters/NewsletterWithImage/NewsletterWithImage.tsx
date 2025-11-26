@@ -19,7 +19,7 @@ const mock = [
   'https://assets.maccarianagency.com/svg/logos/paypal-original.svg',
 ];
 
-const NewsletterWithImage = (): JSX.Element => {
+const NewsletterWithImage = () => {
   const theme = useTheme();
 
   return (

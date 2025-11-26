@@ -10,7 +10,7 @@ interface Props {
   variant: 'permanent' | 'persistent' | 'temporary' | undefined;
 }
 
-const Sidebar = ({ open, variant, onClose }: Props): JSX.Element => {
+const Sidebar = ({ open, variant, onClose }: Props) => {
   const theme = useTheme();
   return (
     <Drawer

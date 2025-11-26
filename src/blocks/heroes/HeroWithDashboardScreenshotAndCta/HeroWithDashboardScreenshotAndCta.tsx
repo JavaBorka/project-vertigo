@@ -8,7 +8,7 @@ import Grid from '@mui/material/Grid';
 
 import Container from 'components/Container';
 
-const HeroWithDashboardScreenshotAndCta = (): JSX.Element => {
+const HeroWithDashboardScreenshotAndCta = () => {
   const theme = useTheme();
 
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {

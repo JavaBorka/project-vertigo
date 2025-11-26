@@ -16,7 +16,7 @@ const mock = [
   'https://assets.maccarianagency.com/svg/logos/paypal-original.svg',
 ];
 
-const Integrations = (): JSX.Element => {
+const Integrations = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

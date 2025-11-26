@@ -14,7 +14,7 @@ const mock = [
   'https://assets.maccarianagency.com/svg/logos/paypal-original.svg',
 ];
 
-const Form = (): JSX.Element => {
+const Form = () => {
   const theme = useTheme();
 
   return (

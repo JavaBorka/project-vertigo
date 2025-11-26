@@ -24,7 +24,7 @@ const validationSchema = yup.object({
     .min(8, 'The password should have at minimum length of 8'),
 });
 
-const SidebarNewsletter = (): JSX.Element => {
+const SidebarNewsletter = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

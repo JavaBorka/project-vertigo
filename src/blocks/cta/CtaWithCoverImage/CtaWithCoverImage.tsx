@@ -8,7 +8,7 @@ import { useTheme } from '@mui/material/styles';
 
 import Container from 'components/Container';
 
-const CtaWithCoverImage = (): JSX.Element => {
+const CtaWithCoverImage = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

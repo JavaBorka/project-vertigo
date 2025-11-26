@@ -21,7 +21,7 @@ const mock = {
   email: 'clara.bertoletti@example.com',
 };
 
-const UserCardWithBackground = (): JSX.Element => {
+const UserCardWithBackground = () => {
   const theme = useTheme();
   return (
     <Box

@@ -9,13 +9,11 @@ import {
 const routes = [
   {
     path: '/blocks/checkout-pages',
-    renderer: (params = {}): JSX.Element => (
-      <CheckoutPagesIndexView {...params} />
-    ),
+    renderer: (params = {}) => <CheckoutPagesIndexView {...params} />,
   },
   {
     path: '/blocks/checkout-pages/with-two-columns',
-    renderer: (params = {}): JSX.Element => <WithTwoColumnsView {...params} />,
+    renderer: (params = {}) => <WithTwoColumnsView {...params} />,
   },
 ];
 

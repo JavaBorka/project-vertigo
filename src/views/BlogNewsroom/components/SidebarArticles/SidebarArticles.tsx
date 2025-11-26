@@ -51,7 +51,7 @@ const mock = [
   },
 ];
 
-const SidebarArticles = (): JSX.Element => {
+const SidebarArticles = () => {
   const theme = useTheme();
   return (
     <Box component={Card} variant={'outlined'} padding={2}>

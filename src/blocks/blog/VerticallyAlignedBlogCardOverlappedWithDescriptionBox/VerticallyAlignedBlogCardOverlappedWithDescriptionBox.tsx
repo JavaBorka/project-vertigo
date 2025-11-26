@@ -47,7 +47,7 @@ const mock = [
   },
 ];
 
-const VerticallyAlignedBlogCardOverlappedWithDescriptionBox = (): JSX.Element => {
+const VerticallyAlignedBlogCardOverlappedWithDescriptionBox = () => {
   const theme = useTheme();
   return (
     <Container>

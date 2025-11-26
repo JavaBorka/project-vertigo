@@ -13,7 +13,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Fixed = ({ children }: Props): JSX.Element => {
+const Fixed = ({ children }: Props) => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

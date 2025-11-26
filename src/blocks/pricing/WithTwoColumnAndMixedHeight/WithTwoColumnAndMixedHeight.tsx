@@ -86,7 +86,7 @@ const mock = [
   },
 ];
 
-const WithTwoColumnAndMixedHeight = (): JSX.Element => {
+const WithTwoColumnAndMixedHeight = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

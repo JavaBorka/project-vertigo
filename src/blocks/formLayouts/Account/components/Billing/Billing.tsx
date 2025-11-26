@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 
-const Billing = (): JSX.Element => {
+const Billing = () => {
   return (
     <Box>
       <form>

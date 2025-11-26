@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Container from 'components/Container';
 import { Form } from './components';
 
-const SignInFormWithCoverImage = (): JSX.Element => {
+const SignInFormWithCoverImage = () => {
   const theme = useTheme();
   return (
     <Box

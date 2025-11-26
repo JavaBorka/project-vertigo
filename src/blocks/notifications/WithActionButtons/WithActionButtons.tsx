@@ -11,7 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 import Container from 'components/Container';
 
-const WithActionButtons = (): JSX.Element => {
+const WithActionButtons = () => {
   const theme = useTheme();
   return (
     <Box bgcolor="alternate.main">

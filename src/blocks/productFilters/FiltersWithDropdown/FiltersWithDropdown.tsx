@@ -15,7 +15,7 @@ import {
 
 import Container from 'components/Container';
 
-const FiltersWithDropdown = (): JSX.Element => {
+const FiltersWithDropdown = () => {
   const theme = useTheme();
   return (
     <Container>

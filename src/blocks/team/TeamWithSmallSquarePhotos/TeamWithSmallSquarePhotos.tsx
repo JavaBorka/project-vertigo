@@ -44,7 +44,7 @@ const mock = [
   },
 ];
 
-const TeamWithSmallSquarePhotos = (): JSX.Element => {
+const TeamWithSmallSquarePhotos = () => {
   const theme = useTheme();
 
   return (

@@ -10,7 +10,7 @@ import { Orders, SummeryBox } from './components';
 
 import Container from 'components/Container';
 
-const CartWithOrderSummery = (): JSX.Element => {
+const CartWithOrderSummery = () => {
   return (
     <Container>
       <Box>

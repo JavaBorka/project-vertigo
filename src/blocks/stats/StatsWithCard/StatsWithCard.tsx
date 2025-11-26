@@ -30,7 +30,7 @@ const mock = [
   },
 ];
 
-const PromoNumbers = (): JSX.Element => {
+const PromoNumbers = () => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

@@ -12,27 +12,23 @@ import {
 const routes = [
   {
     path: '/blocks/popovers',
-    renderer: (params = {}): JSX.Element => <PopoverIndexView {...params} />,
+    renderer: (params = {}) => <PopoverIndexView {...params} />,
   },
   {
     path: '/blocks/popovers/simple',
-    renderer: (params = {}): JSX.Element => <SimpleView {...params} />,
+    renderer: (params = {}) => <SimpleView {...params} />,
   },
   {
     path: '/blocks/popovers/stacked-with-footer-actions',
-    renderer: (params = {}): JSX.Element => (
-      <StackedWithFooterActionsView {...params} />
-    ),
+    renderer: (params = {}) => <StackedWithFooterActionsView {...params} />,
   },
   {
     path: '/blocks/popovers/with-recent-posts',
-    renderer: (params = {}): JSX.Element => <WithRecentPostsView {...params} />,
+    renderer: (params = {}) => <WithRecentPostsView {...params} />,
   },
   {
     path: '/blocks/popovers/with-two-column-grid',
-    renderer: (params = {}): JSX.Element => (
-      <WithTwoColumnGridView {...params} />
-    ),
+    renderer: (params = {}) => <WithTwoColumnGridView {...params} />,
   },
 ];
 

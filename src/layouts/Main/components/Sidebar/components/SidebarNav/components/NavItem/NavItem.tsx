@@ -14,7 +14,7 @@ interface Props {
   items: Array<PageItem>;
 }
 
-const NavItem = ({ title, items }: Props): JSX.Element => {
+const NavItem = ({ title, items }: Props) => {
   const theme = useTheme();
   const [activeLink, setActiveLink] = useState('');
   useEffect(() => {

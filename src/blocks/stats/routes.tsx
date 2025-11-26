@@ -14,41 +14,37 @@ import {
 const routes = [
   {
     path: '/blocks/stats',
-    renderer: (params = {}): JSX.Element => <StatsIndexView {...params} />,
+    renderer: (params = {}) => <StatsIndexView {...params} />,
   },
   {
     path: '/blocks/stats/with-count-up-numbers-and-cover-image',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <WithCountUpNumbersAndCoverImageView {...params} />
     ),
   },
   {
     path: '/blocks/stats/with-count-up-numbers-and-map',
-    renderer: (params = {}): JSX.Element => (
-      <WithCountUpNumbersAndMapView {...params} />
-    ),
+    renderer: (params = {}) => <WithCountUpNumbersAndMapView {...params} />,
   },
   {
     path: '/blocks/stats/stats-with-card',
-    renderer: (params = {}): JSX.Element => <StatsWithCardView {...params} />,
+    renderer: (params = {}) => <StatsWithCardView {...params} />,
   },
   {
     path: '/blocks/stats/with-bordered-cards-and-brand-color',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <WithBorderedCardsAndBrandColorView {...params} />
     ),
   },
   {
     path: '/blocks/stats/with-abstract-visual-representation',
-    renderer: (params = {}): JSX.Element => (
+    renderer: (params = {}) => (
       <WithAbstractVisualRepresentationView {...params} />
     ),
   },
   {
     path: '/blocks/stats/client-satisfaction',
-    renderer: (params = {}): JSX.Element => (
-      <ClientSatisfactionView {...params} />
-    ),
+    renderer: (params = {}) => <ClientSatisfactionView {...params} />,
   },
 ];
 

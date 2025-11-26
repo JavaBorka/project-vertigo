@@ -17,7 +17,7 @@ import {
   Teaser,
 } from './components';
 
-const Rental = (): JSX.Element => {
+const Rental = () => {
   return (
     <Main colorInvert={true}>
       <Hero />
