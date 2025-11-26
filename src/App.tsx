@@ -59,6 +59,7 @@ const App = (): JSX.Element => {
   });
   },[]
 )
+console.log('hello')
 
   return (
     <Page>
