@@ -11,9 +11,8 @@ interface Props {
   pages: {
     books: Array<PageItem>;
     vertigo: Array<PageItem>;
-    blog: Array<PageItem>;
+    authors: Array<PageItem>;
     about: Array<PageItem>;
-    templates: Array<PageItem>;
   };
 }
 

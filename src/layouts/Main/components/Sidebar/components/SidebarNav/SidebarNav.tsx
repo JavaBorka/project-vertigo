@@ -9,9 +9,8 @@ interface Props {
   pages: {
     books: Array<PageItem>;
     vertigo: Array<PageItem>;
-    blog: Array<PageItem>;
+    authors: Array<PageItem>;
     about: Array<PageItem>;
-    templates: Array<PageItem>;
   };
 }
 
@@ -22,9 +21,8 @@ const SidebarNav = ({ pages }: Props): JSX.Element => {
   const {
     books: booksPages,
     vertigo: vertigoPages,
-    blog: blogPages,
+    authors: authorsPages,
     about: aboutPages,
-    templates: templatesPages,
   } = pages;
 
   return (
@@ -57,14 +55,11 @@ const SidebarNav = ({ pages }: Props): JSX.Element => {
           <NavItem title={'Vertigo'} items={vertigoPages} />
         </Box>
         <Box>
-          <NavItem title={'Blog'} items={blogPages} />
+          <NavItem title={'Autori'} items={authorsPages} />
         </Box>
         <Box>
           <NavItem title={'O nás'} items={aboutPages} />
         </Box>
-        {/* <Box>
-          <NavItem title={'Templates'} items={templatesPages} />
-        </Box> */}
       </Box>
     </Box>
   );
