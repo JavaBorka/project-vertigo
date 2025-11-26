@@ -12,9 +12,8 @@ interface Props {
   pages: {
     books: Array<PageItem>;
     vertigo: Array<PageItem>;
-    blog: Array<PageItem>;
+    authors: Array<PageItem>;
     about: Array<PageItem>;
-    templates: Array<PageItem>;
   };
   colorInvert?: boolean;
 }
@@ -30,8 +29,7 @@ const Topbar = ({
     books: booksPages,
     vertigo: vertigoPages,
     about: aboutPages,
-    blog: blogPages,
-    templates: templatesPages,
+    authors: authorsPages,
   } = pages;
 
   return (
@@ -78,9 +76,9 @@ const Topbar = ({
         </Box>
         <Box marginLeft={4}>
           <NavItem
-            title={'Blog'}
-            id={'blog-pages'}
-            items={blogPages}
+            title={'Autori'}
+            id={'autori-pages'}
+            items={authorsPages}
             colorInvert={colorInvert}
           />
         </Box>
@@ -92,14 +90,6 @@ const Topbar = ({
             colorInvert={colorInvert}
           />
         </Box>
-        {/* <Box marginLeft={4}>
-          <NavItem
-            title={'Templates'}
-            id={'templates-pages'}
-            items={templatesPages}
-            colorInvert={colorInvert}
-          />
-        </Box> */}
       </Box>
       <Box sx={{ display: { xs: 'flex', md: 'none' } }} alignItems={'center'}>
         <Button

@@ -22,11 +22,15 @@ const NavItem = ({
   colorInvert = false,
 }: Props): JSX.Element => {
   const theme = useTheme();
+  const hasItems = Array.isArray(items) && items.length > 0;
 
   let currentlyHovering = false;
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
+    if (!hasItems) {
+      return;
+    }
     if (anchorEl !== event.currentTarget) {
       setAnchorEl(event.currentTarget);
     }
@@ -46,7 +50,7 @@ const NavItem = ({
       if (!currentlyHovering) {
         handleClose();
       }
-    }, 50);
+    }, 150);
   };
 
   const [activeLink, setActiveLink] = useState('');
@@ -67,23 +71,49 @@ const NavItem = ({
         onMouseOver={handleClick}
         onMouseLeave={handleCloseHover}
       >
-        <Typography color={linkColor}>
+        <Typography
+          color={linkColor}
+          sx={
+            hasItems
+              ? undefined
+              : {
+                  position: 'relative',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    left: '50%',
+                    bottom: -7,
+                    height: 1.9,
+                    width: '115%',
+                    backgroundColor: theme.palette.primary.main,
+                    transform: 'translateX(-50%) scaleX(0)',
+                    transformOrigin: 'center',
+                    transition: 'transform 300ms ease',
+                  },
+                  '&:hover::after': {
+                    transform: 'translateX(-50%) scaleX(1)',
+                  },
+                }
+          }
+        >
           {title}
         </Typography>
-        <ExpandMoreIcon
-          sx={{
-            marginLeft: theme.spacing(1 / 4),
-            width: 16,
-            height: 16,
-            color: linkColor,
-          }}
-        />
+        {hasItems ? (
+          <ExpandMoreIcon
+            sx={{
+              marginLeft: theme.spacing(1 / 4),
+              width: 16,
+              height: 16,
+              color: linkColor,
+            }}
+          />
+        ) : null}
       </Box>
       <Menu
         disableAutoFocusItem
         elevation={3}
         id={id}
-        open={Boolean(anchorEl)}
+        open={hasItems && Boolean(anchorEl)}
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
@@ -100,15 +130,16 @@ const NavItem = ({
           style: { pointerEvents: 'auto' }
         }}
         sx={{
+           zIndex: 9999,
           '.MuiPaper-root': {
-            maxWidth: items.length > 12 ? 350 : 250,
+            maxWidth: items.length > 12 ? 350 : 100,
             padding: 1,
-            marginTop: 2,
+            marginTop: 1.2,
             borderTopRightRadius: 0,
             borderTopLeftRadius: 0,
             borderBottomRightRadius: 8,
             borderBottomLeftRadius: 8,
-            borderTop: `3px solid ${theme.palette.primary.main}`,
+            borderTop: `2px solid ${theme.palette.primary.main}`,
           },
           [`&.${popoverClasses.root}`]: {
             pointerEvents: 'none',

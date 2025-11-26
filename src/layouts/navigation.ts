@@ -18,22 +18,10 @@ const pages = {
     },
   ],
   vertigo: [
-    {
-      title: 'Časopisy',
-      href: '/vertigo-casopisy',
-    },
   ],
   about: [
-    {
-      title: 'Kontakt',
-      href: '/kontakt',
-    },
   ],
-  blog: [
-    {
-      title: 'Autori',
-      href: '/autori',
-    },
+  authors: [
   ],
 };
 
