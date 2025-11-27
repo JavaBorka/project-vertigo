@@ -21,9 +21,8 @@ const NavItem = ({ title, items }: Props) => {
     setActiveLink(window && window.location ? window.location.pathname : '');
   }, []);
 
-  const hasItems = Array.isArray(items) && items.length > 0;
-  const hasActiveLink = (): boolean =>
-    Array.isArray(items) && items.some((i) => i.href === activeLink);
+  const hasItems = items.length > 0;
+  const hasActiveLink = (): boolean => items.some((i) => i.href === activeLink);
 
   return (
     <Box>

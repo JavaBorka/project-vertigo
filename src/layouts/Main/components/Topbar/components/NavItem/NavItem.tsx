@@ -17,7 +17,7 @@ interface Props {
 
 const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
   const theme = useTheme();
-  const hasItems = Array.isArray(items) && items.length > 0;
+  const hasItems = items.length > 0;
 
   let currentlyHovering = false;
   const [anchorEl, setAnchorEl] = useState(null);
