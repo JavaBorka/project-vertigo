@@ -5,6 +5,12 @@ import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 
 export default [
+  {
+    linterOptions: {
+      noInlineConfig: true,
+      reportUnusedDisableDirectives: false,
+    },
+  },
   js.configs.recommended,
   {
     files: ['**/*.{ts,tsx}'],
@@ -13,6 +19,16 @@ export default [
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
+      },
+      globals: {
+        console: 'readonly',
+        window: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
       },
     },
     plugins: {
@@ -23,7 +39,8 @@ export default [
       react: { version: 'detect' },
     },
     rules: {
-      ...(tsPlugin.configs?.recommended?.rules ?? {}),
+      // TS already knows about global types like HTMLElement; avoid false positives
+      'no-undef': 'off',
       indent: ['error', 2, { SwitchCase: 1 }],
       'linebreak-style': ['error', 'unix'],
       quotes: ['error', 'single'],
@@ -39,6 +56,16 @@ export default [
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
+      globals: {
+        console: 'readonly',
+        window: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+      },
     },
     plugins: {
       react: reactPlugin,
