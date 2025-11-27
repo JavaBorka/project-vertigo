@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+ 
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -80,7 +80,7 @@ const mock = [
   {
     title: 'Lead generation',
     subtitle:
-      "70,000 people will be joining us at Web Summit this November. They're deeply embedded in the fabric of their respective industries – the trendsetters dictating how quickly new technologies are adopted.",
+      '70,000 people will be joining us at Web Summit this November. They\'re deeply embedded in the fabric of their respective industries – the trendsetters dictating how quickly new technologies are adopted.',
     icon: (
       <svg
         width={40}

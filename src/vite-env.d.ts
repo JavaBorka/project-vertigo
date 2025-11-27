@@ -1,10 +1,9 @@
 /// <reference types="vite/client" />
 
-interface ImportMetaEnv {
-  readonly VITE_FIREBASE_API_KEY: string;
-  // add other VITE_ variables here as needed
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
+// Using Vite's built-in ImportMetaEnv typing from vite/client.
+// Add specific keys here only if you need stricter typing, e.g.:
+// declare global {
+//   interface ImportMetaEnv {
+//     readonly VITE_FIREBASE_API_KEY: string;
+//   }
+// }

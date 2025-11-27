@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+ 
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -70,7 +70,7 @@ const Features = () => {
               {[
                 'Affordable, scalable and performant. The perfect solution for small apps.',
                 'A mid-sized solution for businesses undergoing rapid user growth.',
-                "A farm of machines entirely dedicated to your company's storage needs.",
+                'A farm of machines entirely dedicated to your company\'s storage needs.',
                 'A mid-sized solution for businesses undergoing rapid user growth.',
               ].map((item, i) => (
                 <Grid item xs={12} key={i}>

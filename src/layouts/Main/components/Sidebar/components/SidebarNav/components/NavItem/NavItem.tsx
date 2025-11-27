@@ -18,6 +18,7 @@ const NavItem = ({ title, items }: Props) => {
   const theme = useTheme();
   const [activeLink, setActiveLink] = useState('');
   useEffect(() => {
+     
     setActiveLink(window && window.location ? window.location.pathname : '');
   }, []);
 
