@@ -7,6 +7,7 @@ import { popoverClasses } from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { PageItem } from 'types/navigation';
 
 interface Props {
   title: string;
@@ -72,23 +73,23 @@ const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
             hasItems
               ? undefined
               : {
-                position: 'relative',
-                '&::after': {
-                  content: '""',
-                  position: 'absolute',
-                  left: '50%',
-                  bottom: -7,
-                  height: 1.9,
-                  width: '115%',
-                  backgroundColor: theme.palette.primary.main,
-                  transform: 'translateX(-50%) scaleX(0)',
-                  transformOrigin: 'center',
-                  transition: 'transform 300ms ease',
-                },
-                '&:hover::after': {
-                  transform: 'translateX(-50%) scaleX(1)',
-                },
-              }
+                  position: 'relative',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    left: '50%',
+                    bottom: -7,
+                    height: 1.9,
+                    width: '115%',
+                    backgroundColor: theme.palette.primary.main,
+                    transform: 'translateX(-50%) scaleX(0)',
+                    transformOrigin: 'center',
+                    transition: 'transform 300ms ease',
+                  },
+                  '&:hover::after': {
+                    transform: 'translateX(-50%) scaleX(1)',
+                  },
+                }
           }
         >
           {title}

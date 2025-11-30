@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
 interface Props {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   onSidebarOpen: () => void;
 }
 
 const Topbar = ({ onSidebarOpen }: Props) => {
   const theme = useTheme();
-  const [sortBy, setSortBy] = useState(2);
+  // const [sortBy, setSortBy] = useState(2);
 
-  const handleSelectChange = (event) => {
-    setSortBy(event.target.value);
-  };
+  // const handleSelectChange = (event) => {
+  //   setSortBy(event.target.value);
+  // };
 
   return (
     <Box

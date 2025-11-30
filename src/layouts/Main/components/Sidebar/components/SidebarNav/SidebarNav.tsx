@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 
 import NavItem from './components/NavItem';
+import { PageItem } from 'types/navigation';
 
 interface Props {
   pages: {
