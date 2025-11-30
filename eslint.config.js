@@ -4,6 +4,13 @@ import reactPlugin from 'eslint-plugin-react';
 import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 
+// React recommended (flat if available, otherwise legacy)
+const reactRecommended =
+  (reactPlugin.configs &&
+    reactPlugin.configs.flat &&
+    reactPlugin.configs.flat.recommended) ||
+  reactPlugin.configs.recommended;
+
 export default [
   {
     linterOptions: {
@@ -39,6 +46,7 @@ export default [
       react: { version: 'detect' },
     },
     rules: {
+      ...(reactRecommended?.rules ?? {}),
       // TS already knows about global types like HTMLElement; avoid false positives
       'no-undef': 'off',
       indent: ['error', 2, { SwitchCase: 1 }],
@@ -74,6 +82,7 @@ export default [
       react: { version: 'detect' },
     },
     rules: {
+      ...(reactRecommended?.rules ?? {}),
       indent: ['error', 2, { SwitchCase: 1 }],
       'linebreak-style': ['error', 'unix'],
       quotes: ['error', 'single'],
