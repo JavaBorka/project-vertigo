@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -133,7 +132,7 @@ const Hero = () => {
             </Box>
             <Box>
               <Typography component="p" variant="body2" align="left">
-                By clicking on "Get Started" you agree to our{' '}
+                By clicking on &quot;Get Started&quot; you agree to our{' '}
                 <Box
                   component="a"
                   href=""

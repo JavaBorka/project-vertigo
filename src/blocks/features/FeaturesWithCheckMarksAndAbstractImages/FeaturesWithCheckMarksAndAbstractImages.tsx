@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -24,9 +23,9 @@ const FeaturesWithCheckMarksAndAbstractImages = () => {
                 Payment made easy in stores with speed and security using.
               </Typography>
               <Typography color="text.secondary">
-                When paying in stores, it doesn't share your actual card number,
-                so your information stays secure. Plus, you can check out faster
-                and easier.
+                When paying in stores, it doesn&apos;t share your actual card
+                number, so your information stays secure. Plus, you can check
+                out faster and easier.
               </Typography>
             </Box>
             <Grid container spacing={1}>

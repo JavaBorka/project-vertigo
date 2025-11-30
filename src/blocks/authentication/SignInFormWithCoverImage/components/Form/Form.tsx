@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -91,7 +90,7 @@ const Form = () => {
             >
               <Box marginBottom={{ xs: 1, sm: 0 }}>
                 <Typography variant={'subtitle2'}>
-                  Don't have an account yet?{' '}
+                  Don&apos;t have an account yet?{' '}
                   <Link
                     component={'a'}
                     color={'primary'}

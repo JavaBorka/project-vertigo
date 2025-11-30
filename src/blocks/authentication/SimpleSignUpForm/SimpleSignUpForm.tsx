@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -125,7 +124,7 @@ const SimpleSignUpForm = () => {
                   color={'text.secondary'}
                   align={'center'}
                 >
-                  By clicking "Sign up" button you agree with our{' '}
+                  By clicking &quot;Sign up&quot; button you agree with our{' '}
                   <Link
                     component={'a'}
                     color={'primary'}

@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -42,8 +41,8 @@ const NewsletterWithCard = () => {
                 align={'center'}
                 color={'text.secondary'}
               >
-                Don't lose a chance to be among the firsts to know about our
-                upcoming news and updates.
+                Don&apos;t lose a chance to be among the firsts to know about
+                our upcoming news and updates.
               </Typography>
             </Box>
             <Box

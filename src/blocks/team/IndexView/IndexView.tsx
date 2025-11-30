@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -35,7 +34,7 @@ const IndexView = () => {
             </Typography>
             <Typography>
               Used to showcase your team, give your brand a face and gain
-              customers' trust.
+              customers&apos; trust.
             </Typography>
           </Box>
         </Container>

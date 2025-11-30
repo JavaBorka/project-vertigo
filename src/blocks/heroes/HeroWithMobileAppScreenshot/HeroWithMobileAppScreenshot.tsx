@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -32,7 +31,7 @@ const HeroWithMobileAppScreenshot = () => {
                     fontWeight: 700,
                   }}
                 >
-                  Don't listen to what they say{' '}
+                  Don&apos;t listen to what they say{' '}
                   <Typography
                     color={'primary'}
                     component={'span'}

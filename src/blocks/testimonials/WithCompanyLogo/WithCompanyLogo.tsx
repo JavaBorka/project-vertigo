@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -33,8 +32,8 @@ const WithCompanyLogo = () => {
           <Typography variant={'h6'} component={'p'} align={'center'}>
             First class templates.
             <br />
-            These guys know what they're doing: great code quality, clear naming
-            conventions and clear code structure.
+            These guys know what they&apos;re doing: great code quality, clear
+            naming conventions and clear code structure.
             <br />
             Plain awesome and a pleasure to work with.
           </Typography>

@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -90,8 +89,8 @@ const ReviewsWithBorderedGridLayout = () => {
             Our customers are our biggest fans.
           </Typography>
           <Typography variant="h6" align={'center'} color={'text.secondary'}>
-            We don't like to brag, but we don't mind letting our customers do it
-            for us.
+            We don&apos;t like to brag, but we don&apos;t mind letting our
+            customers do it for us.
           </Typography>
         </Box>
         <Grid container spacing={2}>

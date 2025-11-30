@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -45,7 +44,7 @@ const WithCountUpNumbersAndCoverImage = () => {
               The powerful and flexible theme for all kinds of businesses
             </Typography>
             <Typography variant={'h6'} component={'p'} color={'text.secondary'}>
-              Whether you're creating a subscription service, an on-demand
+              Whether you&apos;re creating a subscription service, an on-demand
               marketplace, an e-commerce store, or a portfolio showcase,
               theFront helps you create the best possible product for your
               users.

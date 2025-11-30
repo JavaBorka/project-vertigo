@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -128,7 +127,7 @@ const FeaturesWithMinimalDesign = () => {
             }}
           >
             Creating remarkable opportunity for tech companies to exhibit at
-            Italy's financial capital Milan.
+            Italy&apos;s financial capital Milan.
           </Typography>
           <Typography variant="h6" align={'center'} color={'text.secondary'}>
             Our mission is to help you grow your business, meet and connect with

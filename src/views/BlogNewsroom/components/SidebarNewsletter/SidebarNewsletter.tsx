@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -151,7 +150,7 @@ const SidebarNewsletter = () => {
                 >
                   <Box marginBottom={{ xs: 1, sm: 0 }}>
                     <Typography variant={'subtitle2'}>
-                      Don't have an account yet?{' '}
+                      Don&apos;t have an account yet?{' '}
                       <Link
                         component={'a'}
                         color={'primary'}

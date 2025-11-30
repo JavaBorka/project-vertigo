@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -34,7 +33,7 @@ const IndexView = () => {
               Logo grid
             </Typography>
             <Typography>
-              Displays a grid of your customers' or sponsors' logo.
+              Displays a grid of your customers&apos; or sponsors&apos; logo.
             </Typography>
           </Box>
         </Container>

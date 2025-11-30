@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -32,11 +31,11 @@ const Features = () => {
               marginTop: theme.spacing(1),
             }}
           >
-            Always know what you'll pay.
+            Always know what you&apos;ll pay.
           </Typography>
           <Typography variant="h6" align={'center'} color={'text.secondary'}>
-            Once you're setup, instantly withdraw payments or deposit into your
-            bank
+            Once you&apos;re setup, instantly withdraw payments or deposit into
+            your bank
             <br />
             account within 2-3 business days.
           </Typography>

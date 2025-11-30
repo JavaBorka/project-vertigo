@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -23,8 +22,8 @@ const CtaWithCoverImage = () => {
       </Box>
       <Box marginBottom={4}>
         <Typography variant="h6" color="text.secondary" gutterBottom>
-          Drawing thousands of the world's technology leaders together to learn
-          and do business
+          Drawing thousands of the world&apos;s technology leaders together to
+          learn and do business
         </Typography>
         <Typography component="p">
           Meh synth Schlitz, tempor duis single-origin coffee ea next level
