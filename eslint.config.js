@@ -49,7 +49,10 @@ export default [
       ...(reactRecommended?.rules ?? {}),
       // TS already knows about global types like HTMLElement; avoid false positives
       'no-undef': 'off',
-      indent: ['error', 2, { SwitchCase: 1 }],
+      // Defer formatting indentation to your formatter (Prettier/VSCode)
+      indent: 'off',
+      'react/jsx-indent': 'off',
+      'react/jsx-indent-props': 'off',
       'linebreak-style': ['error', 'unix'],
       quotes: ['error', 'single'],
       semi: ['error', 'always'],
@@ -83,7 +86,10 @@ export default [
     },
     rules: {
       ...(reactRecommended?.rules ?? {}),
-      indent: ['error', 2, { SwitchCase: 1 }],
+      // Defer formatting indentation to your formatter (Prettier/VSCode)
+      indent: 'off',
+      'react/jsx-indent': 'off',
+      'react/jsx-indent-props': 'off',
       'linebreak-style': ['error', 'unix'],
       quotes: ['error', 'single'],
       semi: ['error', 'always'],
