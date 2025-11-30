@@ -1,4 +1,3 @@
- 
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -35,7 +34,7 @@ const Teaser = () => {
               Flexible options
             </Typography>
             <Typography variant={'h4'} gutterBottom sx={{ fontWeight: 700 }}>
-              Don't worry about{' '}
+              Don&apos;t worry about{' '}
               <Typography color="primary" variant="inherit" component="span">
                 pricing
               </Typography>
@@ -44,7 +43,7 @@ const Teaser = () => {
               Three products that can be used independently or combined together
               for your company’s needs.
               <br />
-              Don't listen to what they say go and see.
+              Don&apos;t listen to what they say go and see.
               <br />
               Join the biggest community of people.
             </Typography>
