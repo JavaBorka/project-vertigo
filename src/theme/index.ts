@@ -10,7 +10,7 @@ const getTheme = (mode: string, themeToggler: () => void): Theme =>
       palette: mode === 'light' ? light : dark,
       shadows: shadows(mode),
       typography: {
-        fontFamily: '"Inter", sans-serif',
+        fontFamily: '"Archia","Inter",sans-serif',
         button: {
           textTransform: 'none',
           fontWeight: 'medium' as React.CSSProperties['fontWeight'],
@@ -21,6 +21,19 @@ const getTheme = (mode: string, themeToggler: () => void): Theme =>
         drawer: 1300,
       },
       components: {
+        MuiCssBaseline: {
+          styleOverrides: {
+            '@font-face': [
+              {
+                fontFamily: 'Archia',
+                fontStyle: 'normal',
+                fontWeight: 400,
+                fontDisplay: 'swap',
+                src: 'url("/fonts/archia-regular.otf") format("opentype")',
+              },
+            ],
+          },
+        },
         MuiButton: {
           styleOverrides: {
             root: {
