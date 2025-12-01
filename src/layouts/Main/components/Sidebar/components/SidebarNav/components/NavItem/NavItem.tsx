@@ -8,6 +8,8 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
+import { PageItem } from 'types/navigation';
 
 interface Props {
   title: string;
@@ -16,9 +18,9 @@ interface Props {
 
 const NavItem = ({ title, items }: Props) => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState('');
   useEffect(() => {
-     
     setActiveLink(window && window.location ? window.location.pathname : '');
   }, []);
 
@@ -36,7 +38,21 @@ const NavItem = ({ title, items }: Props) => {
           expandIcon={hasItems ? <ExpandMoreIcon /> : null}
           aria-controls="panel1a-content"
           id="panel1a-header"
-          sx={{ padding: 0, pointerEvents: hasItems ? 'auto' : 'none' }}
+          sx={{ padding: 0, cursor: 'pointer' }}
+          onClick={() => {
+            if (!hasItems) {
+              if (title === 'Vertigo') {
+                navigate('/vertigo');
+              }
+              if (title === 'Autori') {
+                navigate('/autori');
+              }
+              if (title === 'O nás') {
+                navigate('/onas');
+              }
+              return;
+            }
+          }}
         >
           <Typography
             fontWeight={hasActiveLink() ? 600 : 400}
