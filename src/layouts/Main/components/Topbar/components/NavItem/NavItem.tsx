@@ -37,6 +37,7 @@ const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
       if (id === 'about-pages') {
         navigate('/onas');
       }
+      return;
     }
     if (anchorEl !== event.currentTarget) {
       setAnchorEl(event.currentTarget);
