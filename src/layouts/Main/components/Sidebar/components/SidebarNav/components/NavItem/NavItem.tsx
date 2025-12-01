@@ -25,7 +25,30 @@ const NavItem = ({ title, items }: Props) => {
   }, []);
 
   const hasItems = items.length > 0;
-  const hasActiveLink = (): boolean => items.some((i) => i.href === activeLink);
+
+  // Check if a simple (no-submenu) heading matches the active route
+  // Active links have specific style, so we need to detect them
+  const isActiveSingleHeading = (
+    title: string,
+    activeLink: string,
+  ): boolean => {
+    const routeMap: Record<string, string> = {
+      Vertigo: '/vertigo',
+      Autori: '/autori',
+      'O nás': '/onas',
+    };
+
+    return routeMap[title] === activeLink;
+  };
+
+  const hasActiveLink = (): boolean => {
+    if (hasItems) {
+      return items.some((item) => item.href === activeLink);
+    }
+
+    // No submenu -> check via title-to-route mapping
+    return isActiveSingleHeading(title, activeLink);
+  };
 
   return (
     <Box>
