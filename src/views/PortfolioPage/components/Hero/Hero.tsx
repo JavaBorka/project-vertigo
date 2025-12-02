@@ -28,12 +28,17 @@ const Hero = () => {
       data-jarallax
       data-speed="0.2"
       position={'relative'}
-      minHeight={{ xs: 400, sm: 500, md: 600 }}
+      minHeight={{ xs: 400, sm: 500, md: 560 }}
       display={'flex'}
       alignItems={'center'}
       marginTop={-13}
       paddingTop={13}
       id="agency__portfolio-item--js-scroll"
+      sx={{
+        overflow: 'hidden',
+        borderBottomLeftRadius: 50,
+        borderBottomRightRadius: 50,
+      }}
     >
       <Box
         className={'jarallax-img'}
@@ -50,32 +55,35 @@ const Hero = () => {
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
-          backgroundImage: 'url(/assets/images/hero-temp-banner-1400x900.jpg)',
+          backgroundImage: 'url(/assets/images/hero-temp-banner-1200x675.jpg)',
           filter: theme.palette.mode === 'dark' ? 'brightness(0.7)' : 'none',
         }}
       />
       <Container position={'relative'} zIndex={2}>
         <Box>
-          <Typography
-            variant="h2"
-            gutterBottom
+          <Box
+            component={'img'}
+            src={'/assets/svg/logo/logo-face-white.svg'}
+            alt={'FACE'}
             sx={{
-              fontWeight: 900,
-              color: 'common.white',
-              textTransform: 'uppercase',
+              display: 'block',
+              height: { xs: 40, sm: 52, md: 30 },
+              marginBottom: 3,
             }}
-          >
-            Face
-          </Typography>
+          />
           <Typography
             variant="h5"
             component="p"
             color="text.primary"
             sx={{
+              fontFamily: 'Archia',
+              fontWeight: 700,
               color: 'common.white',
             }}
           >
-            Fórum alternatívnej kultúry a vzdelávania
+            fórum alternatívnej
+            <br />
+            kultúry a vzdelávania
           </Typography>
         </Box>
       </Container>
