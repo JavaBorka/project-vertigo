@@ -8,7 +8,6 @@ import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
 
 interface Props {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   onSidebarOpen: () => void;
 }
 

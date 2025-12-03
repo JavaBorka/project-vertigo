@@ -112,7 +112,6 @@ export default Topbar;
 //////////////////////////////////
 
 // interface Props {
-//   // eslint-disable-next-line @typescript-eslint/ban-types
 //   onSidebarOpen: () => void;
 //   pages: {
 //     landings: Array<PageItem>;

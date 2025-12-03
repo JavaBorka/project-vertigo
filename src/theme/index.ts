@@ -4,7 +4,7 @@ import shadows from './shadows';
 import { light, dark } from './palette';
 import React from 'react';
 
-const getTheme = (mode: string, themeToggler: () => void): Theme =>
+const getTheme = (mode: string): Theme =>
   responsiveFontSizes(
     createTheme({
       palette: mode === 'light' ? light : dark,
@@ -85,7 +85,6 @@ const getTheme = (mode: string, themeToggler: () => void): Theme =>
           } as ComponentsOverrides['MuiCard'],
         },
       },
-      themeToggler,
     }),
   );
 
