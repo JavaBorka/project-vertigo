@@ -4,6 +4,7 @@
   "email": "hi@maccarianagency.com",
   "version": "7.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "cross-env GENERATE_SOURCEMAP=false vite build",
