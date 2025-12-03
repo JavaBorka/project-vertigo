@@ -6,7 +6,6 @@ import Dialog from '@mui/material/Dialog';
 import { Image, Details } from './components';
 
 interface Props {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   onClose: () => void;
   open: boolean;
 }
