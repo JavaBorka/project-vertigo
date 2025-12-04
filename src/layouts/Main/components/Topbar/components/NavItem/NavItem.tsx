@@ -14,10 +14,9 @@ interface Props {
   title: string;
   id: string;
   items: Array<PageItem>;
-  colorInvert?: boolean;
 }
 
-const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
+const NavItem = ({ title, id, items }: Props) => {
   const theme = useTheme();
   const hasItems = items.length > 0;
   const navigate = useNavigate();
@@ -68,7 +67,7 @@ const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
       if (!currentlyHovering) {
         handleClose();
       }
-    }, 150);
+    }, 190);
   };
 
   const [activeLink, setActiveLink] = useState('');
@@ -76,7 +75,7 @@ const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
     setActiveLink(window && window.location ? window.location.pathname : '');
   }, []);
 
-  const linkColor = colorInvert ? 'common.white' : 'text.primary';
+  const linkColor = 'common.white';
 
   return (
     <Box>
@@ -100,13 +99,13 @@ const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
                     content: '""',
                     position: 'absolute',
                     left: '50%',
-                    bottom: -7,
-                    height: 1.9,
-                    width: '115%',
-                    backgroundColor: theme.palette.primary.main,
+                    bottom: -5,
+                    height: 1.1,
+                    width: '70%',
+                    backgroundColor: theme.palette.common.white,
                     transform: 'translateX(-50%) scaleX(0)',
                     transformOrigin: 'center',
-                    transition: 'transform 300ms ease',
+                    transition: 'transform 350ms ease',
                   },
                   '&:hover::after': {
                     transform: 'translateX(-50%) scaleX(1)',
@@ -153,11 +152,11 @@ const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
             maxWidth: items.length > 12 ? 350 : 100,
             padding: 1,
             marginTop: 1.2,
-            borderTopRightRadius: 0,
-            borderTopLeftRadius: 0,
+            borderTopRightRadius: 8,
+            borderTopLeftRadius: 8,
             borderBottomRightRadius: 8,
             borderBottomLeftRadius: 8,
-            borderTop: `2px solid ${theme.palette.primary.main}`,
+            borderTop: `2px solid ${theme.palette.common.white}`,
           },
           [`&.${popoverClasses.root}`]: {
             pointerEvents: 'none',
