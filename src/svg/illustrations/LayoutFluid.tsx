@@ -1,4 +1,5 @@
 import React from 'react';
+import { IllustrationProps } from 'types/Illustration';
 
 const LayoutFluid = ({
   width = 94,

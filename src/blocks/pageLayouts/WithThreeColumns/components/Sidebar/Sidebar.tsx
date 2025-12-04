@@ -4,7 +4,6 @@ import Drawer from '@mui/material/Drawer';
 import { SidebarNav } from './components';
 
 interface Props {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   onClose: () => void;
   open: boolean;
   variant: 'permanent' | 'persistent' | 'temporary' | undefined;

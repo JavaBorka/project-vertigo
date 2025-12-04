@@ -1,12 +1,8 @@
-import React, { JSX } from 'react';
 import Box from '@mui/material/Box';
 import { WithPromoBadge } from 'blocks/productGrids';
-import { Typography } from '@mui/material';
-
-import Grid2 from '@mui/material/Grid2';
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import { Features, Folio, Gallery, Hero, Services } from './components';
+import { Folio, Hero } from './components';
 import { MostViewedArticles } from 'views/BlogNewsroom/components';
 import { Contact } from 'views/HelpCenter/components';
 import { useTheme } from '@mui/material/styles';

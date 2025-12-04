@@ -14,7 +14,6 @@ import Link from '@mui/material/Link';
 import Navigation from '../../components/Navigation';
 
 interface Props {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   onClose: () => void;
   open: boolean;
   variant: 'permanent' | 'persistent' | 'temporary' | undefined;

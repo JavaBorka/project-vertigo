@@ -5,10 +5,7 @@ import Link from '@mui/material/Link';
 import { alpha, useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { ThemeModeToggler } from './components';
-
 interface Props {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   onSidebarOpen: () => void;
 }
 
@@ -78,9 +75,6 @@ const Topbar = ({ onSidebarOpen }: Props) => {
           </Link>
         </Box>
         <Box marginLeft={3}>
-          <ThemeModeToggler />
-        </Box>
-        <Box marginLeft={3}>
           <Button
             variant="contained"
             color="primary"
@@ -94,9 +88,6 @@ const Topbar = ({ onSidebarOpen }: Props) => {
         </Box>
       </Box>
       <Box sx={{ display: { xs: 'flex', md: 'none' } }} alignItems={'center'}>
-        <Box marginRight={1}>
-          <ThemeModeToggler />
-        </Box>
         <Button
           onClick={() => onSidebarOpen()}
           aria-label="Menu"

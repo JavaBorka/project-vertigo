@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -138,8 +137,8 @@ const WithBorderedCardsAndBrandColor = () => {
           <Typography variant="h6" align={'center'} color={'text.secondary'}>
             The best way to learn is by using skills.
             <br />
-            That's why every class has a project that lets you practice and get
-            feedback.
+            That&apos;s why every class has a project that lets you practice and
+            get feedback.
           </Typography>
           <Box
             display="flex"

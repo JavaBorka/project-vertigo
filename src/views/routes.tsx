@@ -5,7 +5,7 @@ import {
   NotFoundCover as NotFoundCoverView,
   BooksPage as BooksPageView,
   // Rental as RentalView,
-  // ContactPageCover as ContactPageCoverView,
+  ContactPageCover as ContactPageCoverView,
 } from 'views';
 
 const routes = [
@@ -33,15 +33,21 @@ const routes = [
     path: '/deti',
     renderer: (params = {}) => <BooksPageView {...params} />,
   },
+  {
+    path: '/vertigo',
+    renderer: (params = {}) => <BooksPageView {...params} />,
+  },
+  {
+    path: '/autori',
+    renderer: (params = {}) => <BooksPageView {...params} />,
+  },
+  {
+    path: '/onas',
+    renderer: (params = {}) => <ContactPageCoverView {...params} />,
+  },
   // {
   //   path: '/rental',
   //   renderer: (params = {}) => <RentalView {...params} />,
-  // },
-  // {
-  //   path: '/contact-page-cover',
-  //   renderer: (params = {}) => (
-  //     <ContactPageCoverView {...params} />
-  //   ),
   // },
 ];
 

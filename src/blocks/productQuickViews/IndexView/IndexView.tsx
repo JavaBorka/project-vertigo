@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -34,7 +33,8 @@ const IndexView = () => {
               Product Quick Views
             </Typography>
             <Typography>
-              Used to quickly explore a product's detail within a modal dialog.
+              Used to quickly explore a product&apos;s detail within a modal
+              dialog.
             </Typography>
           </Box>
         </Container>

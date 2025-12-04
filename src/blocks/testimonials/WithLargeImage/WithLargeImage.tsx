@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -39,9 +38,9 @@ const WithLargeImage = () => {
               }}
             />
             <Typography variant={'h6'} component={'p'}>
-              First class templates. These guys know what they're doing: great
-              code quality, clear naming conventions and clear code structure.
-              Plain awesome and a pleasure to work with.
+              First class templates. These guys know what they&apos;re doing:
+              great code quality, clear naming conventions and clear code
+              structure. Plain awesome and a pleasure to work with.
             </Typography>
             <Box marginTop={{ xs: 2, sm: 4 }}>
               <Typography variant={'h6'} sx={{ fontWeight: 700 }}>

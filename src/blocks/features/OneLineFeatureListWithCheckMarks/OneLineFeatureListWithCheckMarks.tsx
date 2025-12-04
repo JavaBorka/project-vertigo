@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -62,7 +61,7 @@ const OneLineFeatureListWithCheckMarks = () => {
             We aim to take care of you. Need help with installation, find a bug,
             or just need a clarifiction about our documentation?
             <br />
-            We'll be there to lend a helping hand.
+            We&apos;ll be there to lend a helping hand.
           </Typography>
           <Box marginTop={2} display={'flex'} justifyContent={'center'}>
             <Button

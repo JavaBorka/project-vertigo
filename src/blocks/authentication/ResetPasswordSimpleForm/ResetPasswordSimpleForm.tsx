@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -34,7 +33,7 @@ const ResetPasswordSimpleForm = () => {
             Forgot your password?
           </Typography>
           <Typography color="text.secondary">
-            Enter your email address below and we'll get you back on track.
+            Enter your email address below and we&apos;ll get you back on track.
           </Typography>
         </Box>
         <Card sx={{ p: { xs: 4, md: 6 } }}>

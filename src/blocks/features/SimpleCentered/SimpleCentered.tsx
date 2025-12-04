@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+ 
 import React from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -56,7 +56,7 @@ const mock = [
   {
     title: 'Documentation for everything',
     subtitle:
-      "We've written extensive documentation for components and tools, so you never have to reverse engineer anything.",
+      'We\'ve written extensive documentation for components and tools, so you never have to reverse engineer anything.',
     icon: (
       <svg
         height={24}

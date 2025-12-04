@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
+import { IllustrationProps } from 'types/Illustration';
 
 const Chart1 = ({ width = 254, height = 348 }: IllustrationProps) => {
   const theme = useTheme();

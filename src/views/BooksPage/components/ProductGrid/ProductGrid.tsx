@@ -1,13 +1,11 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
 import Grid2 from '@mui/material/Grid2';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import { alpha, useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 
 import Container from 'components/Container';
 

@@ -12,7 +12,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Select from '@mui/material/Select';
 
 interface Props {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   onSidebarOpen: () => void;
 }
 

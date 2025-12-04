@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
+import { IllustrationProps } from 'types/Illustration';
 
 const CreditCards = ({ width = 200, height = 98 }: IllustrationProps) => {
   const theme = useTheme();

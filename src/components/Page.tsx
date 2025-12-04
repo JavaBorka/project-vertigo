@@ -69,14 +69,14 @@ export default function Page({ children }: Props) {
     return () => window.removeEventListener('load', handleWindowLoad);
   }, []);
 
-  const [themeMode, themeToggler, mountedComponent] = useDarkMode();
+  const [themeMode, mountedComponent] = useDarkMode();
 
   useEffect(() => {
     AOS.refresh();
   }, [mountedComponent, themeMode]);
 
   return (
-    <ThemeProvider theme={getTheme(themeMode, themeToggler)}>
+    <ThemeProvider theme={getTheme(themeMode)}>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
       <Paper elevation={0}>{children}</Paper>
