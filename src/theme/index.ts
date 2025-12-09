@@ -10,33 +10,33 @@ const getTheme = (mode: string): Theme =>
       palette: mode === 'light' ? light : dark,
       shadows: shadows(mode),
       typography: {
-        // Use Inter temporarily to avoid heavy look while regular Archia is unavailable
-        fontFamily: '"Inter","Arial",sans-serif',
+        // Use Poppins as the default document font
+        fontFamily: '"Poppins","Arial",sans-serif',
         fontWeightRegular: 400,
         fontWeightMedium: 500,
         fontWeightBold: 700,
         h1: {
-          fontFamily: '"Archia","Inter","Arial",sans-serif',
+          fontFamily: '"Archia","Poppins","Arial",sans-serif',
           fontWeight: 700,
         },
         h2: {
-          fontFamily: '"Archia","Inter","Arial",sans-serif',
+          fontFamily: '"Archia","Poppins","Arial",sans-serif',
           fontWeight: 700,
         },
         h3: {
-          fontFamily: '"Archia","Inter","Arial",sans-serif',
+          fontFamily: '"Archia","Poppins","Arial",sans-serif',
           fontWeight: 700,
         },
         h4: {
-          fontFamily: '"Archia","Inter","Arial",sans-serif',
+          fontFamily: '"Archia","Poppins","Arial",sans-serif',
           fontWeight: 700,
         },
         h5: {
-          fontFamily: '"Archia","Inter","Arial",sans-serif',
+          fontFamily: '"Archia","Poppins","Arial",sans-serif',
           fontWeight: 700,
         },
         h6: {
-          fontFamily: '"Archia","Inter","Arial",sans-serif',
+          fontFamily: '"Archia","Poppins","Arial",sans-serif',
           fontWeight: 700,
         },
 
@@ -53,13 +53,6 @@ const getTheme = (mode: string): Theme =>
         MuiCssBaseline: {
           styleOverrides: {
             '@font-face': [
-              // {
-              //   fontFamily: 'Archia',
-              //   fontStyle: 'normal',
-              //   fontWeight: 400,
-              //   fontDisplay: 'swap',
-              //   src: 'url("/fonts/archia-regular.otf") format("opentype")',
-              // },
               {
                 fontFamily: 'Archia',
                 fontStyle: 'normal',
@@ -69,8 +62,7 @@ const getTheme = (mode: string): Theme =>
               },
             ],
             body: {
-              fontFamily: '"Inter","Arial",sans-serif',
-              fontWeight: 400,
+              fontFamily: '"Poppins","Arial",sans-serif',
             },
           },
         },
