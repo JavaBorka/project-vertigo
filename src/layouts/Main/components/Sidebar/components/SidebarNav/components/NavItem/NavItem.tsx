@@ -105,6 +105,10 @@ const NavItem = ({ title, items }: Props) => {
                           ? alpha(theme.palette.primary.main, 0.1)
                           : 'transparent',
                       fontWeight: activeLink === p.href ? 600 : 400,
+                      '&:hover': {
+                        backgroundColor: alpha(theme.palette.primary.main, 0.1),
+                        color: theme.palette.primary.main,
+                      },
                     }}
                   >
                     {p.title}

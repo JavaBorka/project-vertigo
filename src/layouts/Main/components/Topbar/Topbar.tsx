@@ -1,6 +1,5 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { alpha, useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { NavItem } from './components';
@@ -17,7 +16,6 @@ interface Props {
 }
 
 const Topbar = ({ onSidebarOpen, pages }: Props) => {
-  const theme = useTheme();
   const {
     books: booksPages,
     vertigo: vertigoPages,
@@ -68,15 +66,18 @@ const Topbar = ({ onSidebarOpen, pages }: Props) => {
         <Button
           onClick={() => onSidebarOpen()}
           aria-label="Menu"
-          variant={'outlined'}
+          variant="text"
+          disableRipple
           sx={{
-            borderRadius: 2,
+            color: 'common.white',
             minWidth: 'auto',
             padding: 1,
-            borderColor: alpha(theme.palette.divider, 0.2),
+            borderRadius: 0,
+            backgroundColor: 'transparent',
+            '&:hover': { backgroundColor: 'transparent' },
           }}
         >
-          <MenuIcon />
+          <MenuIcon sx={{ color: 'common.white' }} />
         </Button>
       </Box>
     </Box>

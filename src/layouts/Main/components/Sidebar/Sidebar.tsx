@@ -26,7 +26,7 @@ const Sidebar = ({ pages, open, variant, onClose }: Props) => {
       sx={{
         '& .MuiPaper-root': {
           width: '100%',
-          maxWidth: 280,
+          maxWidth: 270,
         },
       }}
     >

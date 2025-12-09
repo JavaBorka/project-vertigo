@@ -150,8 +150,7 @@ const NavItem = ({ title, id, items }: Props) => {
           zIndex: 9999,
           '.MuiPaper-root': {
             maxWidth: items.length > 12 ? 350 : 100,
-            padding: 1,
-            marginTop: 1.2,
+            marginTop: 1.5,
             borderTopRightRadius: 8,
             borderTopLeftRadius: 8,
             borderBottomRightRadius: 8,
@@ -181,10 +180,18 @@ const NavItem = ({ title, id, items }: Props) => {
                     activeLink === p.href
                       ? alpha(theme.palette.primary.main, 0.1)
                       : 'transparent',
-                  fontWeight: activeLink === p.href ? 600 : 400,
+                  '&:hover': {
+                    backgroundColor: alpha(theme.palette.primary.main, 0.1),
+                    color: theme.palette.primary.main,
+                  },
                 }}
               >
-                <Typography variant={'body2'}>{p.title}</Typography>
+                <Typography
+                  variant={'body2'}
+                  sx={{ fontWeight: activeLink === p.href ? 600 : 400 }}
+                >
+                  {p.title}
+                </Typography>
                 {p.isNew && (
                   <Box
                     padding={0.5}
