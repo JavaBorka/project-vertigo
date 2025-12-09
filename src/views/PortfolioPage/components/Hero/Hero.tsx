@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
@@ -20,62 +19,79 @@ const Hero = () => {
     jarallaxInit();
   });
 
-  const theme = useTheme();
-
   return (
     <Box
       className={'jarallax'}
       data-jarallax
       data-speed="0.2"
       position={'relative'}
-      minHeight={{ xs: 400, sm: 500, md: 600 }}
+      minHeight={{ xs: 380, sm: 400, md: 560 }}
       display={'flex'}
       alignItems={'center'}
       marginTop={-13}
       paddingTop={13}
       id="agency__portfolio-item--js-scroll"
+      sx={{
+        overflow: 'hidden',
+        borderBottomLeftRadius: { xs: 0, md: 50 },
+        borderBottomRightRadius: { xs: 0, md: 50 },
+      }}
     >
       <Box
         className={'jarallax-img'}
         sx={{
           position: 'absolute',
-          objectFit: 'cover',
-          /* support for plugin https://github.com/bfred-it/object-fit-images */
-          fontFamily: 'object-fit: cover;',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
+          inset: 0,
           zIndex: -1,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundImage: 'url(/assets/images/hero-temp-banner-1400x900.jpg)',
-          filter: theme.palette.mode === 'dark' ? 'brightness(0.7)' : 'none',
+          '& img': {
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          },
         }}
-      />
+      >
+        <picture>
+          <source
+            media="(min-width:1200px)"
+            srcSet="/assets/images/hero-banner-lg.jpg"
+          />
+          <source
+            media="(min-width:900px)"
+            srcSet="/assets/images/hero-banner-md.jpg"
+          />
+          <source
+            media="(min-width:600px)"
+            srcSet="/assets/images/hero-banner-sm.jpg"
+          />
+          <img src="/assets/images/hero-banner-xs.jpg" alt="" />
+        </picture>
+      </Box>
       <Container position={'relative'} zIndex={2}>
         <Box>
-          <Typography
-            variant="h2"
-            gutterBottom
+          <Box
+            component={'img'}
+            src={'/assets/svg/logo/logo-face-white.svg'}
+            alt={'FACE'}
             sx={{
-              fontWeight: 900,
-              color: 'common.white',
-              textTransform: 'uppercase',
+              display: 'block',
+              height: { xs: 20, sm: 30, md: 30, lg: 35 },
+              marginBottom: 3,
             }}
-          >
-            Face
-          </Typography>
+          />
           <Typography
             variant="h5"
             component="p"
             color="text.primary"
             sx={{
+              fontFamily: 'Archia',
+              fontWeight: 700,
+              fontSize: { xs: 18, md: 20, lg: 25 },
               color: 'common.white',
             }}
           >
-            Fórum alternatívnej kultúry a vzdelávania
+            fórum alternatívnej
+            <br />
+            kultúry a vzdelávania
           </Typography>
         </Box>
       </Container>

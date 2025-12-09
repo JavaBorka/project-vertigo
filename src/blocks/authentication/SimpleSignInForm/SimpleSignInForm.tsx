@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -96,7 +95,7 @@ const SimpleSignInForm = () => {
                 >
                   <Box marginBottom={{ xs: 1, sm: 0 }}>
                     <Typography variant={'subtitle2'}>
-                      Don't have an account yet?{' '}
+                      Don&apos;t have an account yet?{' '}
                       <Link
                         component={'a'}
                         color={'primary'}

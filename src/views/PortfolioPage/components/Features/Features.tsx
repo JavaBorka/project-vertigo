@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -61,7 +60,7 @@ const Features = () => {
                 Monitor and analyze usage patterns.
               </Typography>
               <Typography sx={{ color: 'common.white' }} variant={'h6'}>
-                Keep track of what's happening with your data, change
+                Keep track of what&apos;s happening with your data, change
                 permissions, and run reports against your data anywhere in the
                 world.
               </Typography>
@@ -70,7 +69,7 @@ const Features = () => {
               {[
                 'Affordable, scalable and performant. The perfect solution for small apps.',
                 'A mid-sized solution for businesses undergoing rapid user growth.',
-                "A farm of machines entirely dedicated to your company's storage needs.",
+                'A farm of machines entirely dedicated to your company\'s storage needs.',
                 'A mid-sized solution for businesses undergoing rapid user growth.',
               ].map((item, i) => (
                 <Grid item xs={12} key={i}>

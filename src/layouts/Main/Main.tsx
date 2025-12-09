@@ -4,7 +4,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
 
 import Container from 'components/Container';
 
@@ -18,11 +17,7 @@ interface Props {
   bgcolor?: string;
 }
 
-const Main = ({
-  children,
-  colorInvert = false,
-  bgcolor = 'transparent',
-}: Props) => {
+const Main = ({ children }: Props) => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -40,10 +35,21 @@ const Main = ({
 
   const open = isMd ? false : openSidebar;
 
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 38,
-  });
+  const pathname =
+    typeof window !== 'undefined' && window.location
+      ? window.location.pathname
+      : '';
+  const pathColorMap: Record<string, string> = {
+    '/': '#960048',
+    '/poezia': '#582864',
+    '/proza': '#006A64',
+    '/veda': '#6D3628',
+    '/deti': '#960048',
+    '/vertigo': '#960048',
+    '/autori': '#960048',
+    '/onas': '#960048',
+  };
+  const mappedColor = pathColorMap[pathname];
 
   return (
     <Box>
@@ -51,20 +57,17 @@ const Main = ({
         position={'sticky'}
         sx={{
           top: 0,
-          backgroundColor: trigger ? theme.palette.background.paper : bgcolor,
+          backgroundColor: mappedColor,
+          boxShadow: 'none',
           zIndex: {
             sx: 0,
             md: theme.zIndex.drawer + 1,
           },
         }}
-        elevation={trigger ? 1 : 0}
+        elevation={0}
       >
-        <Container paddingY={{ xs: 1, md: 2 }}>
-          <Topbar
-            onSidebarOpen={handleSidebarOpen}
-            pages={pages}
-            colorInvert={trigger ? false : colorInvert}
-          />
+        <Container>
+          <Topbar onSidebarOpen={handleSidebarOpen} pages={pages} />
         </Container>
       </AppBar>
       <Sidebar

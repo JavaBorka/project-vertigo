@@ -7,22 +7,44 @@ import { popoverClasses } from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { PageItem } from 'types/navigation';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   title: string;
   id: string;
   items: Array<PageItem>;
-  colorInvert?: boolean;
 }
 
-const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
+const NavItem = ({ title, id, items }: Props) => {
   const theme = useTheme();
   const hasItems = items.length > 0;
+  const navigate = useNavigate();
 
   let currentlyHovering = false;
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
+    if (!hasItems) {
+      // Direct navigation for empty items based on id
+      if (id === 'vertigo-pages') {
+        navigate('/vertigo');
+      }
+      if (id === 'autori-pages') {
+        navigate('/autori');
+      }
+      if (id === 'about-pages') {
+        navigate('/onas');
+      }
+      return;
+    }
+    if (anchorEl !== event.currentTarget) {
+      setAnchorEl(event.currentTarget);
+    }
+  };
+
+  const handleMouseOver = (event) => {
+    // Only open dropdowns on hover when there are submenu items
     if (!hasItems) {
       return;
     }
@@ -45,7 +67,7 @@ const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
       if (!currentlyHovering) {
         handleClose();
       }
-    }, 150);
+    }, 190);
   };
 
   const [activeLink, setActiveLink] = useState('');
@@ -53,7 +75,7 @@ const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
     setActiveLink(window && window.location ? window.location.pathname : '');
   }, []);
 
-  const linkColor = colorInvert ? 'common.white' : 'text.primary';
+  const linkColor = 'common.white';
 
   return (
     <Box>
@@ -63,7 +85,7 @@ const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
         aria-describedby={id}
         sx={{ cursor: 'pointer' }}
         onClick={handleClick}
-        onMouseOver={handleClick}
+        onMouseOver={handleMouseOver}
         onMouseLeave={handleCloseHover}
       >
         <Typography
@@ -77,13 +99,13 @@ const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
                     content: '""',
                     position: 'absolute',
                     left: '50%',
-                    bottom: -7,
-                    height: 1.9,
-                    width: '115%',
-                    backgroundColor: theme.palette.primary.main,
+                    bottom: -5,
+                    height: 1.1,
+                    width: '70%',
+                    backgroundColor: theme.palette.common.white,
                     transform: 'translateX(-50%) scaleX(0)',
                     transformOrigin: 'center',
-                    transition: 'transform 300ms ease',
+                    transition: 'transform 350ms ease',
                   },
                   '&:hover::after': {
                     transform: 'translateX(-50%) scaleX(1)',
@@ -128,13 +150,12 @@ const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
           zIndex: 9999,
           '.MuiPaper-root': {
             maxWidth: items.length > 12 ? 350 : 100,
-            padding: 1,
-            marginTop: 1.2,
-            borderTopRightRadius: 0,
-            borderTopLeftRadius: 0,
+            marginTop: 1.5,
+            borderTopRightRadius: 8,
+            borderTopLeftRadius: 8,
             borderBottomRightRadius: 8,
             borderBottomLeftRadius: 8,
-            borderTop: `2px solid ${theme.palette.primary.main}`,
+            borderTop: `2px solid ${theme.palette.common.white}`,
           },
           [`&.${popoverClasses.root}`]: {
             pointerEvents: 'none',
@@ -159,10 +180,18 @@ const NavItem = ({ title, id, items, colorInvert = false }: Props) => {
                     activeLink === p.href
                       ? alpha(theme.palette.primary.main, 0.1)
                       : 'transparent',
-                  fontWeight: activeLink === p.href ? 600 : 400,
+                  '&:hover': {
+                    backgroundColor: alpha(theme.palette.primary.main, 0.1),
+                    color: theme.palette.primary.main,
+                  },
                 }}
               >
-                <Typography variant={'body2'}>{p.title}</Typography>
+                <Typography
+                  variant={'body2'}
+                  sx={{ fontWeight: activeLink === p.href ? 600 : 400 }}
+                >
+                  {p.title}
+                </Typography>
                 {p.isNew && (
                   <Box
                     padding={0.5}

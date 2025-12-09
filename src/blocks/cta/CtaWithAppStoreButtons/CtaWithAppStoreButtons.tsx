@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
@@ -17,7 +16,7 @@ const CtaWithAppStoreButtons = () => {
             fontWeight: 700,
           }}
         >
-          Don't listen to what they say{' '}
+          Don&apos;t listen to what they say{' '}
           <Typography color={'primary'} component={'span'} variant={'inherit'}>
             go and see
           </Typography>

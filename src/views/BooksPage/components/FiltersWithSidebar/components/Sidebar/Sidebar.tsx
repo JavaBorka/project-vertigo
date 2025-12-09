@@ -2,16 +2,9 @@ import React from 'react';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 
-import {
-  FilterSize,
-  FilterBrand,
-  FilterColor,
-  FilterPrice,
-  FilterGender,
-} from './components';
+import { FilterBrand, FilterGender } from './components';
 
 interface Props {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   onClose: () => void;
   open: boolean;
   variant: 'permanent' | 'persistent' | 'temporary' | undefined;

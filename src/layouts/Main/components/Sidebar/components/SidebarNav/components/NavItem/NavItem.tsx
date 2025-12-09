@@ -8,6 +8,8 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
+import { PageItem } from 'types/navigation';
 
 interface Props {
   title: string;
@@ -16,13 +18,37 @@ interface Props {
 
 const NavItem = ({ title, items }: Props) => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState('');
   useEffect(() => {
     setActiveLink(window && window.location ? window.location.pathname : '');
   }, []);
 
   const hasItems = items.length > 0;
-  const hasActiveLink = (): boolean => items.some((i) => i.href === activeLink);
+
+  // Check if a simple (no-submenu) heading matches the active route
+  // Active links have specific style, so we need to detect them
+  const isActiveSingleHeading = (
+    title: string,
+    activeLink: string,
+  ): boolean => {
+    const routeMap: Record<string, string> = {
+      Vertigo: '/vertigo',
+      Autori: '/autori',
+      'O nás': '/onas',
+    };
+
+    return routeMap[title] === activeLink;
+  };
+
+  const hasActiveLink = (): boolean => {
+    if (hasItems) {
+      return items.some((item) => item.href === activeLink);
+    }
+
+    // No submenu -> check via title-to-route mapping
+    return isActiveSingleHeading(title, activeLink);
+  };
 
   return (
     <Box>
@@ -35,7 +61,21 @@ const NavItem = ({ title, items }: Props) => {
           expandIcon={hasItems ? <ExpandMoreIcon /> : null}
           aria-controls="panel1a-content"
           id="panel1a-header"
-          sx={{ padding: 0, pointerEvents: hasItems ? 'auto' : 'none' }}
+          sx={{ padding: 0, cursor: 'pointer' }}
+          onClick={() => {
+            if (!hasItems) {
+              if (title === 'Vertigo') {
+                navigate('/vertigo');
+              }
+              if (title === 'Autori') {
+                navigate('/autori');
+              }
+              if (title === 'O nás') {
+                navigate('/onas');
+              }
+              return;
+            }
+          }}
         >
           <Typography
             fontWeight={hasActiveLink() ? 600 : 400}
@@ -65,6 +105,10 @@ const NavItem = ({ title, items }: Props) => {
                           ? alpha(theme.palette.primary.main, 0.1)
                           : 'transparent',
                       fontWeight: activeLink === p.href ? 600 : 400,
+                      '&:hover': {
+                        backgroundColor: alpha(theme.palette.primary.main, 0.1),
+                        color: theme.palette.primary.main,
+                      },
                     }}
                   >
                     {p.title}

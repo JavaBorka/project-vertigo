@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -86,7 +85,7 @@ const Form = () => {
             <Grid item container justifyContent={'center'} xs={12}>
               <Box>
                 <Typography component="p" variant="body2" align="left">
-                  By clicking on "submit" you agree to our{' '}
+                  By clicking on &quot;submit&quot; you agree to our{' '}
                   <Box
                     component="a"
                     href=""
@@ -122,7 +121,7 @@ const Form = () => {
       </Box>
       <Box>
         <Typography color="text.secondary" align={'center'}>
-          We'll get back to you in 1-2 business days.
+          We&apos;ll get back to you in 1-2 business days.
         </Typography>
       </Box>
     </Box>

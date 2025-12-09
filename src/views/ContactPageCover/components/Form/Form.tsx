@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -154,7 +153,7 @@ const Contact = () => {
             </Grid>
             <Grid item container justifyContent={'center'} xs={12}>
               <Typography color="text.secondary">
-                We'll get back to you in 1-2 business days.
+                We&apos;ll get back to you in 1-2 business days.
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -163,7 +162,7 @@ const Contact = () => {
             <Grid item container justifyContent={'center'} xs={12}>
               <Box>
                 <Typography component="p" variant="body2" align="left">
-                  By clicking on "submit" you agree to our{' '}
+                  By clicking on &quot;submit&quot; you agree to our{' '}
                   <Box
                     component="a"
                     href=""

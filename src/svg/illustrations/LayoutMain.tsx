@@ -1,4 +1,4 @@
-import React from 'react';
+import { IllustrationProps } from 'types/Illustration';
 
 const LayoutMain = ({
   width = 94,

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -22,7 +21,7 @@ const Map = () => {
         </Box>
         <Box>
           <Typography variant="h6" color={'text.secondary'}>
-            We'd love to talk about how we can help you.
+            We&apos;d love to talk about how we can help you.
           </Typography>
         </Box>
       </Box>

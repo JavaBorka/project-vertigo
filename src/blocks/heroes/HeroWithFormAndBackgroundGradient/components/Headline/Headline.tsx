@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -14,7 +13,7 @@ const Headline = () => {
           color: 'common.white',
         }}
       >
-        Join the world's leading companies at TheFront 2021
+        Join the world&apos;s leading companies at TheFront 2021
       </Typography>
       <Typography
         variant="h6"
