@@ -180,6 +180,9 @@ const NavItem = ({ title, id, items }: Props) => {
                     activeLink === p.href
                       ? alpha(theme.palette.primary.main, 0.1)
                       : 'transparent',
+                  '&': {
+                    transition: 'all 300ms ease-in-out',
+                  },
                   '&:hover': {
                     backgroundColor: alpha(theme.palette.primary.main, 0.1),
                     color: theme.palette.primary.main,
