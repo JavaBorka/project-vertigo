@@ -35,9 +35,9 @@ const Folio = () => {
   const navigate = useNavigate();
   return (
     <Box>
-      <Grid2 container spacing={2}>
+      <Grid2 container spacing={{ xs: 1.5, sm: 2 }}>
         {mock.map((item, i) => (
-          <Grid2 key={i} size={{ xs: 12, sm: 6, md: 3 }}>
+          <Grid2 key={i} size={{ xs: 6, sm: 6, md: 3 }}>
             <Box
               onClick={() => navigate(item.path)}
               sx={{
@@ -98,7 +98,7 @@ const Folio = () => {
                   align="center"
                   sx={{
                     color: 'common.white',
-                    fontSize: { xs: 20, sm: 20, md: 20, lg: 24 },
+                    fontSize: { xs: 18, sm: 20, md: 20, lg: 24 },
                     lineHeight: 1.3,
                     opacity: 1,
                     transition: 'opacity .25s ease-in-out',
