@@ -39,73 +39,111 @@ const Folio = () => {
         {mock.map((item, i) => (
           <Grid2 key={i} size={{ xs: 6, sm: 6, md: 3 }}>
             <Box
-              onClick={() => navigate(item.path)}
               sx={{
-                position: 'relative',
-                overflow: 'hidden',
-                borderRadius: { xs: 12, sm: 15, md: 15, lg: 19 },
-                transition: {
-                  xs: 'border-radius 450ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 650ms ease-in-out',
-                  sm: 'border-radius 450ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 650ms ease-in-out',
-                  md: 'border-radius 450ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 650ms ease-in-out',
-                  lg: 'border-radius 500ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 700ms ease-in-out',
+                transformOrigin: 'center center',
+
+                transform: {
+                  xs: 'translateY(20px)',
+                  sm: 'translateY(25px)',
+                  md: 'translateY(35px)',
+                  lg: 'translateY(35px)',
                 },
-                backgroundColor: item.color,
-                cursor: 'pointer',
-                '&:hover': {
-                  borderRadius: { xs: 8, sm: 4, md: 10, lg: 14 },
-                  '& img': {
-                    opacity: 1,
-                    transform: 'scale(1.2)',
+
+                animation: {
+                  xs: 'cardIn 320ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+                  sm: 'cardIn 320ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+                  md: 'cardIn 420ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+                  lg: 'cardIn 420ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+                },
+
+                animationDelay: {
+                  xs: `${i * 50}ms`,
+                  sm: `${i * 50}ms`,
+                  md: `${i * 90}ms`,
+                  lg: `${i * 90}ms`,
+                },
+
+                '@keyframes cardIn': {
+                  to: {
+                    transform: 'translateY(0)',
                   },
-                  '& .folio-title': {
-                    opacity: 0,
-                  },
+                },
+
+                '@media (prefers-reduced-motion: reduce)': {
+                  animation: 'none',
+                  transform: 'none',
                 },
               }}
             >
               <Box
-                component={'img'}
-                loading="lazy"
-                height={1}
-                width={1}
-                src={item.image}
-                alt="..."
+                onClick={() => navigate(item.path)}
                 sx={{
-                  transition:
-                    'transform .7s ease !important, opacity .3s ease !important',
-                  transform: 'scale(1.0)',
-                  opacity: 0,
-                  objectFit: 'cover',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  borderRadius: { xs: 12, sm: 15, md: 15, lg: 19 },
+                  transition: {
+                    xs: 'border-radius 450ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 650ms ease-in-out',
+                    sm: 'border-radius 450ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 650ms ease-in-out',
+                    md: 'border-radius 450ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 650ms ease-in-out',
+                    lg: 'border-radius 500ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 700ms ease-in-out',
+                  },
+                  backgroundColor: item.color,
+                  cursor: 'pointer',
+                  '&:hover': {
+                    borderRadius: { xs: 8, sm: 4, md: 10, lg: 14 },
+                    '& img': {
+                      opacity: 1,
+                      transform: 'scale(1.2)',
+                    },
+                    '& .folio-title': {
+                      opacity: 0,
+                    },
+                  },
                 }}
-              />
-              <Box
-                position={'absolute'}
-                top={0}
-                bottom={0}
-                left={0}
-                right={0}
-                padding={3}
-                display={'flex'}
-                alignItems={'center'}
-                justifyContent={'center'}
-                textAlign={'center'}
               >
-                <Typography
-                  className={'folio-title'}
-                  variant={'h4'}
-                  fontWeight={700}
-                  align="center"
+                <Box
+                  component={'img'}
+                  loading="lazy"
+                  height={1}
+                  width={1}
+                  src={item.image}
+                  alt="..."
                   sx={{
-                    color: 'common.white',
-                    fontSize: { xs: 18, sm: 20, md: 20, lg: 24 },
-                    lineHeight: 1.3,
-                    opacity: 1,
-                    transition: 'opacity .25s ease-in-out',
+                    transition:
+                      'transform .7s ease !important, opacity .3s ease !important',
+                    transform: 'scale(1.0)',
+                    opacity: 0,
+                    objectFit: 'cover',
                   }}
+                />
+                <Box
+                  position={'absolute'}
+                  top={0}
+                  bottom={0}
+                  left={0}
+                  right={0}
+                  padding={3}
+                  display={'flex'}
+                  alignItems={'center'}
+                  justifyContent={'center'}
+                  textAlign={'center'}
                 >
-                  {item.title}
-                </Typography>
+                  <Typography
+                    className={'folio-title'}
+                    variant={'h4'}
+                    fontWeight={700}
+                    align="center"
+                    sx={{
+                      color: 'common.white',
+                      fontSize: { xs: 18, sm: 20, md: 20, lg: 24 },
+                      lineHeight: 1.3,
+                      opacity: 1,
+                      transition: 'opacity .25s ease-in-out',
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                </Box>
               </Box>
             </Box>
           </Grid2>
