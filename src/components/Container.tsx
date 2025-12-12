@@ -13,7 +13,7 @@ const Container = ({ children, ...rest }: Props) => (
     maxWidth={{ sm: 720, md: 1236 }}
     width={1}
     margin={'0 auto'}
-    paddingX={{ xs: 2.3, sm: 7, md: 7 }}
+    paddingX={{ xs: 2.3, sm: 7, md: 11 }}
     paddingY={{ xs: 2, md: 3 }}
     marginTop={{ xs: 1, sm: 4 }}
     marginBottom={{ xs: 1, sm: 4 }}

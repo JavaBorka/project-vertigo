@@ -25,7 +25,7 @@ const Hero = () => {
       data-jarallax
       data-speed="0.2"
       position={'relative'}
-      minHeight={{ xs: 380, sm: 400, md: 560 }}
+      minHeight={{ xs: 320, sm: 380, md: 500, lg: 520 }}
       display={'flex'}
       alignItems={'center'}
       marginTop={-13}
@@ -33,8 +33,8 @@ const Hero = () => {
       id="agency__portfolio-item--js-scroll"
       sx={{
         overflow: 'hidden',
-        borderBottomLeftRadius: { xs: 0, md: 50 },
-        borderBottomRightRadius: { xs: 0, md: 50 },
+        borderBottomLeftRadius: { xs: 0, sm: 20, md: 50 },
+        borderBottomRightRadius: { xs: 0, sm: 20, md: 50 },
       }}
     >
       <Box
@@ -78,7 +78,7 @@ const Hero = () => {
               marginBottom: 3,
             }}
           />
-          <Typography
+          {/* <Typography
             variant="h5"
             component="p"
             color="text.primary"
@@ -87,6 +87,39 @@ const Hero = () => {
               fontWeight: 700,
               fontSize: { xs: 18, md: 20, lg: 25 },
               color: 'common.white',
+            }}
+          >
+            fórum alternatívnej
+            <br />
+            kultúry a vzdelávania
+          </Typography> */}
+          <Typography
+            variant="h5"
+            component="p"
+            sx={{
+              fontFamily: 'Archia',
+              fontWeight: 700,
+              fontSize: { xs: 18, sm: 20, md: 20, lg: 25 },
+              color: 'common.white',
+
+              opacity: 0,
+              transform: 'translateY(8px)',
+              animation:
+                'heroTextIn 650ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+              animationDelay: '240ms',
+
+              '@keyframes heroTextIn': {
+                to: {
+                  opacity: 1,
+                  transform: 'translateY(0)',
+                },
+              },
+
+              '@media (prefers-reduced-motion: reduce)': {
+                animation: 'none',
+                opacity: 1,
+                transform: 'none',
+              },
             }}
           >
             fórum alternatívnej
