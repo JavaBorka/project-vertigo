@@ -1,104 +1,182 @@
 import React from 'react';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid2 from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
 const mock = [
   {
-    image: '/assets/images/grid-1-1920x1404.jpg',
-    description: 'Autorské monografie z oblasti literárnej vedy',
-    title: 'Literárna veda',
-    color: '#183167',
-  },
-  {
-    image: '/assets/images/grid-2-1920x1404.jpg',
-    description: 'Básnické zbierky zo svetovej literatúry',
+    image: '/assets/images/grid-poetry.jpg',
     title: 'Poézia',
-    color: '#CE371F',
+    color: '#582864',
+    path: '/poezia',
   },
   {
-    image: '/assets/images/grid-3-1920x1404.jpg',
-    description: 'Preklady súčasnej svetovej prózy',
+    image: '/assets/images/grid-prose.jpg',
     title: 'Próza',
-    color: '#ECB3BE',
+    color: '#006A64',
+    path: '/proza',
   },
   {
-    image: '/assets/images/grid-4-1920x1404.jpg',
-    description: 'Literatúra pre deti a mládež',
+    image: '/assets/images/grid-science.jpg',
+    title: 'Literárna veda',
+    color: '#6D3628',
+    path: '/veda',
+  },
+  {
+    image: '/assets/images/grid-kids.jpg',
     title: 'Deti',
-    color: '#000000',
+    color: '#960048',
+    path: '/deti',
   },
 ];
 
 const Folio = () => {
-  const theme = useTheme();
+  const navigate = useNavigate();
   return (
     <Box>
-      <Grid2 container spacing={2}>
+      <Grid2 container spacing={{ xs: 1.5, sm: 2 }}>
         {mock.map((item, i) => (
-          <Grid2 key={i} size={{ xs: 12, md: 6 }}>
+          <Grid2 key={i} size={{ xs: 6, sm: 6, md: 3 }}>
+            {/* Grid cards animation without fade effect
+             <Box
+              sx={{
+                transformOrigin: 'center center',
+
+                transform: {
+                  xs: 'translateY(20px)',
+                  sm: 'translateY(25px)',
+                  md: 'translateY(35px)',
+                  lg: 'translateY(35px)',
+                },
+
+                animation: {
+                  xs: 'cardIn 320ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+                  sm: 'cardIn 320ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+                  md: 'cardIn 420ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+                  lg: 'cardIn 420ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+                },
+
+                animationDelay: {
+                  xs: `${i * 50}ms`,
+                  sm: `${i * 50}ms`,
+                  md: `${i * 90}ms`,
+                  lg: `${i * 90}ms`,
+                },
+
+                '@keyframes cardIn': {
+                  to: {
+                    transform: 'translateY(0)',
+                  },
+                },
+
+                '@media (prefers-reduced-motion: reduce)': {
+                  animation: 'none',
+                  transform: 'none',
+                },
+              }}
+            > */}
             <Box
               sx={{
-                position: 'relative',
-                overflow: 'hidden',
-                borderRadius: 2,
-                '&:hover': {
-                  '& img': {
-                    transform: 'scale(1.2)',
+                // DEFAULT (xs): no animation
+                opacity: 1,
+                transform: 'none',
+
+                // Enable animation from sm upwards
+                '@media (min-width:600px)': {
+                  opacity: 0,
+                  transform: 'translateY(10px)',
+                  animation:
+                    'gridIn 700ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+                },
+
+                '@keyframes gridIn': {
+                  from: {
+                    opacity: 0,
+                    transform: 'translateY(8px)',
                   },
+                  to: {
+                    opacity: 1,
+                    transform: 'translateY(0)',
+                  },
+                },
+
+                '@media (prefers-reduced-motion: reduce)': {
+                  animation: 'none',
+                  opacity: 1,
+                  transform: 'none',
                 },
               }}
             >
               <Box
-                component={'img'}
-                loading="lazy"
-                height={1}
-                width={1}
-                src={item.image}
-                alt="..."
-                minHeight={{ xs: 400, md: 80 }}
+                onClick={() => navigate(item.path)}
                 sx={{
-                  transition: 'transform .7s ease !important',
-                  transform: 'scale(1.0)',
-                  objectFit: 'cover',
-                  filter:
-                    theme.palette.mode === 'dark' ? 'brightness(0.7)' : 'none',
-                }}
-              />
-              <Box
-                position={'absolute'}
-                bottom={0}
-                left={0}
-                right={0}
-                padding={3}
-                sx={{
-                  backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0) 2%, ${item.color})`,
+                  position: 'relative',
+                  overflow: 'hidden',
+                  borderRadius: { xs: 12, sm: 15, md: 15, lg: 19 },
+                  transition: {
+                    xs: 'border-radius 450ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 650ms ease-in-out',
+                    sm: 'border-radius 450ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 650ms ease-in-out',
+                    md: 'border-radius 450ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 650ms ease-in-out',
+                    lg: 'border-radius 500ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 700ms ease-in-out',
+                  },
+                  backgroundColor: item.color,
+                  cursor: 'pointer',
+                  '&:hover': {
+                    borderRadius: { xs: 8, sm: 4, md: 10, lg: 14 },
+                    '& img': {
+                      opacity: 1,
+                      transform: 'scale(1.2)',
+                    },
+                    '& .folio-title': {
+                      opacity: 0,
+                    },
+                  },
                 }}
               >
-                <Typography
-                  variant={'h4'}
-                  fontWeight={700}
-                  sx={{ color: 'common.white' }}
+                <Box
+                  component={'img'}
+                  loading="lazy"
+                  height={1}
+                  width={1}
+                  src={item.image}
+                  alt="..."
+                  sx={{
+                    transition:
+                      'transform .7s ease !important, opacity .3s ease !important',
+                    transform: 'scale(1.0)',
+                    opacity: 0,
+                    objectFit: 'cover',
+                  }}
+                />
+                <Box
+                  position={'absolute'}
+                  top={0}
+                  bottom={0}
+                  left={0}
+                  right={0}
+                  padding={3}
+                  display={'flex'}
+                  alignItems={'center'}
+                  justifyContent={'center'}
+                  textAlign={'center'}
                 >
-                  {item.title}
-                </Typography>
-                <Typography
-                  variant={'h6'}
-                  fontWeight={700}
-                  sx={{ color: 'common.white' }}
-                  gutterBottom
-                >
-                  {item.description}
-                </Typography>
-                <Button
-                  size={'large'}
-                  variant={'contained'}
-                  color={'secondary'}
-                >
-                  Preskúmať
-                </Button>
+                  <Typography
+                    className={'folio-title'}
+                    variant={'h4'}
+                    fontWeight={700}
+                    align="center"
+                    sx={{
+                      color: 'common.white',
+                      fontSize: { xs: 18, sm: 20, md: 20, lg: 24 },
+                      lineHeight: 1.3,
+                      opacity: 1,
+                      transition: 'opacity .25s ease-in-out',
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                </Box>
               </Box>
             </Box>
           </Grid2>
