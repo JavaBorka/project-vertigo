@@ -38,7 +38,8 @@ const Folio = () => {
       <Grid2 container spacing={{ xs: 1.5, sm: 2 }}>
         {mock.map((item, i) => (
           <Grid2 key={i} size={{ xs: 6, sm: 6, md: 3 }}>
-            <Box
+            {/* Grid cards animation without fade effect
+             <Box
               sx={{
                 transformOrigin: 'center center',
 
@@ -71,6 +72,38 @@ const Folio = () => {
 
                 '@media (prefers-reduced-motion: reduce)': {
                   animation: 'none',
+                  transform: 'none',
+                },
+              }}
+            > */}
+            <Box
+              sx={{
+                // DEFAULT (xs): no animation
+                opacity: 1,
+                transform: 'none',
+
+                // Enable animation from sm upwards
+                '@media (min-width:600px)': {
+                  opacity: 0,
+                  transform: 'translateY(10px)',
+                  animation:
+                    'gridIn 700ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
+                },
+
+                '@keyframes gridIn': {
+                  from: {
+                    opacity: 0,
+                    transform: 'translateY(8px)',
+                  },
+                  to: {
+                    opacity: 1,
+                    transform: 'translateY(0)',
+                  },
+                },
+
+                '@media (prefers-reduced-motion: reduce)': {
+                  animation: 'none',
+                  opacity: 1,
                   transform: 'none',
                 },
               }}
