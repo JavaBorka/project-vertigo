@@ -66,7 +66,12 @@ const Main = ({ children }: Props) => {
         }}
         elevation={0}
       >
-        <Container>
+        <Container
+          marginTop={{ xs: 0 }}
+          marginBottom={{ xs: 0 }}
+          paddingTop={{ xs: 1.5 }}
+          paddingBottom={{ xs: 1.5 }}
+        >
           <Topbar onSidebarOpen={handleSidebarOpen} pages={pages} />
         </Container>
       </AppBar>

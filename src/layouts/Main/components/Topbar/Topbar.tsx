@@ -40,8 +40,17 @@ const Topbar = ({ onSidebarOpen, pages }: Props) => {
         <Box
           component={'img'}
           src={'/assets/svg/logo/logo-face-white.svg'}
-          height={1}
-          width={1}
+          alt="f.a.c.e vydavateľstvo"
+          sx={{
+            width: {
+              xs: 85,
+              sm: 95,
+              md: 100,
+              lg: 105,
+            },
+            height: 'auto',
+            display: 'block',
+          }}
         />
       </Box>
       <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
