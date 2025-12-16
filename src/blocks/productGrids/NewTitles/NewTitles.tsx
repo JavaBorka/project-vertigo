@@ -56,7 +56,7 @@ const mock = [
   },
 ];
 
-const WithPromoBadge = () => {
+const NewTitles = () => {
   const theme = useTheme();
 
   return (
@@ -171,4 +171,4 @@ const WithPromoBadge = () => {
   );
 };
 
-export default WithPromoBadge;
+export default NewTitles;

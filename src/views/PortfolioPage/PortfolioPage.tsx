@@ -1,11 +1,11 @@
 import Box from '@mui/material/Box';
-import { WithPromoBadge } from 'blocks/productGrids';
 import Main from 'layouts/Main';
 import Container from 'components/Container';
 import { Folio, Hero } from './components';
 import { MostViewedArticles } from 'views/BlogNewsroom/components';
 import { Contact } from 'views/HelpCenter/components';
 import { useTheme } from '@mui/material/styles';
+import { NewTitles } from './components';
 
 const PortfolioPage = () => {
   const theme = useTheme();
@@ -25,7 +25,7 @@ const PortfolioPage = () => {
         Najnovšie sme vydali
       </Typography> */}
       <Box bgcolor={'alternate.main'}>
-        <WithPromoBadge />
+        <NewTitles />
       </Box>
       <Box>
         <Container>
