@@ -14,17 +14,17 @@ const mock = [
     title: 'Vertigo 4/2025',
     author: '',
     category: 'vertigo',
-    label: '',
+    label: 'Tak pekne rozprávaš po slovensky ani prízvuk nemáš',
     date: '2025-12-20',
     img: '',
-    pdf: 'https://idoklad.cz/',
+    pdf: 'https://cs.wikipedia.org/wiki/Portable_Document_Format',
     href: 'https://www.artforum.sk/katalog/181748/vertigo-22023-priloha-poldoba-rozpadu',
   },
   {
     media: '/assets/images/kniha-obalka-1.jpg',
-    title: ' Slovník diel slovenskej literatúry po roku 1989',
-    author: 'Marta Součková, Ján Gavura (eds.)',
-    category: 'veda',
+    title: ' Spoločný jazyk',
+    author: 'Jürg Halter',
+    category: 'poézia',
     label:
       'Zahľadíš sa na strop, nadchnutý vlastným nešťastím, pomaly prerastáš sám seba.',
     date: '2025-12-10',
@@ -37,7 +37,7 @@ const mock = [
     title: 'Vertigo 3/2025',
     author: '',
     category: 'vertigo',
-    label: '',
+    label: '178 hesiel',
     date: '2025-11-20',
     img: '',
     pdf: '',
@@ -48,7 +48,7 @@ const mock = [
     title: 'Vertigo 2/2025',
     author: '',
     category: 'vertigo',
-    label: '',
+    label: 'Do konca prázdnin ostávali ešte tri týždne.',
     date: '2025-10-20',
     img: '',
     pdf: '',
@@ -59,10 +59,10 @@ const mock = [
     title: 'Vertigo 1/2025',
     author: '',
     category: 'vertigo',
-    label: '',
+    label: 'Vieš, ako to povie agresívny moriak? - UDRIUDRI',
     date: '2025-09-20',
     img: '',
-    pdf: 'https://idoklad.cz/',
+    pdf: 'https://cs.wikipedia.org/wiki/Portable_Document_Format',
     href: '',
   },
 ];
@@ -121,6 +121,13 @@ const NewTitles = () => {
               }}
             >
               <Card
+                onClick={() => {
+                  if (item.href) {
+                    window.open(item.href, '_blank', 'noopener,noreferrer');
+                  } else if (!item.href && item.pdf) {
+                    window.open(item.pdf, '_blank', 'noopener,noreferrer');
+                  }
+                }}
                 sx={{
                   width: 1,
                   display: 'flex',
@@ -132,10 +139,19 @@ const NewTitles = () => {
                   '&:hover': {
                     cursor: 'pointer',
                   },
+                  ...(item.label && {
+                    '&:hover .card-image': {
+                      opacity: 0.13,
+                    },
+                    '&:hover .card-label': {
+                      opacity: 1,
+                    },
+                  }),
                 }}
               >
-                <Box>
+                <Box sx={{ position: 'relative' }}>
                   <CardMedia
+                    className="card-image"
                     component={'img'}
                     title={item.title}
                     image={item.media}
@@ -144,8 +160,63 @@ const NewTitles = () => {
                       height: 'auto',
                       display: 'block',
                       borderRadius: 0,
+                      transition: 'opacity .25s ease',
+                      opacity: 1,
                     }}
                   />
+                  {item.label && (
+                    <Box
+                      className="card-label"
+                      position={'absolute'}
+                      top={0}
+                      bottom={0}
+                      left={0}
+                      right={0}
+                      display={'flex'}
+                      alignItems={'center'}
+                      justifyContent={'center'}
+                      textAlign={'center'}
+                      sx={{
+                        color: 'common.black',
+                        opacity: 0,
+                        transition: 'opacity .25s ease',
+                        px: 3,
+                      }}
+                    >
+                      <Typography
+                        fontWeight={400}
+                        fontSize={16}
+                        sx={{
+                          display: 'inline-block',
+                          lineHeight: 1.5,
+                          whiteSpace: 'normal',
+                          wordBreak: 'break-word',
+                          textAlign: 'center',
+                          '&::before': {
+                            content: '"„"',
+                            color: 'primary.main',
+                            fontWeight: 700,
+                            fontSize: { xs: 20, sm: 22, md: 24 },
+                            marginRight: 0.6,
+                            fontFamily:
+                              'Georgia, "Times New Roman", Times, serif',
+                            fontStyle: 'italic',
+                          },
+                          '&::after': {
+                            content: '"“"',
+                            color: 'primary.main',
+                            fontWeight: 700,
+                            fontSize: { xs: 20, sm: 22, md: 24 },
+                            marginLeft: 0.6,
+                            fontFamily:
+                              'Georgia, "Times New Roman", Times, serif',
+                          },
+                        }}
+                      >
+                        {item.label}
+                      </Typography>
+                    </Box>
+                  )}
                 </Box>
                 {/* Author and title */}
                 <Box marginTop={1.5} marginBottom={0}>
@@ -238,7 +309,7 @@ const NewTitles = () => {
                         },
                       }}
                     >
-                      Prelistovať PDF
+                      Prelistovať
                     </Button>
                   )}
                 </Box>
