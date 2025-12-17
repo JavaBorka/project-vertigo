@@ -2,7 +2,6 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Grid2 from '@mui/material/Grid2';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 
@@ -17,7 +16,6 @@ const mock = [
     label: 'Tak pekne rozprávaš po slovensky ani prízvuk nemáš',
     date: '2025-12-20',
     img: '',
-    pdf: 'https://cs.wikipedia.org/wiki/Portable_Document_Format',
     href: 'https://www.artforum.sk/katalog/181748/vertigo-22023-priloha-poldoba-rozpadu',
   },
   {
@@ -51,7 +49,7 @@ const mock = [
     label: 'Do konca prázdnin ostávali ešte tri týždne.',
     date: '2025-10-20',
     img: '',
-    pdf: '',
+    pdf: 'https://cs.wikipedia.org/wiki/Portable_Document_Format',
     href: 'https://www.artforum.sk/katalog/160739/vertigo-1-22021-kniha-nespavost',
   },
   {
@@ -69,7 +67,6 @@ const mock = [
 
 const NewTitles = () => {
   return (
-    // <Container sx={{paddingTop: '18px !important' }}>
     <Container>
       <Box marginBottom={4} marginTop={4}>
         <Typography
@@ -92,9 +89,40 @@ const NewTitles = () => {
           Najnovšie tituly
         </Typography> */}
       </Box>
-      <Grid2 container spacing={7} alignItems="flex-start">
+      <Box
+        sx={{
+          display: 'flex',
+          overflowX: 'auto',
+          scrollSnapType: 'x mandatory',
+          WebkitOverflowScrolling: 'touch',
+          gap: {
+            xs: 2,
+            sm: 3,
+            md: 4,
+            lg: 5,
+          },
+          px: 1,
+          scrollbarWidth: 'none',
+          '&::-webkit-scrollbar': { display: 'none' },
+          alignItems: 'stretch',
+        }}
+      >
         {mock.map((item, i) => (
-          <Grid2 key={i} size={{ xs: 12, sm: 6, md: 3 }}>
+          <Box
+            key={i}
+            sx={{
+              flex: '0 0 75%',
+              scrollSnapAlign: 'center',
+              '@media (min-width:360px)': { flex: '0 0 63%' },
+              '@media (min-width:380px)': { flex: '0 0 60%' },
+              '@media (min-width:430px)': { flex: '0 0 55%' },
+              '@media (min-width:500px)': { flex: '0 0 44%' },
+              '@media (min-width:630px)': { flex: '0 0 42%' },
+              '@media (min-width:770px)': { flex: '0 0 40%' },
+              '@media (min-width:1000px)': { flex: '0 0 25%' },
+              '@media (min-width:1150px)': { flex: '0 0 20%' },
+            }}
+          >
             <Box
               display={'block'}
               width={1}
@@ -332,9 +360,9 @@ const NewTitles = () => {
                 </Box> */}
               </Card>
             </Box>
-          </Grid2>
+          </Box>
         ))}
-      </Grid2>
+      </Box>
     </Container>
   );
 };
