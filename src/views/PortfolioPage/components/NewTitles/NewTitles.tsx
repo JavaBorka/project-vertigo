@@ -404,9 +404,16 @@ const NewTitles = () => {
                     )}
                     {item.pdf && (
                       <Button
-                        onClick={() =>
-                          window.open(item.pdf, '_blank', 'noopener,noreferrer')
-                        }
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(
+                            item.pdf,
+                            '_blank',
+                            'noopener,noreferrer',
+                          );
+                        }}
+                        onMouseDown={(e) => e.stopPropagation()}
+                        onTouchStart={(e) => e.stopPropagation()}
                         className="pdf-button"
                         sx={{
                           position: 'relative',
