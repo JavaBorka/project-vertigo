@@ -35,7 +35,7 @@ const mock = [
     title: 'Vertigo 3/2025',
     author: '',
     category: 'vertigo',
-    label: '178 hesiel',
+    label: '',
     date: '2025-11-20',
     img: '',
     pdf: '',
@@ -57,7 +57,7 @@ const mock = [
     title: 'Vertigo 1/2025',
     author: '',
     category: 'vertigo',
-    label: 'Vieš, ako to povie agresívny moriak? - UDRIUDRI',
+    label: '',
     date: '2025-09-20',
     img: '',
     pdf: 'https://cs.wikipedia.org/wiki/Portable_Document_Format',
@@ -254,19 +254,27 @@ const NewTitles = () => {
                     '&:hover': {
                       cursor: 'pointer',
                     },
-                    ...(item.label && {
-                      '&:hover .card-image': {
-                        opacity: 0.13,
-                        bgcolor: 'rgba(150, 0, 72, 0.05)',
-                      },
-                      '&:hover .card-label': {
-                        opacity: 1,
-                        bgcolor: 'rgba(150, 0, 72, 0.05)',
-                      },
-                    }),
+                    ...(item.label
+                      ? {
+                          '&:hover .card-image': {
+                            opacity: 0.13,
+                          },
+                          '&:hover .card-label': {
+                            opacity: 1,
+                            bgcolor: 'rgba(150, 0, 72, 0.05)',
+                          },
+                        }
+                      : {
+                          '&:hover .card-image': {
+                            opacity: 0.75,
+                          },
+                          '&:hover .image-wrapper': {
+                            backgroundColor: 'rgba(150, 0, 72, 0.2)',
+                          },
+                        }),
                   }}
                 >
-                  <Box sx={{ position: 'relative' }}>
+                  <Box className="image-wrapper" sx={{ position: 'relative' }}>
                     <CardMedia
                       className="card-image"
                       component={'img'}
