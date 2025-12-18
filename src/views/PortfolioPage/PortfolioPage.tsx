@@ -24,7 +24,7 @@ const PortfolioPage = () => {
       >
         Najnovšie sme vydali
       </Typography> */}
-      <Box bgcolor={'alternate.main'}>
+      <Box>
         <NewTitles />
       </Box>
       <Box>
@@ -32,12 +32,7 @@ const PortfolioPage = () => {
           <MostViewedArticles />
         </Container>
       </Box>
-      <Box
-        position={'relative'}
-        sx={{
-          backgroundColor: theme.palette.alternate.main,
-        }}
-      >
+      <Box position={'relative'} bgcolor={'alternate.main'}>
         <Container sx={{ padding: '64px 20px 16px 16px !important' }}>
           <Contact />
         </Container>

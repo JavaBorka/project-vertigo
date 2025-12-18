@@ -257,9 +257,11 @@ const NewTitles = () => {
                     ...(item.label && {
                       '&:hover .card-image': {
                         opacity: 0.13,
+                        bgcolor: 'rgba(150, 0, 72, 0.05)',
                       },
                       '&:hover .card-label': {
                         opacity: 1,
+                        bgcolor: 'rgba(150, 0, 72, 0.05)',
                       },
                     }),
                   }}
