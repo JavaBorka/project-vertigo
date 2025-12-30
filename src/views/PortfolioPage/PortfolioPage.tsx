@@ -2,10 +2,10 @@ import Box from '@mui/material/Box';
 import Main from 'layouts/Main';
 import Container from 'components/Container';
 import { Folio, Hero } from './components';
-import { MostViewedArticles } from 'views/BlogNewsroom/components';
 import { Contact } from 'views/HelpCenter/components';
 import { useTheme } from '@mui/material/styles';
 import { NewTitles } from './components';
+import News from './components/News';
 
 const PortfolioPage = () => {
   const theme = useTheme();
@@ -29,7 +29,7 @@ const PortfolioPage = () => {
       </Box>
       <Box>
         <Container>
-          <MostViewedArticles />
+          <News />
         </Container>
       </Box>
       <Box position={'relative'} bgcolor={'alternate.main'}>
