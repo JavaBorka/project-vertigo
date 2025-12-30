@@ -5,7 +5,7 @@ import {
   IndexView as ProductGridsIndexView,
   WithCtaButton as WithCtaButtonView,
   MinimallyDesigned as MinimallyDesignedView,
-  WithPromoBadge as WithPromoBadgeView,
+  NewTitles as NewTitles,
 } from 'blocks/productGrids';
 
 const routes = [
@@ -23,7 +23,7 @@ const routes = [
   },
   {
     path: '/blocks/product-grids/with-promo-badge',
-    renderer: (params = {}) => <WithPromoBadgeView {...params} />,
+    renderer: (params = {}) => <NewTitles {...params} />,
   },
 ];
 
