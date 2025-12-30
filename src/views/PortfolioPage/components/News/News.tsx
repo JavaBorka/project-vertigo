@@ -21,9 +21,10 @@ const mock = [
     tags: ['UX', 'Design', 'Themes', 'Photography'],
     author: {
       name: 'Mária Čorejová',
-      avatar: 'https://assets.maccarianagency.com/avatars/img1.jpg',
+      avatar: '',
     },
     date: '10 Sep',
+    href: '',
   },
   {
     image: '/assets/images/news-image-2.jpg',
@@ -36,6 +37,7 @@ const mock = [
       avatar: 'https://assets.maccarianagency.com/avatars/img2.jpg',
     },
     date: '02 Aug',
+    href: '',
   },
   {
     image: '/assets/images/news-image-3.jpg',
@@ -48,6 +50,7 @@ const mock = [
       avatar: 'https://assets.maccarianagency.com/avatars/img3.jpg',
     },
     date: '05 Mar',
+    href: 'https://www.artforum.sk/katalog/160739/vertigo-1-22021-kniha-nespavost',
   },
   {
     image: '/assets/images/news-image-1.jpg',
@@ -60,6 +63,7 @@ const mock = [
       avatar: 'https://assets.maccarianagency.com/avatars/img1.jpg',
     },
     date: '10 Sep',
+    href: '',
   },
 ];
 
@@ -112,14 +116,6 @@ const News = () => {
         >
           Zo života FACE
         </Typography>
-        <Typography
-          variant="h6"
-          color={'text.secondary'}
-          align={'center'}
-          data-aos={'fade-up'}
-        >
-          Aktuality, udalosti a nové recenzie
-        </Typography>
       </Box>
       {/* <Box
         display={'flex'}
@@ -156,7 +152,7 @@ const News = () => {
             role="button"
             sx={{
               position: 'absolute',
-              top: '17%',
+              top: '13%',
               left: '10px',
               cursor: 'pointer',
               zIndex: 2,
@@ -177,7 +173,7 @@ const News = () => {
             role="button"
             sx={{
               position: 'absolute',
-              top: '17%',
+              top: '13%',
               right: '10px',
               cursor: 'pointer',
               zIndex: 2,
@@ -210,7 +206,7 @@ const News = () => {
             <Box
               key={i}
               sx={{
-                flex: '0 0 85%',
+                flex: '0 0 80%',
                 scrollSnapAlign: 'start',
                 '@media (min-width:600px)': { flex: '0 0 60%' },
                 '@media (min-width:900px)': { flex: '0 0 45%' },
@@ -255,8 +251,9 @@ const News = () => {
                   }}
                 >
                   <Typography
+                    color={'text.secondary'}
                     fontWeight={700}
-                    sx={{ textTransform: 'uppercase' }}
+                    // sx={{ textTransform: 'uppercase' }}
                   >
                     {item.title}
                   </Typography>
@@ -269,15 +266,54 @@ const News = () => {
                       {item.author.name}
                     </Typography>
                   </Box>
-                  <Typography color="text.secondary">
+                  <Typography color="text.primary">
                     {item.description}
                   </Typography>
                   <Box
                     marginTop={2}
                     display={'flex'}
-                    justifyContent={'flex-end'}
+                    justifyContent={'flex-start'}
                   >
-                    <Button
+                    {item.href && (
+                      <Button
+                        className="buy-button"
+                        onClick={() =>
+                          window.open(
+                            item.href,
+                            '_blank',
+                            'noopener,noreferrer',
+                          )
+                        }
+                        sx={{
+                          position: 'relative',
+                          paddingLeft: 0,
+
+                          '&::after': {
+                            content: '""',
+                            position: 'absolute',
+                            left: '50%',
+                            bottom: 0, // keep inside the button
+                            height: 2,
+                            width: '50%',
+                            backgroundColor: 'currentColor',
+                            transform: 'translateX(-50%) scaleX(0)',
+                            transformOrigin: 'center',
+                            transition: 'transform 350ms ease',
+                            zIndex: 1,
+                          },
+                          '&:hover': {
+                            backgroundColor: 'transparent',
+                            fontWeight: 600,
+                          },
+                          '&:hover::after': {
+                            transform: 'translateX(-50%) scaleX(1)',
+                          },
+                        }}
+                      >
+                        Kúpiť v Artfore
+                      </Button>
+                    )}
+                    {/* <Button
                       endIcon={
                         <Box
                           component={'svg'}
@@ -298,7 +334,7 @@ const News = () => {
                       }
                     >
                       Prečítať viac
-                    </Button>
+                    </Button> */}
                   </Box>
                 </CardContent>
               </Box>
