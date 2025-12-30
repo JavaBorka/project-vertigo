@@ -1,9 +1,16 @@
+import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import {
+  canScrollLeft,
+  canScrollRight,
+  getScrollDeltaPx,
+  ScrollDirection,
+} from '../../../../constants/horizontalScrollhelpers';
 
 const mock = [
   {
@@ -58,6 +65,39 @@ const mock = [
 
 const News = () => {
   const theme = useTheme();
+  const scrollRef = React.useRef<HTMLDivElement | null>(null);
+  const [canLeft, setCanLeft] = React.useState(false);
+  const [canRight, setCanRight] = React.useState(true);
+
+  const updateArrows = React.useCallback(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+    setCanLeft(canScrollLeft(scrollContainer));
+    setCanRight(canScrollRight(scrollContainer));
+  }, []);
+
+  React.useEffect(() => {
+    updateArrows();
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+    const onScroll = () => updateArrows();
+    scrollContainer.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', updateArrows);
+    return () => {
+      scrollContainer.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', updateArrows);
+    };
+  }, [updateArrows]);
+
+  const scrollByOne = (direction: ScrollDirection) => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+    const delta = getScrollDeltaPx(scrollContainer);
+    scrollContainer.scrollBy({
+      left: direction === 'left' ? -delta : delta,
+      behavior: 'smooth',
+    });
+  };
   return (
     <Box>
       <Box marginBottom={4}>
@@ -108,112 +148,163 @@ const News = () => {
           </Box>
         </Box>
       </Box> */}
-      <Box
-        sx={{
-          display: 'flex',
-          overflowX: 'auto',
-          scrollSnapType: 'x mandatory',
-          WebkitOverflowScrolling: 'touch',
-          gap: 2,
-          px: 1,
-          scrollbarWidth: 'none',
-          '&::-webkit-scrollbar': { display: 'none' },
-        }}
-      >
-        {mock.map((item, i) => (
+      <Box position={'relative'}>
+        {canLeft && (
           <Box
-            key={i}
+            onClick={() => scrollByOne('left')}
+            aria-label="scroll left"
+            role="button"
             sx={{
-              flex: '0 0 85%',
-              scrollSnapAlign: 'start',
-              '@media (min-width:600px)': { flex: '0 0 60%' },
-              '@media (min-width:900px)': { flex: '0 0 45%' },
-              '@media (min-width:1100px)': { flex: '0 0 30%' },
+              position: 'absolute',
+              top: '17%',
+              left: '10px',
+              cursor: 'pointer',
+              zIndex: 2,
             }}
           >
             <Box
-              component={Card}
-              width={1}
-              height={1}
-              borderRadius={0}
-              boxShadow={0}
-              display={'flex'}
-              flexDirection={'column'}
-              sx={{ backgroundImage: 'none', bgcolor: 'transparent' }}
-            >
-              <Box sx={{ width: 1 }}>
-                <Box
-                  component={'img'}
-                  loading="lazy"
-                  height={'auto'}
-                  width={1}
-                  src={item.image}
-                  alt="..."
-                  sx={{
-                    objectFit: 'cover',
-                    maxHeight: 200,
-                    borderRadius: 2,
-                    filter:
-                      theme.palette.mode === 'dark'
-                        ? 'brightness(0.7)'
-                        : 'none',
-                  }}
-                />
-              </Box>
-              <CardContent
-                sx={{
-                  width: 1,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                }}
-              >
-                <Typography
-                  fontWeight={700}
-                  sx={{ textTransform: 'uppercase' }}
-                >
-                  {item.title}
-                </Typography>
-                <Box marginY={1}>
-                  <Typography
-                    variant={'caption'}
-                    color={'text.secondary'}
-                    component={'i'}
-                  >
-                    {item.author.name}
-                  </Typography>
-                </Box>
-                <Typography color="text.secondary">
-                  {item.description}
-                </Typography>
-                <Box marginTop={2} display={'flex'} justifyContent={'flex-end'}>
-                  <Button
-                    endIcon={
-                      <Box
-                        component={'svg'}
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        width={24}
-                        height={24}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </Box>
-                    }
-                  >
-                    Prečítať viac
-                  </Button>
-                </Box>
-              </CardContent>
-            </Box>
+              component={'img'}
+              src={'/assets/svg/logo/arrow-left.svg'}
+              alt={'left arrow'}
+              sx={{ width: 28, height: 28, display: 'block' }}
+            />
           </Box>
-        ))}
+        )}
+        {canRight && (
+          <Box
+            onClick={() => scrollByOne('right')}
+            aria-label="scroll right"
+            role="button"
+            sx={{
+              position: 'absolute',
+              top: '17%',
+              right: '10px',
+              cursor: 'pointer',
+              zIndex: 2,
+            }}
+          >
+            <Box
+              component={'img'}
+              src={'/assets/svg/logo/arrow-right.svg'}
+              alt={'right arrow'}
+              sx={{ width: 28, height: 28, display: 'block' }}
+            />
+          </Box>
+        )}
+        <Box
+          ref={scrollRef}
+          onScroll={updateArrows}
+          sx={{
+            display: 'flex',
+            overflowX: 'auto',
+            scrollSnapType: 'x mandatory',
+            WebkitOverflowScrolling: 'touch',
+            gap: 2,
+            px: 1,
+            scrollbarWidth: 'none',
+            '&::-webkit-scrollbar': { display: 'none' },
+            alignItems: 'stretch',
+          }}
+        >
+          {mock.map((item, i) => (
+            <Box
+              key={i}
+              sx={{
+                flex: '0 0 85%',
+                scrollSnapAlign: 'start',
+                '@media (min-width:600px)': { flex: '0 0 60%' },
+                '@media (min-width:900px)': { flex: '0 0 45%' },
+                '@media (min-width:1100px)': { flex: '0 0 30%' },
+              }}
+            >
+              <Box
+                component={Card}
+                width={1}
+                height={1}
+                borderRadius={0}
+                boxShadow={0}
+                display={'flex'}
+                flexDirection={'column'}
+                sx={{ backgroundImage: 'none', bgcolor: 'transparent' }}
+              >
+                <Box sx={{ width: 1 }}>
+                  <Box
+                    component={'img'}
+                    loading="lazy"
+                    height={'auto'}
+                    width={1}
+                    src={item.image}
+                    alt="..."
+                    sx={{
+                      objectFit: 'cover',
+                      maxHeight: 200,
+                      borderRadius: 2,
+                      filter:
+                        theme.palette.mode === 'dark'
+                          ? 'brightness(0.7)'
+                          : 'none',
+                    }}
+                  />
+                </Box>
+                <CardContent
+                  sx={{
+                    width: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Typography
+                    fontWeight={700}
+                    sx={{ textTransform: 'uppercase' }}
+                  >
+                    {item.title}
+                  </Typography>
+                  <Box marginY={1}>
+                    <Typography
+                      variant={'caption'}
+                      color={'text.secondary'}
+                      component={'i'}
+                    >
+                      {item.author.name}
+                    </Typography>
+                  </Box>
+                  <Typography color="text.secondary">
+                    {item.description}
+                  </Typography>
+                  <Box
+                    marginTop={2}
+                    display={'flex'}
+                    justifyContent={'flex-end'}
+                  >
+                    <Button
+                      endIcon={
+                        <Box
+                          component={'svg'}
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          width={24}
+                          height={24}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
+                        </Box>
+                      }
+                    >
+                      Prečítať viac
+                    </Button>
+                  </Box>
+                </CardContent>
+              </Box>
+            </Box>
+          ))}
+        </Box>
       </Box>
     </Box>
   );

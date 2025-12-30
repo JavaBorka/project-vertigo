@@ -1,5 +1,5 @@
 export const DEFAULT_GAP_PX = 16;
-export const SCROLL_EDGE_THRESHOLD_PX = 1;
+export const SCROLL_EDGE_THRESHOLD_PX = 8;
 export const FALLBACK_CHILD_WIDTH_RATIO = 0.8;
 
 export type ScrollDirection = 'left' | 'right';
