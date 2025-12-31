@@ -30,8 +30,8 @@ const PortfolioPage = () => {
           <News />
         </Container>
       </Box>
-      <Box position={'relative'} bgcolor={'alternate.main'}>
-        <Container sx={{ padding: '64px 20px 16px 16px !important' }}>
+      <Box>
+        <Container>
           <Contact />
         </Container>
         <Box
