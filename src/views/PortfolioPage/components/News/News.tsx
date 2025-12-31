@@ -114,7 +114,7 @@ const News = () => {
             fontWeight: 700,
           }}
         >
-          Zo života FACE
+          Zo života f.a.c.e
         </Typography>
       </Box>
       {/* <Box
@@ -152,7 +152,12 @@ const News = () => {
             role="button"
             sx={{
               position: 'absolute',
-              top: '13%',
+              top: {
+                xs: '13%',
+                sm: '16%',
+                md: '17%',
+                lg: '17%',
+              },
               left: '10px',
               cursor: 'pointer',
               zIndex: 2,
@@ -173,7 +178,12 @@ const News = () => {
             role="button"
             sx={{
               position: 'absolute',
-              top: '13%',
+              top: {
+                xs: '13%',
+                sm: '16%',
+                md: '17%',
+                lg: '17%',
+              },
               right: '10px',
               cursor: 'pointer',
               zIndex: 2,
@@ -189,7 +199,6 @@ const News = () => {
         )}
         <Box
           ref={scrollRef}
-          onScroll={updateArrows}
           sx={{
             display: 'flex',
             overflowX: 'auto',
@@ -251,9 +260,9 @@ const News = () => {
                   }}
                 >
                   <Typography
-                    color={'text.secondary'}
+                    color={'text.primary'}
                     fontWeight={700}
-                    // sx={{ textTransform: 'uppercase' }}
+                    sx={{ textTransform: 'uppercase' }}
                   >
                     {item.title}
                   </Typography>
@@ -266,11 +275,11 @@ const News = () => {
                       {item.author.name}
                     </Typography>
                   </Box>
-                  <Typography color="text.primary">
+                  <Typography color="text.secondary">
                     {item.description}
                   </Typography>
                   <Box
-                    marginTop={2}
+                    marginTop={1}
                     display={'flex'}
                     justifyContent={'flex-start'}
                   >
