@@ -23,6 +23,7 @@ export default defineConfig({
       svg: path.resolve(__dirname, 'src/svg'),
       theme: path.resolve(__dirname, 'src/theme'),
       views: path.resolve(__dirname, 'src/views'),
+      hooks: path.resolve(__dirname, 'src/hooks'),
     },
   },
 });
