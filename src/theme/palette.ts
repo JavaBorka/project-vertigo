@@ -12,6 +12,9 @@ export const light = {
     light: '#a90152ff',
     dark: '#a90152ff',
     contrastText: '#fff',
+    poetry: '#582864',
+    prose: '#006A64',
+    science: '#6D3628',
   },
   // primary: {
   //   main: '#377dff',
