@@ -10,7 +10,7 @@ import {
   canScrollRight,
   getScrollDeltaPx,
   ScrollDirection,
-} from '../../../../constants/horizontalScrollhelpers';
+} from 'constants/horizontalScrollhelpers';
 
 const mock = [
   {
