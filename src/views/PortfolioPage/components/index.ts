@@ -4,3 +4,4 @@ export { default as Gallery } from './Gallery';
 export { default as Hero } from './Hero';
 export { default as Services } from './Services';
 export { default as NewTitles } from './NewTitles';
+export { default as News } from './News';

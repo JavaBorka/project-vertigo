@@ -15,6 +15,7 @@ export default defineConfig({
     alias: {
       src: path.resolve(__dirname, 'src'),
       blocks: path.resolve(__dirname, 'src/blocks'),
+      constants: path.resolve(__dirname, 'src/constants'),
       components: path.resolve(__dirname, 'src/components'),
       demos: path.resolve(__dirname, 'src/demos'),
       docs: path.resolve(__dirname, 'src/docs'),
@@ -22,6 +23,7 @@ export default defineConfig({
       svg: path.resolve(__dirname, 'src/svg'),
       theme: path.resolve(__dirname, 'src/theme'),
       views: path.resolve(__dirname, 'src/views'),
+      hooks: path.resolve(__dirname, 'src/hooks'),
     },
   },
 });

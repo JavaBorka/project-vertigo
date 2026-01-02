@@ -6,6 +6,12 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 
 import Container from 'components/Container';
+import {
+  canScrollLeft,
+  canScrollRight,
+  getScrollDeltaPx,
+  ScrollDirection,
+} from '../../../../constants/horizontalScrollhelpers';
 
 const mock = [
   {
@@ -71,43 +77,42 @@ const NewTitles = () => {
   const [canRight, setCanRight] = React.useState(true);
 
   const updateArrows = React.useCallback(() => {
-    const c = scrollRef.current;
-    if (!c) return;
-    const max = c.scrollWidth - c.clientWidth;
-    setCanLeft(c.scrollLeft > 1);
-    setCanRight(c.scrollLeft < max - 1);
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    setCanLeft(canScrollLeft(scrollContainer));
+    setCanRight(canScrollRight(scrollContainer));
   }, []);
 
   React.useEffect(() => {
     updateArrows();
-    const c = scrollRef.current;
-    if (!c) return;
-    const onScroll = () => updateArrows();
-    c.addEventListener('scroll', onScroll, { passive: true });
+
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const handleScroll = () => updateArrows();
+
+    scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', updateArrows);
+
     return () => {
-      c.removeEventListener('scroll', onScroll);
+      scrollContainer.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', updateArrows);
     };
   }, [updateArrows]);
 
-  const getGap = (el: HTMLElement) => {
-    const cs = getComputedStyle(el);
-    const raw = (cs as any).columnGap || (cs as any).gap || '16';
-    const v = parseFloat(raw);
-    return Number.isNaN(v) ? 16 : v;
+  const scrollByOne = (direction: ScrollDirection) => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const scrollDeltaPx = getScrollDeltaPx(scrollContainer);
+
+    scrollContainer.scrollBy({
+      left: direction === 'left' ? -scrollDeltaPx : scrollDeltaPx,
+      behavior: 'smooth',
+    });
   };
 
-  const scrollByOne = (dir: 'left' | 'right') => {
-    const c = scrollRef.current;
-    if (!c) return;
-    const first = c.firstElementChild as HTMLElement | null;
-    const childWidth = first
-      ? first.getBoundingClientRect().width
-      : c.clientWidth * 0.8;
-    const delta = childWidth + getGap(c);
-    c.scrollBy({ left: dir === 'left' ? -delta : delta, behavior: 'smooth' });
-  };
   return (
     <Container>
       <Box marginBottom={4} marginTop={4}>

@@ -9,9 +9,12 @@ export const light = {
   mode: 'light' as PaletteMode,
   primary: {
     main: '#960048',
-    light: '#960048',
-    dark: '#960048',
+    light: '#a90152ff',
+    dark: '#a90152ff',
     contrastText: '#fff',
+    poetry: '#582864',
+    prose: '#006A64',
+    science: '#6D3628',
   },
   // primary: {
   //   main: '#377dff',
@@ -29,7 +32,7 @@ export const light = {
     primary: '#1e2022',
     secondary: '#677788',
   },
-  divider: 'rgba(0, 0, 0, 0.12)',
+  divider: 'rgba(32, 17, 17, 0.12)',
   background: {
     paper: '#ffffff',
     default: '#ffffff',

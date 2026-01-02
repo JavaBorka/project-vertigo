@@ -74,6 +74,11 @@ const getTheme = (mode: string): Theme =>
               paddingTop: 10,
               paddingBottom: 10,
             },
+            containedPrimary: {
+              '&:hover': {
+                backgroundColor: (theme) => theme.palette.primary.light,
+              },
+            },
             containedSecondary: mode === 'light' ? { color: 'white' } : {},
           } as ComponentsOverrides['MuiButton'],
         },

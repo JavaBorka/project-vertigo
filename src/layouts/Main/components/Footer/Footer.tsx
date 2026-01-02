@@ -1,25 +1,19 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import { useTheme } from '@mui/material/styles';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import { Container } from '@mui/material';
 
 const Footer = () => {
-  const theme = useTheme();
-  const { mode } = theme.palette;
-
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
+    <Container>
+      <Box>
         <Box
           display={'flex'}
           justifyContent={'space-between'}
           alignItems={'center'}
           width={1}
-          flexDirection={{ xs: 'column', sm: 'row' }}
+          flexDirection={{ xs: 'column', md: 'row' }}
         >
           <Box
             display={'flex'}
@@ -29,12 +23,11 @@ const Footer = () => {
             width={80}
           >
             <Box
+              sx={{
+                marginTop: { xs: 2, md: 0 },
+              }}
               component={'img'}
-              src={
-                mode === 'light'
-                  ? '/assets/svg/logo/logo-face-black.svg'
-                  : '/assets/svg/logo/logo-face-white.svg'
-              }
+              src="/assets/svg/logo/logo-face-white.svg"
               height={1}
               width={1}
             />
@@ -45,13 +38,20 @@ const Footer = () => {
               display: 'flex',
               justifyContent: 'center',
               paddingX: 5,
-              paddingY: 3,
+              paddingY: { xs: 2, sm: 2 },
             }}
           >
             <Typography
               align={'center'}
-              variant={'subtitle2'}
-              color="text.secondary"
+              color="primary.contrastText"
+              variant="caption"
+              fontWeight={300}
+              sx={{
+                fontSize: {
+                  xs: '0.625rem', // 10px
+                  md: '0.75rem', // 12px
+                },
+              }}
             >
               Publikácie sú podporené z verejných zdrojov Fondu na podporu
               umenia
@@ -59,11 +59,15 @@ const Footer = () => {
           </Box>
           <Box
             sx={{
-              ml: { xs: 0, sm: 'auto' },
-              alignSelf: { xs: 'center', sm: 'center' },
+              ml: { xs: 0 },
+              alignSelf: { xs: 'center' },
               paddingBottom: {
-                xs: 3,
-                sm: 0,
+                xs: 2,
+                md: 0,
+              },
+              marginTop: {
+                xs: 0,
+                md: 2,
               },
             }}
           >
@@ -77,44 +81,22 @@ const Footer = () => {
             >
               <Box
                 component={'img'}
-                src={'/assets/svg/logo/logo-fpu.svg'}
-                sx={{ width: { xs: 110, sm: 120 } }}
+                src={'/assets/svg/logo/logo-fpu-white.svg'}
+                sx={{ width: { xs: 120, sm: 120 } }}
               />
             </Link>
           </Box>
         </Box>
-      </Grid>
-      <Grid item xs={12} paddingTop={'0px !important'}>
-        <Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
-          <Link
-            href="https://www.facebook.com/people/FACE-vydavate%C4%BEstvo/100063588426653/"
-            aria-label="Facebook"
-            underline="none"
-            sx={{ display: 'inline-flex', color: 'text.primary', mx: 1 }}
-          >
-            <FacebookIcon />
-          </Link>
-          <Link
-            href="https://www.instagram.com/face_vydavatelstvo/"
-            aria-label="Instagram"
-            underline="none"
-            sx={{ display: 'inline-flex', color: 'text.primary', mx: 1 }}
-          >
-            <InstagramIcon />
-          </Link>
-        </Box>
-      </Grid>
-      <Grid item xs={12} paddingTop={'15px !important'}>
-        <Typography
-          align={'center'}
-          variant={'subtitle2'}
-          color="text.secondary"
-          gutterBottom
-        >
-          f.a.c.e. {new Date().getFullYear()} &copy; All rights Reserved
-        </Typography>
-      </Grid>
-    </Grid>
+      </Box>
+      <Typography
+        align={'center'}
+        color="primary.contrastText"
+        gutterBottom
+        fontSize={10}
+      >
+        f.a.c.e. {new Date().getFullYear()} &copy; All rights Reserved
+      </Typography>
+    </Container>
   );
 };
 

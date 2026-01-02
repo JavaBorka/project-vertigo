@@ -40,14 +40,14 @@ const Main = ({ children }: Props) => {
       ? window.location.pathname
       : '';
   const pathColorMap: Record<string, string> = {
-    '/': '#960048',
-    '/poezia': '#582864',
-    '/proza': '#006A64',
-    '/veda': '#6D3628',
-    '/deti': '#960048',
-    '/vertigo': '#960048',
-    '/autori': '#960048',
-    '/onas': '#960048',
+    '/': 'primary.main',
+    '/poezia': 'primary.poetry',
+    '/proza': 'primary.prose',
+    '/veda': 'primary.science',
+    '/deti': 'primary.main',
+    '/vertigo': 'primary.main',
+    '/autori': 'primary.main',
+    '/onas': 'primary.main',
   };
   const mappedColor = pathColorMap[pathname];
 
@@ -86,12 +86,13 @@ const Main = ({ children }: Props) => {
         <Divider />
       </main>
       <Container
+        marginTop={0}
+        marginBottom={0}
         sx={{
-          padding: {
-            xs: '20px 16px 20px 16px !important',
-            md: '0px 16px 25px 16px !important',
-          },
+          backgroundColor: mappedColor,
         }}
+        maxWidth="xl"
+        disableGutters
       >
         <Footer />
       </Container>
