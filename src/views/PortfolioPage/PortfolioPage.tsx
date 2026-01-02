@@ -1,10 +1,9 @@
 import Box from '@mui/material/Box';
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import { Folio, Hero, NewTitles } from 'views/PortfolioPage/components';
+import { Folio, Hero, NewTitles, News } from 'views/PortfolioPage/components';
 import { Contact } from 'views/HelpCenter/components';
 import { useTheme } from '@mui/material/styles';
-import News from 'views/PortfolioPage/components/News';
 
 const PortfolioPage = () => {
   const theme = useTheme();
