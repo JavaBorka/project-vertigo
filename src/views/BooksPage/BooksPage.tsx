@@ -1,7 +1,8 @@
 import Main from 'layouts/Main';
 import ProductGrid from './components/ProductGrid';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Container from 'components/Container';
+import Pagination from 'components/Pagination';
 
 const pathname =
   typeof window !== 'undefined' && window.location
@@ -22,7 +23,14 @@ const mappedColor = pathColorMap[pathname];
 const BooksPage = () => {
   return (
     <Main>
-      <Container>
+      <Container
+        sx={{
+          width: {
+            xs: 0.8,
+            sm: 1,
+          },
+        }}
+      >
         <Typography
           color={mappedColor}
           sx={{
@@ -37,6 +45,15 @@ const BooksPage = () => {
           <strong>Poézia |</strong> svetové a slovenské básne
         </Typography>
         <ProductGrid />
+        <Box
+          sx={{
+            mt: 3,
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <Pagination />
+        </Box>
       </Container>
     </Main>
   );
