@@ -33,13 +33,8 @@ const CardItem = ({ item }: ProductItemProps) => {
     <Box>
       <Box
         display={'block'}
-        width={0.8}
-        // mx="auto"
+        width={1}
         sx={{
-          width: {
-            xs: 0.8,
-            sm: 1,
-          },
           ...(item.href && {
             '&:hover .buy-button': {
               backgroundColor: 'transparent',
