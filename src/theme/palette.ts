@@ -32,6 +32,12 @@ export const light = {
     primary: '#1e2022',
     secondary: '#677788',
   },
+  action: {
+    hover: 'rgba(150, 0, 72, 0.06)',
+    selected: 'rgba(150, 0, 72, 0.08)',
+    disabled: 'rgba(0, 0, 0, 0.26)',
+    disabledBackground: 'rgba(0, 0, 0, 0.12)',
+  },
   divider: 'rgba(32, 17, 17, 0.12)',
   background: {
     paper: '#ffffff',
