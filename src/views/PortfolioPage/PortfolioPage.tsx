@@ -1,8 +1,13 @@
 import Box from '@mui/material/Box';
 import Main from 'layouts/Main';
 import Container from 'components/Container';
-import { Folio, Hero, NewTitles, News } from 'views/PortfolioPage/components';
-import { Contact } from 'views/HelpCenter/components';
+import {
+  Folio,
+  Hero,
+  NewTitles,
+  News,
+  Contact,
+} from 'views/PortfolioPage/components';
 
 const PortfolioPage = () => {
   return (

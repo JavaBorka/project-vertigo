@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 
 import Container from 'components/Container';
 import { Topbar, Sidebar } from './components';
-import ProductGrid from '../ProductGrid';
+// import ProductGrid from 'views/BooksPage/components/ProductGrid';
 
 const WithCollapsibleMenuItems = () => {
   const theme = useTheme();
@@ -35,7 +35,7 @@ const WithCollapsibleMenuItems = () => {
         />
         <Box marginLeft={{ xs: 0, md: 4 }} width={1}>
           <Topbar onSidebarOpen={handleSidebarOpen} />
-          <ProductGrid />
+          {/* <ProductGrid /> */}
         </Box>
       </Box>
     </Container>
