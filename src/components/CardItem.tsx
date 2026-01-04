@@ -3,24 +3,9 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
+import { CardItemProps } from 'types/productItem';
 
-export type Product = {
-  media: string;
-  title: string;
-  author: string;
-  category: string;
-  label?: string;
-  date: string;
-  img: string;
-  href?: string;
-  pdf?: string;
-};
-
-type ProductItemProps = {
-  item: Product;
-};
-
-const CardItem = ({ item }: ProductItemProps) => {
+const CardItem = ({ item }: CardItemProps) => {
   const handleCardClick = () => {
     if (item.href) {
       window.open(item.href, '_blank', 'noopener,noreferrer');
