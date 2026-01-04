@@ -10,6 +10,7 @@ import Container from 'components/Container';
 import { Topbar, Sidebar, Footer } from './components';
 
 import pages from '../navigation';
+import getMappedColor from 'utils/getMappedColor';
 
 interface Props {
   children: React.ReactNode;
@@ -35,29 +36,13 @@ const Main = ({ children }: Props) => {
 
   const open = isMd ? false : openSidebar;
 
-  const pathname =
-    typeof window !== 'undefined' && window.location
-      ? window.location.pathname
-      : '';
-  const pathColorMap: Record<string, string> = {
-    '/': 'primary.main',
-    '/poezia': 'primary.poetry',
-    '/proza': 'primary.prose',
-    '/veda': 'primary.science',
-    '/deti': 'primary.main',
-    '/vertigo': 'primary.main',
-    '/autori': 'primary.main',
-    '/onas': 'primary.main',
-  };
-  const mappedColor = pathColorMap[pathname];
-
   return (
     <Box>
       <AppBar
         position={'sticky'}
         sx={{
           top: 0,
-          backgroundColor: mappedColor,
+          backgroundColor: getMappedColor(),
           boxShadow: 'none',
           zIndex: {
             sx: 0,
@@ -89,7 +74,7 @@ const Main = ({ children }: Props) => {
         marginTop={0}
         marginBottom={0}
         sx={{
-          backgroundColor: mappedColor,
+          backgroundColor: getMappedColor(),
         }}
         maxWidth="xl"
         disableGutters
