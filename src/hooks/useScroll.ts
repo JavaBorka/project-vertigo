@@ -4,7 +4,7 @@ import {
   canScrollRight,
   getScrollDeltaPx,
   ScrollDirection,
-} from 'constants/horizontalScrollhelpers';
+} from 'utils/horizontalScrollhelpers';
 
 export const useScroll = () => {
   const scrollRef = React.useRef<HTMLDivElement | null>(null);
