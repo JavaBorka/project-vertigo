@@ -7,6 +7,7 @@ import {
   AuthorsPage as AuthorsPageView,
   // Rental as RentalView,
   ContactPageCover as ContactPageCoverView,
+  AuthorDetailPage as AuthorDetailPageView,
 } from 'views';
 
 const routes = [
@@ -41,6 +42,10 @@ const routes = [
   {
     path: '/autori',
     renderer: (params = {}) => <AuthorsPageView {...params} />,
+  },
+  {
+    path: '/nazov-autora',
+    renderer: (params = {}) => <AuthorDetailPageView {...params} />,
   },
   {
     path: '/onas',
