@@ -4,8 +4,10 @@ import {
   PortfolioPage as PortfolioPageView,
   NotFoundCover as NotFoundCoverView,
   BooksPage as BooksPageView,
+  AuthorsPage as AuthorsPageView,
   // Rental as RentalView,
   ContactPageCover as ContactPageCoverView,
+  AuthorDetailPage as AuthorDetailPageView,
 } from 'views';
 
 const routes = [
@@ -39,7 +41,11 @@ const routes = [
   },
   {
     path: '/autori',
-    renderer: (params = {}) => <BooksPageView {...params} />,
+    renderer: (params = {}) => <AuthorsPageView {...params} />,
+  },
+  {
+    path: '/nazov-autora',
+    renderer: (params = {}) => <AuthorDetailPageView {...params} />,
   },
   {
     path: '/onas',
