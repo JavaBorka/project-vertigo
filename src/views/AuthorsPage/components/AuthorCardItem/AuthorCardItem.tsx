@@ -3,12 +3,15 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { AuthorCardItemProps } from 'types/authorsItem';
+import { useNavigate } from 'react-router-dom';
 
 const AuthorCardItem = ({ item }: AuthorCardItemProps) => {
+  const navigate = useNavigate();
   return (
     <Box>
       <Box display={'block'} width={1}>
         <Card
+          onClick={() => navigate('/nazov-autora')}
           sx={{
             width: 1,
             display: 'flex',

@@ -1,5 +1,5 @@
 import Grid2 from '@mui/material/Grid2';
-import AuthorCardItem from 'components/AuthorCardItem';
+import AuthorCardItem from 'views/AuthorsPage/components/AuthorCardItem';
 import { AuthorGridProps } from 'types/authorsItem';
 
 const AuthorGrid = ({ items }: AuthorGridProps) => {
