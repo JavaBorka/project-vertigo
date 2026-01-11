@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import { AuthorCardItemProps } from 'types/productItem';
+import { AuthorCardItemProps } from 'types/authorsItem';
 
 const AuthorCardItem = ({ item }: AuthorCardItemProps) => {
   return (
