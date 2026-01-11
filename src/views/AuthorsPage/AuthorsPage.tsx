@@ -7,117 +7,7 @@ import { ITEMS_PER_PAGE } from 'constants/paginationSettings';
 import getMappedColor from 'utils/getMappedColor';
 import { handlePageChange } from 'types/pagination';
 import AuthorGrid from './components/ProductGrid/AuthorGrid';
-
-const MOCK_DATA = [
-  {
-    id: '',
-    media: '/assets/images/author-jurg.jpg',
-    author: 'Jürg Halter',
-    title: 'Spoločný jazyk',
-    country: 'Švajčiarsko',
-    label:
-      'Básnik a performatívny umelec Jürg Halter (1980) patrí k najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.',
-  },
-  {
-    id: '',
-    media: '/assets/images/author-jurg.jpg',
-    author: 'Jürg Halter',
-    title: 'Spoločný jazyk',
-    country: 'Švajčiarsko',
-    label:
-      'Básnik a performatívny umelec Jürg Halter (1980) patrí k najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.',
-  },
-  {
-    id: '',
-    media: '/assets/images/author-jurg.jpg',
-    author: 'Jürg Halter',
-    title: 'Spoločný jazyk',
-    country: 'Švajčiarsko',
-    label:
-      'Básnik a performatívny umelec Jürg Halter (1980) patrí k najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.',
-  },
-  {
-    id: '',
-    media: '/assets/images/author-jurg.jpg',
-    author: 'Jürg Halter',
-    title: 'Spoločný jazyk',
-    country: 'Švajčiarsko',
-    label:
-      'Básnik a performatívny umelec Jürg Halter (1980) patrí k najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.',
-  },
-  {
-    id: '',
-    media: '/assets/images/author-jurg.jpg',
-    author: 'Jürg Halter',
-    title: 'Spoločný jazyk',
-    country: 'Švajčiarsko',
-    label:
-      'Básnik a performatívny umelec Jürg Halter (1980) patrí k najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.',
-  },
-  {
-    id: '',
-    media: '/assets/images/author-jurg.jpg',
-    author: 'Jürg Halter',
-    title: 'Spoločný jazyk',
-    country: 'Švajčiarsko',
-    label:
-      'Básnik a performatívny umelec Jürg Halter (1980) patrí k najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.',
-  },
-  {
-    id: '',
-    media: '/assets/images/author-jurg.jpg',
-    author: 'Jürg Halter',
-    title: 'Spoločný jazyk',
-    country: 'Švajčiarsko',
-    label:
-      'Básnik a performatívny umelec Jürg Halter (1980) patrí k najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.',
-  },
-  {
-    id: '',
-    media: '/assets/images/author-jurg.jpg',
-    author: 'Jürg Halter',
-    title: 'Spoločný jazyk',
-    country: 'Švajčiarsko',
-    label:
-      'Básnik a performatívny umelec Jürg Halter (1980) patrí k najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.',
-  },
-  {
-    id: '',
-    media: '/assets/images/author-jurg.jpg',
-    author: 'Jürg Halter',
-    title: 'Spoločný jazyk',
-    country: 'Švajčiarsko',
-    label:
-      'Básnik a performatívny umelec Jürg Halter (1980) patrí k najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.',
-  },
-  {
-    id: '',
-    media: '/assets/images/author-jurg.jpg',
-    author: 'Jürg Halter',
-    title: 'Spoločný jazyk',
-    country: 'Švajčiarsko',
-    label:
-      'Básnik a performatívny umelec Jürg Halter (1980) patrí k najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.',
-  },
-  {
-    id: '',
-    media: '/assets/images/author-jurg.jpg',
-    author: 'Jürg Halter',
-    title: 'Spoločný jazyk',
-    country: 'Švajčiarsko',
-    label:
-      'Básnik a performatívny umelec Jürg Halter (1980) patrí k najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.',
-  },
-  {
-    id: '',
-    media: '/assets/images/author-jurg.jpg',
-    author: 'Jürg Halter',
-    title: 'Spoločný jazyk',
-    country: 'Švajčiarsko',
-    label:
-      'Básnik a performatívny umelec Jürg Halter (1980) patrí k najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.',
-  },
-];
+import { AUTHORS_DATA } from 'constants/authorsData';
 
 const AuthorsPage = () => {
   const [page, setPage] = useState<number>(1);
@@ -126,11 +16,11 @@ const AuthorsPage = () => {
     setPage(value);
   };
 
-  const PRODUCTS_TOTAL = MOCK_DATA.length;
+  const PRODUCTS_TOTAL = AUTHORS_DATA.length;
   const totalPages = Math.ceil(PRODUCTS_TOTAL / ITEMS_PER_PAGE);
   const start = (page - 1) * ITEMS_PER_PAGE;
   const end = start + ITEMS_PER_PAGE;
-  const items = MOCK_DATA.slice(start, end);
+  const items = AUTHORS_DATA.slice(start, end);
 
   return (
     <Main>
