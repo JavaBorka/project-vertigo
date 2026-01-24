@@ -15,7 +15,8 @@ const getMappedColor = () => {
   };
   const mappedColor = pathColorMap[pathname];
 
-  return mappedColor;
+  // Fallback to a default color when path is not defined
+  return mappedColor ?? 'primary.main';
 };
 
 export default getMappedColor;
