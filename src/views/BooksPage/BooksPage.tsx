@@ -7,165 +7,7 @@ import { useState } from 'react';
 import { ITEMS_PER_PAGE } from 'constants/paginationSettings';
 import getMappedColor from 'utils/getMappedColor';
 import { handlePageChange } from 'types/pagination';
-
-const MOCK_DATA = [
-  {
-    media: '/assets/images/vertigo-obalka-1.png',
-    title: 'Vertigo 4/2025',
-    author: '',
-    category: 'vertigo',
-    label: 'Tak pekne rozprávaš po slovensky ani prízvuk nemáš',
-    date: '2025-12-20',
-    img: '',
-    pdf: 'https://cs.wikipedia.org/wiki/Portable_Document_Format',
-    href: 'https://www.artforum.sk/katalog/181748/vertigo-22023-priloha-poldoba-rozpadu',
-  },
-  {
-    media: '/assets/images/kniha-obalka-1.jpg',
-    title: ' Spoločný jazyk',
-    author: 'Jürg Halter',
-    category: 'poézia',
-    label:
-      'Zahľadíš sa na strop, nadchnutý vlastným nešťastím, pomaly prerastáš sám seba.',
-    date: '2025-12-10',
-    img: '',
-    pdf: '',
-    href: 'https://www.artforum.sk/katalog/186108/slovnik-diel-slovenskej-literatury-po-roku-1989',
-  },
-  {
-    media: '/assets/images/vertigo-obalka-2.png',
-    title: 'Vertigo 3/2025',
-    author: '',
-    category: 'vertigo',
-    label: '',
-    date: '2025-11-20',
-    img: '',
-    pdf: '',
-    href: 'https://www.artforum.sk/katalog/170542/vertigo-12022-kniha-rozkvitni-pre-seba',
-  },
-  {
-    media: '/assets/images/vertigo-obalka-3.png',
-    title: 'Vertigo 2/2025',
-    author: '',
-    category: 'vertigo',
-    label: 'Do konca prázdnin ostávali ešte tri týždne.',
-    date: '2025-10-20',
-    img: '',
-    pdf: 'https://cs.wikipedia.org/wiki/Portable_Document_Format',
-    href: 'https://www.artforum.sk/katalog/160739/vertigo-1-22021-kniha-nespavost',
-  },
-  {
-    media: '/assets/images/vertigo-obalka-4.png',
-    title: 'Vertigo 1/2025',
-    author: '',
-    category: 'vertigo',
-    label: '',
-    date: '2025-09-20',
-    img: '',
-    pdf: 'https://cs.wikipedia.org/wiki/Portable_Document_Format',
-    href: '',
-  },
-  {
-    media: '/assets/images/vertigo-obalka-1.png',
-    title: 'Vertigo 4/2025',
-    author: '',
-    category: 'vertigo',
-    label: 'Tak pekne rozprávaš po slovensky ani prízvuk nemáš',
-    date: '2025-12-20',
-    img: '',
-    href: 'https://www.artforum.sk/katalog/181748/vertigo-22023-priloha-poldoba-rozpadu',
-  },
-  {
-    media: '/assets/images/kniha-obalka-1.jpg',
-    title: ' Spoločný jazyk',
-    author: 'Jürg Halter',
-    category: 'poézia',
-    label:
-      'Zahľadíš sa na strop, nadchnutý vlastným nešťastím, pomaly prerastáš sám seba.',
-    date: '2025-12-10',
-    img: '',
-    pdf: '',
-    href: 'https://www.artforum.sk/katalog/186108/slovnik-diel-slovenskej-literatury-po-roku-1989',
-  },
-  {
-    media: '/assets/images/vertigo-obalka-2.png',
-    title: 'Vertigo 3/2025',
-    author: '',
-    category: 'vertigo',
-    label: '',
-    date: '2025-11-20',
-    img: '',
-    pdf: '',
-    href: 'https://www.artforum.sk/katalog/170542/vertigo-12022-kniha-rozkvitni-pre-seba',
-  },
-  {
-    media: '/assets/images/vertigo-obalka-3.png',
-    title: 'Vertigo 2/2025',
-    author: '',
-    category: 'vertigo',
-    label: 'Do konca prázdnin ostávali ešte tri týždne.',
-    date: '2025-10-20',
-    img: '',
-    pdf: 'https://cs.wikipedia.org/wiki/Portable_Document_Format',
-    href: 'https://www.artforum.sk/katalog/160739/vertigo-1-22021-kniha-nespavost',
-  },
-  {
-    media: '/assets/images/vertigo-obalka-4.png',
-    title: 'Vertigo 1/2025',
-    author: '',
-    category: 'vertigo',
-    label: '',
-    date: '2025-09-20',
-    img: '',
-    pdf: 'https://cs.wikipedia.org/wiki/Portable_Document_Format',
-    href: '',
-  },
-  {
-    media: '/assets/images/vertigo-obalka-1.png',
-    title: 'Vertigo 4/2025',
-    author: '',
-    category: 'vertigo',
-    label: 'Tak pekne rozprávaš po slovensky ani prízvuk nemáš',
-    date: '2025-12-20',
-    img: '',
-    pdf: 'https://cs.wikipedia.org/wiki/Portable_Document_Format',
-    href: 'https://www.artforum.sk/katalog/181748/vertigo-22023-priloha-poldoba-rozpadu',
-  },
-  {
-    media: '/assets/images/kniha-obalka-1.jpg',
-    title: ' Spoločný jazyk',
-    author: 'Jürg Halter',
-    category: 'poézia',
-    label:
-      'Zahľadíš sa na strop, nadchnutý vlastným nešťastím, pomaly prerastáš sám seba.',
-    date: '2025-12-10',
-    img: '',
-    pdf: '',
-    href: 'https://www.artforum.sk/katalog/186108/slovnik-diel-slovenskej-literatury-po-roku-1989',
-  },
-  {
-    media: '/assets/images/vertigo-obalka-2.png',
-    title: 'Vertigo 3/2025',
-    author: '',
-    category: 'vertigo',
-    label: '',
-    date: '2025-11-20',
-    img: '',
-    pdf: '',
-    href: 'https://www.artforum.sk/katalog/170542/vertigo-12022-kniha-rozkvitni-pre-seba',
-  },
-  {
-    media: '/assets/images/vertigo-obalka-3.png',
-    title: 'Vertigo 2/2025',
-    author: '',
-    category: 'vertigo',
-    label: 'Do konca prázdnin ostávali ešte tri týždne.',
-    date: '2025-10-20',
-    img: '',
-    pdf: 'https://cs.wikipedia.org/wiki/Portable_Document_Format',
-    href: 'https://www.artforum.sk/katalog/160739/vertigo-1-22021-kniha-nespavost',
-  },
-];
+import { getRemoteJson } from '../../remoteConfig';
 
 const BooksPage = () => {
   const [page, setPage] = useState<number>(1);
@@ -174,11 +16,13 @@ const BooksPage = () => {
     setPage(value);
   };
 
-  const PRODUCTS_TOTAL = MOCK_DATA.length;
-  const totalPages = Math.ceil(PRODUCTS_TOTAL / ITEMS_PER_PAGE);
+  const BOOKS_DATA = getRemoteJson('BOOKS_JSON');
+  console.log(BOOKS_DATA);
+  const BOOKS_TOTAL = BOOKS_DATA.length;
+  const totalPages = Math.ceil(BOOKS_TOTAL / ITEMS_PER_PAGE);
   const start = (page - 1) * ITEMS_PER_PAGE;
   const end = start + ITEMS_PER_PAGE;
-  const items = MOCK_DATA.slice(start, end);
+  const items = BOOKS_DATA.slice(start, end);
 
   return (
     <Main>

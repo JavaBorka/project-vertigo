@@ -7,7 +7,8 @@ import { ITEMS_PER_PAGE } from 'constants/paginationSettings';
 import getMappedColor from 'utils/getMappedColor';
 import { handlePageChange } from 'types/pagination';
 import AuthorGrid from './components/ProductGrid/AuthorGrid';
-import { AUTHORS_DATA } from 'constants/authorsData';
+import { getRemoteJson } from '../../remoteConfig';
+// import { AUTHORS_DATA } from 'constants/authorsData';
 
 const AuthorsPage = () => {
   const [page, setPage] = useState<number>(1);
@@ -16,6 +17,8 @@ const AuthorsPage = () => {
     setPage(value);
   };
 
+  const AUTHORS_DATA = getRemoteJson('AUTHORS_JSON');
+  console.log(AUTHORS_DATA);
   const PRODUCTS_TOTAL = AUTHORS_DATA.length;
   const totalPages = Math.ceil(PRODUCTS_TOTAL / ITEMS_PER_PAGE);
   const start = (page - 1) * ITEMS_PER_PAGE;
