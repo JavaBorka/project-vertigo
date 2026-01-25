@@ -8,33 +8,28 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { PageItem } from 'types/navigation';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 interface Props {
   title: string;
   id: string;
-  items: Array<PageItem>;
+  onClick?: (event: React.MouseEvent) => void;
+  onNavigate?: (path: string) => void;
+  items?: Array<PageItem>;
+  to?: string;
 }
 
-const NavItem = ({ title, id, items }: Props) => {
+const NavItem = ({ title, id, onClick, onNavigate, items = [], to }: Props) => {
   const theme = useTheme();
   const hasItems = items.length > 0;
-  const navigate = useNavigate();
 
   let currentlyHovering = false;
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
-    if (!hasItems) {
-      // Direct navigation for empty items based on id
-      if (id === 'vertigo-pages') {
-        navigate('/vertigo');
-      }
-      if (id === 'autori-pages') {
-        navigate('/autori');
-      }
-      if (id === 'about-pages') {
-        navigate('/onas');
+    if (!hasItems && !to) {
+      if (onClick) {
+        onClick(event);
       }
       return;
     }
@@ -80,11 +75,13 @@ const NavItem = ({ title, id, items }: Props) => {
   return (
     <Box>
       <Box
+        component={!hasItems && to ? Link : 'div'}
+        to={!hasItems && to ? to : undefined}
         display={'flex'}
         alignItems={'center'}
         aria-describedby={id}
-        sx={{ cursor: 'pointer' }}
-        onClick={handleClick}
+        sx={{ cursor: 'pointer', textDecoration: 'none' }}
+        onClick={!hasItems && to ? undefined : handleClick}
         onMouseOver={handleMouseOver}
         onMouseLeave={handleCloseHover}
       >
@@ -166,8 +163,12 @@ const NavItem = ({ title, id, items }: Props) => {
           {items.map((p, i) => (
             <Grid item key={i} xs={items.length > 12 ? 6 : 12}>
               <MenuItem
-                component={'a'}
-                href={p.href}
+                onClick={() => {
+                  if (onNavigate) {
+                    onNavigate(p.href);
+                    handleClose();
+                  }
+                }}
                 sx={{
                   paddingY: 1.5,
                   borderRadius: 1,
