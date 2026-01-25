@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
 import Box from '@mui/material/Box';
 import { alpha, useTheme } from '@mui/material/styles';
 import Menu from '@mui/material/Menu';
@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { PageItem } from 'types/navigation';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface Props {
   title: string;
@@ -22,6 +22,16 @@ interface Props {
 const NavItem = ({ title, id, onClick, onNavigate, items, to }: Props) => {
   const theme = useTheme();
   const hasItems = items.length > 0;
+  const location = useLocation();
+  const normalizePath = (path: string | undefined): string => {
+    if (!path) return '/';
+    const withoutTrailing = path.replace(/\/+$/, '');
+    return withoutTrailing.length === 0 ? '/' : withoutTrailing;
+  };
+  const activeLink = useMemo(
+    () => normalizePath(location.pathname),
+    [location.pathname],
+  );
 
   let currentlyHovering = false;
   const [anchorEl, setAnchorEl] = useState(null);
@@ -64,11 +74,6 @@ const NavItem = ({ title, id, onClick, onNavigate, items, to }: Props) => {
       }
     }, 190);
   };
-
-  const [activeLink, setActiveLink] = useState('');
-  useEffect(() => {
-    setActiveLink(window && window.location ? window.location.pathname : '');
-  }, []);
 
   const linkColor = 'common.white';
 
@@ -174,11 +179,11 @@ const NavItem = ({ title, id, onClick, onNavigate, items, to }: Props) => {
                   borderRadius: 1,
                   justifyContent: 'flex-start',
                   color:
-                    activeLink === p.href
+                    normalizePath(p.href) === activeLink
                       ? theme.palette.primary.main
                       : theme.palette.text.primary,
                   backgroundColor:
-                    activeLink === p.href
+                    normalizePath(p.href) === activeLink
                       ? alpha(theme.palette.primary.main, 0.1)
                       : 'transparent',
                   '&': {
@@ -192,7 +197,10 @@ const NavItem = ({ title, id, onClick, onNavigate, items, to }: Props) => {
               >
                 <Typography
                   variant={'body2'}
-                  sx={{ fontWeight: activeLink === p.href ? 600 : 400 }}
+                  sx={{
+                    fontWeight:
+                      normalizePath(p.href) === activeLink ? 600 : 400,
+                  }}
                 >
                   {p.title}
                 </Typography>
