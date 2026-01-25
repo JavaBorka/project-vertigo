@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link, useLocation } from 'react-router-dom';
 import { PageItem } from 'types/navigation';
+import { normalizePath } from 'utils/normalizePath';
 
 interface Props {
   title: string;
@@ -22,11 +23,7 @@ interface Props {
 const NavItem = ({ title, items, to, onNavigate, onTopLevelClick }: Props) => {
   const theme = useTheme();
   const location = useLocation();
-  const normalizePath = (path: string | undefined): string => {
-    if (!path) return '/';
-    const withoutTrailing = path.replace(/\/+$/, '');
-    return withoutTrailing.length === 0 ? '/' : withoutTrailing;
-  };
+
   const activeLink = useMemo(
     () => normalizePath(location.pathname),
     [location.pathname],

@@ -9,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { PageItem } from 'types/navigation';
 import { Link, useLocation } from 'react-router-dom';
+import { normalizePath } from 'utils/normalizePath';
 
 interface Props {
   title: string;
@@ -23,11 +24,7 @@ const NavItem = ({ title, id, onClick, onNavigate, items, to }: Props) => {
   const theme = useTheme();
   const hasItems = items.length > 0;
   const location = useLocation();
-  const normalizePath = (path: string | undefined): string => {
-    if (!path) return '/';
-    const withoutTrailing = path.replace(/\/+$/, '');
-    return withoutTrailing.length === 0 ? '/' : withoutTrailing;
-  };
+
   const activeLink = useMemo(
     () => normalizePath(location.pathname),
     [location.pathname],
