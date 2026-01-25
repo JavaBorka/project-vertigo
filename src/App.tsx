@@ -13,6 +13,16 @@ import BooksPage from 'views/BooksPage';
 import AuthorsPage from 'views/AuthorsPage';
 import AuthorDetailPage from 'views/AuthorDetailPage.tsx';
 import { ContactPageCover, NotFoundCover } from 'views';
+import {
+  ROUTE_ABOUT,
+  ROUTE_AUTHOR_DETAIL,
+  ROUTE_AUTHORS,
+  ROUTE_KIDS,
+  ROUTE_POEM,
+  ROUTE_PROSE,
+  ROUTE_SCIENCE,
+  ROUTE_VERTIGO,
+} from 'constants/routes';
 
 const AOSRouteRefresher = (): null => {
   const location = useLocation();
@@ -37,14 +47,17 @@ const App = () => {
         <Routes>
           <Route path="/" element={<PortfolioPage />} />
           <Route path="/not-found-cover" element={<NotFoundCover />} />
-          <Route path="/veda" element={<BooksPage />} />
-          <Route path="/poezia" element={<BooksPage />} />
-          <Route path="/proza" element={<BooksPage />} />
-          <Route path="/deti" element={<BooksPage />} />
-          <Route path="/vertigo" element={<BooksPage />} />
-          <Route path="/autori" element={<AuthorsPage />} />
-          <Route path="/nazov-autora" element={<AuthorDetailPage />} />
-          <Route path="/onas" element={<ContactPageCover />} />
+          <Route path={`/${ROUTE_SCIENCE}`} element={<BooksPage />} />
+          <Route path={`/${ROUTE_POEM}`} element={<BooksPage />} />
+          <Route path={`/${ROUTE_PROSE}`} element={<BooksPage />} />
+          <Route path={`/${ROUTE_KIDS}`} element={<BooksPage />} />
+          <Route path={`/${ROUTE_VERTIGO}`} element={<BooksPage />} />
+          <Route path={`/${ROUTE_AUTHORS}`} element={<AuthorsPage />} />
+          <Route
+            path={`/${ROUTE_AUTHOR_DETAIL}`}
+            element={<AuthorDetailPage />}
+          />
+          <Route path={`/${ROUTE_ABOUT}`} element={<ContactPageCover />} />
           <Route
             path="*"
             element={<Navigate replace to="/not-found-cover" />}

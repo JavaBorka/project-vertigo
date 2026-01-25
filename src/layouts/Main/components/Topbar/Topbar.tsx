@@ -5,6 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { NavItem } from './components';
 import { useNavigate } from 'react-router-dom';
 import pages from 'constants/pagesNavigation';
+import { ROUTE_VERTIGO, ROUTE_AUTHORS, ROUTE_ABOUT } from 'constants/routes';
 
 interface Props {
   onSidebarOpen: () => void;
@@ -53,13 +54,21 @@ const Topbar = ({ onSidebarOpen }: Props) => {
           />
         </Box>
         <Box marginLeft={4}>
-          <NavItem title={'Vertigo'} id={'vertigo-pages'} to="/vertigo" />
+          <NavItem
+            title={'Vertigo'}
+            id={'vertigo-pages'}
+            to={`/${ROUTE_VERTIGO}`}
+          />
         </Box>
         <Box marginLeft={4}>
-          <NavItem title={'Autori'} id={'autori-pages'} to="/autori" />
+          <NavItem
+            title={'Autori'}
+            id={'autori-pages'}
+            to={`/${ROUTE_AUTHORS}`}
+          />
         </Box>
         <Box marginLeft={4}>
-          <NavItem title={'O nás'} id={'about-pages'} to="/onas" />
+          <NavItem title={'O nás'} id={'about-pages'} to={`/${ROUTE_ABOUT}`} />
         </Box>
       </Box>
       <Box sx={{ display: { xs: 'flex', md: 'none' } }} alignItems={'center'}>

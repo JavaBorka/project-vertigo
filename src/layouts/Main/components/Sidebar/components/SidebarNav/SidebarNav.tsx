@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import NavItem from './components/NavItem';
 import pages from 'constants/pagesNavigation';
+import { ROUTE_VERTIGO, ROUTE_AUTHORS, ROUTE_ABOUT } from 'constants/routes';
 
 interface SidebarProps {
   onClose?: () => void;
@@ -52,7 +53,7 @@ const SidebarNav = ({ onClose }: SidebarProps) => {
           <NavItem
             title={'Vertigo'}
             items={pages.vertigo}
-            to="/vertigo"
+            to={`/${ROUTE_VERTIGO}`}
             onTopLevelClick={() => onClose && onClose()}
           />
         </Box>
@@ -60,7 +61,7 @@ const SidebarNav = ({ onClose }: SidebarProps) => {
           <NavItem
             title={'Autori'}
             items={pages.authors}
-            to="/autori"
+            to={`/${ROUTE_AUTHORS}`}
             onTopLevelClick={() => onClose && onClose()}
           />
         </Box>
@@ -68,7 +69,7 @@ const SidebarNav = ({ onClose }: SidebarProps) => {
           <NavItem
             title={'O nás'}
             items={pages.about}
-            to="/onas"
+            to={`/${ROUTE_ABOUT}`}
             onTopLevelClick={() => onClose && onClose()}
           />
         </Box>
