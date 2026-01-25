@@ -15,11 +15,11 @@ interface Props {
   id: string;
   onClick?: (event: React.MouseEvent) => void;
   onNavigate?: (path: string) => void;
-  items?: Array<PageItem>;
+  items: Array<PageItem>;
   to?: string;
 }
 
-const NavItem = ({ title, id, onClick, onNavigate, items = [], to }: Props) => {
+const NavItem = ({ title, id, onClick, onNavigate, items, to }: Props) => {
   const theme = useTheme();
   const hasItems = items.length > 0;
 

@@ -57,6 +57,7 @@ const Topbar = ({ onSidebarOpen }: Props) => {
           <NavItem
             title={'Vertigo'}
             id={'vertigo-pages'}
+            items={pages.vertigo}
             to={`/${ROUTE_VERTIGO}`}
           />
         </Box>
@@ -64,11 +65,17 @@ const Topbar = ({ onSidebarOpen }: Props) => {
           <NavItem
             title={'Autori'}
             id={'autori-pages'}
+            items={pages.authors}
             to={`/${ROUTE_AUTHORS}`}
           />
         </Box>
         <Box marginLeft={4}>
-          <NavItem title={'O nás'} id={'about-pages'} to={`/${ROUTE_ABOUT}`} />
+          <NavItem
+            title={'O nás'}
+            id={'about-pages'}
+            items={pages.about}
+            to={`/${ROUTE_ABOUT}`}
+          />
         </Box>
       </Box>
       <Box sx={{ display: { xs: 'flex', md: 'none' } }} alignItems={'center'}>
