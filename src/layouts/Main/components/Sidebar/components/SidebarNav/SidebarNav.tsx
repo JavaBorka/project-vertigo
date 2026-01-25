@@ -1,29 +1,19 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 import NavItem from './components/NavItem';
-import { PageItem } from 'types/navigation';
+import pages from 'constants/pagesNavigation';
 
-interface Props {
-  pages: {
-    books: Array<PageItem>;
-    vertigo: Array<PageItem>;
-    authors: Array<PageItem>;
-    about: Array<PageItem>;
-  };
+interface SidebarProps {
+  onClose?: () => void;
 }
 
-const SidebarNav = ({ pages }: Props) => {
+const SidebarNav = ({ onClose }: SidebarProps) => {
   const theme = useTheme();
   const { mode } = theme.palette;
-
-  const {
-    books: booksPages,
-    vertigo: vertigoPages,
-    authors: authorsPages,
-    about: aboutPages,
-  } = pages;
+  const navigate = useNavigate();
 
   return (
     <Box>
@@ -49,16 +39,38 @@ const SidebarNav = ({ pages }: Props) => {
       </Box>
       <Box paddingX={2} paddingY={2}>
         <Box>
-          <NavItem title={'Knihy'} items={booksPages} />
+          <NavItem
+            title={'Knihy'}
+            items={pages.books}
+            onNavigate={(path) => {
+              navigate(path);
+              onClose && onClose();
+            }}
+          />
         </Box>
         <Box>
-          <NavItem title={'Vertigo'} items={vertigoPages} />
+          <NavItem
+            title={'Vertigo'}
+            items={pages.vertigo}
+            to="/vertigo"
+            onTopLevelClick={() => onClose && onClose()}
+          />
         </Box>
         <Box>
-          <NavItem title={'Autori'} items={authorsPages} />
+          <NavItem
+            title={'Autori'}
+            items={pages.authors}
+            to="/autori"
+            onTopLevelClick={() => onClose && onClose()}
+          />
         </Box>
         <Box>
-          <NavItem title={'O nás'} items={aboutPages} />
+          <NavItem
+            title={'O nás'}
+            items={pages.about}
+            to="/onas"
+            onTopLevelClick={() => onClose && onClose()}
+          />
         </Box>
       </Box>
     </Box>

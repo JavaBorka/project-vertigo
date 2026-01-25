@@ -2,21 +2,14 @@ import React from 'react';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import { SidebarNav } from './components';
-import { PageItem } from 'types/navigation';
 
 interface Props {
   onClose: () => void;
   open: boolean;
   variant: 'permanent' | 'persistent' | 'temporary' | undefined;
-  pages: {
-    books: Array<PageItem>;
-    vertigo: Array<PageItem>;
-    authors: Array<PageItem>;
-    about: Array<PageItem>;
-  };
 }
 
-const Sidebar = ({ pages, open, variant, onClose }: Props) => {
+const Sidebar = ({ open, variant, onClose }: Props) => {
   return (
     <Drawer
       anchor="left"
@@ -36,7 +29,7 @@ const Sidebar = ({ pages, open, variant, onClose }: Props) => {
           padding: 1,
         }}
       >
-        <SidebarNav pages={pages} />
+          <SidebarNav onClose={onClose} />
       </Box>
     </Drawer>
   );

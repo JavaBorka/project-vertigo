@@ -8,7 +8,6 @@ import AppBar from '@mui/material/AppBar';
 import Container from 'components/Container';
 
 import { Topbar, Sidebar, Footer } from './components';
-import pages from 'constants/pagesNavigation';
 import getMappedColor from 'utils/getMappedColor';
 
 interface Props {
@@ -59,12 +58,7 @@ const Main = ({ children }: Props) => {
           <Topbar onSidebarOpen={handleSidebarOpen} />
         </Container>
       </AppBar>
-      <Sidebar
-        onClose={handleSidebarClose}
-        open={open}
-        variant="temporary"
-        pages={pages}
-      />
+      <Sidebar open={open} onClose={handleSidebarClose} variant="temporary" />
       <main>
         {children}
         <Divider />

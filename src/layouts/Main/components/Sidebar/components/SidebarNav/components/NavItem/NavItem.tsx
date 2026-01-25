@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
 import { alpha, useTheme } from '@mui/material/styles';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -8,46 +8,39 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { PageItem } from 'types/navigation';
 
 interface Props {
   title: string;
   items: Array<PageItem>;
+  to?: string;
+  onNavigate?: (path: string) => void;
+  onTopLevelClick?: () => void;
 }
 
-const NavItem = ({ title, items }: Props) => {
+const NavItem = ({ title, items, to, onNavigate, onTopLevelClick }: Props) => {
   const theme = useTheme();
-  const navigate = useNavigate();
-  const [activeLink, setActiveLink] = useState('');
-  useEffect(() => {
-    setActiveLink(window && window.location ? window.location.pathname : '');
-  }, []);
+  const location = useLocation();
+  const normalizePath = (path: string | undefined): string => {
+    if (!path) return '/';
+    const withoutTrailing = path.replace(/\/+$/, '');
+    return withoutTrailing.length === 0 ? '/' : withoutTrailing;
+  };
+  const activeLink = useMemo(
+    () => normalizePath(location.pathname),
+    [location.pathname],
+  );
 
   const hasItems = items.length > 0;
 
-  // Check if a simple (no-submenu) heading matches the active route
-  // Active links have specific style, so we need to detect them
-  const isActiveSingleHeading = (
-    title: string,
-    activeLink: string,
-  ): boolean => {
-    const routeMap: Record<string, string> = {
-      Vertigo: '/vertigo',
-      Autori: '/autori',
-      'O nás': '/onas',
-    };
-
-    return routeMap[title] === activeLink;
-  };
-
   const hasActiveLink = (): boolean => {
     if (hasItems) {
-      return items.some((item) => item.href === activeLink);
+      return items.some((item) => normalizePath(item.href) === activeLink);
     }
 
-    // No submenu -> check via title-to-route mapping
-    return isActiveSingleHeading(title, activeLink);
+    // No submenu -> check direct 'to' prop
+    return normalizePath(to) === activeLink;
   };
 
   return (
@@ -58,24 +51,13 @@ const NavItem = ({ title, items }: Props) => {
         sx={{ backgroundColor: 'transparent' }}
       >
         <AccordionSummary
+          component={!hasItems && to ? Link : 'div'}
+          to={!hasItems && to ? to : undefined}
           expandIcon={hasItems ? <ExpandMoreIcon /> : null}
           aria-controls="panel1a-content"
           id="panel1a-header"
           sx={{ padding: 0, cursor: 'pointer' }}
-          onClick={() => {
-            if (!hasItems) {
-              if (title === 'Vertigo') {
-                navigate('/vertigo');
-              }
-              if (title === 'Autori') {
-                navigate('/autori');
-              }
-              if (title === 'O nás') {
-                navigate('/onas');
-              }
-              return;
-            }
-          }}
+          onClick={!hasItems && to ? onTopLevelClick : undefined}
         >
           <Typography
             fontWeight={hasActiveLink() ? 600 : 400}
@@ -91,8 +73,7 @@ const NavItem = ({ title, items }: Props) => {
                 <Grid item key={i} xs={12}>
                   <Button
                     size={'large'}
-                    component={'a'}
-                    href={p.href}
+                    onClick={() => onNavigate && onNavigate(p.href)}
                     fullWidth
                     sx={{
                       justifyContent: 'flex-start',
