@@ -3,13 +3,14 @@ import ProductGrid from './components/ProductGrid';
 import { Box, Typography } from '@mui/material';
 import Container from 'components/Container';
 import Pagination from 'components/Pagination';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ITEMS_PER_PAGE } from 'constants/paginationSettings';
 import getMappedColor from 'utils/getMappedColor';
 import { handlePageChange } from 'types/pagination';
 import { getRemoteJson } from '../../remoteConfig';
 import { CategoryId } from 'types/categoryID';
 import { genreByCategoryId } from 'constants/categoryID';
+import { ProductItem } from 'types/productItem';
 
 interface BooksPageProps {
   catId: CategoryId;
@@ -25,12 +26,16 @@ const BooksPage = ({ catId }: BooksPageProps) => {
   const genre = genreByCategoryId[catId];
 
   const BOOKS_DATA = getRemoteJson('BOOKS_JSON');
-  console.log(BOOKS_DATA);
+
+  const BOOKS_FILTERED = useMemo(() => {
+    return BOOKS_DATA.filter((book: ProductItem) => book.genreID === catId);
+  }, [BOOKS_DATA, catId]);
+
   const BOOKS_TOTAL = BOOKS_DATA.length;
   const totalPages = Math.ceil(BOOKS_TOTAL / ITEMS_PER_PAGE);
   const start = (page - 1) * ITEMS_PER_PAGE;
   const end = start + ITEMS_PER_PAGE;
-  const items = BOOKS_DATA.slice(start, end);
+  const items = BOOKS_FILTERED.slice(start, end);
 
   return (
     <Main>
@@ -42,19 +47,21 @@ const BooksPage = ({ catId }: BooksPageProps) => {
           },
         }}
       >
-        <Typography
-          color={getMappedColor()}
-          sx={{
-            pb: '1.5rem', // 24px
-            fontSize: {
-              xs: '1.3rem',
-              sm: '1.5rem',
-              md: '1.75rem',
-            },
-          }}
-        >
-          <strong>{genre} |</strong> doplniť text
-        </Typography>
+        {genre && (
+          <Typography
+            color={getMappedColor()}
+            sx={{
+              pb: '1.5rem', // 24px
+              fontSize: {
+                xs: '1.3rem',
+                sm: '1.5rem',
+                md: '1.75rem',
+              },
+            }}
+          >
+            <strong>{genre} |</strong> doplniť text
+          </Typography>
+        )}
         <ProductGrid items={items} />
         <Box
           sx={{
