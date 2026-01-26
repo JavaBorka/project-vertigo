@@ -11,6 +11,7 @@ import { getRemoteJson } from '../../remoteConfig';
 import { CategoryId } from 'types/categoryID';
 import { genreByCategoryId } from 'constants/categoryID';
 import { ProductItem } from 'types/productItem';
+import { getSafeTime } from 'utils/getSafeTime';
 
 interface BooksPageProps {
   catId: CategoryId;
@@ -28,7 +29,12 @@ const BooksPage = ({ catId }: BooksPageProps) => {
   const BOOKS_DATA = getRemoteJson('BOOKS_JSON');
 
   const BOOKS_FILTERED = useMemo(() => {
-    return BOOKS_DATA.filter((book: ProductItem) => book.genreID === catId);
+    return BOOKS_DATA.filter(
+      (book: ProductItem) => book.genreID === catId,
+    ).sort(
+      (a: ProductItem, b: ProductItem) =>
+        getSafeTime(b.date) - getSafeTime(a.date),
+    );
   }, [BOOKS_DATA, catId]);
 
   const BOOKS_TOTAL = BOOKS_DATA.length;
