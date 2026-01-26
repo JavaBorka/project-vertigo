@@ -1,20 +1,22 @@
+import { ROUTE_SCIENCE, ROUTE_POEM, ROUTE_PROSE, ROUTE_KIDS } from './routes';
+
 const pages = {
   books: [
     {
       title: 'Veda',
-      href: '/veda',
+      href: `/${ROUTE_SCIENCE}`,
     },
     {
       title: 'Poézia',
-      href: '/poezia',
+      href: `/${ROUTE_POEM}`,
     },
     {
       title: 'Próza',
-      href: '/proza',
+      href: `/${ROUTE_PROSE}`,
     },
     {
       title: 'Deti',
-      href: '/deti',
+      href: `/${ROUTE_KIDS}`,
     },
   ],
   vertigo: [],
