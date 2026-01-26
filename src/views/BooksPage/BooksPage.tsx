@@ -8,13 +8,21 @@ import { ITEMS_PER_PAGE } from 'constants/paginationSettings';
 import getMappedColor from 'utils/getMappedColor';
 import { handlePageChange } from 'types/pagination';
 import { getRemoteJson } from '../../remoteConfig';
+import { CategoryId } from 'types/categoryID';
+import { genreByCategoryId } from 'constants/categoryID';
 
-const BooksPage = () => {
+interface BooksPageProps {
+  catId: CategoryId;
+}
+
+const BooksPage = ({ catId }: BooksPageProps) => {
   const [page, setPage] = useState<number>(1);
 
   const handlePageChange: handlePageChange = (_e, value) => {
     setPage(value);
   };
+
+  const genre = genreByCategoryId[catId];
 
   const BOOKS_DATA = getRemoteJson('BOOKS_JSON');
   console.log(BOOKS_DATA);
@@ -45,7 +53,7 @@ const BooksPage = () => {
             },
           }}
         >
-          <strong>Poézia |</strong> svetové a slovenské básne
+          <strong>{genre} |</strong> doplniť text
         </Typography>
         <ProductGrid items={items} />
         <Box

@@ -23,6 +23,13 @@ import {
   ROUTE_SCIENCE,
   ROUTE_VERTIGO,
 } from 'constants/routes';
+import {
+  KIDS_CAT_ID,
+  POEM_CAT_ID,
+  PROSE_CAT_ID,
+  SCIENCE_CAT_ID,
+  VERTIGO_CAT_ID,
+} from 'constants/categoryID';
 
 const AOSRouteRefresher = (): null => {
   const location = useLocation();
@@ -47,11 +54,26 @@ const App = () => {
         <Routes>
           <Route path="/" element={<PortfolioPage />} />
           <Route path="/not-found-cover" element={<NotFoundCover />} />
-          <Route path={`/${ROUTE_SCIENCE}`} element={<BooksPage />} />
-          <Route path={`/${ROUTE_POEM}`} element={<BooksPage />} />
-          <Route path={`/${ROUTE_PROSE}`} element={<BooksPage />} />
-          <Route path={`/${ROUTE_KIDS}`} element={<BooksPage />} />
-          <Route path={`/${ROUTE_VERTIGO}`} element={<BooksPage />} />
+          <Route
+            path={`/${ROUTE_SCIENCE}`}
+            element={<BooksPage catId={SCIENCE_CAT_ID} />}
+          />
+          <Route
+            path={`/${ROUTE_POEM}`}
+            element={<BooksPage catId={POEM_CAT_ID} />}
+          />
+          <Route
+            path={`/${ROUTE_PROSE}`}
+            element={<BooksPage catId={PROSE_CAT_ID} />}
+          />
+          <Route
+            path={`/${ROUTE_KIDS}`}
+            element={<BooksPage catId={KIDS_CAT_ID} />}
+          />
+          <Route
+            path={`/${ROUTE_VERTIGO}`}
+            element={<BooksPage catId={VERTIGO_CAT_ID} />}
+          />
           <Route path={`/${ROUTE_AUTHORS}`} element={<AuthorsPage />} />
           <Route
             path={`/${ROUTE_AUTHOR_DETAIL}`}
