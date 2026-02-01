@@ -71,7 +71,7 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
             px: 1,
             scrollbarWidth: 'none',
             '&::-webkit-scrollbar': { display: 'none' },
-            alignItems: 'stretch',
+            alignItems: 'flex-end',
           }}
         >
           {items.map((item, i) => (
