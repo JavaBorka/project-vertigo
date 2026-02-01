@@ -5,7 +5,6 @@ export type ProductItem = {
   title: string;
   author?: string;
   genreID: CategoryId;
-  category: string;
   label?: string;
   date: string;
   img?: string;

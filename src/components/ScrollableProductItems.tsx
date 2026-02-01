@@ -233,7 +233,7 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
                       {item.author}
                     </Typography>
                     <Typography fontWeight={600} marginBottom={0.5}>
-                      {item.category === 'vertigo'
+                      {item.genreID === 5
                         ? item.title.toUpperCase()
                         : item.title}
                     </Typography>

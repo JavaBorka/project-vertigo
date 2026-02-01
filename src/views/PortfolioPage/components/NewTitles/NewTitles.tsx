@@ -2,8 +2,8 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from 'components/Container';
-import { PRODUCTS_DATA } from 'constants/productsData';
 import ScrollableProductItems from 'components/ScrollableProductItems';
+import { BOOKS_DATA } from 'constants/booksData';
 
 const NewTitles = () => {
   return (
@@ -21,7 +21,7 @@ const NewTitles = () => {
           Najnovšie tituly
         </Typography>
       </Box>
-      <ScrollableProductItems items={PRODUCTS_DATA} />
+      <ScrollableProductItems items={BOOKS_DATA} />
     </Container>
   );
 };
