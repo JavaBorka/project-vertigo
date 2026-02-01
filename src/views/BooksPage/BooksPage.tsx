@@ -65,7 +65,7 @@ const BooksPage = ({ catId }: BooksPageProps) => {
               },
             }}
           >
-            <strong>{genre} |</strong> doplniť text
+            <strong>{genre}</strong>
           </Typography>
         )}
         <ProductGrid items={items} />

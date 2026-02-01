@@ -46,7 +46,7 @@ const AuthorsPage = () => {
             },
           }}
         >
-          <strong>Autori |</strong> slovenská a svetová tvorba
+          <strong>Autori</strong>
         </Typography>
         <AuthorGrid items={items} />
         <Box
