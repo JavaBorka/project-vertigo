@@ -37,7 +37,7 @@ const BooksPage = ({ catId }: BooksPageProps) => {
     );
   }, [BOOKS_DATA, catId]);
 
-  const BOOKS_TOTAL = BOOKS_DATA.length;
+  const BOOKS_TOTAL = BOOKS_FILTERED.length;
   const totalPages = Math.ceil(BOOKS_TOTAL / ITEMS_PER_PAGE);
   const start = (page - 1) * ITEMS_PER_PAGE;
   const end = start + ITEMS_PER_PAGE;
