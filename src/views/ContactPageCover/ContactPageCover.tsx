@@ -27,7 +27,7 @@ const ContactPageCover = () => {
           loading="lazy"
           height={1}
           width={1}
-          src={'https://assets.maccarianagency.com/backgrounds/img23.jpg'}
+          src={'/assets/images/about-us.jpg'}
           alt="..."
           sx={{
             objectFit: 'cover',
