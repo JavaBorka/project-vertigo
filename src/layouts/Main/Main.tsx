@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
+import { useLocation } from 'react-router-dom';
 
 import Container from 'components/Container';
 
@@ -21,6 +23,9 @@ const Main = ({ children }: Props) => {
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
   });
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+  const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 10 });
 
   const [openSidebar, setOpenSidebar] = useState(false);
 
@@ -40,7 +45,9 @@ const Main = ({ children }: Props) => {
         position={'sticky'}
         sx={{
           top: 0,
-          backgroundColor: getMappedColor(),
+          backgroundColor:
+            isHome && !scrolled ? 'transparent' : getMappedColor(),
+          transition: 'background-color 250ms ease',
           boxShadow: 'none',
           zIndex: {
             sx: 0,
