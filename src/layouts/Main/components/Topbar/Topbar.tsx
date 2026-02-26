@@ -3,25 +3,16 @@ import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { NavItem } from './components';
-import { PageItem } from 'types/navigation';
+import { useNavigate } from 'react-router-dom';
+import pages from 'constants/pagesNavigation';
+import { ROUTE_VERTIGO, ROUTE_AUTHORS, ROUTE_ABOUT } from 'constants/routes';
 
 interface Props {
   onSidebarOpen: () => void;
-  pages: {
-    books: Array<PageItem>;
-    vertigo: Array<PageItem>;
-    authors: Array<PageItem>;
-    about: Array<PageItem>;
-  };
 }
 
-const Topbar = ({ onSidebarOpen, pages }: Props) => {
-  const {
-    books: booksPages,
-    vertigo: vertigoPages,
-    about: aboutPages,
-    authors: authorsPages,
-  } = pages;
+const Topbar = ({ onSidebarOpen }: Props) => {
+  const navigate = useNavigate();
 
   return (
     <Box
@@ -55,20 +46,36 @@ const Topbar = ({ onSidebarOpen, pages }: Props) => {
       </Box>
       <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
         <Box marginLeft={4}>
-          <NavItem title={'Knihy'} id={'books-pages'} items={booksPages} />
+          <NavItem
+            title={'Knihy'}
+            id={'books-pages'}
+            items={pages.books}
+            onNavigate={(path) => navigate(path)}
+          />
         </Box>
         <Box marginLeft={4}>
           <NavItem
             title={'Vertigo'}
             id={'vertigo-pages'}
-            items={vertigoPages}
+            items={pages.vertigo}
+            to={`/${ROUTE_VERTIGO}`}
           />
         </Box>
         <Box marginLeft={4}>
-          <NavItem title={'Autori'} id={'autori-pages'} items={authorsPages} />
+          <NavItem
+            title={'Autori'}
+            id={'autori-pages'}
+            items={pages.authors}
+            to={`/${ROUTE_AUTHORS}`}
+          />
         </Box>
         <Box marginLeft={4}>
-          <NavItem title={'O nás'} id={'about-pages'} items={aboutPages} />
+          <NavItem
+            title={'O nás'}
+            id={'about-pages'}
+            items={pages.about}
+            to={`/${ROUTE_ABOUT}`}
+          />
         </Box>
       </Box>
       <Box sx={{ display: { xs: 'flex', md: 'none' } }} alignItems={'center'}>

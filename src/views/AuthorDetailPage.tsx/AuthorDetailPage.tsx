@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from 'components/Container';
-import { PRODUCTS_DATA } from 'constants/productsData';
+import { BOOKS_DATA } from 'constants/booksData';
 import ScrollableProductItems from 'components/ScrollableProductItems';
 import { Main } from 'layouts';
 import { Button, Card, CardMedia } from '@mui/material';
@@ -93,7 +93,7 @@ const AuthorDetailPage = () => {
             Vyšlo vo f.a.c.e
           </Typography>
         </Box>
-        <ScrollableProductItems items={PRODUCTS_DATA} />
+        <ScrollableProductItems items={BOOKS_DATA} />
         <Box
           sx={{
             display: 'flex',

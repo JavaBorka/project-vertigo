@@ -1,8 +1,10 @@
+import { CategoryId } from 'types/categoryID';
+
 export type ProductItem = {
   media: string;
   title: string;
   author?: string;
-  category: string;
+  genreID: CategoryId;
   label?: string;
   date: string;
   img?: string;

@@ -3,7 +3,6 @@ import { ThemeProvider } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import CssBaseline from '@mui/material/CssBaseline';
 import getTheme from 'theme';
-import AOS from 'aos';
 
 export const useDarkMode = (): [string, () => void, boolean] => {
   const [themeMode, setTheme] = useState('light');
@@ -48,32 +47,9 @@ export default function Page({ children }: Props) {
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
-
-    AOS.init({
-      once: true,
-      delay: 50,
-      duration: 500,
-      easing: 'ease-in-out',
-      startEvent: 'load',
-      offset: 200,
-    });
-
-    const handleWindowLoad = () => {
-      try {
-        AOS.refreshHard();
-      } catch {
-        /* noop */
-      }
-    };
-    window.addEventListener('load', handleWindowLoad);
-    return () => window.removeEventListener('load', handleWindowLoad);
   }, []);
 
-  const [themeMode, mountedComponent] = useDarkMode();
-
-  useEffect(() => {
-    AOS.refresh();
-  }, [mountedComponent, themeMode]);
+  const [themeMode] = useDarkMode();
 
   return (
     <ThemeProvider theme={getTheme(themeMode)}>
