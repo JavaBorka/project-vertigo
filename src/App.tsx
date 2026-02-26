@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Navigate, useLocation } from 'react-router-dom';
 import Page from './components/Page';
 import { Routes, Route } from 'react-router-dom';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'aos/dist/aos.css';
@@ -15,7 +14,6 @@ import AuthorDetailPage from 'views/AuthorDetailPage.tsx';
 import { ContactPageCover, NotFoundCover } from 'views';
 import {
   ROUTE_ABOUT,
-  ROUTE_AUTHOR_DETAIL,
   ROUTE_AUTHORS,
   ROUTE_KIDS,
   ROUTE_POEM,
@@ -36,9 +34,6 @@ const AOSRouteRefresher = (): null => {
   React.useEffect(() => {
     try {
       AOS.refresh();
-      // In SPAs, new route content can mount after refresh() runs.
-      // Scheduling a refreshHard on the next tick helps avoid elements staying hidden
-      // until a resize/reflow (e.g. opening DevTools) happens.
       requestAnimationFrame(() => {
         try {
           AOS.refreshHard();
@@ -57,10 +52,21 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let cancelled = false;
+
     (async () => {
-      await initRemoteConfig();
-      setIsLoading(false);
+      try {
+        await initRemoteConfig();
+      } catch (err) {
+        console.error('initRemoteConfig failed', err);
+      } finally {
+        if (!cancelled) setIsLoading(false);
+      }
     })();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // Re-init/refresh AOS after loading finishes and the DOM is mounted
@@ -74,7 +80,6 @@ const App = () => {
           easing: 'ease-in-out',
           offset: 50,
         });
-        // Run after paint as well to ensure route content is in the DOM
         requestAnimationFrame(() => {
           try {
             AOS.refreshHard();
@@ -82,7 +87,6 @@ const App = () => {
             /* noop */
           }
         });
-        // And once more shortly after, in case images/fonts shift layout
         setTimeout(() => {
           try {
             AOS.refreshHard();
@@ -96,7 +100,6 @@ const App = () => {
     }
   }, [isLoading]);
 
-  // Refresh once more on full window load (images/fonts can shift layout)
   useEffect(() => {
     if (isLoading) return;
     const handleWindowLoad = () => {
@@ -140,7 +143,7 @@ const App = () => {
           />
           <Route path={`/${ROUTE_AUTHORS}`} element={<AuthorsPage />} />
           <Route
-            path={`/${ROUTE_AUTHOR_DETAIL}`}
+            path={`/${ROUTE_AUTHORS}/:author`}
             element={<AuthorDetailPage />}
           />
           <Route path={`/${ROUTE_ABOUT}`} element={<ContactPageCover />} />
