@@ -4,14 +4,23 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { AuthorCardItemProps } from 'types/authorsItem';
 import { useNavigate } from 'react-router-dom';
+import { createSlug } from 'utils/createSlug';
+import { ROUTE_AUTHORS } from 'constants/routes';
 
 const AuthorCardItem = ({ item }: AuthorCardItemProps) => {
   const navigate = useNavigate();
+
+  const createRoute = (id: number) => {
+    const authorSlug = `${id}-${createSlug(item.author)}`;
+
+    return `/${ROUTE_AUTHORS}/${authorSlug}`;
+  };
+
   return (
     <Box>
       <Box display={'block'} width={1}>
         <Card
-          onClick={() => navigate('/nazov-autora')}
+          onClick={() => navigate(createRoute(item.id))}
           sx={{
             width: 1,
             display: 'flex',
@@ -32,7 +41,6 @@ const AuthorCardItem = ({ item }: AuthorCardItemProps) => {
           <CardMedia
             className="card-image"
             component={'img'}
-            title={item.title}
             image={item.media}
             sx={{
               position: 'relative',
