@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from 'components/Container';
@@ -6,11 +6,42 @@ import { BOOKS_DATA } from 'constants/booksData';
 import ScrollableProductItems from 'components/ScrollableProductItems';
 import { Main } from 'layouts';
 import { Button, Card, CardMedia } from '@mui/material';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 import getMappedColor from 'utils/getMappedColor';
+import { AuthorItem } from 'types/authorsItem';
+import { getRemoteJson } from '../../remoteConfig';
 
 const AuthorDetailPage = () => {
   const navigate = useNavigate();
+
+  const { author } = useParams();
+  const authorId = Number(author?.split('-')?.[0]);
+
+  const AUTHORS_DATA = getRemoteJson('AUTHORS_JSON') as AuthorItem[];
+
+  const item = useMemo<AuthorItem | null>(() => {
+    return AUTHORS_DATA.find((a) => Number(a.id) === authorId);
+  }, [AUTHORS_DATA, authorId]);
+
+  if (!item) {
+    return (
+      <Main>
+        <Container>
+          <Typography color={getMappedColor()} sx={{ pb: '1.5rem' }}>
+            <strong>Autor nenájdený</strong>
+          </Typography>
+          <Button
+            onClick={() => navigate('/autori')}
+            variant="contained"
+            color="primary"
+            size="large"
+          >
+            Späť na autorov
+          </Button>
+        </Container>
+      </Main>
+    );
+  }
 
   return (
     <Main>
@@ -30,7 +61,7 @@ const AuthorDetailPage = () => {
             },
           }}
         >
-          <strong>Jürg Halter |</strong> Švajčiarsko
+          <strong>{item.author} |</strong> {item.country}
         </Typography>
         <Box
           sx={{
@@ -41,10 +72,12 @@ const AuthorDetailPage = () => {
             },
             alignItems: {
               xs: 'flex-start',
-              md: 'center',
             },
             gap: 3,
-            mb: 3,
+            mb: {
+              xs: 3,
+              md: 7,
+            },
           }}
         >
           <Card
@@ -57,22 +90,14 @@ const AuthorDetailPage = () => {
               className="card-image"
               component={'img'}
               title="title"
-              image="/assets/images/author-jurg.jpg"
+              image={item.media}
               sx={{
                 borderRadius: { xs: 12, sm: 15, md: 15, lg: 19 },
               }}
             />
           </Card>
           <Box sx={{ flex: 1, minWidth: 0 }}>
-            <Typography>
-              Básnik a performatívny umelec Jürg Halter (1980) patrí k
-              najvýznamnejším predstaviteľom súčasnej švajčiarskej lyriky.
-              Napísal dve básnické zbierky Bojíme sa konca hudby (Wir füchten
-              das Ende der Musik, 2014) a Spoločný jazyk (Gemeinsame Sprache,
-              2021), román Prebudenie v 21. storočí (Erwachen im 21. Jahhundert,
-              2018) či divadelnú hru Bežec po mesačnej dráhe (Mondkreisläufer,
-              2017). Úspešne sa etabloval ako rapový spevák pod menom Kutti MC.
-            </Typography>
+            <Typography>{item.label}</Typography>
           </Box>
         </Box>
         <Box marginBottom={4} marginTop={4}>
