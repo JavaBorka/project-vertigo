@@ -5,11 +5,12 @@ import Container from 'components/Container';
 import { BOOKS_DATA } from 'constants/booksData';
 import ScrollableProductItems from 'components/ScrollableProductItems';
 import { Main } from 'layouts';
-import { Button, Card, CardMedia } from '@mui/material';
+import { Button, CardMedia } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import getMappedColor from 'utils/getMappedColor';
 import { AuthorItem } from 'types/authorsItem';
 import { getRemoteJson } from '../../remoteConfig';
+import { createMarkup } from 'utils/renderHtml';
 
 const AuthorDetailPage = () => {
   const navigate = useNavigate();
@@ -80,7 +81,7 @@ const AuthorDetailPage = () => {
             },
           }}
         >
-          <Card
+          <Box
             sx={{
               width: { xs: '80%', sm: '60%' },
               flex: { md: '0 0 35%', lg: '0 0 30%' },
@@ -95,9 +96,12 @@ const AuthorDetailPage = () => {
                 borderRadius: { xs: 12, sm: 15, md: 15, lg: 19 },
               }}
             />
-          </Card>
+          </Box>
           <Box sx={{ flex: 1, minWidth: 0 }}>
-            <Typography>{item.label}</Typography>
+            <Typography
+              component="div"
+              dangerouslySetInnerHTML={createMarkup(item.label)}
+            />
           </Box>
         </Box>
         <Box marginBottom={4} marginTop={4}>
