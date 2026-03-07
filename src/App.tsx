@@ -28,6 +28,8 @@ import {
   SCIENCE_CAT_ID,
   VERTIGO_CAT_ID,
 } from 'constants/categoryID';
+import { Box, CircularProgress } from '@mui/material';
+import BooksProvider from 'context/BooksProvider';
 
 const AOSRouteRefresher = (): null => {
   const location = useLocation();
@@ -113,45 +115,62 @@ const App = () => {
     return () => window.removeEventListener('load', handleWindowLoad);
   }, [isLoading]);
 
-  if (isLoading) return null;
+  if (isLoading) {
+    return (
+      <Page>
+        <Box
+          sx={{
+            minHeight: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      </Page>
+    );
+  }
 
   return (
     <Page>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<PortfolioPage />} />
-          <Route path="/not-found-cover" element={<NotFoundCover />} />
-          <Route
-            path={`/${ROUTE_SCIENCE}`}
-            element={<BooksPage catId={SCIENCE_CAT_ID} />}
-          />
-          <Route
-            path={`/${ROUTE_POEM}`}
-            element={<BooksPage catId={POEM_CAT_ID} />}
-          />
-          <Route
-            path={`/${ROUTE_PROSE}`}
-            element={<BooksPage catId={PROSE_CAT_ID} />}
-          />
-          <Route
-            path={`/${ROUTE_KIDS}`}
-            element={<BooksPage catId={KIDS_CAT_ID} />}
-          />
-          <Route
-            path={`/${ROUTE_VERTIGO}`}
-            element={<BooksPage catId={VERTIGO_CAT_ID} />}
-          />
-          <Route path={`/${ROUTE_AUTHORS}`} element={<AuthorsPage />} />
-          <Route
-            path={`/${ROUTE_AUTHORS}/:author`}
-            element={<AuthorDetailPage />}
-          />
-          <Route path={`/${ROUTE_ABOUT}`} element={<ContactPageCover />} />
-          <Route
-            path="*"
-            element={<Navigate replace to="/not-found-cover" />}
-          />
-        </Routes>
+        <BooksProvider>
+          <Routes>
+            <Route path="/" element={<PortfolioPage />} />
+            <Route path="/not-found-cover" element={<NotFoundCover />} />
+            <Route
+              path={`/${ROUTE_SCIENCE}`}
+              element={<BooksPage catId={SCIENCE_CAT_ID} />}
+            />
+            <Route
+              path={`/${ROUTE_POEM}`}
+              element={<BooksPage catId={POEM_CAT_ID} />}
+            />
+            <Route
+              path={`/${ROUTE_PROSE}`}
+              element={<BooksPage catId={PROSE_CAT_ID} />}
+            />
+            <Route
+              path={`/${ROUTE_KIDS}`}
+              element={<BooksPage catId={KIDS_CAT_ID} />}
+            />
+            <Route
+              path={`/${ROUTE_VERTIGO}`}
+              element={<BooksPage catId={VERTIGO_CAT_ID} />}
+            />
+            <Route path={`/${ROUTE_AUTHORS}`} element={<AuthorsPage />} />
+            <Route
+              path={`/${ROUTE_AUTHORS}/:author`}
+              element={<AuthorDetailPage />}
+            />
+            <Route path={`/${ROUTE_ABOUT}`} element={<ContactPageCover />} />
+            <Route
+              path="*"
+              element={<Navigate replace to="/not-found-cover" />}
+            />
+          </Routes>
+        </BooksProvider>
         <AOSRouteRefresher />
       </BrowserRouter>
     </Page>
