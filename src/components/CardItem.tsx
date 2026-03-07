@@ -3,9 +3,18 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
+import Skeleton from '@mui/material/Skeleton';
+import { useEffect, useState } from 'react';
 import { CardItemProps } from 'types/productItem';
 
 const CardItem = ({ item }: CardItemProps) => {
+  const [imgReady, setImgReady] = useState(false);
+
+  useEffect(() => {
+    // Reset when switching cards/pages so we don't flash stale "ready" state
+    setImgReady(false);
+  }, [item.media]);
+
   const handleCardClick = () => {
     if (item.href) {
       window.open(item.href, '_blank', 'noopener,noreferrer');
@@ -86,21 +95,42 @@ const CardItem = ({ item }: CardItemProps) => {
               position: 'relative',
             }}
           >
+            {/* Keep layout stable: reserve image slot + show skeleton until image is loaded */}
+            {!imgReady && (
+              <Skeleton
+                variant="rectangular"
+                sx={{
+                  width: 1,
+                  height: 'auto',
+                  display: 'block',
+                  aspectRatio: '3 / 4',
+                  borderRadius: 0,
+                }}
+              />
+            )}
             <CardMedia
               className="card-image"
               component={'img'}
               title={item.title}
               image={item.media}
+              onLoad={() => setImgReady(true)}
+              onError={() => setImgReady(true)}
               sx={{
-                width: '1',
+                width: 1,
                 height: 'auto',
                 display: 'block',
                 borderRadius: 0,
                 transition: 'opacity .25s ease',
-                opacity: 1,
+                opacity: imgReady ? 1 : 0,
+                ...(imgReady
+                  ? {}
+                  : {
+                      position: 'absolute',
+                      inset: 0,
+                    }),
               }}
             />
-            {item.label && (
+            {imgReady && item.label && (
               <Box
                 className="card-label"
                 position={'absolute'}
@@ -152,102 +182,123 @@ const CardItem = ({ item }: CardItemProps) => {
               </Box>
             )}
           </Box>
-          {/* Author and title */}
-          <Box marginTop={1.5} marginBottom={0}>
-            <Typography fontWeight={300} marginBottom={0.5} fontSize={16}>
-              {item.author}
-            </Typography>
-            <Typography fontWeight={600} marginBottom={0.5}>
-              {item.genreID === 5 ? item.title.toUpperCase() : item.title}
-            </Typography>
-          </Box>
-          <Box
-            display={'flex'}
-            justifyContent={item.href ? 'space-between' : 'flex-start'}
-            sx={{
-              // If PDF button is hovered, do NOT animate the buy button
-              '&:has(.pdf-button:hover) .buy-button': {
-                fontWeight: 400,
-              },
-              '&:has(.pdf-button:hover) .buy-button::after': {
-                transform: 'translateX(-50%) scaleX(0)',
-              },
-            }}
-          >
-            {item.href && (
-              <Button
-                className="buy-button"
-                onClick={() =>
-                  window.open(item.href, '_blank', 'noopener,noreferrer')
-                }
+          {imgReady ? (
+            <>
+              {/* Author and title */}
+              <Box marginTop={1.5} marginBottom={0}>
+                <Typography fontWeight={300} marginBottom={0.5} fontSize={16}>
+                  {item.author}
+                </Typography>
+                <Typography fontWeight={600} marginBottom={0.5}>
+                  {item.genreID === 5 ? item.title.toUpperCase() : item.title}
+                </Typography>
+              </Box>
+              <Box
+                display={'flex'}
+                justifyContent={item.href ? 'space-between' : 'flex-start'}
                 sx={{
-                  position: 'relative',
-                  paddingLeft: 0,
-                  fontWeight: 400,
-                  '&::after': {
-                    content: '""',
-                    position: 'absolute',
-                    left: '50%',
-                    bottom: 0, // keep inside the button
-                    height: 2,
-                    width: '50%',
-                    backgroundColor: 'currentColor',
+                  // If PDF button is hovered, do NOT animate the buy button
+                  '&:has(.pdf-button:hover) .buy-button': {
+                    fontWeight: 400,
+                  },
+                  '&:has(.pdf-button:hover) .buy-button::after': {
                     transform: 'translateX(-50%) scaleX(0)',
-                    transformOrigin: 'center',
-                    transition: 'transform 350ms ease',
-                    zIndex: 1,
-                  },
-                  '&:hover': {
-                    backgroundColor: 'transparent',
-                    fontWeight: 600,
-                  },
-                  '&:hover::after': {
-                    transform: 'translateX(-50%) scaleX(1)',
                   },
                 }}
               >
-                Kúpiť v Artfore
-              </Button>
-            )}
-            {item.pdf && (
-              <Button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open(item.pdf, '_blank', 'noopener,noreferrer');
-                }}
-                onMouseDown={(e) => e.stopPropagation()}
-                onTouchStart={(e) => e.stopPropagation()}
-                className="pdf-button"
-                sx={{
-                  position: 'relative',
-                  paddingLeft: 0,
-                  fontWeight: 400,
-                  '&::after': {
-                    content: '""',
-                    position: 'absolute',
-                    left: '50%',
-                    bottom: 0, // keep inside the button
-                    height: 2,
-                    width: '50%',
-                    backgroundColor: 'currentColor',
-                    transform: 'translateX(-50%) scaleX(0)',
-                    transformOrigin: 'center',
-                    transition: 'transform 350ms ease',
-                    zIndex: 1,
-                  },
-                  '&:hover': {
-                    backgroundColor: 'transparent',
-                    fontWeight: 600,
-                  },
-                  '&:hover::after': {
-                    transform: 'translateX(-50%) scaleX(1)',
-                  },
-                }}
+                {item.href && (
+                  <Button
+                    className="buy-button"
+                    onClick={() =>
+                      window.open(item.href, '_blank', 'noopener,noreferrer')
+                    }
+                    sx={{
+                      position: 'relative',
+                      paddingLeft: 0,
+                      fontWeight: 400,
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        left: '50%',
+                        bottom: 0, // keep inside the button
+                        height: 2,
+                        width: '50%',
+                        backgroundColor: 'currentColor',
+                        transform: 'translateX(-50%) scaleX(0)',
+                        transformOrigin: 'center',
+                        transition: 'transform 350ms ease',
+                        zIndex: 1,
+                      },
+                      '&:hover': {
+                        backgroundColor: 'transparent',
+                        fontWeight: 600,
+                      },
+                      '&:hover::after': {
+                        transform: 'translateX(-50%) scaleX(1)',
+                      },
+                    }}
+                  >
+                    Kúpiť v Artfore
+                  </Button>
+                )}
+                {item.pdf && (
+                  <Button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(item.pdf, '_blank', 'noopener,noreferrer');
+                    }}
+                    onMouseDown={(e) => e.stopPropagation()}
+                    onTouchStart={(e) => e.stopPropagation()}
+                    className="pdf-button"
+                    sx={{
+                      position: 'relative',
+                      paddingLeft: 0,
+                      fontWeight: 400,
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        left: '50%',
+                        bottom: 0, // keep inside the button
+                        height: 2,
+                        width: '50%',
+                        backgroundColor: 'currentColor',
+                        transform: 'translateX(-50%) scaleX(0)',
+                        transformOrigin: 'center',
+                        transition: 'transform 350ms ease',
+                        zIndex: 1,
+                      },
+                      '&:hover': {
+                        backgroundColor: 'transparent',
+                        fontWeight: 600,
+                      },
+                      '&:hover::after': {
+                        transform: 'translateX(-50%) scaleX(1)',
+                      },
+                    }}
+                  >
+                    Prelistovať
+                  </Button>
+                )}
+              </Box>
+            </>
+          ) : (
+            <>
+              {/* Stable layout while loading: reserve text/button area too */}
+              <Box marginTop={1.5} marginBottom={0}>
+                <Skeleton width="55%" height={24} />
+                <Skeleton width="85%" height={24} />
+              </Box>
+              <Box
+                display={'flex'}
+                justifyContent={item.href ? 'space-between' : 'flex-start'}
               >
-                Prelistovať
-              </Button>
-            )}
-          </Box>
+                <Skeleton width={120} height={36} sx={{ borderRadius: 1 }} />
+                {item.pdf && (
+                  <Skeleton width={110} height={36} sx={{ borderRadius: 1 }} />
+                )}
+              </Box>
+            </>
+          )}
         </Card>
       </Box>
     </Box>

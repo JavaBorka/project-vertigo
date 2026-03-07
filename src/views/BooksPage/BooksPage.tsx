@@ -22,7 +22,6 @@ interface BooksPageProps {
 const BooksPage = ({ catId }: BooksPageProps) => {
   const { books, loading } = useBooks();
   const [page, setPage] = useState<number>(1);
-  const [imagesReady, setImagesReady] = useState(false);
 
   const handlePageChange: handlePageChange = (_e, value) => {
     setPage(value);
@@ -68,39 +67,6 @@ const BooksPage = ({ catId }: BooksPageProps) => {
     return BOOKS_FILTERED.slice(start, end);
   }, [BOOKS_FILTERED, start, end]);
 
-  // Show skeletons until current page images load
-  useEffect(() => {
-    if (loading) {
-      setImagesReady(false);
-      return;
-    }
-    if (items.length === 0) {
-      setImagesReady(true);
-      return;
-    }
-
-    let cancelled = false;
-    setImagesReady(false);
-
-    Promise.all(
-      items.map(
-        (it) =>
-          new Promise<void>((resolve) => {
-            const img = new Image();
-            img.onload = () => resolve();
-            img.onerror = () => resolve();
-            img.src = it.media;
-          }),
-      ),
-    ).then(() => {
-      if (!cancelled) setImagesReady(true);
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [items, loading]);
-
   return (
     <Main>
       <Container
@@ -126,13 +92,9 @@ const BooksPage = ({ catId }: BooksPageProps) => {
             <strong>{genre}</strong>
           </Typography>
         )}
-        {imagesReady ? (
-          <ProductGrid items={items} />
-        ) : (
+        {loading ? (
           <Grid2 container spacing={4} alignItems="flex-end">
-            {Array.from({
-              length: Math.max(items.length, Math.min(ITEMS_PER_PAGE, 8)),
-            }).map((_, idx) => (
+            {Array.from({ length: ITEMS_PER_PAGE }).map((_, idx) => (
               <Grid2 key={idx} size={{ xs: 12, sm: 6, md: 3 }}>
                 <Skeleton
                   variant="rectangular"
@@ -150,6 +112,8 @@ const BooksPage = ({ catId }: BooksPageProps) => {
               </Grid2>
             ))}
           </Grid2>
+        ) : (
+          <ProductGrid items={items} />
         )}
         <Box
           sx={{
