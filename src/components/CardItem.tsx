@@ -11,8 +11,44 @@ const CardItem = ({ item }: CardItemProps) => {
   const [imgReady, setImgReady] = useState(false);
 
   useEffect(() => {
-    // Reset when switching cards/pages so we don't flash stale "ready" state
     setImgReady(false);
+
+    if (!item.media) {
+      setImgReady(true);
+      return;
+    }
+
+    let cancelled = false;
+
+    const img = new Image();
+    img.src = item.media;
+
+    const finish = async () => {
+      try {
+        await img.decode?.();
+      } catch {
+        // ignore
+      }
+      if (!cancelled) setImgReady(true);
+    };
+
+    if (img.complete) {
+      void finish();
+    } else {
+      img.onload = () => void finish();
+      img.onerror = () => {
+        if (!cancelled) setImgReady(true);
+      };
+    }
+
+    const t = window.setTimeout(() => {
+      if (!cancelled) setImgReady(true);
+    }, 1500);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(t);
+    };
   }, [item.media]);
 
   const handleCardClick = () => {
@@ -220,7 +256,7 @@ const CardItem = ({ item }: CardItemProps) => {
                         content: '""',
                         position: 'absolute',
                         left: '50%',
-                        bottom: 0, // keep inside the button
+                        bottom: 0,
                         height: 2,
                         width: '50%',
                         backgroundColor: 'currentColor',
@@ -258,7 +294,7 @@ const CardItem = ({ item }: CardItemProps) => {
                         content: '""',
                         position: 'absolute',
                         left: '50%',
-                        bottom: 0, // keep inside the button
+                        bottom: 0,
                         height: 2,
                         width: '50%',
                         backgroundColor: 'currentColor',
@@ -283,7 +319,6 @@ const CardItem = ({ item }: CardItemProps) => {
             </>
           ) : (
             <>
-              {/* Stable layout while loading: reserve text/button area too */}
               <Box marginTop={1.5} marginBottom={0}>
                 <Skeleton width="55%" height={24} />
                 <Skeleton width="85%" height={24} />

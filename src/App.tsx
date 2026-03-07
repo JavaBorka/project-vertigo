@@ -157,7 +157,7 @@ const App = () => {
             />
             <Route
               path={`/${ROUTE_VERTIGO}`}
-              element={<BooksPage catId={VERTIGO_CAT_ID} />}
+              element={<BooksPage key={ROUTE_VERTIGO} catId={VERTIGO_CAT_ID} />}
             />
             <Route path={`/${ROUTE_AUTHORS}`} element={<AuthorsPage />} />
             <Route
