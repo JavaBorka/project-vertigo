@@ -64,7 +64,9 @@ const BooksPage = ({ catId }: BooksPageProps) => {
 
   const start = (page - 1) * ITEMS_PER_PAGE;
   const end = start + ITEMS_PER_PAGE;
-  const items = BOOKS_FILTERED.slice(start, end);
+  const items = useMemo(() => {
+    return BOOKS_FILTERED.slice(start, end);
+  }, [BOOKS_FILTERED, start, end]);
 
   // Show skeletons until current page images load
   useEffect(() => {
@@ -134,8 +136,13 @@ const BooksPage = ({ catId }: BooksPageProps) => {
               <Grid2 key={idx} size={{ xs: 12, sm: 6, md: 3 }}>
                 <Skeleton
                   variant="rectangular"
-                  height={260}
-                  sx={{ borderRadius: 0 }}
+                  sx={{
+                    width: 1,
+                    height: 'auto',
+                    display: 'block',
+                    aspectRatio: '3 / 4',
+                    borderRadius: 0,
+                  }}
                 />
                 <Skeleton sx={{ mt: 1.5 }} width="55%" />
                 <Skeleton width="85%" />
