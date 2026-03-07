@@ -141,19 +141,19 @@ const App = () => {
             <Route path="/not-found-cover" element={<NotFoundCover />} />
             <Route
               path={`/${ROUTE_SCIENCE}`}
-              element={<BooksPage catId={SCIENCE_CAT_ID} />}
+              element={<BooksPage key={ROUTE_SCIENCE} catId={SCIENCE_CAT_ID} />}
             />
             <Route
               path={`/${ROUTE_POEM}`}
-              element={<BooksPage catId={POEM_CAT_ID} />}
+              element={<BooksPage key={ROUTE_POEM} catId={POEM_CAT_ID} />}
             />
             <Route
               path={`/${ROUTE_PROSE}`}
-              element={<BooksPage catId={PROSE_CAT_ID} />}
+              element={<BooksPage key={ROUTE_PROSE} catId={PROSE_CAT_ID} />}
             />
             <Route
               path={`/${ROUTE_KIDS}`}
-              element={<BooksPage catId={KIDS_CAT_ID} />}
+              element={<BooksPage key={ROUTE_KIDS} catId={KIDS_CAT_ID} />}
             />
             <Route
               path={`/${ROUTE_VERTIGO}`}
