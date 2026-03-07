@@ -47,6 +47,10 @@ const BooksPage = ({ catId }: BooksPageProps) => {
     setPage(1);
   }, [catId]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [catId, page]);
+
   // Prevent “empty pages” and out-of-range pagination state
   useEffect(() => {
     if (totalPages === 0 && page !== 1) {
