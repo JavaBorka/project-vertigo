@@ -6,7 +6,8 @@ export default function InViewAos(): null {
   const location = useLocation();
   const mgrRef = React.useRef<ReturnType<typeof createInViewAos> | null>(null);
 
-  React.useEffect(() => {
+  // Run before paint to avoid initial flash on first load
+  React.useLayoutEffect(() => {
     mgrRef.current = createInViewAos({ once: true, offset: 50, threshold: 0.01 });
     mgrRef.current.refresh();
     return () => {

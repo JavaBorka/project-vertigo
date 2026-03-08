@@ -38,74 +38,12 @@ const Folio = () => {
       <Grid2 container spacing={{ xs: 1.5, sm: 2 }}>
         {mock.map((item, i) => (
           <Grid2 key={i} size={{ xs: 6, sm: 6, md: 3 }}>
-            {/* Grid cards animation without fade effect
-             <Box
+            <Box
+              data-aos="folio"
+              data-aos-delay={i * 80}
+              data-aos-duration={520}
               sx={{
                 transformOrigin: 'center center',
-
-                transform: {
-                  xs: 'translateY(20px)',
-                  sm: 'translateY(25px)',
-                  md: 'translateY(35px)',
-                  lg: 'translateY(35px)',
-                },
-
-                animation: {
-                  xs: 'cardIn 320ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
-                  sm: 'cardIn 320ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
-                  md: 'cardIn 420ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
-                  lg: 'cardIn 420ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
-                },
-
-                animationDelay: {
-                  xs: `${i * 50}ms`,
-                  sm: `${i * 50}ms`,
-                  md: `${i * 90}ms`,
-                  lg: `${i * 90}ms`,
-                },
-
-                '@keyframes cardIn': {
-                  to: {
-                    transform: 'translateY(0)',
-                  },
-                },
-
-                '@media (prefers-reduced-motion: reduce)': {
-                  animation: 'none',
-                  transform: 'none',
-                },
-              }}
-            > */}
-            <Box
-              sx={{
-                // DEFAULT (xs): no animation
-                opacity: 1,
-                transform: 'none',
-
-                // Enable animation from sm upwards
-                '@media (min-width:600px)': {
-                  opacity: 0,
-                  transform: 'translateY(10px)',
-                  animation:
-                    'gridIn 700ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
-                },
-
-                '@keyframes gridIn': {
-                  from: {
-                    opacity: 0,
-                    transform: 'translateY(8px)',
-                  },
-                  to: {
-                    opacity: 1,
-                    transform: 'translateY(0)',
-                  },
-                },
-
-                '@media (prefers-reduced-motion: reduce)': {
-                  animation: 'none',
-                  opacity: 1,
-                  transform: 'none',
-                },
               }}
             >
               <Box
@@ -122,14 +60,15 @@ const Folio = () => {
                   },
                   backgroundColor: item.color,
                   cursor: 'pointer',
-                  '&:hover': {
-                    borderRadius: { xs: 8, sm: 4, md: 10, lg: 14 },
-                    '& img': {
-                      opacity: 1,
-                      transform: 'scale(1.2)',
-                    },
-                    '& .folio-title': {
-                      opacity: 0,
+                  '@media (hover: hover) and (pointer: fine)': {
+                    '&:hover': {
+                      borderRadius: { xs: 8, sm: 4, md: 10, lg: 14 },
+                      '& img': {
+                        transform: 'scale(1.08)',
+                      },
+                      '& .folio-title': {
+                        opacity: 0,
+                      },
                     },
                   },
                 }}
@@ -143,9 +82,9 @@ const Folio = () => {
                   alt="..."
                   sx={{
                     transition:
-                      'transform .7s ease !important, opacity .3s ease !important',
-                    transform: 'scale(1.0)',
-                    opacity: 0,
+                      'transform .7s ease !important, opacity .25s ease !important',
+                    transform: 'scale(1.01)',
+                    opacity: 1,
                     objectFit: 'cover',
                   }}
                 />
