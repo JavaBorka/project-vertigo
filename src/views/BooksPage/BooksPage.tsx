@@ -93,7 +93,7 @@ const BooksPage = ({ catId }: BooksPageProps) => {
           </Typography>
         )}
         {loading ? (
-          <Grid2 container spacing={4} alignItems="flex-end">
+          <Grid2 container spacing={4} alignItems="flex-start">
             {Array.from({ length: ITEMS_PER_PAGE }).map((_, idx) => (
               <Grid2 key={idx} size={{ xs: 12, sm: 6, md: 3 }}>
                 <Skeleton
