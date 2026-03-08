@@ -71,7 +71,7 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
             px: 1,
             scrollbarWidth: 'none',
             '&::-webkit-scrollbar': { display: 'none' },
-            alignItems: 'flex-end',
+            alignItems: 'flex-start',
           }}
         >
           {items.map((item, i) => (
@@ -161,7 +161,7 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
                       title={item.title}
                       image={item.media}
                       sx={{
-                        width: '1',
+                        width: 1,
                         height: 'auto',
                         display: 'block',
                         borderRadius: 0,
