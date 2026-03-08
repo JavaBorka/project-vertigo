@@ -8,7 +8,11 @@ import { useScroll } from 'hooks/useScroll';
 import { ProductGridProps } from 'types/productItem';
 
 const ScrollableProductItems = ({ items }: ProductGridProps) => {
-  const { scrollRef, canLeft, canRight, scrollByOne } = useScroll();
+  const { scrollRef, canLeft, canRight, scrollByOne, updateArrows } = useScroll();
+
+  React.useEffect(() => {
+    updateArrows();
+  }, [items.length, updateArrows]);
 
   return (
     <>
