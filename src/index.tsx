@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import './styles/inViewAos.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 

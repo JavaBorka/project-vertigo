@@ -1,0 +1,50 @@
+/* Lightweight IntersectionObserver-based AOS replacement.
+   Uses existing `data-aos` attributes and toggles `.io-init` / `.io-animate`. */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos].io-init {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+[data-aos].io-init {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+}
+
+[data-aos].io-init.io-animate {
+  opacity: 1;
+  transform: none;
+}
+
+/* Variants (subset of AOS presets used in this repo) */
+[data-aos='fade'].io-init {
+  transform: none;
+}
+
+[data-aos='fade-up'].io-init {
+  transform: translate3d(0, 16px, 0);
+}
+
+[data-aos='fade-down'].io-init {
+  transform: translate3d(0, -16px, 0);
+}
+
+[data-aos='fade-right'].io-init {
+  transform: translate3d(-16px, 0, 0);
+}
+
+[data-aos='fade-left'].io-init {
+  transform: translate3d(16px, 0, 0);
+}
+
+[data-aos='zoom-in'].io-init {
+  transform: scale(0.96);
+}
+
+[data-aos='zoom-out'].io-init {
+  transform: scale(1.04);
+}
+

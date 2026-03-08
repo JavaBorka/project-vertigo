@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Navigate } from 'react-router-dom';
 import Page from './components/Page';
 import { Routes, Route } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import 'aos/dist/aos.css';
-import AOS from 'aos';
 import { initRemoteConfig } from './remoteConfig';
 import PortfolioPage from 'views/PortfolioPage';
 import BooksPage from 'views/BooksPage';
@@ -30,25 +28,7 @@ import {
 } from 'constants/categoryID';
 import { Box, CircularProgress } from '@mui/material';
 import BooksProvider from 'context/BooksProvider';
-
-const AOSRouteRefresher = (): null => {
-  const location = useLocation();
-  React.useEffect(() => {
-    try {
-      AOS.refresh();
-      requestAnimationFrame(() => {
-        try {
-          AOS.refreshHard();
-        } catch {
-          /* noop */
-        }
-      });
-    } catch {
-      /* noop */
-    }
-  }, [location.pathname]);
-  return null;
-};
+import InViewAos from 'components/InViewAos';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -70,50 +50,6 @@ const App = () => {
       cancelled = true;
     };
   }, []);
-
-  // Re-init/refresh AOS after loading finishes and the DOM is mounted
-  useEffect(() => {
-    if (!isLoading) {
-      try {
-        AOS.init({
-          once: true,
-          delay: 50,
-          duration: 500,
-          easing: 'ease-in-out',
-          offset: 50,
-        });
-        requestAnimationFrame(() => {
-          try {
-            AOS.refreshHard();
-          } catch {
-            /* noop */
-          }
-        });
-        setTimeout(() => {
-          try {
-            AOS.refreshHard();
-          } catch {
-            /* noop */
-          }
-        }, 150);
-      } catch {
-        /* noop */
-      }
-    }
-  }, [isLoading]);
-
-  useEffect(() => {
-    if (isLoading) return;
-    const handleWindowLoad = () => {
-      try {
-        AOS.refreshHard();
-      } catch {
-        /* noop */
-      }
-    };
-    window.addEventListener('load', handleWindowLoad);
-    return () => window.removeEventListener('load', handleWindowLoad);
-  }, [isLoading]);
 
   if (isLoading) {
     return (
@@ -171,7 +107,7 @@ const App = () => {
             />
           </Routes>
         </BooksProvider>
-        <AOSRouteRefresher />
+        <InViewAos />
       </BrowserRouter>
     </Page>
   );
