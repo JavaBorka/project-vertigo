@@ -15,7 +15,7 @@ export const initRemoteConfig = async () => {
 
   remoteConfig.defaultConfig = {
     BOOKS_JSON: '[]',
-    // AUTHORS_JSON: [], todo: handle undefined data
+    AUTHORS_JSON: '[]',
   };
 
   await fetchAndActivate(remoteConfig);
