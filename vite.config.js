@@ -25,6 +25,7 @@ export default defineConfig({
       views: path.resolve(__dirname, 'src/views'),
       hooks: path.resolve(__dirname, 'src/hooks'),
       utils: path.resolve(__dirname, 'src/utils'),
+      context: path.resolve(__dirname, 'src/context'),
     },
   },
 });

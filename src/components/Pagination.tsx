@@ -14,6 +14,9 @@ export default function BasicPagination({
         page={page}
         onChange={onChange}
         color="primary"
+        size={'small'}
+        siblingCount={0}
+        boundaryCount={1}
       />
     </Stack>
   );

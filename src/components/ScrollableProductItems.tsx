@@ -8,7 +8,11 @@ import { useScroll } from 'hooks/useScroll';
 import { ProductGridProps } from 'types/productItem';
 
 const ScrollableProductItems = ({ items }: ProductGridProps) => {
-  const { scrollRef, canLeft, canRight, scrollByOne } = useScroll();
+  const { scrollRef, canLeft, canRight, scrollByOne, updateArrows } = useScroll();
+
+  React.useEffect(() => {
+    updateArrows();
+  }, [items.length, updateArrows]);
 
   return (
     <>
@@ -71,7 +75,7 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
             px: 1,
             scrollbarWidth: 'none',
             '&::-webkit-scrollbar': { display: 'none' },
-            alignItems: 'flex-end',
+            alignItems: 'flex-start',
           }}
         >
           {items.map((item, i) => (
@@ -161,7 +165,7 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
                       title={item.title}
                       image={item.media}
                       sx={{
-                        width: '1',
+                        width: 1,
                         height: 'auto',
                         display: 'block',
                         borderRadius: 0,

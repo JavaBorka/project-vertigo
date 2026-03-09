@@ -1,10 +1,9 @@
 export type AuthorItem = {
-  id: string;
-  media: string;
-  author: string;
-  title: string;
-  country: string;
-  label: string;
+  id: number;
+  media: string | null;
+  author: string | null;
+  country: string | null;
+  label: string | null;
 };
 
 interface AuthorCardItemProps {
