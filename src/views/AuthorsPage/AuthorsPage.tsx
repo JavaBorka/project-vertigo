@@ -2,7 +2,7 @@ import Main from 'layouts/Main';
 import { Box, Typography } from '@mui/material';
 import Container from 'components/Container';
 import Pagination from 'components/Pagination';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ITEMS_PER_PAGE } from 'constants/paginationSettings';
 import getMappedColor from 'utils/getMappedColor';
 import { handlePageChange } from 'types/pagination';
@@ -12,6 +12,10 @@ import { getRemoteJson } from '../../remoteConfig';
 
 const AuthorsPage = () => {
   const [page, setPage] = useState<number>(1);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [page]);
 
   const handlePageChange: handlePageChange = (_e, value) => {
     setPage(value);
