@@ -8,7 +8,8 @@ import { useScroll } from 'hooks/useScroll';
 import { ProductGridProps } from 'types/productItem';
 
 const ScrollableProductItems = ({ items }: ProductGridProps) => {
-  const { scrollRef, canLeft, canRight, scrollByOne, updateArrows } = useScroll();
+  const { scrollRef, canLeft, canRight, scrollByOne, updateArrows } =
+    useScroll();
 
   React.useEffect(() => {
     updateArrows();
@@ -134,6 +135,7 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
                     boxShadow: 'none',
                     bgcolor: 'transparent',
                     backgroundImage: 'none',
+                    overflow: 'visible',
                     transition: 'background-color 0.2s ease',
                     '&:hover': {
                       cursor: 'pointer',
@@ -158,7 +160,16 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
                         }),
                   }}
                 >
-                  <Box className="image-wrapper" sx={{ position: 'relative' }}>
+                  <Box
+                    className="image-wrapper"
+                    sx={{
+                      boxShadow: `
+                        0 1px 2px rgba(0, 0, 0, 0.04),
+                        0 4px 12px rgba(0, 0, 0, 0.08)
+                      `,
+                      position: 'relative',
+                    }}
+                  >
                     <CardMedia
                       className="card-image"
                       component={'img'}
