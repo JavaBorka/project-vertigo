@@ -11,7 +11,7 @@ import { handlePageChange } from 'types/pagination';
 import AuthorGrid from './components/ProductGrid/AuthorGrid';
 import { getRemoteJson } from '../../remoteConfig';
 import type { AuthorItem } from 'types/authorsItem';
-// import { AUTHORS_DATA } from 'constants/authorsData';
+import { sortAuthorsSk } from 'utils/sortAuthorsSk';
 
 const AuthorsPage = () => {
   const [page, setPage] = useState<number>(1);
@@ -26,7 +26,8 @@ const AuthorsPage = () => {
   };
 
   const AUTHORS_DATA = useMemo(() => {
-    return getRemoteJson('AUTHORS_JSON') as AuthorItem[];
+    const rawName = getRemoteJson('AUTHORS_JSON') as AuthorItem[];
+    return sortAuthorsSk(rawName);
   }, []);
 
   const PRODUCTS_TOTAL = AUTHORS_DATA.length;
