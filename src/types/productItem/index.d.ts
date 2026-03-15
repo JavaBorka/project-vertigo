@@ -4,6 +4,7 @@ export type ProductItem = {
   media: string;
   title: string;
   author?: string;
+  authorID?: number;
   genreID: CategoryId;
   label?: string;
   date: string;

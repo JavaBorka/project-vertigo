@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from 'components/Container';
-import { BOOKS_DATA } from 'constants/booksData';
 import ScrollableProductItems from 'components/ScrollableProductItems';
 import { Main } from 'layouts';
 import { Button, CardMedia } from '@mui/material';
@@ -11,6 +10,8 @@ import getMappedColor from 'utils/getMappedColor';
 import { AuthorItem } from 'types/authorsItem';
 import { getRemoteJson } from '../../remoteConfig';
 import { createMarkup } from 'utils/renderHtml';
+import { useBooks } from 'hooks/useBooks';
+import { ProductItem } from 'types/productItem';
 
 const AuthorDetailPage = () => {
   const navigate = useNavigate();
@@ -18,11 +19,17 @@ const AuthorDetailPage = () => {
   const { author } = useParams();
   const authorId = Number(author?.split('-')?.[0]);
 
+  const { books, loading } = useBooks();
   const AUTHORS_DATA = getRemoteJson('AUTHORS_JSON') as AuthorItem[];
 
   const item = useMemo<AuthorItem | null>(() => {
     return AUTHORS_DATA.find((a) => Number(a.id) === authorId);
   }, [AUTHORS_DATA, authorId]);
+
+  const authorBooks = useMemo<ProductItem[]>(() => {
+    if (!Number.isFinite(authorId)) return [];
+    return books.filter((b: ProductItem) => Number(b.authorID) === authorId);
+  }, [books, authorId]);
 
   if (!item) {
     return (
@@ -104,25 +111,29 @@ const AuthorDetailPage = () => {
             />
           </Box>
         </Box>
-        <Box marginBottom={4} marginTop={4}>
-          <Typography
-            variant="h4"
-            data-aos={'fade-up'}
-            align={'center'}
-            gutterBottom
-            sx={{
-              fontSize: {
-                xs: '1.3rem',
-                sm: '1.5rem',
-                md: '1.75rem',
-              },
-              fontWeight: 700,
-            }}
-          >
-            Vyšlo vo f.a.c.e
-          </Typography>
-        </Box>
-        <ScrollableProductItems items={BOOKS_DATA} />
+        {authorBooks && (
+          <Box>
+            <Box marginBottom={4} marginTop={4}>
+              <Typography
+                variant="h4"
+                data-aos={'fade-up'}
+                align={'center'}
+                gutterBottom
+                sx={{
+                  fontSize: {
+                    xs: '1.3rem',
+                    sm: '1.5rem',
+                    md: '1.75rem',
+                  },
+                  fontWeight: 700,
+                }}
+              >
+                Vyšlo vo f.a.c.e
+              </Typography>
+            </Box>
+            <ScrollableProductItems items={loading ? [] : authorBooks} />
+          </Box>
+        )}
         <Box
           sx={{
             display: 'flex',
