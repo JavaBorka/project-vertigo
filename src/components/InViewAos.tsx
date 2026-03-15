@@ -8,7 +8,7 @@ export default function InViewAos(): null {
 
   // Run before paint to avoid initial flash on first load
   React.useLayoutEffect(() => {
-    mgrRef.current = createInViewAos({ once: true, offset: 50, threshold: 0.01 });
+    mgrRef.current = createInViewAos({ once: false, offset: 50, threshold: 0.01 });
     mgrRef.current.refresh();
     return () => {
       mgrRef.current?.destroy();
