@@ -99,25 +99,29 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
                 display={'block'}
                 width={1}
                 sx={{
-                  ...(item.href && {
-                    '&:hover .buy-button': {
-                      backgroundColor: 'transparent',
-                      fontWeight: 600,
+                  // Disable hover effects on xs/sm (touch devices).
+                  '@media (min-width:600px) and (hover: hover) and (pointer: fine)':
+                    {
+                      ...(item.href && {
+                        '&:hover .buy-button': {
+                          backgroundColor: 'transparent',
+                          fontWeight: 600,
+                        },
+                        '&:hover .buy-button::after': {
+                          transform: 'translateX(-50%) scaleX(1)',
+                        },
+                      }),
+                      ...(!item.href &&
+                        item.pdf && {
+                          '&:hover .pdf-button': {
+                            backgroundColor: 'transparent',
+                            fontWeight: 600,
+                          },
+                          '&:hover .pdf-button::after': {
+                            transform: 'translateX(-50%) scaleX(1)',
+                          },
+                        }),
                     },
-                    '&:hover .buy-button::after': {
-                      transform: 'translateX(-50%) scaleX(1)',
-                    },
-                  }),
-                  ...(!item.href &&
-                    item.pdf && {
-                      '&:hover .pdf-button': {
-                        backgroundColor: 'transparent',
-                        fontWeight: 600,
-                      },
-                      '&:hover .pdf-button::after': {
-                        transform: 'translateX(-50%) scaleX(1)',
-                      },
-                    }),
                 }}
               >
                 <Card
@@ -137,27 +141,30 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
                     backgroundImage: 'none',
                     overflow: 'visible',
                     transition: 'background-color 0.2s ease',
-                    '&:hover': {
-                      cursor: 'pointer',
-                    },
-                    ...(item.label
-                      ? {
-                          '&:hover .card-image': {
-                            opacity: 0.13,
-                          },
-                          '&:hover .card-label': {
-                            opacity: 1,
-                            bgcolor: 'rgba(150, 0, 72, 0.05)',
-                          },
-                        }
-                      : {
-                          '&:hover .card-image': {
-                            opacity: 0.75,
-                          },
-                          '&:hover .image-wrapper': {
-                            backgroundColor: 'rgba(150, 0, 72, 0.2)',
-                          },
-                        }),
+                    '@media (min-width:900px) and (hover: hover) and (pointer: fine)':
+                      {
+                        '&:hover': {
+                          cursor: 'pointer',
+                        },
+                        ...(item.label
+                          ? {
+                              '&:hover .card-image': {
+                                opacity: 0.13,
+                              },
+                              '&:hover .card-label': {
+                                opacity: 1,
+                                bgcolor: 'rgba(150, 0, 72, 0.05)',
+                              },
+                            }
+                          : {
+                              '&:hover .card-image': {
+                                opacity: 0.75,
+                              },
+                              '&:hover .image-wrapper': {
+                                backgroundColor: 'rgba(150, 0, 72, 0.2)',
+                              },
+                            }),
+                      },
                   }}
                 >
                   <Box
