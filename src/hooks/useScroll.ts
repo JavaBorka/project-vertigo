@@ -53,5 +53,6 @@ export const useScroll = () => {
     canLeft,
     canRight,
     scrollByOne,
+    updateArrows,
   };
 };

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import Box from '@mui/material/Box';
 import { alpha, useTheme } from '@mui/material/styles';
 import Menu from '@mui/material/Menu';
@@ -30,8 +30,9 @@ const NavItem = ({ title, id, onClick, onNavigate, items, to }: Props) => {
     [location.pathname],
   );
 
-  let currentlyHovering = false;
-  const [anchorEl, setAnchorEl] = useState(null);
+  const currentlyHoveringRef = useRef(false);
+  const closeTimeoutRef = useRef<number | null>(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   const handleClick = (event) => {
     if (!hasItems && !to) {
@@ -56,7 +57,7 @@ const NavItem = ({ title, id, onClick, onNavigate, items, to }: Props) => {
   };
 
   const handleHover = () => {
-    currentlyHovering = true;
+    currentlyHoveringRef.current = true;
   };
 
   const handleClose = () => {
@@ -64,9 +65,12 @@ const NavItem = ({ title, id, onClick, onNavigate, items, to }: Props) => {
   };
 
   const handleCloseHover = () => {
-    currentlyHovering = false;
-    setTimeout(() => {
-      if (!currentlyHovering) {
+    currentlyHoveringRef.current = false;
+    if (closeTimeoutRef.current) {
+      window.clearTimeout(closeTimeoutRef.current);
+    }
+    closeTimeoutRef.current = window.setTimeout(() => {
+      if (!currentlyHoveringRef.current) {
         handleClose();
       }
     }, 190);
@@ -126,6 +130,10 @@ const NavItem = ({ title, id, onClick, onNavigate, items, to }: Props) => {
         ) : null}
       </Box>
       <Menu
+        // Prevent focus restore/auto-focus from scrolling the page when the menu closes.
+        disableAutoFocus
+        disableEnforceFocus
+        disableRestoreFocus
         disableAutoFocusItem
         elevation={3}
         id={id}

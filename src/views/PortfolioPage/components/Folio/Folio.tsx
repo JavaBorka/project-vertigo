@@ -38,74 +38,12 @@ const Folio = () => {
       <Grid2 container spacing={{ xs: 1.5, sm: 2 }}>
         {mock.map((item, i) => (
           <Grid2 key={i} size={{ xs: 6, sm: 6, md: 3 }}>
-            {/* Grid cards animation without fade effect
-             <Box
+            <Box
+              data-aos="folio"
+              data-aos-delay={i * 80}
+              data-aos-duration={520}
               sx={{
                 transformOrigin: 'center center',
-
-                transform: {
-                  xs: 'translateY(20px)',
-                  sm: 'translateY(25px)',
-                  md: 'translateY(35px)',
-                  lg: 'translateY(35px)',
-                },
-
-                animation: {
-                  xs: 'cardIn 320ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
-                  sm: 'cardIn 320ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
-                  md: 'cardIn 420ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
-                  lg: 'cardIn 420ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
-                },
-
-                animationDelay: {
-                  xs: `${i * 50}ms`,
-                  sm: `${i * 50}ms`,
-                  md: `${i * 90}ms`,
-                  lg: `${i * 90}ms`,
-                },
-
-                '@keyframes cardIn': {
-                  to: {
-                    transform: 'translateY(0)',
-                  },
-                },
-
-                '@media (prefers-reduced-motion: reduce)': {
-                  animation: 'none',
-                  transform: 'none',
-                },
-              }}
-            > */}
-            <Box
-              sx={{
-                // DEFAULT (xs): no animation
-                opacity: 1,
-                transform: 'none',
-
-                // Enable animation from sm upwards
-                '@media (min-width:600px)': {
-                  opacity: 0,
-                  transform: 'translateY(10px)',
-                  animation:
-                    'gridIn 700ms cubic-bezier(0.25, 0.1, 0.25, 1) forwards',
-                },
-
-                '@keyframes gridIn': {
-                  from: {
-                    opacity: 0,
-                    transform: 'translateY(8px)',
-                  },
-                  to: {
-                    opacity: 1,
-                    transform: 'translateY(0)',
-                  },
-                },
-
-                '@media (prefers-reduced-motion: reduce)': {
-                  animation: 'none',
-                  opacity: 1,
-                  transform: 'none',
-                },
               }}
             >
               <Box
@@ -113,7 +51,7 @@ const Folio = () => {
                 sx={{
                   position: 'relative',
                   overflow: 'hidden',
-                  borderRadius: { xs: 12, sm: 15, md: 15, lg: 19 },
+                  borderRadius: { xs: 8, sm: 10, md: 15, lg: 19 },
                   transition: {
                     xs: 'border-radius 450ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 650ms ease-in-out',
                     sm: 'border-radius 450ms cubic-bezier(0.25, 0.1, 0.25, 1), transform 650ms ease-in-out',
@@ -122,14 +60,15 @@ const Folio = () => {
                   },
                   backgroundColor: item.color,
                   cursor: 'pointer',
-                  '&:hover': {
-                    borderRadius: { xs: 8, sm: 4, md: 10, lg: 14 },
-                    '& img': {
-                      opacity: 1,
-                      transform: 'scale(1.2)',
-                    },
-                    '& .folio-title': {
-                      opacity: 0,
+                  '@media (hover: hover) and (pointer: fine)': {
+                    '&:hover': {
+                      borderRadius: { xs: 6, sm: 6, md: 8, lg: 8 },
+                      '& .folio-title': {
+                        opacity: 0,
+                      },
+                      '& .folio-titlebar': {
+                        transform: 'translateY(100%)',
+                      },
                     },
                   },
                 }}
@@ -137,41 +76,60 @@ const Folio = () => {
                 <Box
                   component={'img'}
                   loading="lazy"
-                  height={1}
-                  width={1}
                   src={item.image}
                   alt="..."
                   sx={{
                     transition:
-                      'transform .7s ease !important, opacity .3s ease !important',
-                    transform: 'scale(1.0)',
-                    opacity: 0,
+                      'transform .7s ease !important, opacity .25s ease !important',
+                    transform: 'none',
+                    opacity: 1,
                     objectFit: 'cover',
+                    width: 1,
+                    height: 'auto',
+                    display: 'block',
                   }}
                 />
                 <Box
                   position={'absolute'}
-                  top={0}
-                  bottom={0}
                   left={0}
                   right={0}
-                  padding={3}
+                  bottom={0}
+                  paddingY={{ xs: 1, sm: 1.5, md: 1.75 }}
+                  paddingX={{ xs: 2, sm: 2.25, md: 2.5 }}
                   display={'flex'}
                   alignItems={'center'}
                   justifyContent={'center'}
                   textAlign={'center'}
+                  className="folio-titlebar"
+                  sx={{
+                    backgroundColor: item.color,
+                    willChange: 'transform',
+                    transition:
+                      'transform 700ms cubic-bezier(0.22, 1, 0.36, 1) 220ms, filter 300ms ease',
+                    filter: 'saturate(1.02)',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      inset: 0,
+                      background:
+                        'linear-gradient(to bottom, rgba(255,255,255,0.14), rgba(255,255,255,0))',
+                      pointerEvents: 'none',
+                    },
+                  }}
                 >
                   <Typography
                     className={'folio-title'}
-                    variant={'h4'}
+                    variant={'h6'}
                     fontWeight={700}
                     align="center"
                     sx={{
                       color: 'common.white',
-                      fontSize: { xs: 18, sm: 20, md: 20, lg: 24 },
+                      fontSize: { xs: 16, sm: 18, md: 18, lg: 20 },
                       lineHeight: 1.3,
                       opacity: 1,
-                      transition: 'opacity .25s ease-in-out',
+                      transition: 'opacity 260ms ease',
+                      textShadow: '0 1px 10px rgba(0,0,0,0.28)',
+                      position: 'relative',
                     }}
                   >
                     {item.title}

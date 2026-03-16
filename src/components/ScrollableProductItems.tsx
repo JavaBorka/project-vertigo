@@ -8,7 +8,12 @@ import { useScroll } from 'hooks/useScroll';
 import { ProductGridProps } from 'types/productItem';
 
 const ScrollableProductItems = ({ items }: ProductGridProps) => {
-  const { scrollRef, canLeft, canRight, scrollByOne } = useScroll();
+  const { scrollRef, canLeft, canRight, scrollByOne, updateArrows } =
+    useScroll();
+
+  React.useEffect(() => {
+    updateArrows();
+  }, [items.length, updateArrows]);
 
   return (
     <>
@@ -71,7 +76,7 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
             px: 1,
             scrollbarWidth: 'none',
             '&::-webkit-scrollbar': { display: 'none' },
-            alignItems: 'flex-end',
+            alignItems: 'flex-start',
           }}
         >
           {items.map((item, i) => (
@@ -94,25 +99,29 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
                 display={'block'}
                 width={1}
                 sx={{
-                  ...(item.href && {
-                    '&:hover .buy-button': {
-                      backgroundColor: 'transparent',
-                      fontWeight: 600,
+                  // Disable hover effects on xs/sm (touch devices).
+                  '@media (min-width:600px) and (hover: hover) and (pointer: fine)':
+                    {
+                      ...(item.href && {
+                        '&:hover .buy-button': {
+                          backgroundColor: 'transparent',
+                          fontWeight: 600,
+                        },
+                        '&:hover .buy-button::after': {
+                          transform: 'translateX(-50%) scaleX(1)',
+                        },
+                      }),
+                      ...(!item.href &&
+                        item.pdf && {
+                          '&:hover .pdf-button': {
+                            backgroundColor: 'transparent',
+                            fontWeight: 600,
+                          },
+                          '&:hover .pdf-button::after': {
+                            transform: 'translateX(-50%) scaleX(1)',
+                          },
+                        }),
                     },
-                    '&:hover .buy-button::after': {
-                      transform: 'translateX(-50%) scaleX(1)',
-                    },
-                  }),
-                  ...(!item.href &&
-                    item.pdf && {
-                      '&:hover .pdf-button': {
-                        backgroundColor: 'transparent',
-                        fontWeight: 600,
-                      },
-                      '&:hover .pdf-button::after': {
-                        transform: 'translateX(-50%) scaleX(1)',
-                      },
-                    }),
                 }}
               >
                 <Card
@@ -130,38 +139,51 @@ const ScrollableProductItems = ({ items }: ProductGridProps) => {
                     boxShadow: 'none',
                     bgcolor: 'transparent',
                     backgroundImage: 'none',
+                    overflow: 'visible',
                     transition: 'background-color 0.2s ease',
-                    '&:hover': {
-                      cursor: 'pointer',
-                    },
-                    ...(item.label
-                      ? {
-                          '&:hover .card-image': {
-                            opacity: 0.13,
-                          },
-                          '&:hover .card-label': {
-                            opacity: 1,
-                            bgcolor: 'rgba(150, 0, 72, 0.05)',
-                          },
-                        }
-                      : {
-                          '&:hover .card-image': {
-                            opacity: 0.75,
-                          },
-                          '&:hover .image-wrapper': {
-                            backgroundColor: 'rgba(150, 0, 72, 0.2)',
-                          },
-                        }),
+                    '@media (min-width:900px) and (hover: hover) and (pointer: fine)':
+                      {
+                        '&:hover': {
+                          cursor: 'pointer',
+                        },
+                        ...(item.label
+                          ? {
+                              '&:hover .card-image': {
+                                opacity: 0.13,
+                              },
+                              '&:hover .card-label': {
+                                opacity: 1,
+                                bgcolor: 'rgba(150, 0, 72, 0.05)',
+                              },
+                            }
+                          : {
+                              '&:hover .card-image': {
+                                opacity: 0.75,
+                              },
+                              '&:hover .image-wrapper': {
+                                backgroundColor: 'rgba(150, 0, 72, 0.2)',
+                              },
+                            }),
+                      },
                   }}
                 >
-                  <Box className="image-wrapper" sx={{ position: 'relative' }}>
+                  <Box
+                    className="image-wrapper"
+                    sx={{
+                      boxShadow: `
+                        0 1px 2px rgba(0, 0, 0, 0.04),
+                        0 4px 12px rgba(0, 0, 0, 0.08)
+                      `,
+                      position: 'relative',
+                    }}
+                  >
                     <CardMedia
                       className="card-image"
                       component={'img'}
                       title={item.title}
                       image={item.media}
                       sx={{
-                        width: '1',
+                        width: 1,
                         height: 'auto',
                         display: 'block',
                         borderRadius: 0,

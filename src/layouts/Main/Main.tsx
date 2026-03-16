@@ -40,7 +40,13 @@ const Main = ({ children }: Props) => {
   const open = isMd ? false : openSidebar;
 
   return (
-    <Box>
+    <Box
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <AppBar
         position={'sticky'}
         sx={{
@@ -66,15 +72,16 @@ const Main = ({ children }: Props) => {
         </Container>
       </AppBar>
       <Sidebar open={open} onClose={handleSidebarClose} variant="temporary" />
-      <main>
+      <Box component="main" sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         {children}
         <Divider />
-      </main>
+      </Box>
       <Container
         marginTop={0}
         marginBottom={0}
         sx={{
           backgroundColor: getMappedColor(),
+          mt: 'auto',
         }}
         maxWidth="xl"
         disableGutters

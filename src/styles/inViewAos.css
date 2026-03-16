@@ -1,0 +1,58 @@
+/* Lightweight IntersectionObserver-based AOS replacement.
+   Uses existing `data-aos` attributes and toggles `.io-animate`.
+   Important: keep initial state in CSS to avoid "flash" before JS runs. */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Default initial state (before element is in-view) */
+[data-aos]:not(.io-animate) {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+}
+
+/* Final state (in-view) */
+[data-aos].io-animate {
+  opacity: 1;
+  transform: none;
+}
+
+/* Variants (subset of AOS presets used in this repo) */
+[data-aos='fade']:not(.io-animate) {
+  transform: none;
+}
+
+[data-aos='fade-up']:not(.io-animate) {
+  transform: translate3d(0, 16px, 0);
+}
+
+[data-aos='fade-down']:not(.io-animate) {
+  transform: translate3d(0, -16px, 0);
+}
+
+[data-aos='fade-right']:not(.io-animate) {
+  transform: translate3d(-16px, 0, 0);
+}
+
+[data-aos='fade-left']:not(.io-animate) {
+  transform: translate3d(16px, 0, 0);
+}
+
+[data-aos='zoom-in']:not(.io-animate) {
+  transform: scale(0.96);
+}
+
+[data-aos='zoom-out']:not(.io-animate) {
+  transform: scale(1.04);
+}
+
+/* Custom: smoother card entrance (mobile-friendly) */
+[data-aos='folio']:not(.io-animate) {
+  transform: translate3d(0, 14px, 0) scale(0.985);
+}
+

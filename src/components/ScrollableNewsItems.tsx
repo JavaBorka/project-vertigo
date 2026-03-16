@@ -16,6 +16,7 @@ export const ScrollableNewstItems = ({ items }: NewsGridProps) => {
   const theme = useTheme();
 
   const { scrollRef, canLeft, canRight, scrollByOne } = useScroll();
+  const IMAGE_HEIGHT_PX = 200;
 
   return (
     <>
@@ -27,12 +28,8 @@ export const ScrollableNewstItems = ({ items }: NewsGridProps) => {
             role="button"
             sx={{
               position: 'absolute',
-              top: {
-                xs: '13%',
-                sm: '16%',
-                md: '17%',
-                lg: '17%',
-              },
+              top: IMAGE_HEIGHT_PX / 2,
+              transform: 'translateY(-50%)',
               left: '10px',
               cursor: 'pointer',
               zIndex: 2,
@@ -53,12 +50,8 @@ export const ScrollableNewstItems = ({ items }: NewsGridProps) => {
             role="button"
             sx={{
               position: 'absolute',
-              top: {
-                xs: '13%',
-                sm: '16%',
-                md: '17%',
-                lg: '17%',
-              },
+              top: IMAGE_HEIGHT_PX / 2,
+              transform: 'translateY(-50%)',
               right: '10px',
               cursor: 'pointer',
               zIndex: 2,
@@ -111,13 +104,12 @@ export const ScrollableNewstItems = ({ items }: NewsGridProps) => {
                   <Box
                     component={'img'}
                     loading="lazy"
-                    height={'auto'}
+                    height={IMAGE_HEIGHT_PX}
                     width={1}
                     src={item.image}
                     alt="..."
                     sx={{
                       objectFit: 'cover',
-                      maxHeight: 200,
                       borderRadius: 2,
                       filter:
                         theme.palette.mode === 'dark'

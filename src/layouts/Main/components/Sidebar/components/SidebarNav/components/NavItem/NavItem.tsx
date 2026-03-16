@@ -45,7 +45,11 @@ const NavItem = ({ title, items, to, onNavigate, onTopLevelClick }: Props) => {
       <Accordion
         disableGutters
         elevation={0}
-        sx={{ backgroundColor: 'transparent' }}
+        sx={{
+          backgroundColor: 'transparent',
+          '&:before': { display: 'none' },
+          '&.Mui-expanded': { margin: 0 },
+        }}
       >
         <AccordionSummary
           component={!hasItems && to ? Link : 'div'}
@@ -53,19 +57,56 @@ const NavItem = ({ title, items, to, onNavigate, onTopLevelClick }: Props) => {
           expandIcon={hasItems ? <ExpandMoreIcon /> : null}
           aria-controls="panel1a-content"
           id="panel1a-header"
-          sx={{ padding: 0, cursor: 'pointer' }}
+          sx={{
+            px: 1.25,
+            py: 1,
+            borderRadius: 1.5,
+            minHeight: 44,
+            cursor: 'pointer',
+            transition: 'background-color 200ms ease, color 200ms ease',
+            '& .MuiAccordionSummary-content': {
+              margin: 0,
+              alignItems: 'center',
+              gap: 1,
+            },
+            '& .MuiAccordionSummary-expandIconWrapper': {
+              color: 'text.secondary',
+              transition: 'transform 200ms ease',
+            },
+            '&.Mui-expanded .MuiAccordionSummary-expandIconWrapper': {
+              transform: 'rotate(180deg)',
+            },
+            ...(hasActiveLink()
+              ? {
+                  backgroundColor: alpha(theme.palette.primary.main, 0.08),
+                }
+              : {
+                  '@media (hover: hover) and (pointer: fine)': {
+                    '&:hover': {
+                      backgroundColor: alpha(theme.palette.text.primary, 0.04),
+                    },
+                  },
+                }),
+          }}
           onClick={!hasItems && to ? onTopLevelClick : undefined}
         >
           <Typography
-            fontWeight={hasActiveLink() ? 600 : 400}
-            color={hasActiveLink() ? 'primary' : 'text.primary'}
+            fontWeight={hasActiveLink() ? 650 : 450}
+            color={
+              hasActiveLink() ? theme.palette.primary.main : 'text.primary'
+            }
+            sx={{
+              letterSpacing: 0.2,
+              fontSize: 18,
+              transition: 'color 200ms ease',
+            }}
           >
             {title}
           </Typography>
         </AccordionSummary>
         {hasItems ? (
-          <AccordionDetails sx={{ padding: 0 }}>
-            <Grid container spacing={1}>
+          <AccordionDetails sx={{ padding: 0, pt: 0.5 }}>
+            <Grid container spacing={0.5}>
               {items.map((p, i) => (
                 <Grid item key={i} xs={12}>
                   <Button
@@ -74,21 +115,36 @@ const NavItem = ({ title, items, to, onNavigate, onTopLevelClick }: Props) => {
                     fullWidth
                     sx={{
                       justifyContent: 'flex-start',
+                      textAlign: 'left',
+                      borderRadius: 1.5,
+                      ml: 1.25,
+                      px: 1.5,
+                      py: 1.25,
+                      fontSize: 16,
+                      lineHeight: 1.25,
                       color:
-                        activeLink === p.href
+                        normalizePath(p.href) === activeLink
                           ? theme.palette.primary.main
                           : theme.palette.text.primary,
-                      backgroundColor:
-                        activeLink === p.href
-                          ? alpha(theme.palette.primary.main, 0.1)
-                          : 'transparent',
-                      fontWeight: activeLink === p.href ? 600 : 400,
+                      backgroundColor: 'transparent',
+                      fontWeight:
+                        normalizePath(p.href) === activeLink ? 650 : 450,
+                      '&::before': {
+                        content: '""',
+                        width: 6,
+                        flex: '0 0 6px',
+                      },
                       '&': {
                         transition: 'all 300ms ease-in-out',
                       },
-                      '&:hover': {
-                        backgroundColor: alpha(theme.palette.primary.main, 0.1),
-                        color: theme.palette.primary.main,
+                      '@media (hover: hover) and (pointer: fine)': {
+                        '&:hover': {
+                          backgroundColor: alpha(
+                            theme.palette.primary.main,
+                            0.08,
+                          ),
+                          color: theme.palette.primary.main,
+                        },
                       },
                     }}
                   >

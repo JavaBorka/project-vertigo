@@ -18,7 +18,7 @@ const SidebarNav = ({ onClose }: SidebarProps) => {
 
   return (
     <Box>
-      <Box width={1} paddingX={2} paddingY={1}>
+      <Box width={1} paddingX={2.5} paddingY={2}>
         <Box
           display={'flex'}
           component="a"
@@ -33,13 +33,13 @@ const SidebarNav = ({ onClose }: SidebarProps) => {
                 ? '/assets/svg/logo/logo-face-black.svg'
                 : '/assets/svg/logo/logo-face-white.svg'
             }
-            height={1}
-            width={1}
+            height={0.8}
+            width={0.8}
           />
         </Box>
       </Box>
-      <Box paddingX={2} paddingY={2}>
-        <Box>
+      <Box paddingX={2} paddingY={1.5} sx={{ flex: 1 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.75 }}>
           <NavItem
             title={'Knihy'}
             items={pages.books}
@@ -48,24 +48,18 @@ const SidebarNav = ({ onClose }: SidebarProps) => {
               onClose && onClose();
             }}
           />
-        </Box>
-        <Box>
           <NavItem
             title={'Vertigo'}
             items={pages.vertigo}
             to={`/${ROUTE_VERTIGO}`}
             onTopLevelClick={() => onClose && onClose()}
           />
-        </Box>
-        <Box>
           <NavItem
             title={'Autori'}
             items={pages.authors}
             to={`/${ROUTE_AUTHORS}`}
             onTopLevelClick={() => onClose && onClose()}
           />
-        </Box>
-        <Box>
           <NavItem
             title={'O nás'}
             items={pages.about}
