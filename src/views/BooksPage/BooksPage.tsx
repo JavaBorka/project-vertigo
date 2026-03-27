@@ -79,6 +79,7 @@ const BooksPage = ({ catId }: BooksPageProps) => {
       >
         {genre && (
           <Typography
+            data-aos={'fade-up'}
             color={getMappedColor()}
             sx={{
               pb: '1.5rem', // 24px

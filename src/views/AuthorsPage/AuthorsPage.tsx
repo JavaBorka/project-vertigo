@@ -85,6 +85,7 @@ const AuthorsPage = () => {
       >
         <Typography
           color={getMappedColor()}
+          data-aos={'fade-up'}
           sx={{
             pb: '1.5rem', // 24px
             fontSize: {

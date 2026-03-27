@@ -60,6 +60,7 @@ const AuthorDetailPage = () => {
       <Container>
         <Typography
           color={getMappedColor()}
+          data-aos={'fade-up'}
           sx={{
             pb: '1.5rem', // 24px
             fontSize: {
@@ -120,7 +121,6 @@ const AuthorDetailPage = () => {
             <Box marginBottom={4} marginTop={4}>
               <Typography
                 variant="h4"
-                data-aos={'fade-up'}
                 align={'center'}
                 gutterBottom
                 sx={{
