@@ -29,6 +29,7 @@ import {
 import { Box, CircularProgress } from '@mui/material';
 import BooksProvider from 'context/BooksProvider';
 import InViewAos from 'components/InViewAos';
+import ScrollToTop from 'components/ScrollToTop';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -107,6 +108,7 @@ const App = () => {
             />
           </Routes>
         </BooksProvider>
+        <ScrollToTop />
         <InViewAos />
       </BrowserRouter>
     </Page>

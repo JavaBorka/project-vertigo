@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from 'components/Container';
@@ -21,10 +21,6 @@ const AuthorDetailPage = () => {
 
   const { books, loading } = useBooks();
   const AUTHORS_DATA = getRemoteJson('AUTHORS_JSON') as AuthorItem[];
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-  }, [author]);
 
   const item = useMemo<AuthorItem | null>(() => {
     return AUTHORS_DATA.find((a) => Number(a.id) === authorId);
