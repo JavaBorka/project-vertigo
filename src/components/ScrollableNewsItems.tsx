@@ -133,18 +133,11 @@ export const ScrollableNewstItems = ({ items }: NewsGridProps) => {
                   >
                     {item.title}
                   </Typography>
-                  <Box marginY={1}>
-                    <Typography
-                      variant={'caption'}
-                      color={'text.secondary'}
-                      component={'i'}
-                    >
-                      {item.author}
+                  <Box marginY={1.5}>
+                    <Typography color="text.secondary">
+                      {item.description}
                     </Typography>
                   </Box>
-                  <Typography color="text.secondary">
-                    {item.description}
-                  </Typography>
                   <Box
                     marginTop={1}
                     display={'flex'}
