@@ -2,6 +2,8 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid2 from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useNavigate } from 'react-router-dom';
 
 const mock = [
@@ -32,6 +34,8 @@ const mock = [
 ];
 
 const Folio = () => {
+  const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
   const navigate = useNavigate();
   return (
     <Box>
@@ -39,9 +43,9 @@ const Folio = () => {
         {mock.map((item, i) => (
           <Grid2 key={i} size={{ xs: 6, sm: 6, md: 3 }}>
             <Box
-              data-aos="folio"
-              data-aos-delay={i * 80}
-              data-aos-duration={520}
+              data-aos={isMdUp ? 'folio' : undefined}
+              data-aos-delay={isMdUp ? i * 80 : undefined}
+              data-aos-duration={isMdUp ? 520 : undefined}
               sx={{
                 transformOrigin: 'center center',
               }}
