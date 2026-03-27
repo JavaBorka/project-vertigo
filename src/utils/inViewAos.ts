@@ -10,7 +10,7 @@ type InViewAosOptions = {
 };
 
 const DEFAULTS: Required<InViewAosOptions> = {
-  once: false,
+  once: true,
   threshold: 0.01,
   offset: 50,
 };
@@ -36,6 +36,22 @@ export function createInViewAos(options?: InViewAosOptions) {
 
   const observed = new WeakSet<Element>();
   const observers = new Map<ObserverKey, IntersectionObserver>();
+  const animateElement = (
+    el: HTMLElement,
+    afterAnimate?: () => void,
+  ) => {
+    if (el.classList.contains('io-animate') || el.hasAttribute('data-io-animating')) {
+      return;
+    }
+    el.setAttribute('data-io-animating', '1');
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.classList.add('io-animate');
+        el.removeAttribute('data-io-animating');
+        afterAnimate?.();
+      });
+    });
+  };
 
   const getObserver = (offsetPx: number) => {
     const key = String(offsetPx);
@@ -49,32 +65,11 @@ export function createInViewAos(options?: InViewAosOptions) {
         for (const entry of entries) {
           const el = entry.target as HTMLElement;
           if (entry.isIntersecting) {
-            // If element was already visible on initial load, don't "auto animate".
-            // Wait until it leaves once, then allow replay animations on re-enter.
-            const isInitialInView =
-              el.getAttribute('data-io-initial-inview') === '1';
-            const hasLeftOnce = el.getAttribute('data-io-left-once') === '1';
-            if (isInitialInView && !hasLeftOnce) {
-              el.classList.add('io-animate');
-              continue;
-            }
-
-            // Animate on enter (replay)
-            if (!el.hasAttribute('data-io-animating')) {
-              el.setAttribute('data-io-animating', '1');
-              requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                  el.classList.add('io-animate');
-                  el.removeAttribute('data-io-animating');
-                });
-              });
-            }
-          } else {
-            // Reset when leaving viewport so it can replay
-            el.classList.remove('io-animate');
-            if (el.getAttribute('data-io-initial-inview') === '1') {
-              el.setAttribute('data-io-left-once', '1');
-            }
+            animateElement(el, () => {
+              if (opts.once || el.getAttribute('data-aos-once') === 'true') {
+                io.unobserve(el);
+              }
+            });
           }
         }
       },
@@ -113,7 +108,6 @@ export function createInViewAos(options?: InViewAosOptions) {
     if (!(el instanceof HTMLElement)) return false;
     const rect = el.getBoundingClientRect();
     const vh = window.innerHeight || document.documentElement.clientHeight || 0;
-    // Consider "in view" if top is within viewport plus offset
     return rect.top < vh - offsetPx && rect.bottom > 0;
   };
 
@@ -123,14 +117,15 @@ export function createInViewAos(options?: InViewAosOptions) {
       initElement(el);
       if (!observed.has(el)) {
         observed.add(el);
-        // If it starts visible on initial load, show it immediately (no delay),
-        // but mark it so we don't auto-animate until user scrolls away and back.
         const offset = parseNumberAttr(el, 'data-aos-offset') ?? opts.offset;
         if (typeof window !== 'undefined' && isInViewNow(el, offset)) {
-          (el as HTMLElement).setAttribute('data-io-initial-inview', '1');
-          (el as HTMLElement).classList.add('io-animate');
+          animateElement(el as HTMLElement);
+          if (!(opts.once || (el as HTMLElement).getAttribute('data-aos-once') === 'true')) {
+            observeElement(el);
+          }
+        } else {
+          observeElement(el);
         }
-        observeElement(el);
       }
     });
   };

@@ -9,7 +9,7 @@ export default function InViewAos(): null {
   // Run before paint to avoid initial flash on first load
   React.useLayoutEffect(() => {
     mgrRef.current = createInViewAos({
-      once: false,
+      once: true,
       offset: 50,
       threshold: 0.01,
     });
