@@ -3,7 +3,6 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
 import { useLocation } from 'react-router-dom';
 
@@ -72,22 +71,16 @@ const Main = ({ children }: Props) => {
         </Container>
       </AppBar>
       <Sidebar open={open} onClose={handleSidebarClose} variant="temporary" />
-      <Box component="main" sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-        {children}
-        <Divider />
-      </Box>
-      <Container
-        marginTop={0}
-        marginBottom={0}
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>{children}</Box>
+      <Box
         sx={{
           backgroundColor: getMappedColor(),
+          width: 1,
           mt: 'auto',
         }}
-        maxWidth="xl"
-        disableGutters
       >
         <Footer />
-      </Container>
+      </Box>
     </Box>
   );
 };
