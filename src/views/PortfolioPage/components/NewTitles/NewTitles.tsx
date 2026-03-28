@@ -20,8 +20,8 @@ const NewTitles = () => {
   }, [books]);
 
   return (
-    <Container>
-      <Box marginBottom={4} marginTop={4}>
+    <Container marginTop={0} marginBottom={0} paddingY={{ xs: 0, md: 0 }}>
+      <Box marginBottom={4}>
         <Typography
           variant="h4"
           data-aos={'fade-up'}
