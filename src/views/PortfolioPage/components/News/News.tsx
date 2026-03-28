@@ -1,9 +1,15 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ScrollableNewsItems from 'components/ScrollableNewsItems';
-import { NEWS_DATA } from 'constants/newsData';
+import { useMemo } from 'react';
+import { getRemoteJson } from '../../../../remoteConfig';
+import { NewsItem } from 'types/newsItem';
 
 const News = () => {
+  const NEWS_DATA = useMemo(() => {
+    return getRemoteJson('NEWS_JSON') as NewsItem[];
+  }, []);
+
   return (
     <Box>
       <Box marginBottom={4}>
