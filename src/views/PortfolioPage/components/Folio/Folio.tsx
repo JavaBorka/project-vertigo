@@ -6,7 +6,7 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useNavigate } from 'react-router-dom';
 
-const mock = [
+const CATEGORIES = [
   {
     image: '/assets/images/grid-poetry.jpg',
     title: 'Poézia',
@@ -21,7 +21,7 @@ const mock = [
   },
   {
     image: '/assets/images/grid-science.jpg',
-    title: 'Literárna veda',
+    title: 'Veda',
     color: '#6D3628',
     path: '/veda',
   },
@@ -40,7 +40,7 @@ const Folio = () => {
   return (
     <Box>
       <Grid2 container spacing={{ xs: 1.5, sm: 2 }}>
-        {mock.map((item, i) => (
+        {CATEGORIES.map((item, i) => (
           <Grid2 key={i} size={{ xs: 6, sm: 6, md: 3 }}>
             <Box
               data-aos={isMdUp ? 'folio' : undefined}
